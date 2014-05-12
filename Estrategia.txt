@@ -1,0 +1,2 @@
+-- No hay usuarios que sean tanto cliente como empresa xq' no existe el concepto de usuario
+-- No hay clientes compradores que no hayan vendido :3
