@@ -1,6 +1,6 @@
 create table GD1C2014.dbo.TG_Usuario(
 	ID_User numeric(18,0) identity(1000,1) Primary key,
-	Username varchar(80) unique,
+--	Username varchar(80) unique,
 	Pass varchar(20),
 	Inhabilitado bit,
 	Antiguo bit
@@ -53,15 +53,15 @@ create table GD1C2014.dbo.TG_Caracteristicas_x_Rol(
 create table GD1C2014.dbo.TG_Informacion(
 	ID_User numeric(18,0),
 	ID_Rol numeric(18,0),
-	Razon_Social varchar(30),
-	Nombre varchar(16),
-	Apellido varchar(16),
-	Tipo_Documento varchar(16),
-	Documento_CUIT numeric(18,0),
-	Mail varchar(30),
-	Telefono numeric(18,0) unique,
-	Fecha_Inicial date,
-	Nro_Tarjeta numeric(20,0),
+	Razon_Social nvarchar(255),
+    Nombre nvarchar(255), 
+    Apeliido nvarchar(255),
+    Tipo_Documento varchar(16), 
+    Documento_CUIT numeric(18,0),
+    Mail nvarchar(255),
+    Telefono numeric(18,0),
+    Fecha_Inicial datetime, 
+    Nro_Tarjeta numeric(20,0),
 	Primary Key(ID_User,ID_Rol),
 	Foreign Key(ID_User,ID_Rol) references TG_Roles_x_Usuario(ID_User,ID_Rol)
 )
@@ -69,11 +69,12 @@ create table GD1C2014.dbo.TG_Informacion(
 create table GD1C2014.dbo.TG_Direccion(
 	ID_User numeric(18,0),
 	ID_Rol numeric(18,0),
-	Dire_Calle varchar(50),
-	Nro_Piso numeric(18,0),
-	Departamento numeric(18,0),
+	Dom_Calle nvarchar(255), 
+	Nro_Calle numeric(18,0), 
+	Nro_Piso numeric(18,0), 
+	Departamento nvarchar(50), 
 	Localidad varchar(20),
-	Cod_Postal varchar(10),
+	Cod_Postal nvarchar(50),
 	Ciudad varchar(20),
 	Primary Key(ID_User,ID_Rol),	
 	Foreign Key(ID_User,ID_Rol) references TG_Roles_x_Usuario(ID_User,ID_Rol)
@@ -131,3 +132,7 @@ create table GD1C2014.dbo.TG_Preguntas(
 	Respuesta varchar(256),
 	Fecha_Respuesta date
 )
+
+insert into GD1C2014.dbo.TG_Rol(Nombre,Inhabilitado) values('Administrador',0)
+insert into GD1C2014.dbo.TG_Rol(Nombre,Inhabilitado) values('Cliente',0)
+insert into GD1C2014.dbo.TG_Rol(Nombre,Inhabilitado) values('Empresa',0)
