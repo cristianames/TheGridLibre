@@ -50,8 +50,8 @@ create table GD1C2014.TG.Administrador(
 )
 
 create table GD1C2014.TG.Tipo_Usuario(
-    ID_Tipo int identity(1,1) primary key,
-    Nombre nvarchar(20) not null,
+    ID_Tipo int primary key
+    Nombre nvarchar(20) not null
     Descripcion nvarchar(50)
 )
 
@@ -79,7 +79,7 @@ create table GD1C2014.TG.Factura(
 	ID_Factura numeric(18,0) identity(100000,1) primary key,
 	Fecha date,
 	Forma_Pago varchar(30),
-	Nro_Tarjeta numeric(20,0),
+	Nro_Tarjeta numeric(20,0)
 	Total numeric(18,0)
 )
 create table GD1C2014.TG.Roles_x_Usuario(
@@ -105,7 +105,6 @@ create table GD1C2014.TG.Publicacion(
 	ID_Visibilidad numeric(18,0) references TG.Visibilidad(ID_Visibilidad),
 	ID_Vendedor numeric(18,0),
 	ID_Rol numeric(18,0),
-	ID_Rubro numeric(18,0) references TG.Rubro(ID_Rubro),
 	Estado varchar(2) check(Estado in ('B','A','P','F')),
 	Tipo_Publicacion varchar(2) check(Tipo_Publicacion in ('C','S')),
 	Permitir_Preuntas bit,		
