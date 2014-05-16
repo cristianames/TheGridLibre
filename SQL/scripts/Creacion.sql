@@ -1,8 +1,15 @@
+create table GD1C2014.TG.Tipo_Usuario(
+    ID_Tipo int identity(1,1) primary key,
+    Nombre nvarchar(20) not null,
+    Descripcion nvarchar(50)
+)
+
 create table GD1C2014.TG.Usuario(
 	ID_User numeric(18,0) identity(1000,1) Primary key,
-	Pass varchar(20),
+	Pass varchar(256),
 	Inhabilitado bit,
-	Antiguo bit
+	Antiguo bit,
+	ID_Tipo int References TG.Tipo_Usuario(ID_Tipo)
 )
 
 create table GD1C2014.TG.Cliente(
@@ -49,12 +56,6 @@ create table GD1C2014.TG.Administrador(
     Primary Key(ID_User)
 )
 
-create table GD1C2014.TG.Tipo_Usuario(
-    ID_Tipo int identity(1,1) primary key,
-    Nombre nvarchar(20) not null,
-    Descripcion nvarchar(50)
-)
-
 create table GD1C2014.TG.Rol(
 	ID_Rol numeric(18,0) identity(1,1) primary key,
 	Nombre varchar(20) unique,
@@ -63,8 +64,8 @@ create table GD1C2014.TG.Rol(
 
 create table GD1C2014.TG.Rubro(
 	ID_Rubro numeric(18,0) identity(1,1) primary key,
-	Nombre varchar(20) unique,
-	Descripcion varchar(50)
+	Nombre varchar(255) unique,
+	Descripcion varchar(255)
 )
 
 create table GD1C2014.TG.Visibilidad(
@@ -135,7 +136,7 @@ create table GD1C2014.TG.Compra(
 	Calif_Detalle varchar(50),
 )
 
-create table GD1C2014.TG.Preguntas(
+create table GD1C2014.TG.Pregunta(
 	ID_Pregunta numeric(18,0) identity(1000000,1) Primary Key,
 	ID_Publicacion numeric(18,0) references TG.Publicacion(ID_Publicacion),
 	Pregunta varchar(256),
