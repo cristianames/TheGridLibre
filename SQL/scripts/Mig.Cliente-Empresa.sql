@@ -34,7 +34,7 @@ deallocate cursorCliente
 
 ------------------------------FIN DE CLIENTES -- INICIO DE EMPRESAS
 
-declare @razon varchar(50) declare @cuit varchar(20) declare @creacion date 
+declare @razon varchar(50) declare @cuit varchar(20) declare @creacion date
 
 declare cursorEmpresa cursor for 
 SELECT Publ_Empresa_Razon_Social,Publ_Empresa_Cuit,Publ_Empresa_Fecha_Creacion,Publ_Empresa_Mail,

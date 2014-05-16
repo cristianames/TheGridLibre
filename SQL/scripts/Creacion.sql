@@ -63,15 +63,15 @@ create table GD1C2014.TG.Rol(
 )
 
 create table GD1C2014.TG.Rubro(
-	ID_Rubro numeric(18,0) primary key,
+	ID_Rubro numeric(18,0) identity(100,1) primary key,
 	Nombre varchar(256) unique,
 )
 
 create table GD1C2014.TG.Visibilidad(
 	ID_Visibilidad numeric(18,0) primary key,
 	Nombre varchar(256) unique,
-	Precio_Por_Publicar numeric(18,0),
-	Porcentaje_Venta numeric(18,0)
+	Precio_Por_Publicar numeric(18,2),
+	Porcentaje_Venta numeric(18,2)
 )
 
 create table GD1C2014.TG.Factura(
@@ -95,18 +95,17 @@ create table GD1C2014.TG.Funcionalidades_x_Rol(
 )
 
 create table GD1C2014.TG.Publicacion(
-	ID_Publicacion numeric(18,0) identity(1000000,1) Primary Key,
-	Descripcion varchar(50),
+	ID_Publicacion numeric(18,0) /*identity(1000000,1)*/ Primary Key,
+	Descripcion nvarchar(255),
 	Stock numeric(18,0),
-	Fecha_Inicio date,
-	Fecha_Vencimiento date,
-	Precio numeric(18,0),
+	Fecha_Inicio datetime,
+	Fecha_Vencimiento datetime,
+	Precio numeric(18,2),
 	ID_Visibilidad numeric(18,0) references TG.Visibilidad(ID_Visibilidad),
 	ID_Vendedor numeric(18,0),
-	ID_Rol numeric(18,0),
 	ID_Rubro numeric(18,0) references TG.Rubro(ID_Rubro),
-	Estado varchar(2) check(Estado in ('B','A','P','F')),
-	Tipo_Publicacion varchar(2) check(Tipo_Publicacion in ('C','S')),
+	Estado nvarchar(255),
+	Tipo_Publicacion nvarchar(255),
 	Permitir_Preuntas bit,		
 	Foreign Key(ID_Vendedor) references TG.Usuario(ID_User)	
 )
