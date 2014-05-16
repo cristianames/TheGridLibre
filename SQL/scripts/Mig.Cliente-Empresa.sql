@@ -1,4 +1,5 @@
 ------------------------------ INICIO DE CLIENTES
+
 declare @dni int declare @apellido varchar(15) declare @nombre varchar(15) 
 declare @nacimiento date declare @mail varchar(30) declare @calle varchar(64) 
 declare @nro int declare @piso int declare @depto varchar(16) declare @postal int
@@ -6,17 +7,15 @@ declare @contador int
 set @contador = 1000
 
 declare cursorCliente cursor for 
-SELECT Publ_Cli_Dni, Publ_Cli_Apeliido, Publ_Cli_Nombre, Publ_Cli_Fecha_Nac, Publ_Cli_Mail, 
+SELECT DISTINCT Publ_Cli_Dni, Publ_Cli_Apeliido, Publ_Cli_Nombre, Publ_Cli_Fecha_Nac, Publ_Cli_Mail, 
 Publ_Cli_Dom_Calle, Publ_Cli_Nro_Calle, Publ_Cli_Piso, Publ_Cli_Depto, Publ_Cli_Cod_Postal
   FROM [GD1C2014].[gd_esquema].[Maestra]
-  where Publ_Cli_Dni is not null
-  group by Publ_Cli_Dni, Publ_Cli_Apeliido, Publ_Cli_Nombre, Publ_Cli_Fecha_Nac, Publ_Cli_Mail, 
-Publ_Cli_Dom_Calle, Publ_Cli_Nro_Calle, Publ_Cli_Piso, Publ_Cli_Depto, Publ_Cli_Cod_Postal;
+  where Publ_Cli_Dni is not null;
 
 open cursorCliente
 fetch next from cursorCliente
  into @dni, @apellido, @nombre, @nacimiento, @mail, @calle, @nro, @piso, @depto, @postal
- ----------COMIENZO DEL WHILE
+	----------COMIENZO DEL WHILE
 while(@@FETCH_STATUS = 0)
 begin
 
@@ -28,7 +27,7 @@ set @contador = @contador + 1
 fetch next from cursorCliente
  into @dni, @apellido, @nombre, @nacimiento, @mail, @calle, @nro, @piso, @depto, @postal
 end
-----------FIN DEL WHILE
+	----------FIN DEL WHILE
 close cursorCliente
 deallocate cursorCliente
 
@@ -37,17 +36,15 @@ deallocate cursorCliente
 declare @razon varchar(50) declare @cuit varchar(20) declare @creacion date
 
 declare cursorEmpresa cursor for 
-SELECT Publ_Empresa_Razon_Social,Publ_Empresa_Cuit,Publ_Empresa_Fecha_Creacion,Publ_Empresa_Mail,
+SELECT DISTINCT Publ_Empresa_Razon_Social,Publ_Empresa_Cuit,Publ_Empresa_Fecha_Creacion,Publ_Empresa_Mail,
 Publ_Empresa_Dom_Calle,Publ_Empresa_Nro_Calle,Publ_Empresa_Piso,Publ_Empresa_Depto,Publ_Empresa_Cod_Postal
   FROM [GD1C2014].[gd_esquema].[Maestra]
-  where Publ_Empresa_Razon_Social is not null
-  group by Publ_Empresa_Razon_Social,Publ_Empresa_Cuit,Publ_Empresa_Fecha_Creacion,Publ_Empresa_Mail,
-Publ_Empresa_Dom_Calle,Publ_Empresa_Nro_Calle,Publ_Empresa_Piso,Publ_Empresa_Depto,Publ_Empresa_Cod_Postal;
+  where Publ_Empresa_Razon_Social is not null;
 
 open cursorEmpresa
 fetch next from cursorEmpresa
  into @razon, @cuit, @creacion, @mail, @calle, @nro, @piso, @depto, @postal
- ----------COMIENZO DEL WHILE
+	----------COMIENZO DEL WHILE
 while(@@FETCH_STATUS = 0)
 begin
 
@@ -59,6 +56,8 @@ set @contador = @contador + 1
 fetch next from cursorEmpresa
   into @razon, @cuit, @creacion, @mail, @calle, @nro, @piso, @depto, @postal
 end
-----------FIN DEL WHILE
+	----------FIN DEL WHILE
 close cursorEmpresa
 deallocate cursorEmpresa
+
+------------------------------FIN DE EMPRESAS
