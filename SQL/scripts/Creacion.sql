@@ -64,14 +64,12 @@ create table GD1C2014.TG.Rol(
 
 create table GD1C2014.TG.Rubro(
 	ID_Rubro numeric(18,0) identity(1,1) primary key,
-	Nombre varchar(255) unique,
-	Descripcion varchar(255)
+	Nombre varchar(256) unique,
 )
 
 create table GD1C2014.TG.Visibilidad(
 	ID_Visibilidad numeric(18,0) identity(1,1) primary key,
-	Nombre varchar(20) unique,
-	Descripcion varchar(50),
+	Nombre varchar(256) unique,
 	Precio_Por_Publicar numeric(18,0),
 	Porcentaje_Venta numeric(18,0)
 )

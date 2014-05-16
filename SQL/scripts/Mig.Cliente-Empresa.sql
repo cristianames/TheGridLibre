@@ -1,3 +1,4 @@
+------------------------------ INICIO DE CLIENTES
 declare @dni int declare @apellido varchar(15) declare @nombre varchar(15) 
 declare @nacimiento date declare @mail varchar(30) declare @calle varchar(64) 
 declare @nro int declare @piso int declare @depto varchar(16) declare @postal int
