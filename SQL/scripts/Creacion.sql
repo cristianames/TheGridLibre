@@ -75,7 +75,7 @@ create table GD1C2014.TG.Visibilidad(
 )
 
 create table GD1C2014.TG.Factura(
-	ID_Factura numeric(18,0) identity(100000,1) primary key,
+	ID_Factura numeric(18,0) /*identity(100000,1)*/ primary key,
 	Fecha date,
 	Forma_Pago nvarchar(255),
 	Nro_Tarjeta numeric(20,0),
@@ -95,7 +95,8 @@ create table GD1C2014.TG.Funcionalidades_x_Rol(
 )
 
 create table GD1C2014.TG.Publicacion(
-	ID_Publicacion numeric(18,0) /*identity(1000000,1)*/ Primary Key,
+	
+        ID_Publicacion numeric(18,0) /*identity(1000000,1)*/ Primary Key,
 	Descripcion nvarchar(255),
 	Stock numeric(18,0),
 	Fecha_Inicio datetime,
