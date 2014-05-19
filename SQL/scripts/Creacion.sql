@@ -9,7 +9,8 @@ create table GD1C2014.TG.Usuario(
 	Pass nvarchar(255),
 	Inhabilitado bit,
 	Antiguo bit,
-	ID_Tipo int References TG.Tipo_Usuario(ID_Tipo)
+	ID_Tipo int References TG.Tipo_Usuario(ID_Tipo),
+	Intentos int
 )
 
 create table GD1C2014.TG.Cliente(
