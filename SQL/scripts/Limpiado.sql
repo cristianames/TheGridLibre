@@ -5,10 +5,10 @@ drop table TG.Cliente
 drop table TG.Empresa
 drop table TG.Compra
 drop table TG.Pregunta
+drop table TG.Factura
 drop table TG.Publicacion
 drop table TG.Usuario
 drop table TG.Tipo_Usuario
-drop table TG.Factura
 drop table TG.Funcionalidades_x_Rol
 drop table TG.Rol
 drop table TG.Rubro

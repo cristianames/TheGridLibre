@@ -74,13 +74,6 @@ create table GD1C2014.TG.Visibilidad(
 	Porcentaje_Venta numeric(18,2)
 )
 
-create table GD1C2014.TG.Factura(
-	ID_Factura numeric(18,0) /*identity(100000,1)*/ primary key,
-	Fecha date,
-	Forma_Pago nvarchar(255),
-	Nro_Tarjeta numeric(20,0),
-	Total numeric(18,0)
-)
 create table GD1C2014.TG.Roles_x_Usuario(
 	ID_User numeric(18,0) references TG.Usuario(ID_User),
 	ID_Rol numeric(18,0) references TG.Rol(ID_Rol),
@@ -111,6 +104,15 @@ create table GD1C2014.TG.Publicacion(
 	Foreign Key(ID_Vendedor) references TG.Usuario(ID_User)	
 )
 
+create table GD1C2014.TG.Factura(
+	ID_Factura numeric(18,0) /*identity(100000,1)*/ primary key,
+	ID_Publicacion numeric(18,0) references TG.Publicacion(ID_Publicacion),
+	Fecha date,
+	Forma_Pago nvarchar(255),
+	Nro_Tarjeta numeric(20,0),
+	Total numeric(18,0)
+)
+
 create table GD1C2014.TG.Oferta(
 	ID_Oferta numeric(18,0) identity(1000000,1) Primary Key,
 	ID_Ofertante numeric(18,0) references TG.Usuario(ID_User),
@@ -122,10 +124,9 @@ create table GD1C2014.TG.Oferta(
 
 create table GD1C2014.TG.Compra(
 	ID_Operacion numeric(18,0) identity(1000000,1) Primary Key,
-	ID_Comprador numeric(18,0) references TG.Usuario(ID_User),
 	ID_Factura numeric(18,0) references TG.Factura(ID_Factura),
 	ID_Publicacion numeric(18,0) references TG.Publicacion(ID_Publicacion),
-	ID_Vendedor numeric(18,0) references TG.Usuario(ID_User),
+	ID_Comprador numeric(18,0) references TG.Usuario(ID_User),
 	Item_Cantidad numeric(18,0),
 	Item_Monto numeric(18,2),
 	Fecha date,
