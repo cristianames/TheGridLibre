@@ -1,3 +1,5 @@
+use GD1C2014
+go
 drop table TG.Oferta
 drop table TG.Roles_x_Usuario
 drop table TG.Administrador

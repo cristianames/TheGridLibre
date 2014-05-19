@@ -1,5 +1,6 @@
 --------------------------- INICIO VISIBILIDAD
-
+use GD1C2014
+go
 insert into TG.Visibilidad
 SELECT DISTINCT Publicacion_Visibilidad_Cod,Publicacion_Visibilidad_Desc,Publicacion_Visibilidad_Precio, Publicacion_Visibilidad_Porcentaje
 from gd_esquema.Maestra

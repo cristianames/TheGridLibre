@@ -11,4 +11,5 @@ from gd_esquema.Maestra m inner join TG.Factura f on m.Publicacion_Cod = f.ID_Pu
 where 
 m.Calificacion_Codigo is not null and
 m.Compra_Fecha is not null
+order by m.Compra_Fecha
 go

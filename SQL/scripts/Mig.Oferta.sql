@@ -1,3 +1,5 @@
+use GD1C2014
+go
 insert into GD1C2014.TG.Oferta 
 
 select 
@@ -11,3 +13,4 @@ inner join TG.Compra CO ON X.Publicacion_Cod = CO.ID_Publicacion
 
 where 
 X.Oferta_Fecha is not null
+order by X.Oferta_Fecha
