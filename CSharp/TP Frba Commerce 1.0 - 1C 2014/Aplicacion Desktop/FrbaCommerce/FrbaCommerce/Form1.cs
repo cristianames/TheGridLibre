@@ -94,6 +94,14 @@ namespace FrbaCommerce
 
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FrbaCommerce.Registro_de_Usuario.Form1 registroFrm = new FrbaCommerce.Registro_de_Usuario.Form1();
+            registroFrm.Show();
+            this.Visible = false;
+
+        }
+
      
     }
 
