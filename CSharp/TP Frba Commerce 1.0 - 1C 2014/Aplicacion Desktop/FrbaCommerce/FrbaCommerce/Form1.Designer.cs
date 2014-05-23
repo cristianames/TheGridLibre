@@ -31,13 +31,15 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dgvGrilla = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGrilla)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(26, 209);
+            this.button1.Location = new System.Drawing.Point(30, 209);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(232, 28);
+            this.button1.Size = new System.Drawing.Size(271, 28);
             this.button1.TabIndex = 0;
             this.button1.Text = "Inicio de Sesion";
             this.button1.UseVisualStyleBackColor = true;
@@ -46,36 +48,48 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 170);
+            this.label1.Location = new System.Drawing.Point(14, 170);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(234, 13);
+            this.label1.Size = new System.Drawing.Size(281, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Bienvenido a TheGRID indentifiquese por favor.\r\n";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(26, 28);
+            this.textBox1.Location = new System.Drawing.Point(30, 28);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox1.Size = new System.Drawing.Size(220, 129);
+            this.textBox1.Size = new System.Drawing.Size(256, 129);
             this.textBox1.TabIndex = 3;
             this.textBox1.Text = "ANIMACION";
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
+            // dgvGrilla
+            // 
+            this.dgvGrilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGrilla.Location = new System.Drawing.Point(365, 44);
+            this.dgvGrilla.Name = "dgvGrilla";
+            this.dgvGrilla.RowTemplate.Height = 23;
+            this.dgvGrilla.Size = new System.Drawing.Size(305, 427);
+            this.dgvGrilla.TabIndex = 4;
+            this.dgvGrilla.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGrilla_CellContentClick);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(292, 266);
+            this.ClientSize = new System.Drawing.Size(696, 498);
+            this.Controls.Add(this.dgvGrilla);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGrilla)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -86,6 +100,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DataGridView dgvGrilla;
 
     }
 }
