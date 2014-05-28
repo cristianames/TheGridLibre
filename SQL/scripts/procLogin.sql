@@ -67,7 +67,15 @@ begin
 	end
 end
 set @intentos = 1
-set @protocolo = 0
+
+if (select COUNT(*) from TG.Roles_x_Usuario where ID_User = @user AND Inhabilitado = 0) = 0
+begin 
+	set @protocolo = 5
+end
+else
+begin
+	set @protocolo = 0
+end
 update TG.Usuario set Intentos = @intentos where ID_User = @user
 return
 
