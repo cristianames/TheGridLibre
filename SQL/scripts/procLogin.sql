@@ -66,7 +66,7 @@ begin
 		return
 	end
 end
-set @intentos = 0
+set @intentos = 1
 set @protocolo = 0
 update TG.Usuario set Intentos = @intentos where ID_User = @user
 return
