@@ -72,10 +72,7 @@ if (select COUNT(*) from TG.Roles_x_Usuario where ID_User = @user AND Inhabilita
 begin 
 	set @protocolo = 5
 end
-else
-begin
-	set @protocolo = 0
-end
+
 update TG.Usuario set Intentos = @intentos where ID_User = @user
 return
 
