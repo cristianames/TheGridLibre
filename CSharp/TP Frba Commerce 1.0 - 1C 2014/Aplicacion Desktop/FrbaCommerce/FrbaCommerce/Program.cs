@@ -20,8 +20,48 @@ namespace FrbaCommerce
             return Conexion;
         }
     }
-
     // SqlConnection pepita = TG_Connect.conectar();
+
+
+    public class FormGrid : Form
+    {
+        protected FormGrid()
+        {
+            this.ControlBox = false;
+            this.MaximizeBox=false;
+            this.MinimizeBox=false;
+            this.ShowIcon=false;
+            this.Dock = DockStyle.Fill;
+        }
+
+        protected void ventanaEmergente(string msg)
+        {
+            FrbaCommerce.VentanaError error = new VentanaError();
+            error.escribirMsg(msg);
+            error.Show();
+        }
+
+        private void ManejadorCierre(object sender, EventArgs e)
+        {
+            // Todas estas boludeces ocurren cuando se cierra un form de clase FromGrid
+            ventanaEmergente("NO ME CIERRO NADA");
+        }
+    }
+
+    public class FormGridTerminal : FormGrid
+    {
+        protected FormGridTerminal()
+        {
+            this.FormClosed += ManejadorCierre;
+            this.ControlBox = true;
+        }
+
+        private void ManejadorCierre(object sender, EventArgs e)
+        {
+            //Si me cierran, cierro todo.
+            System.Environment.Exit(0);
+        }
+    }
 
     static class Program
     {
@@ -29,8 +69,7 @@ namespace FrbaCommerce
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        
-        
+
         static void Main()
         {
             Application.EnableVisualStyles();

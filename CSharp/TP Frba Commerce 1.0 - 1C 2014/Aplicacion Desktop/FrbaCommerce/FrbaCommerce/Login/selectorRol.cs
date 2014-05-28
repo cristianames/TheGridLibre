@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 
 namespace FrbaCommerce.Login
 {
-    public partial class selectorRol : Form
+    public partial class selectorRol : FormGrid
     {
 
         public static List<string> ObtenerRoles(int usuario)
@@ -33,6 +33,7 @@ namespace FrbaCommerce.Login
         public selectorRol(int usuario)
         {
             InitializeComponent();
+            
             comboBox1.DataSource = ObtenerRoles(usuario);
         }
 

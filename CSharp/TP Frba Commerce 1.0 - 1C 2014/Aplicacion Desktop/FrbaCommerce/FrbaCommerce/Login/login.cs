@@ -11,7 +11,7 @@ using System.Security.Cryptography;
 
 namespace FrbaCommerce.Login
 {
-    public partial class login : Form
+    public partial class login : FormGridTerminal
     {
         
         public login()
@@ -46,15 +46,6 @@ namespace FrbaCommerce.Login
                 sha256Str += cryString[i].ToString("x2").ToLower();
             }
             return sha256Str;
-        }
-
-
-        private void ventanaEmergente(string msg)
-        {
-            FrbaCommerce.VentanaError error = new VentanaError();
-            error.escribirMsg(msg);
-            error.Show();
-           
         }
 
         private void seleccionarRol(int usuario)
@@ -108,10 +99,10 @@ namespace FrbaCommerce.Login
                 cmd.ExecuteNonQuery();
                 myConnection.Close();
 
-                if (Convert.ToInt32(protocolo.Value) == 1) ventanaEmergente("Usuario NO Encontrado!");
+                     if (Convert.ToInt32(protocolo.Value) == 1) ventanaEmergente("Usuario NO Encontrado!");
                 else if (Convert.ToInt32(protocolo.Value) == 2) ventanaEmergente("Usuario Inhabilitado!");
                 else if (Convert.ToInt32(protocolo.Value) == 3) ventanaEmergente("Pass Incorrecto!");
-                else if (Convert.ToInt32(protocolo.Value) == 4) ventanaEmergente("Inhabilitado por poner mal el pass mas de 2 veces!");
+                else if (Convert.ToInt32(protocolo.Value) == 4) ventanaEmergente("Inhabilitado por poner mal el pass 3 veces!");
                 else if (Convert.ToInt32(protocolo.Value) == 5) ventanaEmergente("No hay roles disponibles para este usuario");
                 else seleccionarRol( Convert.ToInt32(userTextbox.Text) );
             
