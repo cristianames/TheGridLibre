@@ -37,9 +37,9 @@
             // 
             // userTextbox
             // 
-            this.userTextbox.Location = new System.Drawing.Point(231, 84);
+            this.userTextbox.Location = new System.Drawing.Point(183, 84);
             this.userTextbox.Name = "userTextbox";
-            this.userTextbox.Size = new System.Drawing.Size(166, 20);
+            this.userTextbox.Size = new System.Drawing.Size(214, 20);
             this.userTextbox.TabIndex = 1;
             this.userTextbox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -57,10 +57,9 @@
             this.label1.Font = new System.Drawing.Font("Lucida Console", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(96, 89);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(135, 14);
+            this.label1.Size = new System.Drawing.Size(79, 14);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Username:  Grid_";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.label1.Text = "Username:";
             // 
             // label2
             // 
@@ -93,7 +92,7 @@
             this.Controls.Add(this.passTextBox);
             this.Controls.Add(this.userTextbox);
             this.Name = "login";
-            this.Text = "Login - BETA";
+            this.Text = "Login";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

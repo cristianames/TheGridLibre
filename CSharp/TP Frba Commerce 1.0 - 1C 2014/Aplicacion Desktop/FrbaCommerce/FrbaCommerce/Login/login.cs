@@ -19,7 +19,7 @@ namespace FrbaCommerce.Login
             InitializeComponent();
         }
 
-        private string encriptar(string input)
+      /*private string encriptar(string input)
         {                   
                     SHA256CryptoServiceProvider provider = new SHA256CryptoServiceProvider();  
   
@@ -33,6 +33,19 @@ namespace FrbaCommerce.Login
   
                     return output.ToString();  
                   
+        }*//////// Esta version de la funcion no anda en WinXP weon
+
+        static string encriptar(string input)
+        {
+            System.Security.Cryptography.SHA256 sha256 = new System.Security.Cryptography.SHA256Managed();
+            byte[] sha256Bytes = System.Text.Encoding.Default.GetBytes(input);
+            byte[] cryString = sha256.ComputeHash(sha256Bytes);
+            string sha256Str = string.Empty;
+            for (int i = 0; i < cryString.Length; i++)
+            {
+                sha256Str += cryString[i].ToString("x2").ToLower();
+            }
+            return sha256Str;
         }
 
 
@@ -60,68 +73,54 @@ namespace FrbaCommerce.Login
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SqlDataReader consulta = null;
-            SqlDataReader update = null;
 
             SqlConnection myConnection = new SqlConnection(@"Data Source=localhost\SQLSERVER2008;" +
                                       "user id=gd;" +
                                       "password=gd2014;" +
                                       "Initial Catalog=GD1C2014; " +
                                       "Integrated Security=True");
-            myConnection.Open();
-            
-           SqlCommand myCommand = new SqlCommand(@"select Username,Inhabilitado,Intentos_Fallidos, case when Pass ='" + encriptar(passTextBox.Text) + @"' then 1 else 0 end as Pass_Correcto from TG.Usuario where Username = '" + userTextbox.Text + @"'",myConnection); //Busca en la BD si existe ese Username y si puso bien el Pass
 
-           consulta = myCommand.ExecuteReader();
-
-           if (consulta.HasRows)    //Pregunta si la consulta devolvio algun resultado
+            using (SqlCommand cmd = new SqlCommand("TG.login", myConnection))
             {
-                consulta.Read();
-                if (string.Equals(consulta["Pass_Correcto"].ToString(), "1"))//El usuario es valido y el pass tmb
-                {
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                    if (string.Equals(consulta["Inhabilitado"].ToString(), "False"))//Pregunta si el susuario esta inhabilitado
-                    {
-                        string Username = consulta["Username"].ToString();
-                        myCommand = new SqlCommand(@"update TG.Usuario set Intentos_Fallidos=0 where Username='" + Username + "'", myConnection);
-                        consulta.Close();
-                        update = myCommand.ExecuteReader();
-                        ventanaEmergente("EXITO");
-                    }
-                    else ventanaEmergente("Usuario inhabilitado");
-                }
-                else  //Usuario valido pero contraseña invalida 
-                {
-                    ventanaEmergente("Nombre de Usuario inexistente o Contraseña equivocada");
-                    myCommand.Parameters.Clear();
-                    int intentosFallidos = Convert.ToInt32(consulta["Intentos_Fallidos"].ToString());
-                    intentosFallidos++;
+                SqlParameter user;
+                user = new SqlParameter("@user", SqlDbType.Int);
+                user.Value = Convert.ToInt32(userTextbox.Text);
+                user.Direction = ParameterDirection.Input;
+                cmd.Parameters.Add(user);
 
+                SqlParameter pass;
+                pass = new SqlParameter("@pass", SqlDbType.NVarChar);
+                pass.Value = encriptar(passTextBox.Text);
+                pass.Direction = ParameterDirection.Input;
+                cmd.Parameters.Add(pass);
 
-                    if (intentosFallidos >= 3) //Si este es su tercer intento fallido, actualiza el estado y bloque al usuario,sino, solamenta suma uno a sus intentos fallidos
-                    {
+                SqlParameter protocolo;
+                protocolo = new SqlParameter("@protocolo", SqlDbType.Int);
+                protocolo.Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(protocolo);
 
-                        string Intentos_Fallidos = intentosFallidos.ToString();
-                        string Username = consulta["Username"].ToString();
-                        myCommand = new SqlCommand(@"update TG.Usuario set Intentos_Fallidos=" + Intentos_Fallidos + ", Inhabilitado='True' where Username='" + Username + "'", myConnection);
-                        consulta.Close();
-                        update = myCommand.ExecuteReader();
-                    }
-                    else
-                    {
-                        string Intentos_Fallidos = intentosFallidos.ToString();
-                        string Username = consulta["Username"].ToString();
-                        myCommand = new SqlCommand(@"update TG.Usuario set Intentos_Fallidos=" + Intentos_Fallidos + " where Username='" + Username + "'", myConnection);
-                        consulta.Close();
-                        update = myCommand.ExecuteReader();
-                       
-                    }
-                    
-                }
-            }
-            else ventanaEmergente("Nombre de Usuario inexistente o Contraseña equivocada");
+                myConnection.Open();
+                cmd.ExecuteNonQuery();
+                myConnection.Close();
+
+                //ventanaEmergente("Protocolo: " + protocolo.Value.ToString());
+
+                if (Convert.ToInt32(protocolo.Value) == 1) ventanaEmergente("Usuario NO Encontrado!");
+                else if (Convert.ToInt32(protocolo.Value) == 2) ventanaEmergente("Usuario Inhabilitado!");
+                else if (Convert.ToInt32(protocolo.Value) == 3) ventanaEmergente("Pass Incorrecto!");
+                else if (Convert.ToInt32(protocolo.Value) == 4) ventanaEmergente("Inhabilitado por poner mal el pass mas de 2 veces!");
+                else ventanaEmergente("Accediendo!");
             
-            myConnection.Close();
+            }
+            
+          
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
