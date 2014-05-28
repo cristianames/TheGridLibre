@@ -56,6 +56,14 @@ namespace FrbaCommerce.Login
             error.Show();
            
         }
+
+        private void seleccionarRol(int usuario)
+        {
+            FrbaCommerce.Login.selectorRol seleccionFrm = new selectorRol(usuario);
+            seleccionFrm.Show();
+            this.Close();
+        }
+
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 
@@ -74,11 +82,7 @@ namespace FrbaCommerce.Login
         private void button1_Click(object sender, EventArgs e)
         {
 
-            SqlConnection myConnection = new SqlConnection(@"Data Source=localhost\SQLSERVER2008;" +
-                                      "user id=gd;" +
-                                      "password=gd2014;" +
-                                      "Initial Catalog=GD1C2014; " +
-                                      "Integrated Security=True");
+            SqlConnection myConnection = TG_Connect.conectar();
 
             using (SqlCommand cmd = new SqlCommand("TG.login", myConnection))
             {
@@ -101,17 +105,15 @@ namespace FrbaCommerce.Login
                 protocolo.Direction = ParameterDirection.Output;
                 cmd.Parameters.Add(protocolo);
 
-                myConnection.Open();
                 cmd.ExecuteNonQuery();
                 myConnection.Close();
-
-                //ventanaEmergente("Protocolo: " + protocolo.Value.ToString());
 
                 if (Convert.ToInt32(protocolo.Value) == 1) ventanaEmergente("Usuario NO Encontrado!");
                 else if (Convert.ToInt32(protocolo.Value) == 2) ventanaEmergente("Usuario Inhabilitado!");
                 else if (Convert.ToInt32(protocolo.Value) == 3) ventanaEmergente("Pass Incorrecto!");
                 else if (Convert.ToInt32(protocolo.Value) == 4) ventanaEmergente("Inhabilitado por poner mal el pass mas de 2 veces!");
-                else ventanaEmergente("Accediendo!");
+                else if (Convert.ToInt32(protocolo.Value) == 5) ventanaEmergente("No hay roles disponibles para este usuario");
+                else seleccionarRol( Convert.ToInt32(userTextbox.Text) );
             
             }
             

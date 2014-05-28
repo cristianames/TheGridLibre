@@ -108,6 +108,12 @@
     <Compile Include="Login\login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Login\selectorRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\selectorRol.Designer.cs">
+      <DependentUpon>selectorRol.cs</DependentUpon>
+    </Compile>
     <Compile Include="Portal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login\login.resx">
       <DependentUpon>login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\selectorRol.resx">
+      <DependentUpon>selectorRol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Portal.resx">
       <DependentUpon>Portal.cs</DependentUpon>
