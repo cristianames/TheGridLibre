@@ -10,7 +10,9 @@ create table GD1C2014.TG.Usuario(
 	Inhabilitado bit,
 	Antiguo bit,
 	ID_Tipo int References TG.Tipo_Usuario(ID_Tipo),
-	Intentos int
+	Intentos int,
+	Primer_Ingreso bit
+	
 )
 
 create table GD1C2014.TG.Cliente(

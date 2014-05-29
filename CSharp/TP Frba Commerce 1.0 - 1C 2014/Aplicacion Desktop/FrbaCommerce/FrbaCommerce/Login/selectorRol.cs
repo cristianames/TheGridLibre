@@ -17,7 +17,7 @@ namespace FrbaCommerce.Login
         {
             List<string> _lista = new List<string>();
 
-            SqlConnection conexion = TG_Connect.conectar();
+            SqlConnection conexion = TG.conectar();
             SqlCommand _comando = new SqlCommand("SELECT Nombre FROM TG.Rol R, TG.Roles_x_Usuario U" +
                 " WHERE R.ID_Rol = U.ID_Rol AND U.Inhabilitado = 0 AND " + 
                 " U.ID_User = " + usuario.ToString(), conexion);
@@ -33,7 +33,7 @@ namespace FrbaCommerce.Login
         public selectorRol(int usuario)
         {
             InitializeComponent();
-            
+            this.ClientSize = new System.Drawing.Size(370, 170);
             comboBox1.DataSource = ObtenerRoles(usuario);
         }
 
@@ -43,6 +43,11 @@ namespace FrbaCommerce.Login
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }

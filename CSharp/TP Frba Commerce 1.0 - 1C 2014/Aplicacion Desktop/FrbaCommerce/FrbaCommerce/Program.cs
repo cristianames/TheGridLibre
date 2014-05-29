@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.Security.Cryptography;
 
 namespace FrbaCommerce
 {
 
-    static class TG_Connect 
+    static class TG 
     {
         public static SqlConnection conectar()
         {
@@ -18,6 +19,19 @@ namespace FrbaCommerce
                                       "Integrated Security=True");
             Conexion.Open();
             return Conexion;
+        }
+
+        public static string encriptar(string input)
+        {
+            System.Security.Cryptography.SHA256 sha256 = new System.Security.Cryptography.SHA256Managed();
+            byte[] sha256Bytes = System.Text.Encoding.Default.GetBytes(input);
+            byte[] cryString = sha256.ComputeHash(sha256Bytes);
+            string sha256Str = string.Empty;
+            for (int i = 0; i < cryString.Length; i++)
+            {
+                sha256Str += cryString[i].ToString("x2").ToLower();
+            }
+            return sha256Str;
         }
     }
     // SqlConnection pepita = TG_Connect.conectar();

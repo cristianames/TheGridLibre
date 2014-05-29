@@ -7,7 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Security.Cryptography;  
+  
 
 namespace FrbaCommerce.Login
 {
@@ -17,42 +17,16 @@ namespace FrbaCommerce.Login
         public login()
         {
             InitializeComponent();
+            this.ClientSize = new System.Drawing.Size(400, 150);
         }
 
-      /*private string encriptar(string input)
-        {                   
-                    SHA256CryptoServiceProvider provider = new SHA256CryptoServiceProvider();  
-  
-                    byte[] inputBytes = Encoding.UTF8.GetBytes(input);  
-                    byte[] hashedBytes = provider.ComputeHash(inputBytes);  
 
-                    StringBuilder output = new StringBuilder();  
-  
-                    for (int i = 0; i < hashedBytes.Length; i++)  
-                    output.Append(hashedBytes[i].ToString("x2").ToLower());  
-  
-                    return output.ToString();  
-                  
-        }*//////// Esta version de la funcion no anda en WinXP weon
-
-        static string encriptar(string input)
-        {
-            System.Security.Cryptography.SHA256 sha256 = new System.Security.Cryptography.SHA256Managed();
-            byte[] sha256Bytes = System.Text.Encoding.Default.GetBytes(input);
-            byte[] cryString = sha256.ComputeHash(sha256Bytes);
-            string sha256Str = string.Empty;
-            for (int i = 0; i < cryString.Length; i++)
-            {
-                sha256Str += cryString[i].ToString("x2").ToLower();
-            }
-            return sha256Str;
-        }
 
         private void seleccionarRol(int usuario)
         {
             FrbaCommerce.Login.selectorRol seleccionFrm = new selectorRol(usuario);
             seleccionFrm.Show();
-            this.Close();
+            this.Visible = false;
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -73,7 +47,7 @@ namespace FrbaCommerce.Login
         private void button1_Click(object sender, EventArgs e)
         {
 
-            SqlConnection myConnection = TG_Connect.conectar();
+            SqlConnection myConnection = TG.conectar();
 
             using (SqlCommand cmd = new SqlCommand("TG.login", myConnection))
             {
@@ -87,7 +61,7 @@ namespace FrbaCommerce.Login
 
                 SqlParameter pass;
                 pass = new SqlParameter("@pass", SqlDbType.NVarChar);
-                pass.Value = encriptar(passTextBox.Text);
+                pass.Value = TG.encriptar(passTextBox.Text);
                 pass.Direction = ParameterDirection.Input;
                 cmd.Parameters.Add(pass);
 
@@ -99,16 +73,34 @@ namespace FrbaCommerce.Login
                 cmd.ExecuteNonQuery();
                 myConnection.Close();
 
-                     if (Convert.ToInt32(protocolo.Value) == 1) ventanaEmergente("Usuario NO Encontrado!");
+                     if (Convert.ToInt32(protocolo.Value) == 1) ventanaEmergente("Usuario NO Encontrado o pass incorrecto");// usuario no encontrado
                 else if (Convert.ToInt32(protocolo.Value) == 2) ventanaEmergente("Usuario Inhabilitado!");
-                else if (Convert.ToInt32(protocolo.Value) == 3) ventanaEmergente("Pass Incorrecto!");
+                else if (Convert.ToInt32(protocolo.Value) == 3) ventanaEmergente("Usuario NO Encontrado o pass incorrecto");// pass incorrecto
                 else if (Convert.ToInt32(protocolo.Value) == 4) ventanaEmergente("Inhabilitado por poner mal el pass 3 veces!");
                 else if (Convert.ToInt32(protocolo.Value) == 5) ventanaEmergente("No hay roles disponibles para este usuario");
-                else seleccionarRol( Convert.ToInt32(userTextbox.Text) );
+                else if (primerIngreso(Convert.ToInt32(userTextbox.Text)))
+                     {
+                         FrbaCommerce.Login.cambioPass cambioDePass = new cambioPass(this, Convert.ToInt32(userTextbox.Text));
+                    cambioDePass.Show();
+                    this.Visible = false; 
+                     }
+                     else seleccionarRol(Convert.ToInt32(userTextbox.Text));
             
-            }
-            
-          
+            }       
+        }
+
+        private bool primerIngreso(int usuario)
+        {           
+           SqlConnection myConnection = TG.conectar();
+           SqlCommand myCommand = new SqlCommand("select Primer_Ingreso from TG.Usuario where ID_User = "+ 
+               usuario.ToString() ,myConnection);
+           SqlDataReader consulta = null;
+           consulta = myCommand.ExecuteReader();
+           consulta.Read();
+           bool resultado = Convert.ToBoolean(consulta["Primer_Ingreso"]);
+           myConnection.Close();
+           return resultado;
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -117,3 +109,4 @@ namespace FrbaCommerce.Login
         }
     }
 }
+
