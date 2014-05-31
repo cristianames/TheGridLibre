@@ -39,6 +39,7 @@ namespace FrbaCommerce
 
     public class FormGrid : Form
     {
+        protected FormGrid ventanaAnterior;
         protected FormGrid()
         {
             this.ControlBox = false;

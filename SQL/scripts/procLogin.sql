@@ -1,18 +1,5 @@
 use GD1C2014
 go
-
-create procedure TG.inhabilitarUsuario @user numeric(18,0) as
-begin
-
-update TG.Usuario set Inhabilitado = 1 where ID_User = @user
-update TG.Publicacion set Estado = 'Pausada' where ID_Vendedor = @user
-
-end 
-go
-----------------------------------------------------------------------------------------------
-
-use GD1C2014
-go
 create procedure TG.login @user numeric(18,0), @pass nvarchar(255), @protocolo int out as
 begin
 
@@ -51,7 +38,7 @@ begin
 	if @intentos >= 3
 	begin
 		set @protocolo = 4
-		exec TG.inhabilitarUsuario @user
+	    update TG.Usuario set Inhabilitado=1 where ID_User=@user --el resto por trigger  :3
 		print 'Pass erroneo y usuario Inhabilitado'
 		return
 	end

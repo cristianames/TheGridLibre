@@ -12,7 +12,7 @@ namespace FrbaCommerce.Login
 {
     public partial class cambioPass : FormGrid
     {
-        private FormGrid ventanaAnterior;
+        
         private int user;
         public cambioPass(FormGrid ventanaAnterior,int user)
         {

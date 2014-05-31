@@ -74,7 +74,8 @@ create table GD1C2014.TG.Visibilidad(
 	ID_Visibilidad numeric(18,0) primary key,
 	Nombre varchar(256) unique,
 	Precio_Por_Publicar numeric(18,2),
-	Porcentaje_Venta numeric(18,2)
+	Porcentaje_Venta numeric(18,2),
+	Inhabilitado bit
 )
 
 create table GD1C2014.TG.Roles_x_Usuario(
