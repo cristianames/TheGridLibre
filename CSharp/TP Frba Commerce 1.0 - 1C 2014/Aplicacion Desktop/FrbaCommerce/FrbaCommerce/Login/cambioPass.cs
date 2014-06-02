@@ -33,20 +33,23 @@ namespace FrbaCommerce.Login
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void submitActions() 
         {
-
-            switch (checkPass()) {
+            switch (checkPass())
+            {
                 case 0: ventanaEmergente("EXITO"); break;
-                case 1: ventanaEmergente("Ingrese una contraseña valida");break;
+                case 1: ventanaEmergente("Ingrese una contraseña valida"); break;
                 case 2: ventanaEmergente("El password tiene que coincidir en ambos campos"); break;
                 case 3: ventanaEmergente("El password nuevo tiene que tener entre 8 y 10 caracteres"); break;
-            }
-            
-            
+            } 
         }
 
-        private int checkPass() // si el password coincide para ese usuario devuelve True sino False
+        private void button1_Click(object sender, EventArgs e)
+        {
+            submitActions(); 
+        }
+
+        private int checkPass()
         {
             SqlConnection myConnection = TG.conectar();
             SqlCommand myCommand = new SqlCommand("select * from TG.Usuario where ID_User = " +
@@ -58,6 +61,21 @@ namespace FrbaCommerce.Login
             if (textBoxPass1.Text.Length < 8 || textBoxPass1.Text.Length > 10) return 3;
             return 0;
             
+        }
+
+        private void textBoxOldPass_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) submitActions();
+        }
+
+        private void textBoxPass1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) submitActions();
+        }
+
+        private void textBoxPass2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) submitActions();
         }
     }
 }

@@ -15,6 +15,15 @@ namespace FrbaCommerce.Abm_Rubro
         public ABMRubro()
         {
             InitializeComponent();
+
+            List<string> lista = new List<string>();
+            SqlConnection conexion = TG.conectar();
+            SqlCommand comando = new SqlCommand("SELECT Nombre FROM TG.Rubro", conexion);
+            SqlDataReader reader = comando.ExecuteReader();
+            while (reader.Read()) lista.Add(reader.GetString(0));
+            conexion.Close();
+            listaRubros.DataSource = lista;
+            return;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -24,17 +33,7 @@ namespace FrbaCommerce.Abm_Rubro
 
         private void listaRubros_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<string> lista = new List<string>();
 
-            SqlConnection conexion = TG.conectar();
-            SqlCommand comando = new SqlCommand("SELECT Nombre FROM TG.Rubro", conexion);
-            SqlDataReader reader = comando.ExecuteReader();
-            while (reader.Read())
-            {
-                lista.Add(reader.GetString(0));
-            }
-            conexion.Close();
-            return lista;
         }
     }
 }

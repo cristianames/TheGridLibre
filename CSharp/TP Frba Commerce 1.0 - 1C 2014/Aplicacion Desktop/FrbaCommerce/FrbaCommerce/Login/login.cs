@@ -17,7 +17,7 @@ namespace FrbaCommerce.Login
         public login()
         {
             InitializeComponent();
-            this.ClientSize = new System.Drawing.Size(400, 150);
+            this.ClientSize = new System.Drawing.Size(340, 105);
         }
 
 
@@ -44,11 +44,15 @@ namespace FrbaCommerce.Login
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void submitActions() 
         {
-
+            if (userTextbox.Text == "" || passTextBox.Text == "")
+            {
+                ventanaEmergente("Campos incompletos");
+                return;
+            }
+            
             SqlConnection myConnection = TG.conectar();
-
             using (SqlCommand cmd = new SqlCommand("TG.login", myConnection))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -73,20 +77,25 @@ namespace FrbaCommerce.Login
                 cmd.ExecuteNonQuery();
                 myConnection.Close();
 
-                     if (Convert.ToInt32(protocolo.Value) == 1) ventanaEmergente("Usuario NO Encontrado o pass incorrecto");// usuario no encontrado
+                if (Convert.ToInt32(protocolo.Value) == 1) ventanaEmergente("Usuario NO Encontrado o pass incorrecto");// usuario no encontrado
                 else if (Convert.ToInt32(protocolo.Value) == 2) ventanaEmergente("Usuario Inhabilitado!");
                 else if (Convert.ToInt32(protocolo.Value) == 3) ventanaEmergente("Usuario NO Encontrado o pass incorrecto");// pass incorrecto
                 else if (Convert.ToInt32(protocolo.Value) == 4) ventanaEmergente("Inhabilitado por poner mal el pass 3 veces!");
                 else if (Convert.ToInt32(protocolo.Value) == 5) ventanaEmergente("No hay roles disponibles para este usuario");
                 else if (primerIngreso(Convert.ToInt32(userTextbox.Text)))
-                     {
-                         FrbaCommerce.Login.cambioPass cambioDePass = new cambioPass(this, Convert.ToInt32(userTextbox.Text));
+                {
+                    FrbaCommerce.Login.cambioPass cambioDePass = new cambioPass(this, Convert.ToInt32(userTextbox.Text));
                     cambioDePass.Show();
-                    this.Visible = false; 
-                     }
-                     else seleccionarRol(Convert.ToInt32(userTextbox.Text));
-            
-            }       
+                    this.Visible = false;
+                }
+                else seleccionarRol(Convert.ToInt32(userTextbox.Text));
+
+            }    
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            submitActions();           
         }
 
         private bool primerIngreso(int usuario)
@@ -94,8 +103,7 @@ namespace FrbaCommerce.Login
            SqlConnection myConnection = TG.conectar();
            SqlCommand myCommand = new SqlCommand("select Primer_Ingreso from TG.Usuario where ID_User = "+ 
                usuario.ToString() ,myConnection);
-           SqlDataReader consulta = null;
-           consulta = myCommand.ExecuteReader();
+           SqlDataReader consulta = consulta = myCommand.ExecuteReader();
            consulta.Read();
            bool resultado = Convert.ToBoolean(consulta["Primer_Ingreso"]);
            myConnection.Close();
@@ -106,6 +114,16 @@ namespace FrbaCommerce.Login
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void userTextbox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) submitActions();
+        }
+
+        private void passTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) submitActions();
         }
     }
 }

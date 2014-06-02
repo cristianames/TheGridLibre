@@ -15,7 +15,7 @@ namespace FrbaCommerce
         public Portal()
         {
             InitializeComponent();
-            this.ClientSize = new System.Drawing.Size(290, 320);
+            this.ClientSize = new System.Drawing.Size(285, 270);
         }
         private void cargarDatos()
         {
@@ -25,7 +25,7 @@ namespace FrbaCommerce
             daGrilla.Fill(dsGrilla, "gd_esquema.Maestra");
            // dgvGrilla.DataSource = dsGrilla.Tables[0];
             //dgvGrilla.DataMember = "gd_esquema.Maestra";
-            textBox1.Text = "SEP";
+            //textBox1.Text = "SEP";
             con.Close();
 
         }

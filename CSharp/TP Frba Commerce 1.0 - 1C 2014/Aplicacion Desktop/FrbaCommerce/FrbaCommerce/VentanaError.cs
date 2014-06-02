@@ -18,8 +18,15 @@ namespace FrbaCommerce
         public void escribirMsg(string msg)
         {
             label1.Text = msg;
-            this.Size = new Size( label1.Width + 50, 130);
-            button1.Location = new System.Drawing.Point( (label1.Width + 50)/2 - 39 , 49);
+
+            int anchoMensaje = label1.Width;
+            if (label1.Width < button1.Width)
+            {
+                anchoMensaje = button1.Width;
+                label1.Location = new System.Drawing.Point(25 + button1.Width/2 - label1.Width / 2, 25);
+            }
+            this.Size = new Size( anchoMensaje + 50, 130);
+            button1.Location = new System.Drawing.Point(25 + anchoMensaje / 2 - button1.Width/2, 49);
         }
 
         private void VentanaError_Load(object sender, EventArgs e)

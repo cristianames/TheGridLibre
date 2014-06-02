@@ -45,6 +45,7 @@
             this.textBoxOldPass.Name = "textBoxOldPass";
             this.textBoxOldPass.Size = new System.Drawing.Size(100, 20);
             this.textBoxOldPass.TabIndex = 0;
+            this.textBoxOldPass.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxOldPass_KeyDown);
             // 
             // textBoxPass1
             // 
@@ -52,6 +53,7 @@
             this.textBoxPass1.Name = "textBoxPass1";
             this.textBoxPass1.Size = new System.Drawing.Size(100, 20);
             this.textBoxPass1.TabIndex = 1;
+            this.textBoxPass1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxPass1_KeyDown);
             // 
             // textBoxPass2
             // 
@@ -59,6 +61,7 @@
             this.textBoxPass2.Name = "textBoxPass2";
             this.textBoxPass2.Size = new System.Drawing.Size(100, 20);
             this.textBoxPass2.TabIndex = 2;
+            this.textBoxPass2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxPass2_KeyDown);
             // 
             // label1
             // 
@@ -120,7 +123,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(947, 348);
+            this.ClientSize = new System.Drawing.Size(904, 485);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -131,7 +134,7 @@
             this.Controls.Add(this.textBoxPass1);
             this.Controls.Add(this.textBoxOldPass);
             this.Name = "cambioPass";
-            this.Text = "cambioPassPrimerVez";
+            this.Text = "Cambio de Contraseña";
             this.Load += new System.EventHandler(this.cambioPass_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
