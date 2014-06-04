@@ -7,13 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace FrbaCommerce
+namespace FrbaCommerce.Abm_Cliente
 {
-    public partial class AbmGral : Form
+    public partial class Form1 : Form
     {
-        public AbmGral()
+        public Form1()
         {
             InitializeComponent();
         }
+
+        
     }
 }

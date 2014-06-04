@@ -48,17 +48,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abm Cliente\Form1.cs">
+    <Compile Include="Abm Usuario\AbmUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Abm Cliente\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Abm Empresa\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Abm Empresa\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Abm Usuario\AbmUsuario.Designer.cs">
+      <DependentUpon>AbmUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="ABM Rol\Form1.cs">
       <SubType>Form</SubType>
@@ -96,12 +90,6 @@
     <Compile Include="Abm Visibilidad\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="AbmGral.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AbmGral.Designer.cs">
-      <DependentUpon>AbmGral.cs</DependentUpon>
-    </Compile>
     <Compile Include="Calificar Vendedor\FormularioCalificacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +113,12 @@
     </Compile>
     <Compile Include="Editar Publicacion\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Escrtorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Escrtorio.Designer.cs">
+      <DependentUpon>Escrtorio.cs</DependentUpon>
     </Compile>
     <Compile Include="Facturar Publicaciones\Form1.cs">
       <SubType>Form</SubType>
@@ -184,8 +178,8 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Abm Cliente\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Abm Usuario\AbmUsuario.resx">
+      <DependentUpon>AbmUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Rol\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -207,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Calificar Vendedor\SeleccionarUsuario.resx">
       <DependentUpon>SeleccionarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Escrtorio.resx">
+      <DependentUpon>Escrtorio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\cambioPass.resx">
       <DependentUpon>cambioPass.cs</DependentUpon>
