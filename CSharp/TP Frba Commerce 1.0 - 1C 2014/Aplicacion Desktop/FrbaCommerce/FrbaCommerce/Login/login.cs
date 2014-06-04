@@ -17,7 +17,7 @@ namespace FrbaCommerce.Login
         public login()
         {
             InitializeComponent();
-            this.ClientSize = new System.Drawing.Size(340, 105);
+            this.ClientSize = new System.Drawing.Size(340, 140);
         }
 
 

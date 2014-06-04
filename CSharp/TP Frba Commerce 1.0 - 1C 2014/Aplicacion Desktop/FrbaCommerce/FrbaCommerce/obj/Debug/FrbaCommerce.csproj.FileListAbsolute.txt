@@ -65,3 +65,9 @@ G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCom
 G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Rubro.EliminarRubro.resources
 G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Rubro.ModificarRubro.resources
 G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Login.cambioPass.resources
+E:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Rubro.ABMRubro.resources
+E:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Rubro.CrearRubro.resources
+E:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Rubro.EliminarRubro.resources
+E:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Rubro.ModificarRubro.resources
+E:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Calificar_Vendedor.FormularioCalificacion.resources
+E:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Calificar_Vendedor.SeleccionarUsuario.resources

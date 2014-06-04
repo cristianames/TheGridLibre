@@ -96,11 +96,17 @@
     <Compile Include="Abm Visibilidad\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Calificar Vendedor\Form1.cs">
+    <Compile Include="Calificar Vendedor\FormularioCalificacion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Calificar Vendedor\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Calificar Vendedor\FormularioCalificacion.Designer.cs">
+      <DependentUpon>FormularioCalificacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Calificar Vendedor\SeleccionarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Calificar Vendedor\SeleccionarUsuario.Designer.cs">
+      <DependentUpon>SeleccionarUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Comprar-Ofertar\Form1.cs">
       <SubType>Form</SubType>
@@ -189,6 +195,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Rubro\ModificarRubro.resx">
       <DependentUpon>ModificarRubro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Calificar Vendedor\FormularioCalificacion.resx">
+      <DependentUpon>FormularioCalificacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Calificar Vendedor\SeleccionarUsuario.resx">
+      <DependentUpon>SeleccionarUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\cambioPass.resx">
       <DependentUpon>cambioPass.cs</DependentUpon>
