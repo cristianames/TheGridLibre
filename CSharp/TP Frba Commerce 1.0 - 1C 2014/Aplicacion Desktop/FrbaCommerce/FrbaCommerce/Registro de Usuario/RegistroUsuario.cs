@@ -9,11 +9,15 @@ using System.Windows.Forms;
 
 namespace FrbaCommerce.Registro_de_Usuario
 {
-    public partial class RegistroUsuario : Form
+    public partial class RegistroUsuario : FormGrid
     {
-        public RegistroUsuario()
+        public RegistroUsuario(FormGrid anterior)
         {
             InitializeComponent();
+            ventanaAnterior = anterior;
+            grupoEmpresa.Location = new System.Drawing.Point(15, 47);
+            grupoEmpresa.Visible = false;
+            this.ClientSize = new System.Drawing.Size(487, 428);
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -49,6 +53,23 @@ namespace FrbaCommerce.Registro_de_Usuario
         private void label25_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            grupoCliente.Visible = true;
+            grupoEmpresa.Visible = false;
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            grupoCliente.Visible = false;
+            grupoEmpresa.Visible = true;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            volverAtras();
         }
     }
 }

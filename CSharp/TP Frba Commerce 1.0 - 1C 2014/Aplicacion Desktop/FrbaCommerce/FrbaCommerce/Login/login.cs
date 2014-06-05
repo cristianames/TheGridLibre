@@ -108,6 +108,14 @@ namespace FrbaCommerce.Login
         {
 
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrbaCommerce.Registro_de_Usuario.RegistroUsuario registro;
+            registro = new Registro_de_Usuario.RegistroUsuario(this);
+            registro.Show();
+            this.Visible = false;
+        }
     }
 }
 

@@ -59,7 +59,7 @@ namespace FrbaCommerce
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FrbaCommerce.Registro_de_Usuario.RegistroUsuario registroFrm = new FrbaCommerce.Registro_de_Usuario.RegistroUsuario();
+            FrbaCommerce.Registro_de_Usuario.RegistroUsuario registroFrm = new FrbaCommerce.Registro_de_Usuario.RegistroUsuario(this);
             registroFrm.Show();
             this.Visible = false;
 
