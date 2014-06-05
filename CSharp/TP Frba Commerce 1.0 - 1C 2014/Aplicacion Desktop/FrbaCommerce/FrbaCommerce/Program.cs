@@ -49,7 +49,7 @@ namespace FrbaCommerce
 
         }
     }
-
+    
     public class FormGridTerminal : FormGrid
     {
         protected FormGridTerminal()
@@ -69,6 +69,8 @@ namespace FrbaCommerce
     {
         public static int usuario = (-1);
         public static int codigoRol = (-1);
+        public static string nombreRol = "";
+        public static FormGrid elLogin;
         public static SqlConnection conectar()
         {
             SqlConnection Conexion = new SqlConnection(@"Data Source=localhost\SQLSERVER2008;" +

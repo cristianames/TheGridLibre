@@ -19,13 +19,6 @@ namespace FrbaCommerce.Login
             this.ClientSize = new System.Drawing.Size(340, 140);
         }
 
-        private void seleccionarRol()
-        {
-            FrbaCommerce.Login.selectorRol seleccionFrm = new selectorRol(this);
-            seleccionFrm.Show();
-            this.Visible = false;
-        }
-
         private void submitActions() 
         {
             if (userTextbox.Text == "" || passTextBox.Text == "")
@@ -74,7 +67,9 @@ namespace FrbaCommerce.Login
                 else
                 {
                     TG.usuario = Convert.ToInt32(userTextbox.Text);
-                    seleccionarRol();
+                    FrbaCommerce.Login.selectorRol seleccionRol = new selectorRol(this);
+                    seleccionRol.Show();
+                    this.Visible = false;
                 }
             }    
         }

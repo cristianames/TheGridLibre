@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace FrbaCommerce.Login
 {
@@ -28,10 +29,25 @@ namespace FrbaCommerce.Login
 
         }
 
+        private int rol(string nombreRol)
+        {
+            SqlConnection myConnection = TG.conectar();
+            SqlCommand myCommand = new SqlCommand("select ID_Rol from TG.Rol "+
+                "where Nombre = '" + nombreRol + "'", myConnection);
+            SqlDataReader consulta = consulta = myCommand.ExecuteReader();
+            consulta.Read();
+            int resultado = Convert.ToInt32(consulta["ID_Rol"]);
+            myConnection.Close();
+            return resultado;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            TG.ventanaEmergente(comboBox1.SelectedItem.ToString());
-            
+            TG.nombreRol = comboBox1.SelectedItem.ToString();
+            TG.codigoRol = rol(comboBox1.SelectedItem.ToString());
+            FrbaCommerce.Escritorio desk = new Escritorio(this);
+            desk.Show();
+            this.Visible = false;
         }
 
         private void button2_Click(object sender, EventArgs e)

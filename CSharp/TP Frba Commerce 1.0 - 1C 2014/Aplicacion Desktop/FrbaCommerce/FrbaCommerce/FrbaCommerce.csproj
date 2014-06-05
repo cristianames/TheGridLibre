@@ -114,11 +114,11 @@
     <Compile Include="Editar Publicacion\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Escrtorio.cs">
+    <Compile Include="Escritorio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Escrtorio.Designer.cs">
-      <DependentUpon>Escrtorio.cs</DependentUpon>
+    <Compile Include="Escritorio.Designer.cs">
+      <DependentUpon>Escritorio.cs</DependentUpon>
     </Compile>
     <Compile Include="Facturar Publicaciones\Form1.cs">
       <SubType>Form</SubType>
@@ -220,8 +220,8 @@
     <EmbeddedResource Include="Calificar Vendedor\SeleccionarUsuario.resx">
       <DependentUpon>SeleccionarUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Escrtorio.resx">
-      <DependentUpon>Escrtorio.cs</DependentUpon>
+    <EmbeddedResource Include="Escritorio.resx">
+      <DependentUpon>Escritorio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion de Preguntas\Pendientes.resx">
       <DependentUpon>Pendientes.cs</DependentUpon>

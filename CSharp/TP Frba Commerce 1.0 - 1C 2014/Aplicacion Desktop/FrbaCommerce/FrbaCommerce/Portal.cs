@@ -33,6 +33,7 @@ namespace FrbaCommerce
         {
            FrbaCommerce.Login.login loginFrm = new FrbaCommerce.Login.login();
            loginFrm.Show();
+           TG.elLogin = loginFrm;
            this.Visible = false;
         }
 
