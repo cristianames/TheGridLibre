@@ -43,6 +43,7 @@
             // 
             this.textBoxOldPass.Location = new System.Drawing.Point(166, 30);
             this.textBoxOldPass.Name = "textBoxOldPass";
+            this.textBoxOldPass.PasswordChar = '*';
             this.textBoxOldPass.Size = new System.Drawing.Size(100, 20);
             this.textBoxOldPass.TabIndex = 0;
             this.textBoxOldPass.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxOldPass_KeyDown);
@@ -51,6 +52,7 @@
             // 
             this.textBoxPass1.Location = new System.Drawing.Point(166, 72);
             this.textBoxPass1.Name = "textBoxPass1";
+            this.textBoxPass1.PasswordChar = '*';
             this.textBoxPass1.Size = new System.Drawing.Size(100, 20);
             this.textBoxPass1.TabIndex = 1;
             this.textBoxPass1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxPass1_KeyDown);
@@ -59,6 +61,7 @@
             // 
             this.textBoxPass2.Location = new System.Drawing.Point(166, 113);
             this.textBoxPass2.Name = "textBoxPass2";
+            this.textBoxPass2.PasswordChar = '*';
             this.textBoxPass2.Size = new System.Drawing.Size(100, 20);
             this.textBoxPass2.TabIndex = 2;
             this.textBoxPass2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxPass2_KeyDown);

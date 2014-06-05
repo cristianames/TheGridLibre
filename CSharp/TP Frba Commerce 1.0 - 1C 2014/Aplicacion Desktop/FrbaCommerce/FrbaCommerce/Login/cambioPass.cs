@@ -12,11 +12,15 @@ namespace FrbaCommerce.Login
 {
     public partial class cambioPass : FormGrid
     {
-        public cambioPass(FormGrid ventanaAnterior)
+        public cambioPass(FormGrid ventanaAnterior, bool primerIngreso)
         {
             InitializeComponent();
             this.ventanaAnterior = ventanaAnterior;
             this.ClientSize = new System.Drawing.Size(292, 266);
+            if (primerIngreso) {
+                textBoxOldPass.Enabled = false;
+                textBoxOldPass.Text = "LOOOOOOL";
+            }
         }
 
         private void cambioPass_Load(object sender, EventArgs e)
@@ -33,7 +37,17 @@ namespace FrbaCommerce.Login
         {
             switch (checkPass())
             {
-                case 0: TG.ventanaEmergente("EXITO"); break;
+                case 0: 
+                    SqlConnection myConnection = TG.conectar();
+                    SqlCommand myCommand = new SqlCommand("update TG.Usuario set Pass='" +
+                    TG.encriptar(textBoxPass1.Text) + "', Primer_Ingreso = 0"+
+                    "where ID_User = " + TG.usuario.ToString(), myConnection);
+                    myCommand.ExecuteNonQuery();
+                    FrbaCommerce.Login.selectorRol seleccionRol = new selectorRol(ventanaAnterior);
+                    seleccionRol.Show();
+                    TG.ventanaEmergente("Se cambió la contraseña exitosamente.");
+                    this.Close();
+                    break;
                 case 1: TG.ventanaEmergente("Ingrese una contraseña valida"); break;
                 case 2: TG.ventanaEmergente("El password tiene que coincidir en ambos campos"); break;
                 case 3: TG.ventanaEmergente("El password nuevo tiene que tener entre 8 y 10 caracteres"); break;
@@ -52,7 +66,7 @@ namespace FrbaCommerce.Login
                 TG.usuario.ToString() + "and Pass ='" + TG.encriptar(textBoxOldPass.Text) + "'", myConnection);
             SqlDataReader consulta = null;
             consulta = myCommand.ExecuteReader();
-            if (!consulta.HasRows) return 1;
+            if (!consulta.HasRows && textBoxOldPass.Enabled) return 1;
             if (!string.Equals(textBoxPass1.Text, textBoxPass2.Text)) return 2;
             if (textBoxPass1.Text.Length < 8 || textBoxPass1.Text.Length > 10) return 3;
             return 0;

@@ -52,15 +52,17 @@ namespace FrbaCommerce.Login
                 cmd.ExecuteNonQuery();
                 myConnection.Close();
 
-                if (Convert.ToInt32(protocolo.Value) == 1) TG.ventanaEmergente("Usuario NO Encontrado o pass incorrecto");// usuario no encontrado
-                else if (Convert.ToInt32(protocolo.Value) == 2) TG.ventanaEmergente("Usuario Inhabilitado!");
-                else if (Convert.ToInt32(protocolo.Value) == 3) TG.ventanaEmergente("Usuario NO Encontrado o pass incorrecto");// pass incorrecto
-                else if (Convert.ToInt32(protocolo.Value) == 4) TG.ventanaEmergente("Inhabilitado por poner mal el pass 3 veces!");
-                else if (Convert.ToInt32(protocolo.Value) == 5) TG.ventanaEmergente("No hay roles disponibles para este usuario");
+                int protocol = Convert.ToInt32(protocolo.Value);
+
+                     if (protocol == 1) TG.ventanaEmergente("Usuario NO Encontrado o pass incorrecto");// usuario no encontrado
+                else if (protocol == 2) TG.ventanaEmergente("Usuario Inhabilitado!");
+                else if (protocol == 3) TG.ventanaEmergente("Usuario NO Encontrado o pass incorrecto");// pass incorrecto
+                else if (protocol == 4) TG.ventanaEmergente("Inhabilitado por poner mal el pass 3 veces!");
+                else if (protocol == 5) TG.ventanaEmergente("No hay roles disponibles para este usuario");
                 else if (primerIngreso(Convert.ToInt32(userTextbox.Text)))
                 {
                     TG.usuario = Convert.ToInt32(userTextbox.Text);
-                    FrbaCommerce.Login.cambioPass cambioDePass = new cambioPass(this);
+                    FrbaCommerce.Login.cambioPass cambioDePass = new cambioPass(this,true);
                     cambioDePass.Show();
                     this.Visible = false;
                 }
@@ -100,6 +102,11 @@ namespace FrbaCommerce.Login
         private void passTextBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter) submitActions();
+        }
+
+        private void login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
