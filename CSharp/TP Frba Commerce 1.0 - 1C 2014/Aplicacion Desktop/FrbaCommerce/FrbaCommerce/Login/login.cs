@@ -7,7 +7,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-  
 
 namespace FrbaCommerce.Login
 {
@@ -20,35 +19,18 @@ namespace FrbaCommerce.Login
             this.ClientSize = new System.Drawing.Size(340, 140);
         }
 
-
-
-        private void seleccionarRol(int usuario)
+        private void seleccionarRol()
         {
-            FrbaCommerce.Login.selectorRol seleccionFrm = new selectorRol(usuario);
+            FrbaCommerce.Login.selectorRol seleccionFrm = new selectorRol(this);
             seleccionFrm.Show();
             this.Visible = false;
-        }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void submitActions() 
         {
             if (userTextbox.Text == "" || passTextBox.Text == "")
             {
-                ventanaEmergente("Campos incompletos");
+                TG.ventanaEmergente("Campos incompletos");
                 return;
             }
             
@@ -77,19 +59,23 @@ namespace FrbaCommerce.Login
                 cmd.ExecuteNonQuery();
                 myConnection.Close();
 
-                if (Convert.ToInt32(protocolo.Value) == 1) ventanaEmergente("Usuario NO Encontrado o pass incorrecto");// usuario no encontrado
-                else if (Convert.ToInt32(protocolo.Value) == 2) ventanaEmergente("Usuario Inhabilitado!");
-                else if (Convert.ToInt32(protocolo.Value) == 3) ventanaEmergente("Usuario NO Encontrado o pass incorrecto");// pass incorrecto
-                else if (Convert.ToInt32(protocolo.Value) == 4) ventanaEmergente("Inhabilitado por poner mal el pass 3 veces!");
-                else if (Convert.ToInt32(protocolo.Value) == 5) ventanaEmergente("No hay roles disponibles para este usuario");
+                if (Convert.ToInt32(protocolo.Value) == 1) TG.ventanaEmergente("Usuario NO Encontrado o pass incorrecto");// usuario no encontrado
+                else if (Convert.ToInt32(protocolo.Value) == 2) TG.ventanaEmergente("Usuario Inhabilitado!");
+                else if (Convert.ToInt32(protocolo.Value) == 3) TG.ventanaEmergente("Usuario NO Encontrado o pass incorrecto");// pass incorrecto
+                else if (Convert.ToInt32(protocolo.Value) == 4) TG.ventanaEmergente("Inhabilitado por poner mal el pass 3 veces!");
+                else if (Convert.ToInt32(protocolo.Value) == 5) TG.ventanaEmergente("No hay roles disponibles para este usuario");
                 else if (primerIngreso(Convert.ToInt32(userTextbox.Text)))
                 {
-                    FrbaCommerce.Login.cambioPass cambioDePass = new cambioPass(this, Convert.ToInt32(userTextbox.Text));
+                    TG.usuario = Convert.ToInt32(userTextbox.Text);
+                    FrbaCommerce.Login.cambioPass cambioDePass = new cambioPass(this);
                     cambioDePass.Show();
                     this.Visible = false;
                 }
-                else seleccionarRol(Convert.ToInt32(userTextbox.Text));
-
+                else
+                {
+                    TG.usuario = Convert.ToInt32(userTextbox.Text);
+                    seleccionarRol();
+                }
             }    
         }
 
@@ -108,11 +94,6 @@ namespace FrbaCommerce.Login
            bool resultado = Convert.ToBoolean(consulta["Primer_Ingreso"]);
            myConnection.Close();
            return resultado;
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
 
         }
 

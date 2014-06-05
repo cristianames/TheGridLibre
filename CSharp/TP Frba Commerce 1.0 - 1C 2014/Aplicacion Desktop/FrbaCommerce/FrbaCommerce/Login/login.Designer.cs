@@ -42,7 +42,6 @@
             this.userTextbox.Name = "userTextbox";
             this.userTextbox.Size = new System.Drawing.Size(82, 20);
             this.userTextbox.TabIndex = 1;
-            this.userTextbox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.userTextbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.userTextbox_KeyDown);
             // 
             // passTextBox
@@ -63,7 +62,6 @@
             this.label1.Size = new System.Drawing.Size(135, 14);
             this.label1.TabIndex = 3;
             this.label1.Text = "Username:  Grid_";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -99,7 +97,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(969, 429);
+            this.ClientSize = new System.Drawing.Size(888, 447);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
@@ -108,7 +106,6 @@
             this.Controls.Add(this.userTextbox);
             this.Name = "login";
             this.Text = "Login - BETA";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

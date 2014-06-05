@@ -13,3 +13,8 @@ G:\TheGridLibre\CSharp\LevantarDatosSQL\LevantarDatosSQL\obj\Release\LevantarDat
 G:\TheGridLibre\CSharp\LevantarDatosSQL\LevantarDatosSQL\bin\Release\LevantarDatosSQL.exe
 G:\TheGridLibre\CSharp\LevantarDatosSQL\LevantarDatosSQL\bin\Release\LevantarDatosSQL.pdb
 G:\TheGridLibre\CSharp\LevantarDatosSQL\LevantarDatosSQL\obj\Release\ResolveAssemblyReference.cache
+E:\TheGridLibre\CSharp\LevantarDatosSQL\LevantarDatosSQL\obj\Release\LevantarDatosSQL.exe
+E:\TheGridLibre\CSharp\LevantarDatosSQL\LevantarDatosSQL\obj\Release\LevantarDatosSQL.pdb
+E:\TheGridLibre\CSharp\LevantarDatosSQL\LevantarDatosSQL\bin\Release\LevantarDatosSQL.exe
+E:\TheGridLibre\CSharp\LevantarDatosSQL\LevantarDatosSQL\bin\Release\LevantarDatosSQL.pdb
+E:\TheGridLibre\CSharp\LevantarDatosSQL\LevantarDatosSQL\obj\Release\ResolveAssemblyReference.cache

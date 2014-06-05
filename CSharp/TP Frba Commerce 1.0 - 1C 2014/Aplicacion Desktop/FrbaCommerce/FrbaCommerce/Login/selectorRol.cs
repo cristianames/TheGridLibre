@@ -6,35 +6,21 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 
 namespace FrbaCommerce.Login
 {
     public partial class selectorRol : FormGrid
     {
-
-        public static List<string> ObtenerRoles(int usuario)
-        {
-            List<string> _lista = new List<string>();
-
-            SqlConnection conexion = TG.conectar();
-            SqlCommand _comando = new SqlCommand("SELECT Nombre FROM TG.Rol R, TG.Roles_x_Usuario U" +
-                " WHERE R.ID_Rol = U.ID_Rol AND U.Inhabilitado = 0 AND " + 
-                " U.ID_User = " + usuario.ToString(), conexion);
-            SqlDataReader _reader = _comando.ExecuteReader();
-            while (_reader.Read())
-            {
-                _lista.Add(_reader.GetString(0));
-            }
-            conexion.Close();
-            return _lista;
-        }
         
-        public selectorRol(int usuario)
+        public selectorRol(FormGrid anterior)
         {
             InitializeComponent();
+            this.ventanaAnterior = anterior;
             this.ClientSize = new System.Drawing.Size(370, 170);
-            comboBox1.DataSource = ObtenerRoles(usuario);
+            string comando = "SELECT Nombre FROM TG.Rol R, TG.Roles_x_Usuario U" +
+                " WHERE R.ID_Rol = U.ID_Rol AND U.Inhabilitado = 0 AND " +
+                " U.ID_User = " + TG.usuario.ToString();
+            comboBox1.DataSource = TG.ObtenerListado(comando);
         }
 
         private void selectorRol_Load(object sender, EventArgs e)
@@ -42,14 +28,15 @@ namespace FrbaCommerce.Login
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
+            TG.ventanaEmergente(comboBox1.SelectedItem.ToString());
+            
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            volverAtras();
         }
     }
 }

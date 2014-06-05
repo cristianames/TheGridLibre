@@ -7,9 +7,68 @@ using System.Security.Cryptography;
 
 namespace FrbaCommerce
 {
+    public class FormGrid : Form
+    {
+        protected FormGrid ventanaAnterior;
+        protected FormGrid()
+        {
+            this.ControlBox = false;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.ShowIcon = false;
+            this.Dock = DockStyle.Fill;
+        }
+
+        private void ManejadorCierre(object sender, EventArgs e)
+        {
+            // Todas estas boludeces ocurren cuando se cierra un form de clase FromGrid
+            TG.ventanaEmergente("NO ME CIERRO NADA");
+        }
+
+        protected void volverAtras()
+        {
+            this.ventanaAnterior.Show();
+            this.Close();
+        }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // FormGrid
+            // 
+            this.ClientSize = new System.Drawing.Size(292, 266);
+            this.Name = "FormGrid";
+            this.Load += new System.EventHandler(this.FormGrid_Load);
+            this.ResumeLayout(false);
+
+        }
+
+        private void FormGrid_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
+
+    public class FormGridTerminal : FormGrid
+    {
+        protected FormGridTerminal()
+        {
+            this.FormClosed += ManejadorCierre;
+            this.ControlBox = true;
+        }
+
+        private void ManejadorCierre(object sender, EventArgs e)
+        {
+            //Si me cierran, cierro todo.
+            System.Environment.Exit(0);
+        }
+    }
 
     static class TG 
     {
+        public static int usuario = (-1);
+        public static int codigoRol = (-1);
         public static SqlConnection conectar()
         {
             SqlConnection Conexion = new SqlConnection(@"Data Source=localhost\SQLSERVER2008;" +
@@ -33,48 +92,23 @@ namespace FrbaCommerce
             }
             return sha256Str;
         }
-    }
-    // SqlConnection pepita = TG_Connect.conectar();
 
-
-    public class FormGrid : Form
-    {
-        protected FormGrid ventanaAnterior;
-        protected FormGrid()
+        public static List<string> ObtenerListado(string comando)
         {
-            this.ControlBox = false;
-            this.MaximizeBox=false;
-            this.MinimizeBox=false;
-            this.ShowIcon=false;
-            this.Dock = DockStyle.Fill;
+            List<string> _lista = new List<string>();
+            SqlConnection conexion = TG.conectar();
+            SqlCommand _comando = new SqlCommand(comando, conexion);
+            SqlDataReader _reader = _comando.ExecuteReader();
+            while (_reader.Read()) _lista.Add(_reader.GetString(0));
+            conexion.Close();
+            return _lista;
         }
 
-        protected void ventanaEmergente(string msg)
+        public static void ventanaEmergente(string msg)
         {
             FrbaCommerce.VentanaError error = new VentanaError();
             error.escribirMsg(msg);
             error.Show();
-        }
-
-        private void ManejadorCierre(object sender, EventArgs e)
-        {
-            // Todas estas boludeces ocurren cuando se cierra un form de clase FromGrid
-            ventanaEmergente("NO ME CIERRO NADA");
-        }
-    }
-
-    public class FormGridTerminal : FormGrid
-    {
-        protected FormGridTerminal()
-        {
-            this.FormClosed += ManejadorCierre;
-            this.ControlBox = true;
-        }
-
-        private void ManejadorCierre(object sender, EventArgs e)
-        {
-            //Si me cierran, cierro todo.
-            System.Environment.Exit(0);
         }
     }
 

@@ -51,7 +51,6 @@
             this.label1.Size = new System.Drawing.Size(132, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Por favor seleccione su rol";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // button1
             // 
@@ -71,12 +70,13 @@
             this.button2.TabIndex = 3;
             this.button2.Text = "Atrás";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // selectorRol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(947, 348);
+            this.ClientSize = new System.Drawing.Size(888, 447);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);

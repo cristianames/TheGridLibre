@@ -8,6 +8,12 @@ using System.Data.SqlClient;
 namespace LevantarDatosSQL
     // es una hermosa aplicacion de consola
 {
+
+    public static class Globals
+    {
+        public static String s_Name = "Mike"; // Modifiable in Code
+    }
+
     class Program
     {
         static void Main(string[] args)
@@ -69,6 +75,9 @@ namespace LevantarDatosSQL
 
                 System.Console.Out.WriteLine("x=" + x.Value + " ; y=" + y.Value);
             }
+
+            Globals.s_Name = "Holaaaa";
+            System.Console.Out.WriteLine(Globals.s_Name);
 
         }
     }

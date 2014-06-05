@@ -126,6 +126,30 @@
     <Compile Include="Facturar Publicaciones\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gestion de Preguntas\Pendientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Preguntas\Pendientes.Designer.cs">
+      <DependentUpon>Pendientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Preguntas\Respondidas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Preguntas\Respondidas.Designer.cs">
+      <DependentUpon>Respondidas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Preguntas\Respuesta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Preguntas\Respuesta.Designer.cs">
+      <DependentUpon>Respuesta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Preguntas\Seleccion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Preguntas\Seleccion.Designer.cs">
+      <DependentUpon>Seleccion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login\cambioPass.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,12 +178,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Generar Publicacion\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Gestion de Preguntas\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Gestion de Preguntas\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Historial Cliente\Form1.cs">
@@ -205,6 +223,12 @@
     <EmbeddedResource Include="Escrtorio.resx">
       <DependentUpon>Escrtorio.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Preguntas\Pendientes.resx">
+      <DependentUpon>Pendientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Preguntas\Seleccion.resx">
+      <DependentUpon>Seleccion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login\cambioPass.resx">
       <DependentUpon>cambioPass.cs</DependentUpon>
     </EmbeddedResource>
@@ -216,6 +240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Portal.resx">
       <DependentUpon>Portal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Program.resx">
+      <DependentUpon>Program.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
