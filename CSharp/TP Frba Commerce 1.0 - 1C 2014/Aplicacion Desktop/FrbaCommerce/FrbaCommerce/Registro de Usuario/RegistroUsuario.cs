@@ -18,6 +18,7 @@ namespace FrbaCommerce.Registro_de_Usuario
             grupoEmpresa.Location = new System.Drawing.Point(15, 47);
             grupoEmpresa.Visible = false;
             this.ClientSize = new System.Drawing.Size(487, 428);
+            comboBox1.SelectedIndex = 0;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -63,8 +64,8 @@ namespace FrbaCommerce.Registro_de_Usuario
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-            grupoCliente.Visible = false;
             grupoEmpresa.Visible = true;
+            grupoCliente.Visible = false;            
         }
 
         private void button3_Click(object sender, EventArgs e)
