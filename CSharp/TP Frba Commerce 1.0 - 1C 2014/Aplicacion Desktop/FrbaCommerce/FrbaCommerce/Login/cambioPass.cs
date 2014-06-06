@@ -41,7 +41,7 @@ namespace FrbaCommerce.Login
                     SqlConnection myConnection = TG.conectar();
                     SqlCommand myCommand = new SqlCommand("update TG.Usuario set Pass='" +
                     TG.encriptar(textBoxPass1.Text) + "', Primer_Ingreso = 0"+
-                    "where ID_User = " + TG.usuario.ToString(), myConnection);
+                    "where ID_User = " + DatosUsuario.usuario.ToString(), myConnection);
                     myCommand.ExecuteNonQuery();
                     FrbaCommerce.Login.selectorRol seleccionRol = new selectorRol(ventanaAnterior);
                     seleccionRol.Show();
@@ -63,7 +63,7 @@ namespace FrbaCommerce.Login
         {
             SqlConnection myConnection = TG.conectar();
             SqlCommand myCommand = new SqlCommand("select * from TG.Usuario where ID_User = " +
-                TG.usuario.ToString() + "and Pass ='" + TG.encriptar(textBoxOldPass.Text) + "'", myConnection);
+                DatosUsuario.usuario.ToString() + "and Pass ='" + TG.encriptar(textBoxOldPass.Text) + "'", myConnection);
             SqlDataReader consulta = null;
             consulta = myCommand.ExecuteReader();
             if (!consulta.HasRows && textBoxOldPass.Enabled) return 1;

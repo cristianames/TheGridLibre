@@ -25,11 +25,11 @@ namespace FrbaCommerce
                 this.tableLayoutPanel1.Size = new System.Drawing.Size(115, tableLayoutPanel1.Height + 20);
             }*/
             this.ClientSize = new System.Drawing.Size(167, 319);
-            label3.Text = "¡Bienvenido Grid_"+TG.usuario.ToString()+"!";
-            linkLabel3.Text = TG.nombreRol;
+            label3.Text = "¡Bienvenido Grid_" + DatosUsuario.usuario.ToString() + "!";
+            linkLabel3.Text = DatosUsuario.nombreRol;
 
             string comando = "SELECT Nombre FROM TG.Funcionalidades_x_Rol WHERE ID_Rol = " +
-                TG.codigoRol.ToString();
+                DatosUsuario.codigoRol.ToString();
             listBox1.DataSource = TG.ObtenerListado(comando);
         }
 

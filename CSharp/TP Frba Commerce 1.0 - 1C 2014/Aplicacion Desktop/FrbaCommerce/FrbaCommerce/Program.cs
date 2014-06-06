@@ -67,9 +67,6 @@ namespace FrbaCommerce
 
     static class TG 
     {
-        public static int usuario = (-1);
-        public static int codigoRol = (-1);
-        public static string nombreRol = "";
         public static FormGrid elLogin;
         public static SqlConnection conectar()
         {
@@ -112,6 +109,12 @@ namespace FrbaCommerce
             error.escribirMsg(msg);
             error.Show();
         }
+    }
+
+    static class DatosUsuario {
+        public static int usuario = (-1);
+        public static int codigoRol = (-1);
+        public static string nombreRol = "";
     }
 
     static class Program

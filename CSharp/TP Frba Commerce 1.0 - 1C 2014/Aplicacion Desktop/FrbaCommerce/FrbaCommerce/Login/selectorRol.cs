@@ -20,7 +20,7 @@ namespace FrbaCommerce.Login
             this.ClientSize = new System.Drawing.Size(370, 170);
             string comando = "SELECT Nombre FROM TG.Rol R, TG.Roles_x_Usuario U" +
                 " WHERE R.ID_Rol = U.ID_Rol AND U.Inhabilitado = 0 AND " +
-                " U.ID_User = " + TG.usuario.ToString();
+                " U.ID_User = " + DatosUsuario.usuario.ToString();
             comboBox1.DataSource = TG.ObtenerListado(comando);
         }
 
@@ -43,8 +43,8 @@ namespace FrbaCommerce.Login
 
         private void button1_Click(object sender, EventArgs e)
         {
-            TG.nombreRol = comboBox1.SelectedItem.ToString();
-            TG.codigoRol = rol(comboBox1.SelectedItem.ToString());
+            DatosUsuario.nombreRol = comboBox1.SelectedItem.ToString();
+            DatosUsuario.codigoRol = rol(comboBox1.SelectedItem.ToString());
             FrbaCommerce.Escritorio desk = new Escritorio(this);
             desk.Show();
             this.Visible = false;
