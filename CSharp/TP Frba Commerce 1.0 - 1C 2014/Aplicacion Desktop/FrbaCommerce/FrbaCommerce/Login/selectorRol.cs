@@ -34,7 +34,7 @@ namespace FrbaCommerce.Login
             SqlConnection myConnection = TG.conectar();
             SqlCommand myCommand = new SqlCommand("select ID_Rol from TG.Rol "+
                 "where Nombre = '" + nombreRol + "'", myConnection);
-            SqlDataReader consulta = consulta = myCommand.ExecuteReader();
+            SqlDataReader consulta = myCommand.ExecuteReader();
             consulta.Read();
             int resultado = Convert.ToInt32(consulta["ID_Rol"]);
             myConnection.Close();

@@ -69,6 +69,7 @@ namespace FrbaCommerce.Login
                 else
                 {
                     DatosUsuario.usuario = Convert.ToInt32(userTextbox.Text);
+                    DatosUsuario.actualizarTipoUsuario();
                     FrbaCommerce.Login.selectorRol seleccionRol = new selectorRol(this);
                     seleccionRol.Show();
                     this.Visible = false;

@@ -46,6 +46,7 @@ namespace FrbaCommerce.Login
                     FrbaCommerce.Login.selectorRol seleccionRol = new selectorRol(ventanaAnterior);
                     seleccionRol.Show();
                     TG.ventanaEmergente("Se cambió la contraseña exitosamente.");
+                    DatosUsuario.actualizarTipoUsuario();
                     this.Close();
                     break;
                 case 1: TG.ventanaEmergente("Ingrese una contraseña valida"); break;

@@ -112,9 +112,30 @@ namespace FrbaCommerce
     }
 
     static class DatosUsuario {
-        public static int usuario = (-1);
+        public static int usuario = (-1); //variables globales o.O
         public static int codigoRol = (-1);
         public static string nombreRol = "";
+        public static int tipoUsuario = (-1);
+
+        public static void actualizarTipoUsuario() 
+        {
+            SqlConnection myConnection = TG.conectar();
+            SqlCommand myCommand = new SqlCommand("select ID_Tipo from TG.Usuario " +
+                "where ID_User = " + DatosUsuario.usuario.ToString(), myConnection);
+            SqlDataReader consulta = myCommand.ExecuteReader();
+            consulta.Read();
+            DatosUsuario.tipoUsuario = Convert.ToInt32(consulta["ID_Tipo"]);
+            myConnection.Close();
+            return;
+        }
+
+        public static void resetearDatos() 
+        {
+            DatosUsuario.usuario = (-1);
+            DatosUsuario.codigoRol = (-1);
+            DatosUsuario.nombreRol = "";
+            DatosUsuario.tipoUsuario = (-1);
+        }
     }
 
     static class Program
