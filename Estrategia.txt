@@ -1,2 +1,5 @@
 -- No hay usuarios que sean tanto cliente como empresa xq' no existe el concepto de usuario
 -- No hay clientes compradores que no hayan vendido :3
+
+-- Roles x usuario se deshabilitan por trigger al deshabilitar un rol de la tabla Rol
+-- El proceso de login no te deja entrar si el usuario no posee roles actualmente activos (que se curta?)

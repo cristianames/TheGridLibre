@@ -20,7 +20,7 @@ fetch next from cursorCliente
 while(@@FETCH_STATUS = 0)
 begin
 
-insert into GD1C2014.TG.Usuario (Pass,Inhabilitado,Antiguo,ID_Tipo,Intentos) values('37a8eec1ce19687d132fe29051dca629d164e2c4958ba141d5f4133a33f0688f',0,1,2,0)
+insert into GD1C2014.TG.Usuario (Pass,Inhabilitado,Antiguo,ID_Tipo,Intentos, Primer_Ingreso) values('37a8eec1ce19687d132fe29051dca629d164e2c4958ba141d5f4133a33f0688f',0,1,2,1,1)
 insert into GD1C2014.TG.Roles_x_Usuario values(@contador,2,0)
 insert into GD1C2014.TG.Cliente values(@contador,@nombre,@apellido,'DNI',@dni,@mail,0,@nacimiento,0,@calle,@nro,@piso,@depto,'Sin_Localidad',@postal,'Sin_Ciudad')
 
@@ -49,7 +49,7 @@ fetch next from cursorEmpresa
 while(@@FETCH_STATUS = 0)
 begin
 
-insert into GD1C2014.TG.Usuario (Pass,Inhabilitado,Antiguo,ID_Tipo,Intentos) values('37a8eec1ce19687d132fe29051dca629d164e2c4958ba141d5f4133a33f0688f',0,1,3,0)
+insert into GD1C2014.TG.Usuario (Pass,Inhabilitado,Antiguo,ID_Tipo,Intentos, Primer_Ingreso) values('37a8eec1ce19687d132fe29051dca629d164e2c4958ba141d5f4133a33f0688f',0,1,3,1,1)
 insert into GD1C2014.TG.Roles_x_Usuario values(@contador,3,0)
 insert into GD1C2014.TG.Empresa values(@contador,@razon,@cuit,@mail,0,@creacion,'Sin_Contacto',@calle,@nro,@piso,@depto,'Sin_Localidad',@postal,'Sin_Ciudad')
 

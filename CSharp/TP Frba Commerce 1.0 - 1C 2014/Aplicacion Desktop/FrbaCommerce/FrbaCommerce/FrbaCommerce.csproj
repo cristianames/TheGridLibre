@@ -48,17 +48,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abm Cliente\Form1.cs">
+    <Compile Include="Abm Usuario\AbmUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Abm Cliente\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Abm Empresa\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Abm Empresa\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Abm Usuario\AbmUsuario.Designer.cs">
+      <DependentUpon>AbmUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="ABM Rol\Form1.cs">
       <SubType>Form</SubType>
@@ -66,11 +60,29 @@
     <Compile Include="ABM Rol\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm Rubro\Form1.cs">
+    <Compile Include="Abm Rubro\ABMRubro.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Abm Rubro\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Abm Rubro\ABMRubro.Designer.cs">
+      <DependentUpon>ABMRubro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Rubro\CrearRubro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Rubro\CrearRubro.Designer.cs">
+      <DependentUpon>CrearRubro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Rubro\EliminarRubro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Rubro\EliminarRubro.Designer.cs">
+      <DependentUpon>EliminarRubro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Rubro\ModificarRubro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Rubro\ModificarRubro.Designer.cs">
+      <DependentUpon>ModificarRubro.cs</DependentUpon>
     </Compile>
     <Compile Include="Abm Visibilidad\Form1.cs">
       <SubType>Form</SubType>
@@ -78,11 +90,17 @@
     <Compile Include="Abm Visibilidad\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Calificar Vendedor\Form1.cs">
+    <Compile Include="Calificar Vendedor\FormularioCalificacion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Calificar Vendedor\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Calificar Vendedor\FormularioCalificacion.Designer.cs">
+      <DependentUpon>FormularioCalificacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Calificar Vendedor\SeleccionarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Calificar Vendedor\SeleccionarUsuario.Designer.cs">
+      <DependentUpon>SeleccionarUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Comprar-Ofertar\Form1.cs">
       <SubType>Form</SubType>
@@ -96,28 +114,70 @@
     <Compile Include="Editar Publicacion\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Escritorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Escritorio.Designer.cs">
+      <DependentUpon>Escritorio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Facturar Publicaciones\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Facturar Publicaciones\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Gestion de Preguntas\Pendientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Gestion de Preguntas\Pendientes.Designer.cs">
+      <DependentUpon>Pendientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Preguntas\Respondidas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Preguntas\Respondidas.Designer.cs">
+      <DependentUpon>Respondidas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Preguntas\Respuesta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Preguntas\Respuesta.Designer.cs">
+      <DependentUpon>Respuesta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Preguntas\Seleccion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Preguntas\Seleccion.Designer.cs">
+      <DependentUpon>Seleccion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\cambioPass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\cambioPass.Designer.cs">
+      <DependentUpon>cambioPass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\login.Designer.cs">
+      <DependentUpon>login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\selectorRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\selectorRol.Designer.cs">
+      <DependentUpon>selectorRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Portal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Portal.Designer.cs">
+      <DependentUpon>Portal.cs</DependentUpon>
     </Compile>
     <Compile Include="Generar Publicacion\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Generar Publicacion\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Gestion de Preguntas\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Gestion de Preguntas\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Historial Cliente\Form1.cs">
@@ -132,33 +192,65 @@
     <Compile Include="Listado Estadistico\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login\Form1.cs">
+    <Compile Include="Program.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Abm Cliente\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Abm Usuario\AbmUsuario.resx">
+      <DependentUpon>AbmUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Rol\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Abm Rubro\ABMRubro.resx">
+      <DependentUpon>ABMRubro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Abm Rubro\CrearRubro.resx">
+      <DependentUpon>CrearRubro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Rubro\EliminarRubro.resx">
+      <DependentUpon>EliminarRubro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Rubro\ModificarRubro.resx">
+      <DependentUpon>ModificarRubro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Calificar Vendedor\FormularioCalificacion.resx">
+      <DependentUpon>FormularioCalificacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Calificar Vendedor\SeleccionarUsuario.resx">
+      <DependentUpon>SeleccionarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Escritorio.resx">
+      <DependentUpon>Escritorio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Preguntas\Pendientes.resx">
+      <DependentUpon>Pendientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Preguntas\Seleccion.resx">
+      <DependentUpon>Seleccion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\cambioPass.resx">
+      <DependentUpon>cambioPass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\login.resx">
+      <DependentUpon>login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\selectorRol.resx">
+      <DependentUpon>selectorRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Portal.resx">
+      <DependentUpon>Portal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Program.resx">
+      <DependentUpon>Program.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Registro de Usuario\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Registro de Usuario\RegistroUsuario.resx">
+      <DependentUpon>RegistroUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VentanaError.resx">
       <DependentUpon>VentanaError.cs</DependentUpon>
@@ -176,11 +268,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Registro de Usuario\Form1.cs">
+    <Compile Include="Registro de Usuario\RegistroUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registro de Usuario\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Registro de Usuario\RegistroUsuario.Designer.cs">
+      <DependentUpon>RegistroUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="VentanaError.cs">
       <SubType>Form</SubType>
