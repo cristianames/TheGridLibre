@@ -315,6 +315,7 @@
             this.button1.TabIndex = 44;
             this.button1.Text = "Registrar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dateTimePicker1
             // 
@@ -473,6 +474,7 @@
             this.button2.TabIndex = 45;
             this.button2.Text = "Registrar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // textBox25
             // 
@@ -740,6 +742,7 @@
             this.Controls.Add(this.radioButton1);
             this.Name = "RegistroUsuario";
             this.Text = "Datos de Registro";
+            this.Load += new System.EventHandler(this.RegistroUsuario_Load);
             this.grupoCliente.ResumeLayout(false);
             this.grupoCliente.PerformLayout();
             this.grupoEmpresa.ResumeLayout(false);

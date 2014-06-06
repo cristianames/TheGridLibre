@@ -7,19 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using FrbaCommerce.Registro_de_Usuario;
 
 namespace FrbaCommerce.Login
 {
     public partial class cambioPass : FormGrid
     {
+        private bool primerIngreso;
         public cambioPass(FormGrid ventanaAnterior, bool primerIngreso)
         {
             InitializeComponent();
+            this.primerIngreso = primerIngreso;
             this.ventanaAnterior = ventanaAnterior;
             this.ClientSize = new System.Drawing.Size(292, 266);
-            if (primerIngreso) {
+            if (primerIngreso)
+            {
                 textBoxOldPass.Enabled = false;
                 textBoxOldPass.Text = "LOOOOOOL";
+                DatosUsuario.actualizarTipoUsuario();
             }
         }
 
@@ -43,8 +48,10 @@ namespace FrbaCommerce.Login
                     TG.encriptar(textBoxPass1.Text) + "', Primer_Ingreso = 0"+
                     "where ID_User = " + DatosUsuario.usuario.ToString(), myConnection);
                     myCommand.ExecuteNonQuery();
-                    FrbaCommerce.Login.selectorRol seleccionRol = new selectorRol(ventanaAnterior);
-                    seleccionRol.Show();
+                    if(this.primerIngreso){
+                        RegistroUsuario registro = new RegistroUsuario(ventanaAnterior);
+                        registro.Show();
+                    }
                     TG.ventanaEmergente("Se cambió la contraseña exitosamente.");
                     DatosUsuario.actualizarTipoUsuario();
                     this.Close();

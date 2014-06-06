@@ -87,7 +87,7 @@ namespace FrbaCommerce.Login
            SqlConnection myConnection = TG.conectar();
            SqlCommand myCommand = new SqlCommand("select Primer_Ingreso from TG.Usuario where ID_User = "+ 
                usuario.ToString() ,myConnection);
-           SqlDataReader consulta = consulta = myCommand.ExecuteReader();
+           SqlDataReader consulta = myCommand.ExecuteReader();
            consulta.Read();
            bool resultado = Convert.ToBoolean(consulta["Primer_Ingreso"]);
            myConnection.Close();
