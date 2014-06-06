@@ -41,6 +41,7 @@ namespace FrbaCommerce
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             TG.elLogin.Show();
+            DatosUsuario.resetearDatos();
             this.Close();
         }
 
@@ -64,6 +65,13 @@ namespace FrbaCommerce
                         break;
                 }
             }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrbaCommerce.Registro_de_Usuario.RegistroUsuario registroFrm = new FrbaCommerce.Registro_de_Usuario.RegistroUsuario(this);
+            registroFrm.Show();
+            this.Visible = false;
         }
     }
 }
