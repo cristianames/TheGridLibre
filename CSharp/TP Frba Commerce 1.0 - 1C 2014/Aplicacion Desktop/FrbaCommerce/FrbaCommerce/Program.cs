@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Security.Cryptography;
@@ -108,6 +109,25 @@ namespace FrbaCommerce
             FrbaCommerce.VentanaError error = new VentanaError();
             error.escribirMsg(msg);
             error.Show();
+
+        }
+
+        public static DataTable realizarConsulta(string comando) //probar
+        {
+            SqlConnection myConnection = TG.conectar();
+            SqlCommand myCommand = new SqlCommand(comando, myConnection);
+            DataTable unDataTable = new DataTable();
+            unDataTable.Load(myCommand.ExecuteReader());
+            myConnection.Close();
+            return unDataTable;
+        }
+        public static void realizarConsultaSinRetorno(string comando) 
+        {
+            SqlConnection myConnection = TG.conectar();
+            SqlCommand myCommand = new SqlCommand(comando, myConnection);
+            myCommand.ExecuteNonQuery();
+            myConnection.Close();
+            return;
         }
     }
 
@@ -136,6 +156,7 @@ namespace FrbaCommerce
             DatosUsuario.nombreRol = "";
             DatosUsuario.tipoUsuario = (-1);
         }
+       
     }
 
     static class Program

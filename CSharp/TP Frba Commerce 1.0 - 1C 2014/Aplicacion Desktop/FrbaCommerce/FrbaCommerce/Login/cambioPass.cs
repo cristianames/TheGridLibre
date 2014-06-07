@@ -49,7 +49,7 @@ namespace FrbaCommerce.Login
                     "where ID_User = " + DatosUsuario.usuario.ToString(), myConnection);
                     myCommand.ExecuteNonQuery();
                     if(this.primerIngreso){
-                        RegistroUsuario registro = new RegistroUsuario(ventanaAnterior);
+                        txtTelEmpresa registro = new txtTelEmpresa(ventanaAnterior);
                         registro.Show();
                     }
                     TG.ventanaEmergente("Se cambió la contraseña exitosamente.");
