@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 using FrbaCommerce.Registro_de_Usuario;
 
 namespace FrbaCommerce.Login
@@ -42,12 +41,14 @@ namespace FrbaCommerce.Login
         {
             switch (checkPass())
             {
-                case 0: 
-                    SqlConnection myConnection = TG.conectar();
-                    SqlCommand myCommand = new SqlCommand("update TG.Usuario set Pass='" +
-                    TG.encriptar(textBoxPass1.Text) + "', Primer_Ingreso = 0"+
-                    "where ID_User = " + DatosUsuario.usuario.ToString(), myConnection);
-                    myCommand.ExecuteNonQuery();
+                case 0:
+                    string comando = "update TG.Usuario set "+
+                        "Pass='" + TG.encriptar(textBoxPass1.Text) + "',"+
+                        "Primer_Ingreso = 0" +
+                        "where ID_User = " + DatosUsuario.usuario.ToString();
+
+                    TG.realizarConsultaSinRetorno(comando);
+                    
                     if(this.primerIngreso){
                         txtTelEmpresa registro = new txtTelEmpresa(ventanaAnterior);
                         registro.Show();
@@ -69,12 +70,12 @@ namespace FrbaCommerce.Login
 
         private int checkPass()
         {
-            SqlConnection myConnection = TG.conectar();
-            SqlCommand myCommand = new SqlCommand("select * from TG.Usuario where ID_User = " +
-                DatosUsuario.usuario.ToString() + "and Pass ='" + TG.encriptar(textBoxOldPass.Text) + "'", myConnection);
-            SqlDataReader consulta = null;
-            consulta = myCommand.ExecuteReader();
-            if (!consulta.HasRows && textBoxOldPass.Enabled) return 1;
+            string comando = "select * from TG.Usuario where ID_User = " +
+                DatosUsuario.usuario.ToString() + "and Pass ='" + 
+                TG.encriptar(textBoxOldPass.Text) + "'";
+
+            DataTable consulta = TG.realizarConsulta(comando);
+            if (consulta.Rows.Count == 0 && textBoxOldPass.Enabled) return 1;
             if (!string.Equals(textBoxPass1.Text, textBoxPass2.Text)) return 2;
             if (textBoxPass1.Text.Length < 8 || textBoxPass1.Text.Length > 10) return 3;
             return 0;

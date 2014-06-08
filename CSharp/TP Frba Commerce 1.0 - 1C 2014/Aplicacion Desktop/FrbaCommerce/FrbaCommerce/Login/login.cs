@@ -59,7 +59,7 @@ namespace FrbaCommerce.Login
                 else if (protocol == 3) TG.ventanaEmergente("Usuario NO Encontrado o pass incorrecto");// pass incorrecto
                 else if (protocol == 4) TG.ventanaEmergente("Inhabilitado por poner mal el pass 3 veces!");
                 else if (protocol == 5) TG.ventanaEmergente("No hay roles disponibles para este usuario");
-                else if (primerIngreso(Convert.ToInt32(userTextbox.Text)))
+                else if (primerIngreso(userTextbox.Text))
                 {
                     DatosUsuario.usuario = Convert.ToInt32(userTextbox.Text);
                     FrbaCommerce.Login.cambioPass cambioDePass = new cambioPass(this,true);
@@ -82,17 +82,11 @@ namespace FrbaCommerce.Login
             submitActions();           
         }
 
-        private bool primerIngreso(int usuario)
+        private bool primerIngreso(string usuario)
         {           
-           SqlConnection myConnection = TG.conectar();
-           SqlCommand myCommand = new SqlCommand("select Primer_Ingreso from TG.Usuario where ID_User = "+ 
-               usuario.ToString() ,myConnection);
-           SqlDataReader consulta = myCommand.ExecuteReader();
-           consulta.Read();
-           bool resultado = Convert.ToBoolean(consulta["Primer_Ingreso"]);
-           myConnection.Close();
-           return resultado;
-
+           string comando = "select Primer_Ingreso from TG.Usuario where ID_User = "+ usuario;
+           DataRow resultado = TG.realizarConsulta(comando).Rows[0];
+           return Convert.ToBoolean(resultado["Primer_Ingreso"]);
         }
 
         private void userTextbox_KeyDown(object sender, KeyEventArgs e)

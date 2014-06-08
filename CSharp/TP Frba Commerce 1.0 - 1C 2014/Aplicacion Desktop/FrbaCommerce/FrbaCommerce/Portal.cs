@@ -63,7 +63,8 @@ namespace FrbaCommerce
             registroFrm.Show();
             this.Visible = false;
 
-        }     
+        }
+     
     }
 
 }

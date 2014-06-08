@@ -29,22 +29,16 @@ namespace FrbaCommerce.Login
 
         }
 
-        private int rol(string nombreRol)
-        {
-            SqlConnection myConnection = TG.conectar();
-            SqlCommand myCommand = new SqlCommand("select ID_Rol from TG.Rol "+
-                "where Nombre = '" + nombreRol + "'", myConnection);
-            SqlDataReader consulta = myCommand.ExecuteReader();
-            consulta.Read();
-            int resultado = Convert.ToInt32(consulta["ID_Rol"]);
-            myConnection.Close();
-            return resultado;
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             DatosUsuario.nombreRol = comboBox1.SelectedItem.ToString();
-            DatosUsuario.codigoRol = rol(comboBox1.SelectedItem.ToString());
+
+            string comando = "select ID_Rol from TG.Rol " +
+                "where Nombre = '" + comboBox1.SelectedItem.ToString() + "'";
+            
+            DataRow resultado = TG.realizarConsulta(comando).Rows[0];
+            DatosUsuario.codigoRol = Convert.ToInt32(resultado["ID_Rol"]);
+            
             FrbaCommerce.Escritorio desk = new Escritorio(this);
             desk.Show();
             this.Visible = false;

@@ -178,14 +178,74 @@ namespace FrbaCommerce.Registro_de_Usuario
 
         }
 
+        private bool validarDatosCliente() 
+        {
+            string comando;
+            DataTable resultado;
+            
+            comando = "select * from TG.Cliente where " +
+                "Tipo_Documento = '" + comboBox1.SelectedItem.ToString() + "' and "+
+                "Documento = " + txtDoc.Text;
+            resultado = TG.realizarConsulta(comando);
+            if (resultado.Rows.Count > 0)
+            {
+                TG.ventanaEmergente("Documento ya existente");
+                //loggear anomalida
+                return true;
+            }
+
+            comando = "select * from TG.Cliente where "+
+                "Telefono = "+txtTel.Text;
+            resultado = TG.realizarConsulta(comando);
+            if (resultado.Rows.Count > 0)
+            {
+                TG.ventanaEmergente("Telefono ya existente");
+                return true;
+            }
+            return false;
+        }
+
+        private bool validarDatosEmpresa()
+        {
+            string comando;
+            DataTable resultado;
+
+            comando = "select * from TG.Empresa where " +
+                "CUIT = '" + Convert.ToInt32(txtCuit.Text).ToString("#0-00000000-0") +"'";
+            resultado = TG.realizarConsulta(comando);
+            if (resultado.Rows.Count > 0)
+            {
+                TG.ventanaEmergente("CUIT ya existente");
+                //loggear anomalida
+                return true;
+            }
+
+            comando = "select * from TG.Empresa where " +
+                "Razon_Social = '" + txtRazonSocial.Text+"'";
+            resultado = TG.realizarConsulta(comando);
+            if (resultado.Rows.Count > 0)
+            {
+                TG.ventanaEmergente("Razon Social ya existente");
+                //loggear anomalida
+                return true;
+            }
+
+            return false;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             bool error = false;
+            List<TextBox> camposOmitibles = new List<TextBox>();
+            camposOmitibles.Add(txtNroTarjeta);
+            camposOmitibles.Add(txtDep);
+            camposOmitibles.Add(txtPiso);
+            
             foreach (Control tb in grupoCliente.Controls)
             {
                 if (tb is TextBox)
                 {
-                    if (tb.Text.Length == 0 && (!String.Equals(tb.Name, "txtNroTarjeta") && !String.Equals(tb.Name, "txtDep") && !String.Equals(tb.Name,"txtPiso")))//Nro de tarjeta es opcional?
+                    if (tb.Text.Length == 0 && !camposOmitibles.Contains((TextBox)tb))
                     {
                         tb.BackColor = Color.LightYellow;
                         error = true;
@@ -193,9 +253,12 @@ namespace FrbaCommerce.Registro_de_Usuario
                     else tb.BackColor = Color.White;
                 }
             }
-            if (!error) 
-            {
-                if (usuarioNuevo)
+            if (error) return;
+
+            error = validarDatosCliente();
+            if (error) return;
+
+            if (usuarioNuevo)
                 {   // Nuevo usuario
                     string comandoInsertar = "INSERT INTO TG.Usuario(Pass,Inhabilitado,Antiguo,ID_Tipo,Intentos,Primer_Ingreso)"+
                     "VALUES ('" + TG.encriptar("w23e") + "',0,0,2,0,1)";
@@ -207,7 +270,15 @@ namespace FrbaCommerce.Registro_de_Usuario
                     TG.realizarConsultaSinRetorno( "Insert INTO TG.Cliente (ID_User) VALUES("+ DatosUsuario.usuario.ToString() +")" );               
                 }
 
-                string actualizarCliente = @"UPDATE TG.Cliente  set                     
+            string nroTarjeta = txtNroTarjeta.Text;
+            string departamento = txtDep.Text;
+            string piso = txtPiso.Text;
+
+            if (String.Equals(nroTarjeta, "")) nroTarjeta = "0";
+            if (String.Equals(departamento, "")) departamento = "";
+            if (String.Equals(piso, "")) piso = "0";
+
+            string actualizarCliente = @"UPDATE TG.Cliente set                     
                     Nombre ='" + txtNombre.Text + @"',
                     Apellido ='" + txtApellido.Text + @"',
                     Tipo_Documento ='" + comboBox1.Text + @"',
@@ -215,27 +286,34 @@ namespace FrbaCommerce.Registro_de_Usuario
                     Mail ='" + txtEmail.Text + @"',
                     Telefono =" + txtTel.Text + @",
                     Fecha_Nacimiento = convert(datetime,'" + dateTimePicker1.Value.ToString("yyyy-dd-MM hh:mm:ss") + @"'),
-                    Nro_Tarjeta = " + txtNroTarjeta.Text + @",
+                    Nro_Tarjeta = " + nroTarjeta + @",
                     Calle = '" + txtCalle.Text + @"',
                     Nro_Calle = " + txtNroCalle.Text + @",
-                    Nro_Piso = " + txtPiso.Text + @",
-                    Departamento = '" + txtDep.Text + @"',
+                    Nro_Piso = " + piso + @",
+                    Departamento = '" + departamento + @"',
                     Localidad = '" + txtLoc.Text + @"',
                     Cod_Postal = " + txtCodPos.Text + @",
                     Ciudad = '" + txtCiudad.Text + @"'
                     where ID_USER =" + DatosUsuario.usuario.ToString();
-                TG.realizarConsultaSinRetorno(actualizarCliente);
-            }
+            TG.realizarConsultaSinRetorno(actualizarCliente);
+
+            if (usuarioNuevo) 
+                TG.ventanaEmergente("Usuario creado. Su Username y Password se han enviado a su correo");
+            volverAtras();            
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             bool error = false;
+            List<TextBox> camposOmitibles = new List<TextBox>();
+            camposOmitibles.Add(txtDepEmpresa);
+            camposOmitibles.Add(txtPisoEmpresa);
+
             foreach (Control tb in grupoEmpresa.Controls)
             {
                 if (tb is TextBox)
                 {
-                    if (tb.Text.Length == 0)
+                    if (tb.Text.Length == 0 && !camposOmitibles.Contains((TextBox)tb))
                     {
                         tb.BackColor = Color.LightYellow;
                         error = true;
@@ -243,9 +321,12 @@ namespace FrbaCommerce.Registro_de_Usuario
                     else tb.BackColor = Color.White;
                 }
             }
-            if (!error)
-            {
-                if (usuarioNuevo)
+            if (error) return;
+
+            error = validarDatosEmpresa();
+            if (error) return;
+
+            if (usuarioNuevo)
                 {   // Nuevo usuario
                     string comandoInsertar = "INSERT INTO TG.Usuario(Pass,Inhabilitado,Antiguo,ID_Tipo,Intentos,Primer_Ingreso)" +
                     "VALUES ('" + TG.encriptar("w23e") + "',0,0,3,0,1)";
@@ -256,24 +337,32 @@ namespace FrbaCommerce.Registro_de_Usuario
 
                     TG.realizarConsultaSinRetorno("Insert INTO TG.Empresa (ID_User) VALUES(" + DatosUsuario.usuario.ToString() + ")");
                 }
+            string departamento = txtDep.Text;
+            string piso = txtPiso.Text;
 
-                string actualizarCliente = @"UPDATE TG.Empresa  set                     
+            if (String.Equals(departamento, "")) departamento = "";
+            if (String.Equals(piso, "")) piso = "0";
+
+            string actualizarCliente = @"UPDATE TG.Empresa set                     
                     Razon_Social ='" + txtRazonSocial.Text + @"',
-                    CUIT ='" + txtCuit.Text + @"',
+                    CUIT ='" + Convert.ToInt32(txtCuit.Text).ToString("#0-00000000-0") + @"',
                     Mail ='" + txtEmailEmpresa.Text + @"',
                     Telefono =" + textBox17.Text + @",
                     Fecha_Creacion = convert(datetime,'" + dateTimePicker2.Value.ToString("yyyy-dd-MM hh:mm:ss") + @"'),
                     Nombre_Contacto = '" + txtNombreContacto.Text + @"',
                     Calle = '" + txtCalleEmpresa.Text + @"',
                     Nro_Calle = " + txtNroCalleEmpresa.Text + @",
-                    Nro_Piso = " + txtPisoEmpresa.Text + @",
-                    Departamento = '" + txtDepEmpresa.Text + @"',
+                    Nro_Piso = " + piso + @",
+                    Departamento = '" + departamento + @"',
                     Localidad = '" + txtLocEmpresa.Text + @"',
                     Cod_Postal = " + txtCodPosEmpresa.Text + @",
                     Ciudad = '" + txtCiudadEmpresa.Text + @"'
                     where ID_USER =" + DatosUsuario.usuario.ToString();
-                TG.realizarConsultaSinRetorno(actualizarCliente);
-               }
+            TG.realizarConsultaSinRetorno(actualizarCliente);
+            
+            if (usuarioNuevo)
+                TG.ventanaEmergente("Usuario creado. Su Username y Password se han enviado a su correo");
+            volverAtras();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
