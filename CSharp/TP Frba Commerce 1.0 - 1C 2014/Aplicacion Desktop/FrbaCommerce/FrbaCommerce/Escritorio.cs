@@ -53,17 +53,40 @@ namespace FrbaCommerce
         private void button1_Click(object sender, EventArgs e)
         {
             if (listBox1.SelectedItems.Count == 1) {
+
+                bool continuar = true;
+                
                 switch (listBox1.SelectedItem.ToString())
                 {
-                    case "Comprar": //do something
+                    case "ABM Usuario":
+                        (new AbmUsuario.AbmUsuario(this)).Show();
                         break;
-                    case "Publicar": //do something
+                    case "ABM Rol": 
                         break;
-                    case "Facturar": //do something
+                    case "AMB Visibilidad": 
                         break;
-                    default: TG.ventanaEmergente("Esta Funcionalidad todavia no está implementada");
+                    case "Calificar Vendedor":
+                        break;
+                    case "Comprar - Ofertar":
+                        break;
+                    case "Editar Publicacion":
+                        break;
+                    case "Facturar Publicaciones":
+                        break;
+                    case "Generar Publicacion":
+                        break;
+                    case "Gestion De Preguntas":
+                        break;
+                    case "Historial del Cliente":
+                        break;
+                    case "Listado Estadistico":
+                        break;
+                    default: 
+                        TG.ventanaEmergente("Esta Funcionalidad todavia no está implementada");
+                        continuar = false;
                         break;
                 }
+                if (continuar) this.Visible = false;
             }
         }
 

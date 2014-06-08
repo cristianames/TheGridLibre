@@ -43,7 +43,6 @@
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(12, 110);
             this.listBox1.Name = "listBox1";
-            this.listBox1.ScrollAlwaysVisible = true;
             this.listBox1.Size = new System.Drawing.Size(141, 160);
             this.listBox1.TabIndex = 1;
             // 

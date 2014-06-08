@@ -23,7 +23,7 @@ namespace FrbaCommerce
         }
         private void button1_Click(object sender, EventArgs e)
         {
-           FrbaCommerce.Login.login loginFrm = new FrbaCommerce.Login.login();
+           Login.login loginFrm = new Login.login();
            loginFrm.Show();
            TG.elLogin = loginFrm;
            this.Visible = false;
@@ -51,10 +51,8 @@ namespace FrbaCommerce
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FrbaCommerce.Registro_de_Usuario.txtTelEmpresa registroFrm = new FrbaCommerce.Registro_de_Usuario.txtTelEmpresa(this);
-            registroFrm.Show();
+            (new Registro_de_Usuario.txtTelEmpresa(this)).Show();
             this.Visible = false;
-
         }
      
     }

@@ -7,16 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace FrbaCommerce.Abm_Cliente
+namespace FrbaCommerce.AbmUsuario
 {
     
-    public partial class Form1 : FormGrid
+    public partial class AbmUsuario : FormGrid
     {
         private string comandoFiltro = "select * from TG.Usuario";
-        public Form1()
+        public AbmUsuario(FormGrid anterior)
         {
             InitializeComponent();
             this.ClientSize = new System.Drawing.Size(569, 355);
+            this.ventanaAnterior = anterior;
             actualizarGrilla();
         }
 
