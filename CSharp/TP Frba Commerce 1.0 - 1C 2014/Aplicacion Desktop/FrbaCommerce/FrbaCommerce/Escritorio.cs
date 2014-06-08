@@ -59,7 +59,12 @@ namespace FrbaCommerce
                 switch (listBox1.SelectedItem.ToString())
                 {
                     case "ABM Usuario":
-                        (new AbmUsuario.AbmUsuario(this)).Show();
+                        //(new AbmUsuario.AbmUsuario(this)).Show();
+                        break;
+                    case "ABM Cliente":
+                        (new AbmCliente.AbmCliente(this)).Show();
+                        break;
+                    case "ABM Empresa":
                         break;
                     case "ABM Rol": 
                         break;
