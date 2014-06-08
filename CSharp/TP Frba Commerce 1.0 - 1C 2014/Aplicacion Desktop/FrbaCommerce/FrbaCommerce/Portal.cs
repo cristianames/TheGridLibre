@@ -19,15 +19,7 @@ namespace FrbaCommerce
         }
         private void cargarDatos()
         {
-            SqlConnection con = TG.conectar();
-            SqlDataAdapter daGrilla = new SqlDataAdapter("select top 10 * from gd_esquema.Maestra",con);
-            DataSet dsGrilla = new DataSet();
-            daGrilla.Fill(dsGrilla, "gd_esquema.Maestra");
-            dgvGrilla.DataSource = dsGrilla.Tables[0];
-            //dgvGrilla.DataMember = "gd_esquema.Maestra";
-            //textBox1.Text = "SEP";
-            con.Close();
-
+            dgvGrilla.DataSource = TG.realizarConsulta("select top 10 * from gd_esquema.Maestra");
         }
         private void button1_Click(object sender, EventArgs e)
         {

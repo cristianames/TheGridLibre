@@ -16,12 +16,3 @@ go
 
 use GD1C2014
 go
-
-create function TG.dameIDFactura (@Publicacion numeric(18,0)) returns numeric(18,0) as
-begin
-
-return (select ID_Factura from TG.Factura where ID_Publicacion = @Publicacion)
-
-end
-
-go

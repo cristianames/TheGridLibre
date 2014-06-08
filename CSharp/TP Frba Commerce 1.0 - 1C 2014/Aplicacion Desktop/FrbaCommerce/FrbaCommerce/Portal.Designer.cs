@@ -60,7 +60,7 @@
             // dgvGrilla
             // 
             this.dgvGrilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvGrilla.Location = new System.Drawing.Point(521, 59);
+            this.dgvGrilla.Location = new System.Drawing.Point(288, 36);
             this.dgvGrilla.Name = "dgvGrilla";
             this.dgvGrilla.Size = new System.Drawing.Size(240, 150);
             this.dgvGrilla.TabIndex = 4;
@@ -80,7 +80,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(888, 447);
+            this.ClientSize = new System.Drawing.Size(787, 323);
             this.Controls.Add(this.dgvGrilla);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);

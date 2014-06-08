@@ -65,5 +65,3 @@ return
 
 end
 go
-
-drop procedure TG.login

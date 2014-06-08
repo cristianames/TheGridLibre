@@ -86,9 +86,10 @@ create table GD1C2014.TG.Roles_x_Usuario(
 )
 
 create table GD1C2014.TG.Funcionalidades_x_Rol(
-	ID_Rol numeric(18,0) references TG.Rol(ID_Rol) Primary Key,
+	ID_Rol numeric(18,0) references TG.Rol(ID_Rol),
 	Nombre nvarchar(255),
-	Descripcion varchar(50)
+	Descripcion varchar(50),
+	Primary Key(ID_Rol,Nombre)
 )
 
 create table GD1C2014.TG.Publicacion(
@@ -152,6 +153,82 @@ insert into TG.Rol(Nombre,Inhabilitado) values('Administrador',0)
 insert into TG.Rol(Nombre,Inhabilitado) values('Comprador',0)
 insert into TG.Rol(Nombre,Inhabilitado) values('Vendedor',0)
 
-insert into TG.Tipo_Usuario(Nombre,Descripcion) values('Administrador','Administrador de Sistema')
+insert into TG.Tipo_Usuario(Nombre,Descripcion) values('Administrador','Administrador General')
 insert into TG.Tipo_Usuario(Nombre,Descripcion) values('Cliente','Usuario individual, comprador y vendedor')
 insert into TG.Tipo_Usuario(Nombre,Descripcion) values('Empresa','Empresa, solo vendedor')
+
+--Funcionalidades
+----------------------------------------------------------------------------------------
+
+insert into TG.Funcionalidades_x_Rol(ID_Rol,Nombre,Descripcion) 
+values(1,'ABM Usuario','Soy una descripcion')
+
+insert into TG.Funcionalidades_x_Rol(ID_Rol,Nombre,Descripcion) 
+values(1,'ABM Rol','Soy una descripcion')
+
+insert into TG.Funcionalidades_x_Rol(ID_Rol,Nombre,Descripcion) 
+values(1,'ABM Rubro','Soy una descripcion')
+
+insert into TG.Funcionalidades_x_Rol(ID_Rol,Nombre,Descripcion) 
+values(1,'ABM Visibilidad','Soy una descripcion')
+
+insert into TG.Funcionalidades_x_Rol(ID_Rol,Nombre,Descripcion) 
+values(1,'Listado Estadistico','Soy una descripcion')
+
+insert into TG.Funcionalidades_x_Rol(ID_Rol,Nombre,Descripcion) 
+values(1,'Calificar Vendedor','Soy una descripcion')
+
+insert into TG.Funcionalidades_x_Rol(ID_Rol,Nombre,Descripcion) 
+values(1,'Comprar - Ofertar','Soy una descripcion')
+
+insert into TG.Funcionalidades_x_Rol(ID_Rol,Nombre,Descripcion) 
+values(1,'Editar Publicacion','Soy una descripcion')
+
+insert into TG.Funcionalidades_x_Rol(ID_Rol,Nombre,Descripcion) 
+values(1,'Facturar Publicaciones','Soy una descripcion')
+
+insert into TG.Funcionalidades_x_Rol(ID_Rol,Nombre,Descripcion) 
+values(1,'Generar Publicacion','Soy una descripcion')
+
+insert into TG.Funcionalidades_x_Rol(ID_Rol,Nombre,Descripcion) 
+values(1,'Gestion De Preguntas','Soy una descripcion')
+
+insert into TG.Funcionalidades_x_Rol(ID_Rol,Nombre,Descripcion) 
+values(1,'Historial del Cliente','Soy una descripcion')
+
+------------------------------------------------------------------------------------
+
+insert into TG.Funcionalidades_x_Rol(ID_Rol,Nombre,Descripcion) 
+values(2,'Calificar Vendedor','Soy una descripcion')
+
+insert into TG.Funcionalidades_x_Rol(ID_Rol,Nombre,Descripcion) 
+values(2,'Comprar - Ofertar','Soy una descripcion')
+
+insert into TG.Funcionalidades_x_Rol(ID_Rol,Nombre,Descripcion) 
+values(2,'Editar Publicacion','Soy una descripcion')
+
+insert into TG.Funcionalidades_x_Rol(ID_Rol,Nombre,Descripcion) 
+values(2,'Facturar Publicaciones','Soy una descripcion')
+
+insert into TG.Funcionalidades_x_Rol(ID_Rol,Nombre,Descripcion) 
+values(2,'Generar Publicacion','Soy una descripcion')
+
+insert into TG.Funcionalidades_x_Rol(ID_Rol,Nombre,Descripcion) 
+values(2,'Gestion De Preguntas','Soy una descripcion')
+
+insert into TG.Funcionalidades_x_Rol(ID_Rol,Nombre,Descripcion) 
+values(2,'Historial del Cliente','Soy una descripcion')
+
+------------------------------------------------------------------------------------
+
+insert into TG.Funcionalidades_x_Rol(ID_Rol,Nombre,Descripcion) 
+values(3,'Editar Publicacion','Soy una descripcion')
+
+insert into TG.Funcionalidades_x_Rol(ID_Rol,Nombre,Descripcion) 
+values(3,'Facturar Publicaciones','Soy una descripcion')
+
+insert into TG.Funcionalidades_x_Rol(ID_Rol,Nombre,Descripcion) 
+values(3,'Generar Publicacion','Soy una descripcion')
+
+insert into TG.Funcionalidades_x_Rol(ID_Rol,Nombre,Descripcion) 
+values(3,'Gestion De Preguntas','Soy una descripcion')
