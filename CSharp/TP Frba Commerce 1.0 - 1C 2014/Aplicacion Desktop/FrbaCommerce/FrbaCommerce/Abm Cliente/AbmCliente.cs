@@ -143,7 +143,15 @@ namespace FrbaCommerce.AbmCliente
 
         private void botonEliminar_Click(object sender, EventArgs e)
         {
-            //(new 
+            int inhabilitado;
+            if (Convert.ToBoolean(dataGridView1["Inhabilitado", filaSeleccionada].Value))
+                inhabilitado = 0;
+            else inhabilitado = 1;
+
+            string comando = "update TG.Usuario set Inhabilitado = " + inhabilitado.ToString() +
+                " where ID_User =" + dataGridView1["ID_User", filaSeleccionada].Value.ToString();
+            TG.realizarConsultaSinRetorno(comando);
+            actualizarGrilla();
         }
 
         
