@@ -61,7 +61,7 @@
             // 
             // botonModificar
             // 
-            this.botonModificar.Location = new System.Drawing.Point(784, 12);
+            this.botonModificar.Location = new System.Drawing.Point(781, 24);
             this.botonModificar.Name = "botonModificar";
             this.botonModificar.Size = new System.Drawing.Size(92, 23);
             this.botonModificar.TabIndex = 3;
@@ -71,11 +71,11 @@
             // 
             // botonEliminar
             // 
-            this.botonEliminar.Location = new System.Drawing.Point(784, 59);
+            this.botonEliminar.Location = new System.Drawing.Point(781, 59);
             this.botonEliminar.Name = "botonEliminar";
-            this.botonEliminar.Size = new System.Drawing.Size(92, 23);
+            this.botonEliminar.Size = new System.Drawing.Size(92, 38);
             this.botonEliminar.TabIndex = 4;
-            this.botonEliminar.Text = "Eliminar";
+            this.botonEliminar.Text = "Dar de Baja / Reincorporar";
             this.botonEliminar.UseVisualStyleBackColor = true;
             // 
             // txtNombre
@@ -212,14 +212,17 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(21, 146);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(855, 197);
             this.dataGridView1.TabIndex = 16;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // botonTerminado
             // 
-            this.botonTerminado.Location = new System.Drawing.Point(784, 102);
+            this.botonTerminado.Location = new System.Drawing.Point(781, 103);
             this.botonTerminado.Name = "botonTerminado";
             this.botonTerminado.Size = new System.Drawing.Size(92, 23);
             this.botonTerminado.TabIndex = 17;
@@ -241,6 +244,7 @@
             this.Name = "AbmCliente";
             this.Text = "ABM Cliente";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.VisibleChanged += new System.EventHandler(this.AbmCliente_VisibleChanged);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

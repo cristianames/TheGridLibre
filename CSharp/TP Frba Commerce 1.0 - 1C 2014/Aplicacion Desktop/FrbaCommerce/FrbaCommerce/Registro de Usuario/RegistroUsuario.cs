@@ -71,7 +71,7 @@ namespace FrbaCommerce.Registro_de_Usuario
             txtCuit.Text = consulta["CUIT"].ToString();
             txtEmailEmpresa.Text = consulta["Mail"].ToString();
             if (!String.Equals(consulta["Telefono"].ToString(), "0"))
-                textBox17.Text = consulta["Telefono"].ToString();
+                txtTelEmpresa.Text = consulta["Telefono"].ToString();
             dateTimePicker2.Value = Convert.ToDateTime(consulta["Fecha_Creacion"]);
             if (!String.Equals(consulta["Nombre_Contacto"].ToString(), "Sin_Contacto"))
                 txtNombreContacto.Text = consulta["Nombre_Contacto"].ToString();
@@ -120,41 +120,6 @@ namespace FrbaCommerce.Registro_de_Usuario
                 txtCiudad.Text = consulta["Ciudad"].ToString();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox8_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label21_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox14_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label25_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             grupoCliente.Visible = true;
@@ -169,13 +134,14 @@ namespace FrbaCommerce.Registro_de_Usuario
 
         private void button3_Click(object sender, EventArgs e)
         {
+            if (DatosUsuario.tipoUsuario == 1 && DatosUsuario.tipoUsuarioModif != (-1))
+            DatosUsuario.resetearDatosModif();
             volverAtras();
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FrbaCommerce.Login.cambioPass cambioDePass = new FrbaCommerce.Login.cambioPass(this, false);
-            cambioDePass.Show();
+            (new Login.cambioPass(this, false)).Show();
         }
 
         private void RegistroUsuario_Load(object sender, EventArgs e)
@@ -185,54 +151,79 @@ namespace FrbaCommerce.Registro_de_Usuario
 
         private bool validarDatosCliente() 
         {
-            string comando;
             DataTable resultado;
-            
-            comando = "select * from TG.Cliente where " +
-                "Tipo_Documento = '" + comboBox1.SelectedItem.ToString() + "' and "+
-                "Documento = " + txtDoc.Text;
-            resultado = TG.realizarConsulta(comando);
-            if (resultado.Rows.Count > 0)
+            string comando = "select * from TG.Cliente where ID_User =" + DatosUsuario.usuario;
+            DataRow datosCliente = TG.realizarConsulta(comando).Rows[0];
+
+            if (!String.Equals(datosCliente["Tipo_Documento"].ToString(), comboBox1.SelectedItem.ToString()) ||
+                !String.Equals(datosCliente["Documento"].ToString(), txtDoc.Text))
             {
-                TG.ventanaEmergente("Documento ya existente");
-                //loggear anomalida
-                return true;
+                comando = "select * from TG.Cliente where " +
+                "Tipo_Documento = '" + comboBox1.SelectedItem.ToString() + "' and " +
+                "Documento = " + txtDoc.Text;
+                resultado = TG.realizarConsulta(comando);
+                if (resultado.Rows.Count > 0)
+                {
+                    TG.ventanaEmergente("Documento ya existente");
+                    //loggear anomalida
+                    return true;
+                }
             }
 
-            comando = "select * from TG.Cliente where "+
-                "Telefono = "+txtTel.Text;
-            resultado = TG.realizarConsulta(comando);
-            if (resultado.Rows.Count > 0)
+            if (!String.Equals(datosCliente["Telefono"].ToString(), txtTel.Text))
             {
-                TG.ventanaEmergente("Telefono ya existente");
-                return true;
+                comando = "select * from TG.Cliente where Telefono = " + txtTel.Text;
+                resultado = TG.realizarConsulta(comando);
+                if (resultado.Rows.Count > 0)
+                {
+                    TG.ventanaEmergente("Telefono ya existente");
+                    return true;
+                }
             }
             return false;
         }
 
         private bool validarDatosEmpresa()
         {
-            string comando;
             DataTable resultado;
+            string comando = "select * from TG.Empresa where ID_User =" + DatosUsuario.usuario;
+            DataRow datosEmpresa = TG.realizarConsulta(comando).Rows[0];
 
-            comando = "select * from TG.Empresa where " +
-                "CUIT = '" + Convert.ToInt32(txtCuit.Text).ToString("#0-00000000-0") +"'";
-            resultado = TG.realizarConsulta(comando);
-            if (resultado.Rows.Count > 0)
+            if (!String.Equals(datosEmpresa["CUIT"].ToString(), txtCuit.Text))
             {
-                TG.ventanaEmergente("CUIT ya existente");
-                //loggear anomalida
-                return true;
+                comando = "select * from TG.Empresa where " +
+                    "CUIT = '" + Convert.ToInt32(txtCuit.Text).ToString("#0-00000000-0") + "'";
+                resultado = TG.realizarConsulta(comando);
+                if (resultado.Rows.Count > 0)
+                {
+                    TG.ventanaEmergente("CUIT ya existente");
+                    //loggear anomalida
+                    return true;
+                }
             }
 
-            comando = "select * from TG.Empresa where " +
-                "Razon_Social = '" + txtRazonSocial.Text+"'";
-            resultado = TG.realizarConsulta(comando);
-            if (resultado.Rows.Count > 0)
+            if (!String.Equals(datosEmpresa["Razon_Social"].ToString(), txtRazonSocial.Text))
             {
-                TG.ventanaEmergente("Razon Social ya existente");
-                //loggear anomalida
-                return true;
+                comando = "select * from TG.Empresa where " +
+                    "Razon_Social = '" + txtRazonSocial.Text + "'";
+                resultado = TG.realizarConsulta(comando);
+                if (resultado.Rows.Count > 0)
+                {
+                    TG.ventanaEmergente("Razon Social ya existente");
+                    //loggear anomalida
+                    return true;
+                }
+            }
+
+            if (!String.Equals(datosEmpresa["Telefono"].ToString(), txtTel.Text))
+            {
+                comando = "select * from TG.Empresa where Telefono = " + txtTelEmpresa.Text;
+                resultado = TG.realizarConsulta(comando);
+                if (resultado.Rows.Count > 0)
+                {
+                    TG.ventanaEmergente("Telefono ya existente");
+                    return true;
+                }
             }
 
             return false;
@@ -261,7 +252,7 @@ namespace FrbaCommerce.Registro_de_Usuario
             if (error) return;
 
             error = validarDatosCliente();
-            if (error && usuarioNuevo) return;
+            if (error) return;
 
             if (usuarioNuevo)
                 {   // Nuevo usuario
@@ -272,7 +263,9 @@ namespace FrbaCommerce.Registro_de_Usuario
                     DataTable consultaUltimoUsuario = TG.realizarConsulta("select top 1 ID_User from TG.Usuario order by ID_User desc");
                     DatosUsuario.usuario = Convert.ToInt32( consultaUltimoUsuario.Rows[0]["ID_User"]);
 
-                    TG.realizarConsultaSinRetorno( "Insert INTO TG.Cliente (ID_User) VALUES("+ DatosUsuario.usuario.ToString() +")" );               
+                    TG.realizarConsultaSinRetorno("Insert INTO TG.Cliente (ID_User) VALUES("+ DatosUsuario.usuario.ToString() +")" );
+                    TG.realizarConsultaSinRetorno("Insert INTO TG.Roles_x_Usuario (ID_User,ID_Rol,Inhabilitado) VALUES(" + DatosUsuario.usuario.ToString() + ",3,0)");
+                    TG.realizarConsultaSinRetorno("Insert INTO TG.Roles_x_Usuario (ID_User,ID_Rol,Inhabilitado) VALUES(" + DatosUsuario.usuario.ToString() + ",2,0)");
                 }
 
             string nroTarjeta = txtNroTarjeta.Text;
@@ -302,12 +295,8 @@ namespace FrbaCommerce.Registro_de_Usuario
 
             if (usuarioNuevo) 
                 TG.ventanaEmergente("Usuario creado. Su Username y Password se han enviado a su correo");
-            if (DatosUsuario.tipoUsuario == 1)
-            {
-                DatosUsuario.resetearDatosModif();
-                (new FrbaCommerce.AbmCliente.AbmCliente(ventanaAnterior)).Show();
-            }
-            else volverAtras();
+            if (DatosUsuario.tipoUsuario == 1) DatosUsuario.resetearDatosModif();
+            volverAtras();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -332,7 +321,7 @@ namespace FrbaCommerce.Registro_de_Usuario
             if (error) return;
 
             error = validarDatosEmpresa();
-            if (error && usuarioNuevo) return;
+            if (error) return;
 
             if (usuarioNuevo)
                 {   // Nuevo usuario
@@ -344,17 +333,17 @@ namespace FrbaCommerce.Registro_de_Usuario
                     DatosUsuario.usuario = Convert.ToInt32(consultaUltimoUsuario.Rows[0]["ID_User"]);
 
                     TG.realizarConsultaSinRetorno("Insert INTO TG.Empresa (ID_User) VALUES(" + DatosUsuario.usuario.ToString() + ")");
+                    TG.realizarConsultaSinRetorno("Insert INTO TG.Roles_x_Usuario (ID_User,ID_Rol,Inhabilitado) VALUES(" + DatosUsuario.usuario.ToString() + ",3,0)");
                 }
 
             string piso = txtPiso.Text;
-
             if (String.Equals(piso, "")) piso = "0";
 
             string actualizarCliente = @"UPDATE TG.Empresa set                     
                     Razon_Social ='" + txtRazonSocial.Text + @"',
                     CUIT ='" + Convert.ToInt32(txtCuit.Text).ToString("#0-00000000-0") + @"',
                     Mail ='" + txtEmailEmpresa.Text + @"',
-                    Telefono =" + textBox17.Text + @",
+                    Telefono =" + txtTelEmpresa.Text + @",
                     Fecha_Creacion = convert(datetime,'" + dateTimePicker2.Value.ToString("yyyy-dd-MM hh:mm:ss") + @"'),
                     Nombre_Contacto = '" + txtNombreContacto.Text + @"',
                     Calle = '" + txtCalleEmpresa.Text + @"',
@@ -369,23 +358,9 @@ namespace FrbaCommerce.Registro_de_Usuario
             
             if (usuarioNuevo)
                 TG.ventanaEmergente("Usuario creado. Su Username y Password se han enviado a su correo");
-            if (DatosUsuario.tipoUsuario == 1)
-            {
-                DatosUsuario.resetearDatosModif();
-                (new FrbaCommerce.AbmCliente.AbmCliente(ventanaAnterior)).Show();
-            } else volverAtras();
+            if (DatosUsuario.tipoUsuario == 1) DatosUsuario.resetearDatosModif();
+            volverAtras();
         }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
-        
-       
-
-        
-
-        
     }
 }
 

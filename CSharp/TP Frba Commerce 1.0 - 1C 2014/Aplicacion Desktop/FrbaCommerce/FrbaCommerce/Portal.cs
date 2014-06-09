@@ -19,7 +19,7 @@ namespace FrbaCommerce
         }
         private void cargarDatos()
         {
-            dgvGrilla.DataSource = TG.realizarConsulta("select top 10 * from gd_esquema.Maestra");
+            //dgvGrilla.DataSource = TG.realizarConsulta("select top 10 * from gd_esquema.Maestra");
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -29,24 +29,9 @@ namespace FrbaCommerce
            this.Visible = false;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             cargarDatos();
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgvGrilla_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -41,7 +41,7 @@
             this.txtRazonSocial = new System.Windows.Forms.TextBox();
             this.txtCuit = new System.Windows.Forms.TextBox();
             this.txtEmailEmpresa = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.txtTelEmpresa = new System.Windows.Forms.TextBox();
             this.txtNombreContacto = new System.Windows.Forms.TextBox();
             this.txtLocEmpresa = new System.Windows.Forms.TextBox();
             this.txtCiudadEmpresa = new System.Windows.Forms.TextBox();
@@ -144,7 +144,7 @@
             this.grupoEmpresa.Controls.Add(this.txtRazonSocial);
             this.grupoEmpresa.Controls.Add(this.txtCuit);
             this.grupoEmpresa.Controls.Add(this.txtEmailEmpresa);
-            this.grupoEmpresa.Controls.Add(this.textBox17);
+            this.grupoEmpresa.Controls.Add(this.txtTelEmpresa);
             this.grupoEmpresa.Controls.Add(this.txtNombreContacto);
             this.grupoEmpresa.Controls.Add(this.txtLocEmpresa);
             this.grupoEmpresa.Controls.Add(this.txtCiudadEmpresa);
@@ -235,12 +235,12 @@
             this.txtEmailEmpresa.Size = new System.Drawing.Size(144, 20);
             this.txtEmailEmpresa.TabIndex = 36;
             // 
-            // textBox17
+            // txtTelEmpresa
             // 
-            this.textBox17.Location = new System.Drawing.Point(296, 60);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(103, 20);
-            this.textBox17.TabIndex = 35;
+            this.txtTelEmpresa.Location = new System.Drawing.Point(296, 60);
+            this.txtTelEmpresa.Name = "txtTelEmpresa";
+            this.txtTelEmpresa.Size = new System.Drawing.Size(103, 20);
+            this.txtTelEmpresa.TabIndex = 35;
             // 
             // txtNombreContacto
             // 
@@ -262,7 +262,6 @@
             this.txtCiudadEmpresa.Name = "txtCiudadEmpresa";
             this.txtCiudadEmpresa.Size = new System.Drawing.Size(103, 20);
             this.txtCiudadEmpresa.TabIndex = 32;
-            this.txtCiudadEmpresa.TextChanged += new System.EventHandler(this.textBox14_TextChanged);
             // 
             // dateTimePicker2
             // 
@@ -306,7 +305,6 @@
             this.label25.Size = new System.Drawing.Size(52, 13);
             this.label25.TabIndex = 28;
             this.label25.Text = "Nro calle:";
-            this.label25.Click += new System.EventHandler(this.label25_Click);
             // 
             // label24
             // 
@@ -343,7 +341,6 @@
             this.label21.Size = new System.Drawing.Size(109, 13);
             this.label21.TabIndex = 30;
             this.label21.Text = "Nombre del contacto:";
-            this.label21.Click += new System.EventHandler(this.label21_Click);
             // 
             // label20
             // 
@@ -445,7 +442,6 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(129, 20);
             this.txtNombre.TabIndex = 5;
-            this.txtNombre.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             // 
             // txtApellido
             // 
@@ -469,7 +465,6 @@
             this.label3.Size = new System.Drawing.Size(47, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "Nombre:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -527,7 +522,6 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(75, 21);
             this.comboBox1.TabIndex = 20;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // txtNroTarjeta
             // 
@@ -731,7 +725,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(888, 244);
+            this.ClientSize = new System.Drawing.Size(888, 447);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.label30);
@@ -776,7 +770,7 @@
         private System.Windows.Forms.TextBox txtRazonSocial;
         private System.Windows.Forms.TextBox txtCuit;
         private System.Windows.Forms.TextBox txtEmailEmpresa;
-        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.TextBox txtTelEmpresa;
         private System.Windows.Forms.TextBox txtNombreContacto;
         private System.Windows.Forms.TextBox txtLocEmpresa;
         private System.Windows.Forms.TextBox txtCalleEmpresa;

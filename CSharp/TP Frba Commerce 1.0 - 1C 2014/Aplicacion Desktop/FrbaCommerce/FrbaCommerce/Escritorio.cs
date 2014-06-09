@@ -15,15 +15,6 @@ namespace FrbaCommerce
         {
             InitializeComponent();
             this.ventanaAnterior = anterior;
-            /*
-            this.tableLayoutPanel1.RowCount = 0;
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(115, 20);
-            int i;
-            for (i = 0; i < 12; i++ ){
-                this.tableLayoutPanel1.RowCount = this.tableLayoutPanel1.RowCount + 1;
-                this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-                this.tableLayoutPanel1.Size = new System.Drawing.Size(115, tableLayoutPanel1.Height + 20);
-            }*/
             this.ClientSize = new System.Drawing.Size(167, 319);
             label3.Text = "¡Bienvenido Grid_" + DatosUsuario.usuario.ToString() + "!";
             linkLabel3.Text = DatosUsuario.nombreRol;

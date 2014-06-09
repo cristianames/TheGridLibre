@@ -211,18 +211,6 @@ insert into TG.Funcionalidades_x_Rol(ID_Rol,Nombre,Descripcion)
 values(2,'Comprar - Ofertar','Soy una descripcion')
 
 insert into TG.Funcionalidades_x_Rol(ID_Rol,Nombre,Descripcion) 
-values(2,'Editar Publicacion','Soy una descripcion')
-
-insert into TG.Funcionalidades_x_Rol(ID_Rol,Nombre,Descripcion) 
-values(2,'Facturar Publicaciones','Soy una descripcion')
-
-insert into TG.Funcionalidades_x_Rol(ID_Rol,Nombre,Descripcion) 
-values(2,'Generar Publicacion','Soy una descripcion')
-
-insert into TG.Funcionalidades_x_Rol(ID_Rol,Nombre,Descripcion) 
-values(2,'Gestion De Preguntas','Soy una descripcion')
-
-insert into TG.Funcionalidades_x_Rol(ID_Rol,Nombre,Descripcion) 
 values(2,'Historial del Cliente','Soy una descripcion')
 
 ------------------------------------------------------------------------------------
