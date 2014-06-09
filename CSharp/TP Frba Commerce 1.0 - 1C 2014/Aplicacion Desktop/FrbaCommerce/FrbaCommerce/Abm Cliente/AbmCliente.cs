@@ -141,6 +141,11 @@ namespace FrbaCommerce.AbmCliente
             actualizarGrilla();
         }
 
+        private void botonEliminar_Click(object sender, EventArgs e)
+        {
+            //(new 
+        }
+
         
     }
 }

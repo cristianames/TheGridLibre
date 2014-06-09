@@ -77,6 +77,7 @@
             this.botonEliminar.TabIndex = 4;
             this.botonEliminar.Text = "Dar de Baja / Reincorporar";
             this.botonEliminar.UseVisualStyleBackColor = true;
+            this.botonEliminar.Click += new System.EventHandler(this.botonEliminar_Click);
             // 
             // txtNombre
             // 
