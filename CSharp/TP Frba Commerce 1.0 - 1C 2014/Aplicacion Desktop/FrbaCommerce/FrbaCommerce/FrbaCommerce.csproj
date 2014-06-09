@@ -69,11 +69,23 @@
     <Compile Include="Abm Cliente\AbmCliente.Designer.cs">
       <DependentUpon>AbmCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABM Rol\Form1.cs">
+    <Compile Include="ABM Rol\AbmRol.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABM Rol\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="ABM Rol\AbmRol.Designer.cs">
+      <DependentUpon>AbmRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Rol\Alta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Rol\Alta.Designer.cs">
+      <DependentUpon>Alta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Rol\Baja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Rol\Baja.Designer.cs">
+      <DependentUpon>Baja.cs</DependentUpon>
     </Compile>
     <Compile Include="Abm Rubro\ABMRubro.cs">
       <SubType>Form</SubType>
@@ -117,11 +129,23 @@
     <Compile Include="Calificar Vendedor\SeleccionarUsuario.Designer.cs">
       <DependentUpon>SeleccionarUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Comprar-Ofertar\Form1.cs">
+    <Compile Include="Comprar-Ofertar\Buscador.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Comprar-Ofertar\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Comprar-Ofertar\Buscador.Designer.cs">
+      <DependentUpon>Buscador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Comprar-Ofertar\FiltroRubros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comprar-Ofertar\FiltroRubros.Designer.cs">
+      <DependentUpon>FiltroRubros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Comprar-Ofertar\Publicacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comprar-Ofertar\Publicacion.Designer.cs">
+      <DependentUpon>Publicacion.cs</DependentUpon>
     </Compile>
     <Compile Include="Editar Publicacion\Form1.cs">
       <SubType>Form</SubType>
@@ -214,8 +238,14 @@
     <EmbeddedResource Include="Abm Cliente\AbmCliente.resx">
       <DependentUpon>AbmCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABM Rol\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="ABM Rol\AbmRol.resx">
+      <DependentUpon>AbmRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Rol\Alta.resx">
+      <DependentUpon>Alta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Rol\Baja.resx">
+      <DependentUpon>Baja.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Rubro\ABMRubro.resx">
       <DependentUpon>ABMRubro.cs</DependentUpon>
@@ -234,6 +264,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Calificar Vendedor\SeleccionarUsuario.resx">
       <DependentUpon>SeleccionarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comprar-Ofertar\Buscador.resx">
+      <DependentUpon>Buscador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comprar-Ofertar\FiltroRubros.resx">
+      <DependentUpon>FiltroRubros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comprar-Ofertar\Publicacion.resx">
+      <DependentUpon>Publicacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Escritorio.resx">
       <DependentUpon>Escritorio.cs</DependentUpon>

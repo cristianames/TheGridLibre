@@ -16,7 +16,8 @@ namespace FrbaCommerce.AbmCliente
         public AbmCliente(FormGrid anterior)
         {
             InitializeComponent();
-            this.ClientSize = new System.Drawing.Size(900, 355);
+            this.ClientSize = new System.Drawing.Size(900
+                , 355);
             this.ventanaAnterior = anterior;
             actualizarGrilla();
         }
