@@ -129,6 +129,16 @@ namespace FrbaCommerce
             myConnection.Close();
             return;
         }
+
+        public static bool esNumerico(string s)
+        {
+            foreach (char c in s)
+            {
+                if (!Char.IsDigit(c))
+                    return false;
+            }
+            return true;
+        }
     }
 
     static class DatosUsuario {
@@ -136,6 +146,8 @@ namespace FrbaCommerce
         public static int codigoRol = (-1);
         public static string nombreRol = "";
         public static int tipoUsuario = (-1);
+        public static int tipoUsuarioModif = (-1);
+        public static int usuarioAux = (-1);
 
         public static void actualizarTipoUsuario() 
         {
@@ -155,6 +167,13 @@ namespace FrbaCommerce
             DatosUsuario.codigoRol = (-1);
             DatosUsuario.nombreRol = "";
             DatosUsuario.tipoUsuario = (-1);
+        }
+
+        public static void resetearDatosModif()
+        {
+            DatosUsuario.tipoUsuarioModif = (-1);
+            DatosUsuario.usuario = DatosUsuario.usuarioAux;
+            DatosUsuario.usuarioAux = (-1);
         }
        
     }

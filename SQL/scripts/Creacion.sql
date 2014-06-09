@@ -164,6 +164,12 @@ insert into TG.Funcionalidades_x_Rol(ID_Rol,Nombre,Descripcion)
 values(1,'ABM Usuario','Soy una descripcion')
 
 insert into TG.Funcionalidades_x_Rol(ID_Rol,Nombre,Descripcion) 
+values(1,'ABM Cliente','Soy una descripcion')
+
+insert into TG.Funcionalidades_x_Rol(ID_Rol,Nombre,Descripcion) 
+values(1,'ABM Empresa','Soy una descripcion')
+
+insert into TG.Funcionalidades_x_Rol(ID_Rol,Nombre,Descripcion) 
 values(1,'ABM Rol','Soy una descripcion')
 
 insert into TG.Funcionalidades_x_Rol(ID_Rol,Nombre,Descripcion) 

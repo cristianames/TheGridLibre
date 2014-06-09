@@ -61,16 +61,17 @@
             // 
             // botonModificar
             // 
-            this.botonModificar.Location = new System.Drawing.Point(461, 149);
+            this.botonModificar.Location = new System.Drawing.Point(784, 12);
             this.botonModificar.Name = "botonModificar";
             this.botonModificar.Size = new System.Drawing.Size(92, 23);
             this.botonModificar.TabIndex = 3;
             this.botonModificar.Text = "Modificar";
             this.botonModificar.UseVisualStyleBackColor = true;
+            this.botonModificar.Click += new System.EventHandler(this.botonModificar_Click);
             // 
             // botonEliminar
             // 
-            this.botonEliminar.Location = new System.Drawing.Point(461, 196);
+            this.botonEliminar.Location = new System.Drawing.Point(784, 59);
             this.botonEliminar.Name = "botonEliminar";
             this.botonEliminar.Size = new System.Drawing.Size(92, 23);
             this.botonEliminar.TabIndex = 4;
@@ -213,12 +214,12 @@
             this.dataGridView1.Location = new System.Drawing.Point(21, 146);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(431, 197);
+            this.dataGridView1.Size = new System.Drawing.Size(855, 197);
             this.dataGridView1.TabIndex = 16;
             // 
             // botonTerminado
             // 
-            this.botonTerminado.Location = new System.Drawing.Point(461, 320);
+            this.botonTerminado.Location = new System.Drawing.Point(784, 102);
             this.botonTerminado.Name = "botonTerminado";
             this.botonTerminado.Size = new System.Drawing.Size(92, 23);
             this.botonTerminado.TabIndex = 17;
@@ -230,7 +231,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(787, 485);
+            this.ClientSize = new System.Drawing.Size(888, 447);
             this.Controls.Add(this.botonTerminado);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);

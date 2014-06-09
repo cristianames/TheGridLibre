@@ -50,8 +50,7 @@ namespace FrbaCommerce.Login
                     TG.realizarConsultaSinRetorno(comando);
                     
                     if(this.primerIngreso){
-                        txtTelEmpresa registro = new txtTelEmpresa(ventanaAnterior);
-                        registro.Show();
+                        (new FrbaCommerce.Registro_de_Usuario.Registro_de_Usuario(ventanaAnterior)).Show();
                     }
                     TG.ventanaEmergente("Se cambió la contraseña exitosamente.");
                     DatosUsuario.actualizarTipoUsuario();

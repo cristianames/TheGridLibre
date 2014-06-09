@@ -16,7 +16,7 @@ namespace FrbaCommerce.AbmCliente
         public AbmCliente(FormGrid anterior)
         {
             InitializeComponent();
-            this.ClientSize = new System.Drawing.Size(569, 355);
+            this.ClientSize = new System.Drawing.Size(900, 355);
             this.ventanaAnterior = anterior;
             actualizarGrilla();
         }
@@ -49,25 +49,75 @@ namespace FrbaCommerce.AbmCliente
         private void botonFiltrar_Click(object sender, EventArgs e)
         {
             //Hace el filtro
+            if (txtNroDoc.Text.Length > 0 && !TG.esNumerico(txtNroDoc.Text))
+            {
+                txtNroDoc.BackColor = Color.LightYellow;
+                return;
+            }
+            else txtNroDoc.BackColor = Color.White;
+            
             int cantActivos = 0;
             foreach (Control tb in groupBox1.Controls)
             {
-                if (tb is TextBox)
-                {
-                    if (tb.Text.Length > 0)
-                    {
-                        cantActivos++;
-                    }
-                }
+                if (tb is TextBox && tb.Text.Length > 0) cantActivos++;
             }
+            if (comboBox1.SelectedItem != null) cantActivos++;
+
             if (cantActivos > 0) this.comandoFiltro += " where ";
             int cantAfectados = cantActivos;
             
-            if (cantActivos > cantAfectados) this.comandoFiltro += " and ";
             if (txtApellido.Text.Length > 0) {
-                this.comandoFiltro += " Apellido like %"+ txtApellido.Text +"% ";
+                if (cantActivos > cantAfectados) this.comandoFiltro += " and ";
+                this.comandoFiltro += " Apellido like '%"+ txtApellido.Text +"%'";
                 cantAfectados--;
             }
+
+            if (txtNombre.Text.Length > 0)
+            {
+                if (cantActivos > cantAfectados) this.comandoFiltro += " and ";
+                this.comandoFiltro += " Nombre like '%" + txtNombre.Text + "%'";
+                cantAfectados--;
+            }
+
+            if (txtApellido.Text.Length > 0) {
+                if (cantActivos > cantAfectados) this.comandoFiltro += " and ";
+                this.comandoFiltro += " Apellido like '%"+ txtApellido.Text +"%'";
+                cantAfectados--;
+            }
+
+            if (txtMail.Text.Length > 0)
+            {
+                if (cantActivos > cantAfectados) this.comandoFiltro += " and ";
+                this.comandoFiltro += " Mail like '%" + txtMail.Text + "%'";
+                cantAfectados--;
+            }
+
+            if (comboBox1.SelectedItem != null)
+            {
+                if (cantActivos > cantAfectados) this.comandoFiltro += " and ";
+                this.comandoFiltro += " Tipo_Documento = '" + comboBox1.Text+"'";
+                cantAfectados--;
+            }
+
+            if (txtNroDoc.Text.Length > 0)
+            {
+                if (cantActivos > cantAfectados) this.comandoFiltro += " and ";
+                this.comandoFiltro += " Documento = " + txtNroDoc.Text;
+                cantAfectados--;
+            }
+
+            //TG.ventanaEmergente(comandoFiltro);
+            actualizarGrilla();
+            comandoFiltro = "select * from TG.Cliente";
+        }
+
+        private void botonModificar_Click(object sender, EventArgs e)
+        {
+            DatosUsuario.usuarioAux = DatosUsuario.usuario;
+            DatosUsuario.usuario = Convert.ToInt32(dataGridView1["ID_User", 0].Value);
+            DatosUsuario.tipoUsuarioModif = 2;
+            (new FrbaCommerce.Registro_de_Usuario.Registro_de_Usuario(ventanaAnterior)).Show();
+            this.Close();
         }
 
         

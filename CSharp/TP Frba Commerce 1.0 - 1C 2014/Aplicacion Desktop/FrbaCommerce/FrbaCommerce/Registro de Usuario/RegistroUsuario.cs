@@ -10,11 +10,11 @@ using System.Data.SqlClient;
 
 namespace FrbaCommerce.Registro_de_Usuario
 {
-    public partial class txtTelEmpresa : FormGrid
+    public partial class Registro_de_Usuario : FormGrid
     {
         bool usuarioNuevo = false; //Uso este boolean para saber mas adelante si tengo que hacer un update o un inserte en la base de datos
 
-        public txtTelEmpresa(FormGrid anterior)
+        public Registro_de_Usuario(FormGrid anterior)
         {
             InitializeComponent();
             ventanaAnterior = anterior;
@@ -27,92 +27,97 @@ namespace FrbaCommerce.Registro_de_Usuario
             switch (DatosUsuario.tipoUsuario) 
             {
                 case 1:  //Administrador
-                    radioButton1.Enabled = false;
-                    radioButton2.Enabled = false;
-                    grupoCliente.Enabled = false;
-                    label29.Text = "El Admin no tiene datos personales"; break;
+                    switch (DatosUsuario.tipoUsuarioModif)
+                    {
+                        case 2: levantarDatosCliente(); break;
+                        case 3: levantarDatosEmpresa(); break;
+                        default: 
+                            radioButton1.Enabled = false;
+                            radioButton2.Enabled = false; 
+                            grupoCliente.Enabled = false; 
+                            break;
+                    }
+
+                    break;
+
                 case 2:  //Cliente
-                    radioButton2.Enabled = false;
-                    button1.Text = "Guardar";
                     label29.Text = "Por favor, mantenga sus datos actualizados";
- 
-                    //levantar datos del cliente
-                    using (SqlConnection myConnection = TG.conectar())
-                    {
-                        string comando = "select * from TG.Cliente where ID_User=" + DatosUsuario.usuario;
-                        SqlCommand myCommand = new SqlCommand(comando, myConnection);
-                        SqlDataReader consulta = myCommand.ExecuteReader();
-                        consulta.Read();
-
-                        //pasar los datos a los campos
-                        txtNombre.Text = consulta["Nombre"].ToString();
-                        txtApellido.Text = consulta["Apellido"].ToString();
-                        switch (consulta["Tipo_Documento"].ToString())
-                        {
-                            case "DNI": comboBox1.SelectedIndex = 0; break;
-                            case "LC": comboBox1.SelectedIndex = 1; break;
-                            case "LE": comboBox1.SelectedIndex = 2; break;
-                        }
-                        txtDoc.Text = consulta["Documento"].ToString();
-                        txtEmail.Text = consulta["Mail"].ToString();
-                        if (!String.Equals(consulta["Telefono"].ToString(), "0"))
-                            txtTel.Text = consulta["Telefono"].ToString();
-                        dateTimePicker1.Value = Convert.ToDateTime(consulta["Fecha_Nacimiento"]);
-                        if (!String.Equals(consulta["Nro_Tarjeta"].ToString(), "0"))
-                            txtNroTarjeta.Text = consulta["Nro_Tarjeta"].ToString();
-                        txtCalle.Text = consulta["Calle"].ToString();
-                        txtNroCalle.Text = consulta["Nro_Calle"].ToString();
-                        txtPiso.Text = consulta["Nro_Piso"].ToString();
-                        txtDep.Text = consulta["Departamento"].ToString();
-                        if (!String.Equals(consulta["Localidad"].ToString(), "Sin_Localidad"))
-                            txtLoc.Text = consulta["Localidad"].ToString();
-                        txtCodPos.Text = consulta["Cod_Postal"].ToString();
-                        if (!String.Equals(consulta["Ciudad"].ToString(), "Sin_Ciudad"))
-                            txtCiudad.Text = consulta["Ciudad"].ToString();
-                        myConnection.Close();
-                    }
+                    levantarDatosCliente();
                     break;
+
                 case 3:  //Empresa
-                    radioButton1.Enabled = false;
-                    radioButton2.Checked = true;
-                    button2.Text = "Guardar";
                     label29.Text = "Por favor, mantenga sus datos actualizados";
-
-                    //levantar datos de la empresa
-                    using (SqlConnection myConnection = TG.conectar())
-                    {
-                        string comando = "select * from TG.Empresa where ID_User=" + DatosUsuario.usuario;
-                        SqlCommand myCommand = new SqlCommand(comando, myConnection);
-                        SqlDataReader consulta = myCommand.ExecuteReader();
-                        consulta.Read();
-                        
-                        //pasar los datos a los campos
-                        txtRazonSocial.Text = consulta["Razon_Social"].ToString();
-                        txtCuit.Text = consulta["CUIT"].ToString();
-                        txtEmailEmpresa.Text = consulta["Mail"].ToString();
-                        if (!String.Equals(consulta["Telefono"].ToString(), "0"))
-                        textBox17.Text = consulta["Telefono"].ToString();
-                        dateTimePicker2.Value = Convert.ToDateTime(consulta["Fecha_Creacion"]);
-                        if (!String.Equals(consulta["Nombre_Contacto"].ToString(), "Sin_Contacto"))
-                        txtNombreContacto.Text = consulta["Nombre_Contacto"].ToString();
-                        txtCalleEmpresa.Text = consulta["Calle"].ToString();
-                        txtNroCalleEmpresa.Text = consulta["Nro_Calle"].ToString();
-                        txtPisoEmpresa.Text = consulta["Nro_Piso"].ToString();
-                        txtDepEmpresa.Text = consulta["Departamento"].ToString();
-                        if (!String.Equals(consulta["Localidad"].ToString(), "Sin_Localidad"))
-                        txtLocEmpresa.Text = consulta["Localidad"].ToString();
-                        txtCodPosEmpresa.Text = consulta["Cod_Postal"].ToString();
-                        if (!String.Equals(consulta["Ciudad"].ToString(), "Sin_Ciudad"))
-                        txtCiudadEmpresa.Text = consulta["Ciudad"].ToString();
-                        myConnection.Close();
-                    }
+                    levantarDatosEmpresa();
                     break;
+
                 default: //usuario nuevo
                     linkLabel1.Visible = false;
                     label29.Visible = true;
                     label31.Visible = false;
-                    usuarioNuevo = true; break; 
+                    usuarioNuevo = true; 
+                    break; 
             }
+        }
+
+        private void levantarDatosEmpresa()
+        {
+            radioButton1.Enabled = false;
+            radioButton2.Checked = true;
+            button2.Text = "Guardar"; string comando = "select * from TG.Empresa where ID_User=" + DatosUsuario.usuario;
+            DataRow consulta = TG.realizarConsulta(comando).Rows[0];
+
+            //pasar los datos a los campos
+            txtRazonSocial.Text = consulta["Razon_Social"].ToString();
+            txtCuit.Text = consulta["CUIT"].ToString();
+            txtEmailEmpresa.Text = consulta["Mail"].ToString();
+            if (!String.Equals(consulta["Telefono"].ToString(), "0"))
+                textBox17.Text = consulta["Telefono"].ToString();
+            dateTimePicker2.Value = Convert.ToDateTime(consulta["Fecha_Creacion"]);
+            if (!String.Equals(consulta["Nombre_Contacto"].ToString(), "Sin_Contacto"))
+                txtNombreContacto.Text = consulta["Nombre_Contacto"].ToString();
+            txtCalleEmpresa.Text = consulta["Calle"].ToString();
+            txtNroCalleEmpresa.Text = consulta["Nro_Calle"].ToString();
+            txtPisoEmpresa.Text = consulta["Nro_Piso"].ToString();
+            txtDepEmpresa.Text = consulta["Departamento"].ToString();
+            if (!String.Equals(consulta["Localidad"].ToString(), "Sin_Localidad"))
+                txtLocEmpresa.Text = consulta["Localidad"].ToString();
+            txtCodPosEmpresa.Text = consulta["Cod_Postal"].ToString();
+            if (!String.Equals(consulta["Ciudad"].ToString(), "Sin_Ciudad"))
+                txtCiudadEmpresa.Text = consulta["Ciudad"].ToString();
+        }
+
+        private void levantarDatosCliente()
+        {
+            radioButton2.Enabled = false;
+            button1.Text = "Guardar";
+            string comando = "select * from TG.Cliente where ID_User=" + DatosUsuario.usuario;
+            DataRow consulta = TG.realizarConsulta(comando).Rows[0];
+
+            //pasar los datos a los campos
+            txtNombre.Text = consulta["Nombre"].ToString();
+            txtApellido.Text = consulta["Apellido"].ToString();
+            switch (consulta["Tipo_Documento"].ToString())
+            {
+                case "DNI": comboBox1.SelectedIndex = 0; break;
+                case "LC": comboBox1.SelectedIndex = 1; break;
+                case "LE": comboBox1.SelectedIndex = 2; break;
+            }
+            txtDoc.Text = consulta["Documento"].ToString();
+            txtEmail.Text = consulta["Mail"].ToString();
+            if (!String.Equals(consulta["Telefono"].ToString(), "0"))
+                txtTel.Text = consulta["Telefono"].ToString();
+            dateTimePicker1.Value = Convert.ToDateTime(consulta["Fecha_Nacimiento"]);
+            if (!String.Equals(consulta["Nro_Tarjeta"].ToString(), "0"))
+                txtNroTarjeta.Text = consulta["Nro_Tarjeta"].ToString();
+            txtCalle.Text = consulta["Calle"].ToString();
+            txtNroCalle.Text = consulta["Nro_Calle"].ToString();
+            txtPiso.Text = consulta["Nro_Piso"].ToString();
+            txtDep.Text = consulta["Departamento"].ToString();
+            if (!String.Equals(consulta["Localidad"].ToString(), "Sin_Localidad"))
+                txtLoc.Text = consulta["Localidad"].ToString();
+            txtCodPos.Text = consulta["Cod_Postal"].ToString();
+            if (!String.Equals(consulta["Ciudad"].ToString(), "Sin_Ciudad"))
+                txtCiudad.Text = consulta["Ciudad"].ToString();
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -256,7 +261,7 @@ namespace FrbaCommerce.Registro_de_Usuario
             if (error) return;
 
             error = validarDatosCliente();
-            if (error) return;
+            if (error && usuarioNuevo) return;
 
             if (usuarioNuevo)
                 {   // Nuevo usuario
@@ -271,11 +276,9 @@ namespace FrbaCommerce.Registro_de_Usuario
                 }
 
             string nroTarjeta = txtNroTarjeta.Text;
-            string departamento = txtDep.Text;
             string piso = txtPiso.Text;
 
             if (String.Equals(nroTarjeta, "")) nroTarjeta = "0";
-            if (String.Equals(departamento, "")) departamento = "";
             if (String.Equals(piso, "")) piso = "0";
 
             string actualizarCliente = @"UPDATE TG.Cliente set                     
@@ -290,7 +293,7 @@ namespace FrbaCommerce.Registro_de_Usuario
                     Calle = '" + txtCalle.Text + @"',
                     Nro_Calle = " + txtNroCalle.Text + @",
                     Nro_Piso = " + piso + @",
-                    Departamento = '" + departamento + @"',
+                    Departamento = '" + txtDep.Text + @"',
                     Localidad = '" + txtLoc.Text + @"',
                     Cod_Postal = " + txtCodPos.Text + @",
                     Ciudad = '" + txtCiudad.Text + @"'
@@ -299,7 +302,12 @@ namespace FrbaCommerce.Registro_de_Usuario
 
             if (usuarioNuevo) 
                 TG.ventanaEmergente("Usuario creado. Su Username y Password se han enviado a su correo");
-            volverAtras();            
+            if (DatosUsuario.tipoUsuario == 1)
+            {
+                DatosUsuario.resetearDatosModif();
+                (new FrbaCommerce.AbmCliente.AbmCliente(ventanaAnterior)).Show();
+            }
+            else volverAtras();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -324,7 +332,7 @@ namespace FrbaCommerce.Registro_de_Usuario
             if (error) return;
 
             error = validarDatosEmpresa();
-            if (error) return;
+            if (error && usuarioNuevo) return;
 
             if (usuarioNuevo)
                 {   // Nuevo usuario
@@ -337,10 +345,9 @@ namespace FrbaCommerce.Registro_de_Usuario
 
                     TG.realizarConsultaSinRetorno("Insert INTO TG.Empresa (ID_User) VALUES(" + DatosUsuario.usuario.ToString() + ")");
                 }
-            string departamento = txtDep.Text;
+
             string piso = txtPiso.Text;
 
-            if (String.Equals(departamento, "")) departamento = "";
             if (String.Equals(piso, "")) piso = "0";
 
             string actualizarCliente = @"UPDATE TG.Empresa set                     
@@ -353,7 +360,7 @@ namespace FrbaCommerce.Registro_de_Usuario
                     Calle = '" + txtCalleEmpresa.Text + @"',
                     Nro_Calle = " + txtNroCalleEmpresa.Text + @",
                     Nro_Piso = " + piso + @",
-                    Departamento = '" + departamento + @"',
+                    Departamento = '" + txtDepEmpresa.Text + @"',
                     Localidad = '" + txtLocEmpresa.Text + @"',
                     Cod_Postal = " + txtCodPosEmpresa.Text + @",
                     Ciudad = '" + txtCiudadEmpresa.Text + @"'
@@ -362,7 +369,11 @@ namespace FrbaCommerce.Registro_de_Usuario
             
             if (usuarioNuevo)
                 TG.ventanaEmergente("Usuario creado. Su Username y Password se han enviado a su correo");
-            volverAtras();
+            if (DatosUsuario.tipoUsuario == 1)
+            {
+                DatosUsuario.resetearDatosModif();
+                (new FrbaCommerce.AbmCliente.AbmCliente(ventanaAnterior)).Show();
+            } else volverAtras();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

@@ -1,6 +1,6 @@
 ﻿namespace FrbaCommerce.Registro_de_Usuario
 {
-    partial class txtTelEmpresa
+    partial class Registro_de_Usuario
     {
         /// <summary>
         /// Required designer variable.
@@ -727,11 +727,11 @@
             this.grupoCliente.TabStop = false;
             this.grupoCliente.Text = "DatosCliente";
             // 
-            // txtTelEmpresa
+            // Registro_de_Usuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(940, 485);
+            this.ClientSize = new System.Drawing.Size(888, 244);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.label30);
@@ -741,7 +741,7 @@
             this.Controls.Add(this.grupoCliente);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
-            this.Name = "txtTelEmpresa";
+            this.Name = "Registro_de_Usuario";
             this.Text = "Datos de Registro";
             this.Load += new System.EventHandler(this.RegistroUsuario_Load);
             this.grupoEmpresa.ResumeLayout(false);

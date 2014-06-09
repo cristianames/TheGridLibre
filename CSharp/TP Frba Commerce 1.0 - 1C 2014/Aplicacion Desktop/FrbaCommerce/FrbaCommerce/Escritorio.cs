@@ -97,7 +97,7 @@ namespace FrbaCommerce
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FrbaCommerce.Registro_de_Usuario.txtTelEmpresa registroFrm = new FrbaCommerce.Registro_de_Usuario.txtTelEmpresa(this);
+            FrbaCommerce.Registro_de_Usuario.Registro_de_Usuario registroFrm = new FrbaCommerce.Registro_de_Usuario.Registro_de_Usuario(this);
             registroFrm.Show();
             this.Visible = false;
         }
