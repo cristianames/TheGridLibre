@@ -56,6 +56,7 @@ namespace FrbaCommerce
                         (new AbmCliente.AbmCliente(this)).Show();
                         break;
                     case "ABM Empresa":
+                        (new Abm_Empresa.AbmEmpresa(this)).Show();
                         break;
                     case "ABM Rol": 
                         break;

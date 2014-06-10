@@ -69,6 +69,12 @@
     <Compile Include="Abm Cliente\AbmCliente.Designer.cs">
       <DependentUpon>AbmCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm Empresa\AbmEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Empresa\AbmEmpresa.Designer.cs">
+      <DependentUpon>AbmEmpresa.cs</DependentUpon>
+    </Compile>
     <Compile Include="ABM Rol\AbmRol.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -243,6 +249,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Abm Cliente\AbmCliente.resx">
       <DependentUpon>AbmCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Empresa\AbmEmpresa.resx">
+      <DependentUpon>AbmEmpresa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Rol\AbmRol.resx">
       <DependentUpon>AbmRol.cs</DependentUpon>
