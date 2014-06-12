@@ -63,16 +63,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abm Cliente\AbmCliente.cs">
+    <Compile Include="Abm Visibilidad\ABMVisibilidad.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Abm Cliente\AbmCliente.Designer.cs">
+    <Compile Include="Abm Visibilidad\ABMVisibilidad.Designer.cs">
+      <DependentUpon>ABMVisibilidad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Visibilidad\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Visibilidad\Form1.designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM_Usuario\AbmCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM_Usuario\AbmCliente.Designer.cs">
       <DependentUpon>AbmCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm Empresa\AbmEmpresa.cs">
+    <Compile Include="ABM_Usuario\AbmEmpresa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Abm Empresa\AbmEmpresa.Designer.cs">
+    <Compile Include="ABM_Usuario\AbmEmpresa.Designer.cs">
       <DependentUpon>AbmEmpresa.cs</DependentUpon>
     </Compile>
     <Compile Include="ABM Rol\AbmRol.cs">
@@ -81,29 +93,17 @@
     <Compile Include="ABM Rol\AbmRol.Designer.cs">
       <DependentUpon>AbmRol.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABM Rol\Alta.cs">
+    <Compile Include="ABM Rol\AltaModificacion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABM Rol\Alta.Designer.cs">
-      <DependentUpon>Alta.cs</DependentUpon>
+    <Compile Include="ABM Rol\AltaModificacion.Designer.cs">
+      <DependentUpon>AltaModificacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABM Rol\Baja.cs">
+    <Compile Include="ABM_Usuario\Baja.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABM Rol\Baja.Designer.cs">
+    <Compile Include="ABM_Usuario\Baja.Designer.cs">
       <DependentUpon>Baja.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Abm Visibilidad\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Abm Visibilidad\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ABM_Usuario\darBajaUsuario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ABM_Usuario\darBajaUsuario.Designer.cs">
-      <DependentUpon>darBajaUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Abm Rubro\ABMRubro.cs">
       <SubType>Form</SubType>
@@ -128,12 +128,6 @@
     </Compile>
     <Compile Include="Abm Rubro\ModificarRubro.Designer.cs">
       <DependentUpon>ModificarRubro.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Abm Visibilidad\ABMVisibilidad.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Abm Visibilidad\ABMVisibilidad.Designer.cs">
-      <DependentUpon>ABMVisibilidad.cs</DependentUpon>
     </Compile>
     <Compile Include="Calificar Vendedor\FormularioCalificacion.cs">
       <SubType>Form</SubType>
@@ -253,29 +247,26 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Abm Cliente\AbmCliente.resx">
-      <DependentUpon>AbmCliente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Abm Empresa\AbmEmpresa.resx">
-      <DependentUpon>AbmEmpresa.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ABM Rol\AbmRol.resx">
-      <DependentUpon>AbmRol.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ABM Rol\Alta.resx">
-      <DependentUpon>Alta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ABM Rol\Baja.resx">
-      <DependentUpon>Baja.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Abm Visibilidad\ABMVisibilidad.resx">
       <DependentUpon>ABMVisibilidad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Visibilidad\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABM_Usuario\darBajaUsuario.resx">
-      <DependentUpon>darBajaUsuario.cs</DependentUpon>
+    <EmbeddedResource Include="ABM_Usuario\AbmCliente.resx">
+      <DependentUpon>AbmCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM_Usuario\AbmEmpresa.resx">
+      <DependentUpon>AbmEmpresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Rol\AbmRol.resx">
+      <DependentUpon>AbmRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Rol\AltaModificacion.resx">
+      <DependentUpon>AltaModificacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM_Usuario\Baja.resx">
+      <DependentUpon>Baja.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Rubro\ABMRubro.resx">
       <DependentUpon>ABMRubro.cs</DependentUpon>
@@ -336,7 +327,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Registro de Usuario\RegistroUsuario.resx">
+    <EmbeddedResource Include="ABM_Usuario\RegistroUsuario.resx">
       <DependentUpon>RegistroUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VentanaError.resx">
@@ -355,10 +346,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Registro de Usuario\RegistroUsuario.cs">
+    <Compile Include="ABM_Usuario\RegistroUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registro de Usuario\RegistroUsuario.Designer.cs">
+    <Compile Include="ABM_Usuario\RegistroUsuario.Designer.cs">
       <DependentUpon>RegistroUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="VentanaError.cs">
