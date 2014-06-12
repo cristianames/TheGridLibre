@@ -56,11 +56,19 @@ namespace FrbaCommerce
                         (new AbmCliente.AbmCliente(this)).Show();
                         break;
                     case "ABM Empresa":
+<<<<<<< HEAD
                         break;
                     case "ABM Rol": 
                         break;
                     case "ABM Visibilidad":
                         (new Abm_Visibilidad.ABMVisibilidad(this)).Show();// agregar this como parametro
+=======
+                        (new Abm_Empresa.AbmEmpresa(this)).Show();
+                        break;
+                    case "ABM Rol": 
+                        break;
+                    case "AMB Visibilidad": 
+>>>>>>> 544c714f1ec7c87f631c811db269948942f7e196
                         break;
                     case "Calificar Vendedor":
                         break;

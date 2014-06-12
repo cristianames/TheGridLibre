@@ -164,7 +164,6 @@
             this.label6.Size = new System.Drawing.Size(35, 13);
             this.label6.TabIndex = 14;
             this.label6.Text = "E-mail";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // groupBox1
             // 
@@ -235,7 +234,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(888, 447);
+            this.ClientSize = new System.Drawing.Size(840, 485);
             this.Controls.Add(this.botonTerminado);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);

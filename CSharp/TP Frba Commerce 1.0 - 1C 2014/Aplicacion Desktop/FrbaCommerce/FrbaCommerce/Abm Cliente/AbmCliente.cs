@@ -33,11 +33,6 @@ namespace FrbaCommerce.AbmCliente
             dataGridView1.DataSource = TG.realizarConsulta(comandoFiltro);
         }
 
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -143,6 +138,8 @@ namespace FrbaCommerce.AbmCliente
 
         private void botonEliminar_Click(object sender, EventArgs e)
         {
+            botonEliminar.Enabled = false;
+            dataGridView1.Enabled = false;
             int inhabilitado;
             if (Convert.ToBoolean(dataGridView1["Inhabilitado", filaSeleccionada].Value))
                 inhabilitado = 0;
@@ -152,6 +149,9 @@ namespace FrbaCommerce.AbmCliente
                 " where ID_User =" + dataGridView1["ID_User", filaSeleccionada].Value.ToString();
             TG.realizarConsultaSinRetorno(comando);
             actualizarGrilla();
+            dataGridView1.Enabled = true;
+            filaSeleccionada = 0;
+            botonEliminar.Enabled = true;
         }
 
         
