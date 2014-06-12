@@ -19,8 +19,9 @@ namespace FrbaCommerce
             label3.Text = "¡Bienvenido Grid_" + DatosUsuario.usuario.ToString() + "!";
             linkLabel3.Text = DatosUsuario.nombreRol;
 
-            string comando = "SELECT Nombre FROM TG.Funcionalidades_x_Rol WHERE ID_Rol = " +
-                DatosUsuario.codigoRol.ToString();
+            string comando = "SELECT F.Nombre FROM TG.Funcionalidad F" +
+                " inner join TG.Funcionalidades_x_Rol R on(F.ID_Funcionalidad = R.ID_Funcionalidad)" +
+                " WHERE ID_Rol = " + DatosUsuario.codigoRol.ToString();
             listBox1.DataSource = TG.ObtenerListado(comando);
         }
 
@@ -43,24 +44,25 @@ namespace FrbaCommerce
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (listBox1.SelectedItems.Count == 1) {
-
+            if (listBox1.SelectedItems.Count == 1)
+            {
                 bool continuar = true;
-                
+
                 switch (listBox1.SelectedItem.ToString())
                 {
                     case "ABM Usuario":
                         //(new AbmUsuario.AbmUsuario(this)).Show();
                         break;
                     case "ABM Cliente":
-                        (new AbmCliente.AbmCliente(this)).Show();
+                        (new ABM_Usuario.AbmCliente(this)).Show();
                         break;
                     case "ABM Empresa":
-                        (new Abm_Empresa.AbmEmpresa(this)).Show();
+                        (new ABM_Usuario.AbmEmpresa(this)).Show();
                         break;
-                    case "ABM Rol": 
+                    case "ABM Rol":
+                        (new ABM_Usuario.AbmRol(this)).Show();
                         break;
-                    case "AMB Visibilidad": 
+                    case "AMB Visibilidad":
                         break;
                     case "Calificar Vendedor":
                         break;
@@ -78,7 +80,7 @@ namespace FrbaCommerce
                         break;
                     case "Listado Estadistico":
                         break;
-                    default: 
+                    default:
                         TG.ventanaEmergente("Esta Funcionalidad todavia no está implementada");
                         continuar = false;
                         break;
@@ -92,6 +94,16 @@ namespace FrbaCommerce
             FrbaCommerce.Registro_de_Usuario.Registro_de_Usuario registroFrm = new FrbaCommerce.Registro_de_Usuario.Registro_de_Usuario(this);
             registroFrm.Show();
             this.Visible = false;
+        }
+
+        private void listBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) button1_Click(null, null);
+        }
+
+        private void Escritorio_KeyDown(object sender, KeyEventArgs e)
+        {
+
         }
     }
 }

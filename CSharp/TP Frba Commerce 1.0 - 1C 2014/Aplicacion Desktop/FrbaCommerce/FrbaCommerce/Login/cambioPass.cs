@@ -80,20 +80,5 @@ namespace FrbaCommerce.Login
             return 0;
             
         }
-
-        private void textBoxOldPass_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter) submitActions();
-        }
-
-        private void textBoxPass1_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter) submitActions();
-        }
-
-        private void textBoxPass2_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter) submitActions();
-        }
     }
 }

@@ -45,6 +45,8 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(141, 160);
             this.listBox1.TabIndex = 1;
+            this.listBox1.DoubleClick += new System.EventHandler(this.button1_Click);
+            this.listBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listBox1_KeyDown);
             // 
             // label1
             // 
@@ -120,9 +122,11 @@
             // 
             // Escritorio
             // 
+            this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(787, 323);
+            this.CancelButton = this.linkLabel2;
+            this.ClientSize = new System.Drawing.Size(995, 487);
             this.Controls.Add(this.linkLabel3);
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.linkLabel1);
@@ -134,6 +138,7 @@
             this.Name = "Escritorio";
             this.Text = "Escrtorio";
             this.Load += new System.EventHandler(this.Escrtorio_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Escritorio_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

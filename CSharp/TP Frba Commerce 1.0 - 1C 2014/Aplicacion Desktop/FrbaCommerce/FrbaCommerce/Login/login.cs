@@ -111,6 +111,11 @@ namespace FrbaCommerce.Login
             registro.Show();
             this.Visible = false;
         }
+
+        private void login_VisibleChanged(object sender, EventArgs e)
+        {
+            if (this.Visible == true) DatosUsuario.resetearDatos();
+        }
     }
 }
 

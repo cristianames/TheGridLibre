@@ -99,7 +99,6 @@ G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCom
 G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Gestion_de_Preguntas.Pendientes.resources
 G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Gestion_de_Preguntas.Seleccion.resources
 G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.FormGrid.resources
-G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.AbmCliente.AbmCliente.resources
 E:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.AbmCliente.AbmCliente.resources
 E:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Registro_de_Usuario.Registro_de_Usuario.resources
 E:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.ABM_Rol.AbmRol.resources
@@ -109,12 +108,12 @@ E:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCom
 E:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Comprar_Ofertar.Buscador.resources
 E:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Comprar_Ofertar.FiltroRubros.resources
 E:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Comprar_Ofertar.Publicacion.resources
-G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.ABM_Rol.AbmRol.resources
-G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.ABM_Rol.Alta.resources
-G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.ABM_Rol.Baja.resources
-G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.ABM_Usuario.asegurarBorrado.resources
 G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Comprar_Ofertar.Buscador.resources
 G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Comprar_Ofertar.FiltroRubros.resources
 G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Comprar_Ofertar.Publicacion.resources
 G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Registro_de_Usuario.Registro_de_Usuario.resources
-G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Empresa.AbmEmpresa.resources
+G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.ABM_Usuario.AbmCliente.resources
+G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.ABM_Usuario.AbmEmpresa.resources
+G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.ABM_Usuario.AbmRol.resources
+G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.ABM_Usuario.AltaModificacion.resources
+G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.ABM_Usuario.Baja.resources
