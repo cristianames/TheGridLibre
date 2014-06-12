@@ -15,13 +15,12 @@ namespace FrbaCommerce
         {
             InitializeComponent();
             this.ventanaAnterior = anterior;
-            this.ClientSize = new System.Drawing.Size(167, 319);
+            this.ClientSize = new System.Drawing.Size(194, 352);
             label3.Text = "¡Bienvenido Grid_" + DatosUsuario.usuario.ToString() + "!";
             linkLabel3.Text = DatosUsuario.nombreRol;
 
-            string comando = "SELECT F.Nombre FROM TG.Funcionalidad F" +
-                " inner join TG.Funcionalidades_x_Rol R on(F.ID_Funcionalidad = R.ID_Funcionalidad)" +
-                " WHERE ID_Rol = " + DatosUsuario.codigoRol.ToString();
+            string comando = "SELECT Nombre FROM TG.Funcionalidad f inner join TG.Funcionalidades_x_Rol r "+
+                "on(f.ID_Funcionalidad = r.ID_Funcionalidad and r.ID_Rol = " + DatosUsuario.codigoRol.ToString() + ")";
             listBox1.DataSource = TG.ObtenerListado(comando);
         }
 
@@ -44,10 +43,10 @@ namespace FrbaCommerce
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (listBox1.SelectedItems.Count == 1)
-            {
-                bool continuar = true;
+            if (listBox1.SelectedItems.Count == 1) {
 
+                bool continuar = true;
+                
                 switch (listBox1.SelectedItem.ToString())
                 {
                     case "ABM Usuario":
@@ -62,7 +61,8 @@ namespace FrbaCommerce
                     case "ABM Rol":
                         (new ABM_Usuario.AbmRol(this)).Show();
                         break;
-                    case "AMB Visibilidad":
+                    case "ABM Visibilidad":
+                        (new Abm_Visibilidad.ABMVisibilidad(this)).Show();// agregar this como parametro
                         break;
                     case "Calificar Vendedor":
                         break;
@@ -107,3 +107,4 @@ namespace FrbaCommerce
         }
     }
 }
+

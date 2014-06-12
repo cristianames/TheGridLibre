@@ -35,5 +35,10 @@ namespace FrbaCommerce.Abm_Rubro
         {
 
         }
+
+        private void ABMRubro_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
