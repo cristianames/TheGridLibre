@@ -87,6 +87,12 @@
     <Compile Include="ABM Rol\Baja.Designer.cs">
       <DependentUpon>Baja.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm Visibilidad\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Visibilidad\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="ABM_Usuario\darBajaUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,11 +123,11 @@
     <Compile Include="Abm Rubro\ModificarRubro.Designer.cs">
       <DependentUpon>ModificarRubro.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm Visibilidad\Form1.cs">
+    <Compile Include="Abm Visibilidad\ABMVisibilidad.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Abm Visibilidad\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Abm Visibilidad\ABMVisibilidad.Designer.cs">
+      <DependentUpon>ABMVisibilidad.cs</DependentUpon>
     </Compile>
     <Compile Include="Calificar Vendedor\FormularioCalificacion.cs">
       <SubType>Form</SubType>
@@ -252,6 +258,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Rol\Baja.resx">
       <DependentUpon>Baja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Visibilidad\ABMVisibilidad.resx">
+      <DependentUpon>ABMVisibilidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Visibilidad\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ABM_Usuario\darBajaUsuario.resx">
       <DependentUpon>darBajaUsuario.cs</DependentUpon>

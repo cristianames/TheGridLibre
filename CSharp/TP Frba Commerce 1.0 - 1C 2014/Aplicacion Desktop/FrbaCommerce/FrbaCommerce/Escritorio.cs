@@ -59,7 +59,8 @@ namespace FrbaCommerce
                         break;
                     case "ABM Rol": 
                         break;
-                    case "AMB Visibilidad": 
+                    case "ABM Visibilidad":
+                        (new Abm_Visibilidad.ABMVisibilidad(this)).Show();// agregar this como parametro
                         break;
                     case "Calificar Vendedor":
                         break;

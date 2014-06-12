@@ -130,6 +130,24 @@ namespace FrbaCommerce
             return;
         }
 
+        public static bool realizarConsultaControladaSinRetorno(string comando)
+        {
+           
+            SqlConnection myConnection = TG.conectar();
+            SqlCommand myCommand = new SqlCommand(comando, myConnection);
+            try
+            {
+                myCommand.ExecuteNonQuery();
+            }
+            catch (SqlException)
+            {
+                myConnection.Close();
+                return false;
+            }
+            myConnection.Close();
+            return true;
+        }
+
         public static bool esNumerico(string s)
         {
             foreach (char c in s)
