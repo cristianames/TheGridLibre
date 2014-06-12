@@ -1,4 +1,4 @@
-﻿namespace FrbaCommerce.Abm_Visibilidad
+namespace FrbaCommerce.Abm_Visibilidad
 {
     partial class AltaVisibilidad
     {

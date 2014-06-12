@@ -15,12 +15,12 @@ namespace FrbaCommerce
         {
             InitializeComponent();
             this.ventanaAnterior = anterior;
-            this.ClientSize = new System.Drawing.Size(167, 319);
+            this.ClientSize = new System.Drawing.Size(194, 352);
             label3.Text = "¡Bienvenido Grid_" + DatosUsuario.usuario.ToString() + "!";
             linkLabel3.Text = DatosUsuario.nombreRol;
 
-            string comando = "SELECT Nombre FROM TG.Funcionalidades_x_Rol WHERE ID_Rol = " +
-                DatosUsuario.codigoRol.ToString();
+            string comando = "SELECT Nombre FROM TG.Funcionalidad f inner join TG.Funcionalidades_x_Rol r "+
+                "on(f.ID_Funcionalidad = r.ID_Funcionalidad and r.ID_Rol = " + DatosUsuario.codigoRol.ToString() + ")";
             listBox1.DataSource = TG.ObtenerListado(comando);
         }
 
@@ -53,22 +53,16 @@ namespace FrbaCommerce
                         //(new AbmUsuario.AbmUsuario(this)).Show();
                         break;
                     case "ABM Cliente":
-                        (new AbmCliente.AbmCliente(this)).Show();
+                        (new ABM_Usuario.AbmCliente(this)).Show();
                         break;
                     case "ABM Empresa":
-<<<<<<< HEAD
+                        (new ABM_Usuario.AbmEmpresa(this)).Show();
                         break;
-                    case "ABM Rol": 
+                    case "ABM Rol":
+                        (new ABM_Usuario.AbmRol(this)).Show();
                         break;
                     case "ABM Visibilidad":
                         (new Abm_Visibilidad.ABMVisibilidad(this)).Show();// agregar this como parametro
-=======
-                        (new Abm_Empresa.AbmEmpresa(this)).Show();
-                        break;
-                    case "ABM Rol": 
-                        break;
-                    case "AMB Visibilidad": 
->>>>>>> 544c714f1ec7c87f631c811db269948942f7e196
                         break;
                     case "Calificar Vendedor":
                         break;
@@ -86,7 +80,7 @@ namespace FrbaCommerce
                         break;
                     case "Listado Estadistico":
                         break;
-                    default: 
+                    default:
                         TG.ventanaEmergente("Esta Funcionalidad todavia no está implementada");
                         continuar = false;
                         break;
@@ -101,5 +95,16 @@ namespace FrbaCommerce
             registroFrm.Show();
             this.Visible = false;
         }
+
+        private void listBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) button1_Click(null, null);
+        }
+
+        private void Escritorio_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
     }
 }
+
