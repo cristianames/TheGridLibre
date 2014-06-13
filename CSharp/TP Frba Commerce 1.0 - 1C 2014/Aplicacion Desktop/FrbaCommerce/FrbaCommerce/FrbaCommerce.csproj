@@ -105,12 +105,6 @@
     <Compile Include="ABM_Usuario\Baja.Designer.cs">
       <DependentUpon>Baja.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm Rubro\ABMRubro.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Abm Rubro\ABMRubro.Designer.cs">
-      <DependentUpon>ABMRubro.cs</DependentUpon>
-    </Compile>
     <Compile Include="Abm Rubro\CrearRubro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -267,21 +261,22 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ABM_Usuario\AbmCliente.resx">
       <DependentUpon>AbmCliente.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ABM_Usuario\AbmEmpresa.resx">
       <DependentUpon>AbmEmpresa.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Rol\AbmRol.resx">
       <DependentUpon>AbmRol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Rol\AltaModificacion.resx">
       <DependentUpon>AltaModificacion.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ABM_Usuario\Baja.resx">
       <DependentUpon>Baja.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Abm Rubro\ABMRubro.resx">
-      <DependentUpon>ABMRubro.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Rubro\CrearRubro.resx">
       <DependentUpon>CrearRubro.cs</DependentUpon>
@@ -350,6 +345,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ABM_Usuario\RegistroUsuario.resx">
       <DependentUpon>RegistroUsuario.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="VentanaError.resx">
       <DependentUpon>VentanaError.cs</DependentUpon>

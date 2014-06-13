@@ -38,12 +38,21 @@
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtStock = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.labelVencimiento = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.txtRubro = new System.Windows.Forms.Button();
+            this.groupBoxVisibilidad = new System.Windows.Forms.GroupBox();
+            this.labelInicio = new System.Windows.Forms.Label();
+            this.labelPrecioPublicar = new System.Windows.Forms.Label();
+            this.labelComision = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.botonBorrador = new System.Windows.Forms.Button();
+            this.botonPublicar = new System.Windows.Forms.Button();
+            this.botonRegresar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.groupBoxVisibilidad.SuspendLayout();
             this.SuspendLayout();
             // 
             // radioCompra
@@ -57,6 +66,7 @@
             this.radioCompra.TabStop = true;
             this.radioCompra.Text = "Compra Inmediata";
             this.radioCompra.UseVisualStyleBackColor = true;
+            this.radioCompra.CheckedChanged += new System.EventHandler(this.radioCompra_CheckedChanged);
             // 
             // radioSubasta
             // 
@@ -67,6 +77,7 @@
             this.radioSubasta.TabIndex = 1;
             this.radioSubasta.Text = "Subasta";
             this.radioSubasta.UseVisualStyleBackColor = true;
+            this.radioSubasta.CheckedChanged += new System.EventHandler(this.radioSubasta_CheckedChanged);
             // 
             // label1
             // 
@@ -97,7 +108,7 @@
             // labelPrecio
             // 
             this.labelPrecio.AutoSize = true;
-            this.labelPrecio.Location = new System.Drawing.Point(9, 233);
+            this.labelPrecio.Location = new System.Drawing.Point(12, 233);
             this.labelPrecio.Name = "labelPrecio";
             this.labelPrecio.Size = new System.Drawing.Size(47, 13);
             this.labelPrecio.TabIndex = 6;
@@ -113,7 +124,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 309);
+            this.label3.Location = new System.Drawing.Point(12, 306);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 13);
             this.label3.TabIndex = 8;
@@ -126,43 +137,30 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 9;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 275);
+            this.label4.Location = new System.Drawing.Point(12, 269);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(44, 13);
             this.label4.TabIndex = 10;
             this.label4.Text = "Stock:";
             // 
-            // txtStock
+            // labelVencimiento
             // 
-            this.txtStock.Location = new System.Drawing.Point(328, 275);
-            this.txtStock.Name = "txtStock";
-            this.txtStock.Size = new System.Drawing.Size(100, 21);
-            this.txtStock.TabIndex = 11;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 348);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(136, 13);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Fecha de vencimiento:";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(229, 342);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 21);
-            this.dateTimePicker1.TabIndex = 13;
+            this.labelVencimiento.AutoSize = true;
+            this.labelVencimiento.Location = new System.Drawing.Point(6, 33);
+            this.labelVencimiento.Name = "labelVencimiento";
+            this.labelVencimiento.Size = new System.Drawing.Size(136, 13);
+            this.labelVencimiento.TabIndex = 12;
+            this.labelVencimiento.Text = "Fecha de vencimiento:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 375);
+            this.label6.Location = new System.Drawing.Point(12, 351);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(64, 13);
             this.label6.TabIndex = 14;
@@ -171,31 +169,119 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(306, 375);
+            this.comboBox2.Items.AddRange(new object[] {
+            "SI",
+            "NO"});
+            this.comboBox2.Location = new System.Drawing.Point(308, 351);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 21);
             this.comboBox2.TabIndex = 15;
             // 
-            // label7
+            // numericUpDown1
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 415);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(29, 13);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "Rub";
+            this.numericUpDown1.Location = new System.Drawing.Point(309, 267);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 21);
+            this.numericUpDown1.TabIndex = 17;
+            // 
+            // txtRubro
+            // 
+            this.txtRubro.Location = new System.Drawing.Point(15, 396);
+            this.txtRubro.Name = "txtRubro";
+            this.txtRubro.Size = new System.Drawing.Size(145, 23);
+            this.txtRubro.TabIndex = 18;
+            this.txtRubro.Text = "Seleccionar rubros";
+            this.txtRubro.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxVisibilidad
+            // 
+            this.groupBoxVisibilidad.Controls.Add(this.labelComision);
+            this.groupBoxVisibilidad.Controls.Add(this.labelPrecioPublicar);
+            this.groupBoxVisibilidad.Controls.Add(this.labelInicio);
+            this.groupBoxVisibilidad.Controls.Add(this.labelVencimiento);
+            this.groupBoxVisibilidad.Location = new System.Drawing.Point(15, 458);
+            this.groupBoxVisibilidad.Name = "groupBoxVisibilidad";
+            this.groupBoxVisibilidad.Size = new System.Drawing.Size(414, 137);
+            this.groupBoxVisibilidad.TabIndex = 19;
+            this.groupBoxVisibilidad.TabStop = false;
+            this.groupBoxVisibilidad.Text = "Datos Visibilidad";
+            // 
+            // labelInicio
+            // 
+            this.labelInicio.AutoSize = true;
+            this.labelInicio.Location = new System.Drawing.Point(6, 62);
+            this.labelInicio.Name = "labelInicio";
+            this.labelInicio.Size = new System.Drawing.Size(96, 13);
+            this.labelInicio.TabIndex = 14;
+            this.labelInicio.Text = "Fecha de inicio:";
+            // 
+            // labelPrecioPublicar
+            // 
+            this.labelPrecioPublicar.AutoSize = true;
+            this.labelPrecioPublicar.Location = new System.Drawing.Point(6, 89);
+            this.labelPrecioPublicar.Name = "labelPrecioPublicar";
+            this.labelPrecioPublicar.Size = new System.Drawing.Size(119, 13);
+            this.labelPrecioPublicar.TabIndex = 15;
+            this.labelPrecioPublicar.Text = "Precio por publicar:";
+            // 
+            // labelComision
+            // 
+            this.labelComision.AutoSize = true;
+            this.labelComision.Location = new System.Drawing.Point(6, 111);
+            this.labelComision.Name = "labelComision";
+            this.labelComision.Size = new System.Drawing.Size(145, 13);
+            this.labelComision.TabIndex = 16;
+            this.labelComision.Text = "Porcentaje de comision:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(229, 397);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(200, 21);
+            this.textBox1.TabIndex = 20;
+            // 
+            // botonBorrador
+            // 
+            this.botonBorrador.Location = new System.Drawing.Point(261, 601);
+            this.botonBorrador.Name = "botonBorrador";
+            this.botonBorrador.Size = new System.Drawing.Size(75, 42);
+            this.botonBorrador.TabIndex = 21;
+            this.botonBorrador.Text = "Guardar borrador";
+            this.botonBorrador.UseVisualStyleBackColor = true;
+            // 
+            // botonPublicar
+            // 
+            this.botonPublicar.Location = new System.Drawing.Point(354, 601);
+            this.botonPublicar.Name = "botonPublicar";
+            this.botonPublicar.Size = new System.Drawing.Size(75, 42);
+            this.botonPublicar.TabIndex = 22;
+            this.botonPublicar.Text = "Publicar";
+            this.botonPublicar.UseVisualStyleBackColor = true;
+            // 
+            // botonRegresar
+            // 
+            this.botonRegresar.Location = new System.Drawing.Point(24, 601);
+            this.botonRegresar.Name = "botonRegresar";
+            this.botonRegresar.Size = new System.Drawing.Size(75, 41);
+            this.botonRegresar.TabIndex = 23;
+            this.botonRegresar.Text = "Regresar";
+            this.botonRegresar.UseVisualStyleBackColor = true;
             // 
             // GenerarPublicacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(475, 570);
-            this.Controls.Add(this.label7);
+            this.ClientSize = new System.Drawing.Size(454, 655);
+            this.Controls.Add(this.botonRegresar);
+            this.Controls.Add(this.botonPublicar);
+            this.Controls.Add(this.botonBorrador);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.groupBoxVisibilidad);
+            this.Controls.Add(this.txtRubro);
+            this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtStock);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label3);
@@ -208,6 +294,10 @@
             this.Controls.Add(this.radioCompra);
             this.Name = "GenerarPublicacion";
             this.Text = "Generar Publicacion";
+            this.Load += new System.EventHandler(this.GenerarPublicacion_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            this.groupBoxVisibilidad.ResumeLayout(false);
+            this.groupBoxVisibilidad.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -225,12 +315,19 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtStock;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label labelVencimiento;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Button txtRubro;
+        private System.Windows.Forms.GroupBox groupBoxVisibilidad;
+        private System.Windows.Forms.Label labelInicio;
+        private System.Windows.Forms.Label labelComision;
+        private System.Windows.Forms.Label labelPrecioPublicar;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button botonBorrador;
+        private System.Windows.Forms.Button botonPublicar;
+        private System.Windows.Forms.Button botonRegresar;
 
     }
 }
