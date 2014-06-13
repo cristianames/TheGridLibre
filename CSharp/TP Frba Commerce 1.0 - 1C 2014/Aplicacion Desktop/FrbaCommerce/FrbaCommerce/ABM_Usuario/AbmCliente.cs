@@ -119,7 +119,7 @@ namespace FrbaCommerce.ABM_Usuario
             DatosUsuario.usuarioAux = DatosUsuario.usuario;
             DatosUsuario.usuario = Convert.ToInt32(dataGridView1["ID_User", filaSeleccionada].Value);
             DatosUsuario.tipoUsuarioModif = 2;
-            (new FrbaCommerce.Registro_de_Usuario.Registro_de_Usuario(this)).Show();
+            (new FrbaCommerce.ABM_Usuario.Registro_de_Usuario(this)).Show();
             this.Visible = false;
         }
 

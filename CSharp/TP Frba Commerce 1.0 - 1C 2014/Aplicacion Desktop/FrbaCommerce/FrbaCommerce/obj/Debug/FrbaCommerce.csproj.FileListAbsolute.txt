@@ -26,8 +26,9 @@ G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCom
 G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Portal.resources
 G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.FormGrid.resources
 G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Properties.Resources.resources
-G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Registro_de_Usuario.Registro_de_Usuario.resources
 G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.VentanaError.resources
 G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.csproj.GenerateResource.Cache
 G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.exe
 G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.pdb
+G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Visibilidad.Baja.resources
+G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.ABM_Usuario.Registro_de_Usuario.resources

@@ -9,16 +9,16 @@ using System.Windows.Forms;
 
 namespace FrbaCommerce.Abm_Visibilidad
 {
-    public partial class ABMVisibilidad : Form
+    public partial class ABMVisibilidad : FormGrid
     {
 
-        string ID_Visibilidad;
-        FormGrid ventanaAnterior;
+        string ID_Visibilidad, comandoConsulta;
+        bool mostrarInhabilitados = false;
         public ABMVisibilidad(FormGrid anterior)
         {
             InitializeComponent();
             ventanaAnterior = anterior;
-
+            this.ClientSize = new System.Drawing.Size(480, 379);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -28,8 +28,8 @@ namespace FrbaCommerce.Abm_Visibilidad
 
         private void ABMVisibilidad_Load(object sender, EventArgs e)
         {
-            string consulta = "select * from TG.Visibilidad";
-            dataGridView1.DataSource = TG.realizarConsulta(consulta);
+            resetearComando();
+            recargarGrid();
         }
 
         private void botonCrearVisibilidad_Click(object sender, EventArgs e)
@@ -38,61 +38,76 @@ namespace FrbaCommerce.Abm_Visibilidad
             this.Enabled = false;
         }
 
-        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-           
-           
-            dataGridView1.CurrentCell.ToString();
-            DataGridViewRow seleccion  =  dataGridView1.CurrentRow;
-
-            if (!(e.RowIndex == -1) && !String.Equals(seleccion.Cells[0].Value.ToString(), ""))//no se selecciono el nombre de las columnas ni la ultima fila (la ultima fila tiene ID = caracter vacio)
-            {
-
-
-                botonModificar.Enabled = true;
-                ID_Visibilidad = seleccion.Cells[0].Value.ToString();
-                if (String.Equals(seleccion.Cells[4].Value.ToString(), "False")) 
-                {
-                    botonInhabilitar.Enabled = true;
-                }
-                else botonInhabilitar.Enabled = false;
-            }
-            else
-            {
-                dataGridView1.CurrentCell.Selected = false;
-                botonModificar.Enabled = false;
-                botonInhabilitar.Enabled = false;
-            }
-            
-        }
-
         private void botonModificar_Click(object sender, EventArgs e)
         {
-            (new FrbaCommerce.Abm_Visibilidad.AltaVisibilidad(this, ID_Visibilidad)).Show();
-            this.Enabled = false;
+            (new AltaVisibilidad(this, ID_Visibilidad)).Show();
+            this.Visible = false;
         }
 
         private void botonAceptar_Click(object sender, EventArgs e)
         {
-            ventanaAnterior.Show();
-            this.Close();
+            volverAtras();
         }
 
         private void botonInhabilitar_Click(object sender, EventArgs e)
         {
-            string consulta = "update TG.Visibilidad set Inhabilitado='true' where ID_Visibilidad=" + ID_Visibilidad;
-            TG.realizarConsultaSinRetorno(consulta);
-            consulta = "select * from TG.Visibilidad";
-            dataGridView1.DataSource = TG.realizarConsulta(consulta);
+            (new Baja(this, ID_Visibilidad)).Show();
+            this.Visible = false;
             
         }
         public void recargarGrid() 
         {
-            string consulta = "select * from TG.Visibilidad";
-            dataGridView1.DataSource = TG.realizarConsulta(consulta);
+            dataGridView1.DataSource = TG.realizarConsulta(comandoConsulta);
         }
 
-        private void ABMVisibilidad_EnabledChanged(object sender, EventArgs e)
+        private void botonMostrar_Click(object sender, EventArgs e)
+        {
+            if (mostrarInhabilitados)
+            {
+                mostrarInhabilitados = false;
+                botonMostrar.Text = "Mostrar Inhabilitados";
+                resetearComando();
+                dataGridView1.DataSource = null;
+                recargarGrid();
+            }
+            else 
+            {
+                botonMostrar.Text = "Ocultar Inhabilitados";
+                comandoConsulta = "select Inhabilitado,ID_visibilidad,Nombre,Precio_Por_Publicar,Porcentaje_Venta"+
+                    " from TG.Visibilidad";
+                dataGridView1.DataSource = null;
+                recargarGrid();
+                mostrarInhabilitados = true;
+            }
+        }
+
+        private void resetearComando()
+        {
+            comandoConsulta = "select ID_visibilidad,Nombre,Precio_Por_Publicar,Porcentaje_Venta " +
+                "from TG.Visibilidad where Inhabilitado = 0";
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            DataGridViewRow seleccion = dataGridView1.CurrentRow;
+            ID_Visibilidad = seleccion.Cells["ID_Visibilidad"].Value.ToString();
+            botonModificar.Enabled = true;
+            if (mostrarInhabilitados)
+            {
+                if (String.Equals(seleccion.Cells["Inhabilitado"].Value.ToString(), "True"))
+                {
+                    botonInhabilitar.Enabled = false;
+                    botonModificar.Enabled = false;
+                }
+                else 
+                { 
+                    botonInhabilitar.Enabled = true;
+                    botonModificar.Enabled = true;
+                }
+            }
+        }
+
+        private void ABMVisibilidad_VisibleChanged(object sender, EventArgs e)
         {
             this.recargarGrid();
         }

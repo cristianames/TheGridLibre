@@ -1,4 +1,4 @@
-﻿namespace FrbaCommerce.Registro_de_Usuario
+﻿namespace FrbaCommerce.ABM_Usuario
 {
     partial class Registro_de_Usuario
     {
@@ -125,6 +125,7 @@
             // 
             // button3
             // 
+            this.button3.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button3.Location = new System.Drawing.Point(382, 384);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
@@ -726,7 +727,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button3;
-            this.ClientSize = new System.Drawing.Size(995, 487);
+            this.ClientSize = new System.Drawing.Size(842, 487);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.label30);

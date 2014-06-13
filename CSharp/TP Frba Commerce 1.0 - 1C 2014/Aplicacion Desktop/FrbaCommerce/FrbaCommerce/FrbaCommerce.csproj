@@ -69,11 +69,17 @@
     <Compile Include="Abm Visibilidad\ABMVisibilidad.Designer.cs">
       <DependentUpon>ABMVisibilidad.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm Visibilidad\Form1.cs">
+    <Compile Include="Abm Visibilidad\Baja.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Abm Visibilidad\Form1.designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Abm Visibilidad\Baja.Designer.cs">
+      <DependentUpon>Baja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Visibilidad\AltaModificacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Visibilidad\AltaModificacion.designer.cs">
+      <DependentUpon>AltaModificacion.cs</DependentUpon>
     </Compile>
     <Compile Include="ABM_Usuario\AbmCliente.cs">
       <SubType>Form</SubType>
@@ -250,8 +256,11 @@
     <EmbeddedResource Include="Abm Visibilidad\ABMVisibilidad.resx">
       <DependentUpon>ABMVisibilidad.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Abm Visibilidad\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Abm Visibilidad\Baja.resx">
+      <DependentUpon>Baja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Visibilidad\AltaModificacion.resx">
+      <DependentUpon>AltaModificacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ABM_Usuario\AbmCliente.resx">
       <DependentUpon>AbmCliente.cs</DependentUpon>

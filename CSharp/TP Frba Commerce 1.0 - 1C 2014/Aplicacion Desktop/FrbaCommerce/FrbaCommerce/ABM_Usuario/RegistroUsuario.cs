@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
-namespace FrbaCommerce.Registro_de_Usuario
+namespace FrbaCommerce.ABM_Usuario
 {
     public partial class Registro_de_Usuario : FormGrid
     {
