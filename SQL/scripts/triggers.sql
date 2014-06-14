@@ -1,6 +1,3 @@
-use GD1C2014
-go
-
 create trigger TG.inhabilitarUsuario on TG.Usuario for update as
 begin
 
@@ -23,11 +20,8 @@ close usuariosModificados
 deallocate usuariosModificados
 
 end
-go
 
-use GD1C2014
 go
-
 create trigger TG.inhabilitarRoles on TG.Rol for update as
 begin
 
@@ -50,9 +44,7 @@ close rolesModificados
 deallocate rolesModificados
 
 end
-go
 
-use GD1C2014
 go
 
 create trigger TG.inhabilitarVisibilidad on TG.Visibilidad for update as
@@ -77,4 +69,3 @@ close visibilidadesModificadas
 deallocate visibilidadesModificadas
 
 end
-go

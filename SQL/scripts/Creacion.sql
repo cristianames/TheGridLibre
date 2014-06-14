@@ -1,3 +1,5 @@
+use GD1C2014
+GO
 create table GD1C2014.TG.Tipo_Usuario(
     ID_Tipo int identity(1,1) primary key,
     Nombre nvarchar(255) not null,
@@ -16,7 +18,7 @@ create table GD1C2014.TG.Usuario(
 )
 
 create table GD1C2014.TG.Cliente(
-	ID_User numeric(18,0),
+	ID_User numeric(18,0) references TG.Usuario(ID_User),
     Nombre nvarchar(255), 
     Apellido nvarchar(255),
     Tipo_Documento nvarchar(255), 
@@ -32,11 +34,11 @@ create table GD1C2014.TG.Cliente(
 	Localidad nvarchar(255),
 	Cod_Postal nvarchar(50),
 	Ciudad nvarchar(255)
-	Primary Key(ID_User)
+    Primary Key(ID_User)
 )
 
 create table GD1C2014.TG.Empresa(
-	ID_User numeric(18,0),
+	ID_User numeric(18,0) references TG.Usuario(ID_User),
     Razon_Social nvarchar(255),  
     CUIT nvarchar(50),
     Mail nvarchar(255),
@@ -50,11 +52,11 @@ create table GD1C2014.TG.Empresa(
 	Localidad varchar(20),
 	Cod_Postal nvarchar(50),
 	Ciudad nvarchar(20)
-	Primary Key(ID_User)
+    Primary Key(ID_User)
 )
 
 create table GD1C2014.TG.Administrador(
-  ID_User numeric(18,0),
+	ID_User numeric(18,0) references TG.Usuario(ID_User),
     Nombre nvarchar(255),
     Primary Key(ID_User)
 )
@@ -99,7 +101,7 @@ create table GD1C2014.TG.Funcionalidades_x_Rol(
 
 create table GD1C2014.TG.Publicacion(
 	
-        ID_Publicacion numeric(18,0) /*identity(1000000,1)*/ Primary Key,
+    ID_Publicacion numeric(18,0) /*identity(1000000,1)*/ Primary Key,
 	Descripcion nvarchar(255),
 	Stock numeric(18,0),
 	Fecha_Inicio datetime,
@@ -153,6 +155,8 @@ create table GD1C2014.TG.Pregunta(
 	Respuesta nvarchar(255),
 	Fecha_Respuesta date
 )
+
+GO
 
 insert into TG.Rol(Nombre,Inhabilitado) values('Administrador',0)
 insert into TG.Rol(Nombre,Inhabilitado) values('Comprador',0)
@@ -234,3 +238,5 @@ values(3,12)
 
 insert into TG.Funcionalidades_x_Rol 
 values(3,13)
+
+GO
