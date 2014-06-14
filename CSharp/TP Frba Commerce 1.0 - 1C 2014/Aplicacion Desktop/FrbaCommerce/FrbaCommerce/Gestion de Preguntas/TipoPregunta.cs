@@ -10,11 +10,11 @@ using System.Data.SqlClient;
 
 namespace FrbaCommerce.Gestion_de_Preguntas
 {
-    public partial class Pendientes : Form
+    public partial class TipoPregunta : Form
     {
         
         
-        public Pendientes()
+        public TipoPregunta()
         {
             InitializeComponent();
         }
@@ -32,8 +32,6 @@ namespace FrbaCommerce.Gestion_de_Preguntas
             ", con);
             DataSet dsGrilla = new DataSet();
             daGrilla.Fill(dsGrilla, "gd_esquema.Maestra");
-            gridPendientes.DataSource = dsGrilla.Tables[0];
-            gridPendientes.DataMember = "gd_esquema.Maestra";
             //textBox1.Text = "SEP";
             con.Close();
         }

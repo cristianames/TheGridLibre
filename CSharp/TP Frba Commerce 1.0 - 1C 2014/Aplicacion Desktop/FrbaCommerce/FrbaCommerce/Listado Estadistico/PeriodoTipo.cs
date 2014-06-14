@@ -7,13 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace FrbaCommerce.Gestion_de_Preguntas
+namespace FrbaCommerce.Listado_Estadistico
 {
-    public partial class Respondidas : Form
+    public partial class PeriodoTipo : Form
     {
-        public Respondidas()
+        public PeriodoTipo()
         {
             InitializeComponent();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
