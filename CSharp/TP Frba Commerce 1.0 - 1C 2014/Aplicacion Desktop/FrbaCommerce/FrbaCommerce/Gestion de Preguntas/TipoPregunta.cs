@@ -10,11 +10,11 @@ using System.Data.SqlClient;
 
 namespace FrbaCommerce.Gestion_de_Preguntas
 {
-    public partial class Pendientes : Form
+    public partial class TipoPregunta : Form
     {
         
         
-        public Pendientes()
+        public TipoPregunta()
         {
             InitializeComponent();
         }

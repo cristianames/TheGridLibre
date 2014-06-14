@@ -7,13 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace FrbaCommerce.Gestion_de_Preguntas
+namespace FrbaCommerce.Historial_Cliente
 {
-    public partial class Respuesta : Form
+    public partial class Historial : Form
     {
-        public Respuesta()
+        public Historial()
         {
             InitializeComponent();
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

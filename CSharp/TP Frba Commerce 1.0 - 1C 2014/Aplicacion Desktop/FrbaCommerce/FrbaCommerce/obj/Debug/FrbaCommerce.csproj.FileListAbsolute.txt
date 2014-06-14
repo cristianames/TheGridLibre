@@ -34,3 +34,5 @@ C:\Users\Dante\Documents\GitHub\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 20
 C:\Users\Dante\Documents\GitHub\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.csproj.GenerateResource.Cache
 C:\Users\Dante\Documents\GitHub\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.exe
 C:\Users\Dante\Documents\GitHub\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.pdb
+E:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.exe
+E:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.pdb
