@@ -44,7 +44,7 @@
             this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(10, 51);
+            this.dataGridView1.Location = new System.Drawing.Point(34, 51);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -79,11 +79,11 @@
             // botonAceptar
             // 
             this.botonAceptar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.botonAceptar.Location = new System.Drawing.Point(348, 344);
+            this.botonAceptar.Location = new System.Drawing.Point(296, 344);
             this.botonAceptar.Name = "botonAceptar";
-            this.botonAceptar.Size = new System.Drawing.Size(64, 23);
+            this.botonAceptar.Size = new System.Drawing.Size(117, 23);
             this.botonAceptar.TabIndex = 3;
-            this.botonAceptar.Text = "Aceptar";
+            this.botonAceptar.Text = "Terminado";
             this.botonAceptar.UseVisualStyleBackColor = true;
             this.botonAceptar.Click += new System.EventHandler(this.botonAceptar_Click);
             // 
@@ -112,7 +112,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.botonAceptar;
-            this.ClientSize = new System.Drawing.Size(842, 487);
+            this.ClientSize = new System.Drawing.Size(844, 487);
             this.Controls.Add(this.botonMostrar);
             this.Controls.Add(this.botonInhabilitar);
             this.Controls.Add(this.botonAceptar);

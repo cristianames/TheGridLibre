@@ -10,6 +10,7 @@ using System.Windows.Forms;
 namespace FrbaCommerce.ABM_Usuario
 {
     public partial class AltaModificacion : FormGrid
+
     {
         private int rol;
         public AltaModificacion(FormGrid anterior, int rol)

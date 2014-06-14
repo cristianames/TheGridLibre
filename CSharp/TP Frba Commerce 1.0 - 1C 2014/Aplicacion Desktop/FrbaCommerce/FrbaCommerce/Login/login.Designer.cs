@@ -80,7 +80,7 @@
             // 
             this.button1.Location = new System.Drawing.Point(248, 27);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 20);
+            this.button1.Size = new System.Drawing.Size(75, 59);
             this.button1.TabIndex = 5;
             this.button1.Text = "Aceptar";
             this.button1.UseVisualStyleBackColor = true;
@@ -100,9 +100,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(248, 53);
+            this.pictureBox1.Location = new System.Drawing.Point(248, 100);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(75, 67);
+            this.pictureBox1.Size = new System.Drawing.Size(20, 20);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
@@ -112,7 +112,7 @@
             this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(842, 487);
+            this.ClientSize = new System.Drawing.Size(842, 328);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.button1);

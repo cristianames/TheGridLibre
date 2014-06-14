@@ -10,6 +10,7 @@ using System.Windows.Forms;
 namespace FrbaCommerce.ABM_Usuario
 {
     public partial class AbmRol : FormGrid
+
     {
         private int filaSeleccionada = 0;
         private string comandoFiltro;

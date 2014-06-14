@@ -111,12 +111,6 @@
     <Compile Include="ABM_Usuario\Baja.Designer.cs">
       <DependentUpon>Baja.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm Rubro\ABMRubro.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Abm Rubro\ABMRubro.Designer.cs">
-      <DependentUpon>ABMRubro.cs</DependentUpon>
-    </Compile>
     <Compile Include="Abm Rubro\CrearRubro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +141,12 @@
     <Compile Include="Calificar Vendedor\SeleccionarUsuario.Designer.cs">
       <DependentUpon>SeleccionarUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DatosUsuario.cs" />
+    <Compile Include="TG.cs" />
+    <Compile Include="Validacion.cs" />
     <Compile Include="Comprar-Ofertar\Buscador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,11 +177,23 @@
     <Compile Include="Escritorio.Designer.cs">
       <DependentUpon>Escritorio.cs</DependentUpon>
     </Compile>
-    <Compile Include="Facturar Publicaciones\Form1.cs">
+    <Compile Include="Facturar Publicaciones\FacturaGenerada.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Facturar Publicaciones\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Facturar Publicaciones\FacturaGenerada.Designer.cs">
+      <DependentUpon>FacturaGenerada.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturar Publicaciones\formaPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturar Publicaciones\formaPago.Designer.cs">
+      <DependentUpon>formaPago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturar Publicaciones\PublicacionesRendir.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturar Publicaciones\PublicacionesRendir.Designer.cs">
+      <DependentUpon>PublicacionesRendir.cs</DependentUpon>
     </Compile>
     <Compile Include="Gestion de Preguntas\Pendientes.cs">
       <SubType>Form</SubType>
@@ -231,11 +243,11 @@
     <Compile Include="Portal.Designer.cs">
       <DependentUpon>Portal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Generar Publicacion\Form1.cs">
+    <Compile Include="Generar Publicacion\GenerarPublicacion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Generar Publicacion\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Generar Publicacion\GenerarPublicacion.Designer.cs">
+      <DependentUpon>GenerarPublicacion.cs</DependentUpon>
     </Compile>
     <Compile Include="Historial Cliente\Form1.cs">
       <SubType>Form</SubType>
@@ -250,7 +262,6 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Abm Visibilidad\ABMVisibilidad.resx">
@@ -264,21 +275,22 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ABM_Usuario\AbmCliente.resx">
       <DependentUpon>AbmCliente.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ABM_Usuario\AbmEmpresa.resx">
       <DependentUpon>AbmEmpresa.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Rol\AbmRol.resx">
       <DependentUpon>AbmRol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Rol\AltaModificacion.resx">
       <DependentUpon>AltaModificacion.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ABM_Usuario\Baja.resx">
       <DependentUpon>Baja.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Abm Rubro\ABMRubro.resx">
-      <DependentUpon>ABMRubro.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Rubro\CrearRubro.resx">
       <DependentUpon>CrearRubro.cs</DependentUpon>
@@ -306,6 +318,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Escritorio.resx">
       <DependentUpon>Escritorio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturar Publicaciones\FacturaGenerada.resx">
+      <DependentUpon>FacturaGenerada.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturar Publicaciones\formaPago.resx">
+      <DependentUpon>formaPago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturar Publicaciones\PublicacionesRendir.resx">
+      <DependentUpon>PublicacionesRendir.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGrid.resx">
+      <DependentUpon>FormGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Generar Publicacion\GenerarPublicacion.resx">
+      <DependentUpon>GenerarPublicacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion de Preguntas\Pendientes.resx">
       <DependentUpon>Pendientes.cs</DependentUpon>
@@ -335,6 +362,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ABM_Usuario\RegistroUsuario.resx">
       <DependentUpon>RegistroUsuario.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="VentanaError.resx">
       <DependentUpon>VentanaError.cs</DependentUpon>

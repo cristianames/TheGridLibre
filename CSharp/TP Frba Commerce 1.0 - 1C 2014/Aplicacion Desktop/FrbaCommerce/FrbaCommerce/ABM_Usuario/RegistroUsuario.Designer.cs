@@ -746,7 +746,6 @@
             this.grupoCliente.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

@@ -1,5 +1,5 @@
-use GD1C2014
-go
+--use GD1C2014
+--go
 create procedure TG.login @user numeric(18,0), @pass nvarchar(255), @protocolo int out as
 begin
 

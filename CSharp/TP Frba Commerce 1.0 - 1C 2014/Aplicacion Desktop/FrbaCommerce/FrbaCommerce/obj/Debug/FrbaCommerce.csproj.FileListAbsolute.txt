@@ -8,7 +8,6 @@ G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCom
 G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.ABM_Usuario.AbmRol.resources
 G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.ABM_Usuario.AltaModificacion.resources
 G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.ABM_Usuario.Baja.resources
-G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Rubro.ABMRubro.resources
 G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Rubro.CrearRubro.resources
 G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Rubro.EliminarRubro.resources
 G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Rubro.ModificarRubro.resources
@@ -32,3 +31,8 @@ G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCom
 G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.pdb
 G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Visibilidad.Baja.resources
 G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.ABM_Usuario.Registro_de_Usuario.resources
+G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Facturar_Publicaciones.FacturaGenerada.resources
+G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Facturar_Publicaciones.formaPago.resources
+G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Facturar_Publicaciones.PublicacionesRendir.resources
+G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Generar_Publicacion.GenerarPublicacion.resources
+G:\TheGridLibre\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Program.resources

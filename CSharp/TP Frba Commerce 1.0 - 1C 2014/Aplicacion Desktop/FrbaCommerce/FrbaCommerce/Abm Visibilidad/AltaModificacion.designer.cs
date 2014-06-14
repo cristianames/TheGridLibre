@@ -28,32 +28,23 @@ namespace FrbaCommerce.Abm_Visibilidad
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtCod = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.txtPorcentaje = new System.Windows.Forms.TextBox();
             this.botonGuardar = new System.Windows.Forms.Button();
-            this.botonLimpiar = new System.Windows.Forms.Button();
             this.labelAviso = new System.Windows.Forms.Label();
+            this.botonCancelar = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtDuracion = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Codigo";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 51);
+            this.label2.Location = new System.Drawing.Point(98, 58);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 1;
@@ -62,7 +53,7 @@ namespace FrbaCommerce.Abm_Visibilidad
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 78);
+            this.label3.Location = new System.Drawing.Point(47, 85);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(95, 13);
             this.label3.TabIndex = 2;
@@ -71,23 +62,15 @@ namespace FrbaCommerce.Abm_Visibilidad
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 110);
+            this.label4.Location = new System.Drawing.Point(28, 112);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(114, 13);
             this.label4.TabIndex = 3;
             this.label4.Text = "Porcentaje de la venta";
             // 
-            // txtCod
-            // 
-            this.txtCod.Location = new System.Drawing.Point(121, 23);
-            this.txtCod.Name = "txtCod";
-            this.txtCod.Size = new System.Drawing.Size(100, 20);
-            this.txtCod.TabIndex = 4;
-            this.txtCod.TextChanged += new System.EventHandler(this.txtCod_TextChanged);
-            // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(121, 51);
+            this.txtNombre.Location = new System.Drawing.Point(146, 55);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(100, 20);
             this.txtNombre.TabIndex = 5;
@@ -95,7 +78,7 @@ namespace FrbaCommerce.Abm_Visibilidad
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(121, 78);
+            this.txtPrecio.Location = new System.Drawing.Point(146, 82);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(100, 20);
             this.txtPrecio.TabIndex = 6;
@@ -103,31 +86,21 @@ namespace FrbaCommerce.Abm_Visibilidad
             // 
             // txtPorcentaje
             // 
-            this.txtPorcentaje.Location = new System.Drawing.Point(135, 105);
+            this.txtPorcentaje.Location = new System.Drawing.Point(146, 109);
             this.txtPorcentaje.Name = "txtPorcentaje";
-            this.txtPorcentaje.Size = new System.Drawing.Size(86, 20);
+            this.txtPorcentaje.Size = new System.Drawing.Size(100, 20);
             this.txtPorcentaje.TabIndex = 7;
             this.txtPorcentaje.TextChanged += new System.EventHandler(this.txtPorcentaje_TextChanged);
             // 
             // botonGuardar
             // 
-            this.botonGuardar.Location = new System.Drawing.Point(156, 212);
+            this.botonGuardar.Location = new System.Drawing.Point(146, 174);
             this.botonGuardar.Name = "botonGuardar";
-            this.botonGuardar.Size = new System.Drawing.Size(64, 23);
+            this.botonGuardar.Size = new System.Drawing.Size(86, 23);
             this.botonGuardar.TabIndex = 8;
             this.botonGuardar.Text = "Guardar";
             this.botonGuardar.UseVisualStyleBackColor = true;
             this.botonGuardar.Click += new System.EventHandler(this.botonGuardar_Click);
-            // 
-            // botonLimpiar
-            // 
-            this.botonLimpiar.Location = new System.Drawing.Point(21, 212);
-            this.botonLimpiar.Name = "botonLimpiar";
-            this.botonLimpiar.Size = new System.Drawing.Size(64, 23);
-            this.botonLimpiar.TabIndex = 9;
-            this.botonLimpiar.Text = "Limpiar";
-            this.botonLimpiar.UseVisualStyleBackColor = true;
-            this.botonLimpiar.Click += new System.EventHandler(this.botonLimpiar_Click);
             // 
             // labelAviso
             // 
@@ -137,22 +110,49 @@ namespace FrbaCommerce.Abm_Visibilidad
             this.labelAviso.Size = new System.Drawing.Size(0, 13);
             this.labelAviso.TabIndex = 10;
             // 
+            // botonCancelar
+            // 
+            this.botonCancelar.Location = new System.Drawing.Point(63, 174);
+            this.botonCancelar.Name = "botonCancelar";
+            this.botonCancelar.Size = new System.Drawing.Size(79, 23);
+            this.botonCancelar.TabIndex = 11;
+            this.botonCancelar.Text = "Cancelar";
+            this.botonCancelar.UseVisualStyleBackColor = true;
+            this.botonCancelar.Click += new System.EventHandler(this.botonCancelar_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(8, 143);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(134, 13);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Duración de la Publicación";
+            // 
+            // txtDuracion
+            // 
+            this.txtDuracion.Location = new System.Drawing.Point(146, 140);
+            this.txtDuracion.Name = "txtDuracion";
+            this.txtDuracion.Size = new System.Drawing.Size(100, 20);
+            this.txtDuracion.TabIndex = 13;
+            this.txtDuracion.TextChanged += new System.EventHandler(this.txtDuracion_TextChanged);
+            // 
             // AltaVisibilidad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(842, 487);
+            this.ClientSize = new System.Drawing.Size(844, 487);
+            this.Controls.Add(this.txtDuracion);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.botonCancelar);
             this.Controls.Add(this.labelAviso);
-            this.Controls.Add(this.botonLimpiar);
             this.Controls.Add(this.botonGuardar);
             this.Controls.Add(this.txtPorcentaje);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.txtCod);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Name = "AltaVisibilidad";
             this.Text = "Visibilidad";
             this.Load += new System.EventHandler(this.AltaVisibilidad_Load);
@@ -163,16 +163,16 @@ namespace FrbaCommerce.Abm_Visibilidad
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtCod;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.TextBox txtPorcentaje;
         private System.Windows.Forms.Button botonGuardar;
-        private System.Windows.Forms.Button botonLimpiar;
         private System.Windows.Forms.Label labelAviso;
+        private System.Windows.Forms.Button botonCancelar;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtDuracion;
     }
 }

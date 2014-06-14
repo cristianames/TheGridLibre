@@ -11,81 +11,73 @@ namespace FrbaCommerce.Abm_Visibilidad
 {
     public partial class AltaVisibilidad : FormGrid
     {
-        bool darBaja = false;
-        string IDBaja;
+        string IDBaja = "";
         string nombreBaja= "";
         public AltaVisibilidad(FormGrid anterior)
-        
         {
             InitializeComponent();
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ClientSize = new System.Drawing.Size(260, 207);
             ventanaAnterior = anterior;
-            txtNombre.BackColor = Color.Yellow;
-            txtPrecio.BackColor = Color.Yellow;
-            txtCod.BackColor = Color.Yellow;
-            txtPorcentaje.BackColor = Color.Yellow;
         }
         public AltaVisibilidad(FormGrid anterior,string ID)
         {
             InitializeComponent();
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ClientSize = new System.Drawing.Size(260, 207);
             ventanaAnterior = anterior;
-            DataTable datosVisibilidad;
-            string consulta = "select ID_Visibilidad,Nombre,Precio_Por_Publicar,Porcentaje_Venta,Inhabilitado from TG.Visibilidad where ID_Visibilidad =" + ID;
-            datosVisibilidad = TG.realizarConsulta(consulta);
-            DataRow fila = datosVisibilidad.Rows[0];
-            txtCod.Text = fila["ID_VIsibilidad"].ToString();
+            string consulta = "select * from TG.Visibilidad where ID_Visibilidad =" + ID;
+            DataRow fila = TG.realizarConsulta(consulta).Rows[0];
             txtNombre.Text = fila["Nombre"].ToString();
             txtPrecio.Text = fila["Precio_Por_Publicar"].ToString();
-            txtPorcentaje.Text = fila["Porcentaje_Venta"].ToString();            
-            labelAviso.Text = "Recuerde que si desea guardar los cambios, debera insertar otro codigo para la visibilidad y la actual sera dada de baja";
-            darBaja = true;
+            txtPorcentaje.Text = fila["Porcentaje_Venta"].ToString();
+            txtDuracion.Text = fila["Duracion"].ToString();
+            //labelAviso.Text = "Recuerde que si desea guardar los cambios, debera insertar otro codigo para la visibilidad y la actual sera dada de baja";
             IDBaja = ID;
             nombreBaja = fila["Nombre"].ToString();
            
         }
         private void botonLimpiar_Click(object sender, EventArgs e)
         {
-            txtCod.Text = txtNombre.Text = txtPorcentaje.Text = txtPrecio.Text = "";
-
+            txtNombre.Text = txtPorcentaje.Text = txtPrecio.Text = "";
         }
 
         private void botonGuardar_Click(object sender, EventArgs e)
         {
-            if (txtCod.BackColor == Color.Yellow || txtPorcentaje.BackColor == Color.Yellow || txtPrecio.BackColor == Color.Yellow || txtNombre.BackColor == Color.Yellow)
+            botonCancelar.Enabled = false;
+            botonGuardar.Enabled = false;
+            if (txtPorcentaje.BackColor == Color.LightYellow || txtPrecio.BackColor == Color.LightYellow ||
+                txtNombre.BackColor == Color.LightYellow || txtDuracion.BackColor == Color.LightYellow)
             {
                 TG.ventanaEmergente("Corrija por favor los campos en amarillo antes de continuar");
+                botonCancelar.Enabled = true;
+                botonGuardar.Enabled = true;
                 return;
             }
-
-
-            string validacionNombreRepetido = "select Nombre from TG.Visibilidad where Inhabilitado = 'false' ";
-            List<string> listaNombres = TG.ObtenerListado(validacionNombreRepetido);
-            foreach (string nombre in listaNombres) //validacion nombre
+            if (!String.IsNullOrEmpty(IDBaja))
             {
-                if (String.Equals(nombre, txtNombre.Text)) 
+                string validacionNombreRepetido = "select Nombre from TG.Visibilidad "+
+                    "where Inhabilitado = 0 and ID_Visibilidad <> " + IDBaja;
+                List<string> listaNombres = TG.ObtenerListado(validacionNombreRepetido);
+                foreach (string nombre in listaNombres) //validacion nombre
                 {
-                    if(!darBaja || !String.Equals(txtNombre.Text,nombreBaja))
-                    TG.ventanaEmergente("Nombre repetido, ingrese otro por favor");
-                    return;
+                    if (String.Equals(nombre, txtNombre.Text))
+                    {
+                        TG.ventanaEmergente("Nombre repetido, ingrese otro por favor");
+                        txtNombre.BackColor = Color.LightYellow;
+                        botonCancelar.Enabled = true;
+                        botonGuardar.Enabled = true;
+                        return;
+                    }
                 }
+                string comando = "update TG.Visibilidad set Inhabilitado = 1 "+
+                    "where ID_Visibilidad = "+IDBaja;
+                TG.realizarConsultaSinRetorno(comando);
             }
-            string consulta=@"INSERT INTO TG.Visibilidad (ID_Visibilidad,Nombre,Precio_Por_Publicar,Porcentaje_Venta,Inhabilitado)
-            VALUES ("+Convert.ToInt32(txtCod.Text)+@",'"+txtNombre.Text+@"',"+txtPrecio.Text+@","+txtPorcentaje.Text+@",'false')";
-            if (TG.realizarConsultaControladaSinRetorno(consulta))
-            {
-                //aca antes hacia algo
-            }
-            else
-            {
-                TG.ventanaEmergente("Codigo de Visibilidad ya existente, por favor ingrese otro");
-                return;
-            }
-            if (darBaja) 
-            {
-                consulta="UPDATE TG.Visibilidad set Inhabilitado='true' where ID_Visibilidad="+IDBaja;
-                TG.realizarConsultaSinRetorno(consulta);
-            }
+            //como no me toma las comas, los convierto en puntos con Validacion.conComa
+            string precio = Validacion.conComa(txtPrecio.Text);
+            string porcentaje = Validacion.conComa(txtPorcentaje.Text);
+            string consulta="INSERT INTO TG.Visibilidad (Nombre,Precio_Por_Publicar,Porcentaje_Venta,Duracion,Inhabilitado)"+
+            "VALUES ('" + txtNombre.Text + "'," + precio + "," + porcentaje + "," + txtDuracion.Text + ",0)";
+            TG.realizarConsulta(consulta);
             volverAtras();
         }
 
@@ -94,96 +86,46 @@ namespace FrbaCommerce.Abm_Visibilidad
 
         }
 
-        private void txtCod_TextChanged(object sender, EventArgs e)
-        {
-            //if (this.Text.Length == 0) txtCod.BackColor = Color.Yellow;
-            bool soloNumeros = true;
-            char[] letras = txtCod.Text.ToCharArray();          
-            foreach (char a in letras) 
-            {
-                if (!(a == '1' || a == '2' || a == '3' || a == '4' || a == '5' || a == '6' || a == '7' || a == '8' || a == '9' || a == '0')) soloNumeros = false;
-            }
-            if (!soloNumeros) 
-            {
-                txtCod.BackColor = Color.Yellow;
-            }
-            else 
-            {
-                txtCod.BackColor = Color.White;
-            }
-            if (String.IsNullOrEmpty(txtCod.Text)) txtCod.BackColor = Color.Yellow;
-        }
-
         private void txtPrecio_TextChanged(object sender, EventArgs e)
         {
+            bool soloNumeros = Validacion.esFloat(txtPrecio.Text);
+
+            if (!soloNumeros) txtPrecio.BackColor = Color.LightYellow;
+            else txtPrecio.BackColor = Color.White;
             
-            bool soloNumeros = true;
-            char[] letras = txtPrecio.Text.ToCharArray();
-            for (int i = 0; i < txtPrecio.Text.Length; i++)
-            {
-                if (!(txtPrecio.Text[i] == '1' || txtPrecio.Text[i] == '2' || txtPrecio.Text[i] == '3' || txtPrecio.Text[i] == '4' || txtPrecio.Text[i] == '5'
-                    || txtPrecio.Text[i] == '6' || txtPrecio.Text[i] == '7' || txtPrecio.Text[i] == '8' || txtPrecio.Text[i] == '9' || txtPrecio.Text[i] == '0' || txtPrecio.Text[i] == '.')) soloNumeros = false;
-                if (txtPrecio.Text[i] == '.')
-                {
-                    if (!esNumero(txtPrecio.Text.Substring(i + 1)) || !(txtPrecio.Text.Substring(i + 1).Length == 2)) soloNumeros = false;
-                }
-            }
-
-
-            if (!soloNumeros)
-            {
-                txtPrecio.BackColor = Color.Yellow;
-            }
-            else
-            {
-                txtPrecio.BackColor = Color.White;
-            }
-            if (String.IsNullOrEmpty (txtPrecio.Text)) txtPrecio.BackColor = Color.Yellow;
+            if (String.IsNullOrEmpty (txtPrecio.Text)) txtPrecio.BackColor = Color.LightYellow;
         }
 
         private void txtPorcentaje_TextChanged(object sender, EventArgs e)
         {
-            //if (this.Text.Length == 0) txtCod.BackColor = Color.Yellow;
-            bool soloNumeros = true;
-            char[] letras = txtPorcentaje.Text.ToCharArray();
-            for (int i=0; i < txtPorcentaje.Text.Length; i++)
-            {
-                if (!(txtPorcentaje.Text[i] == '1' || txtPorcentaje.Text[i] == '2' || txtPorcentaje.Text[i] == '3' || txtPorcentaje.Text[i] == '4' || txtPorcentaje.Text[i] == '5'
-                    || txtPorcentaje.Text[i] == '6' || txtPorcentaje.Text[i] == '7' || txtPorcentaje.Text[i] == '8' || txtPorcentaje.Text[i] == '9' || txtPorcentaje.Text[i] == '0' || txtPorcentaje.Text[i] == '.')) soloNumeros = false;
-                if (txtPorcentaje.Text[i] == '.') 
-                {
-                    if(!esNumero(txtPorcentaje.Text.Substring(i+1))||!(txtPorcentaje.Text.Substring(i+1).Length==2))soloNumeros = false;
-                }
-            }
-            
-           
-            if (!soloNumeros)
-            {
-                txtPorcentaje.BackColor = Color.Yellow;
-            }
-            else
-            {
-                txtPorcentaje.BackColor = Color.White;
-            }
-            if (String.IsNullOrEmpty(txtPorcentaje.Text)) txtPorcentaje.BackColor = Color.Yellow;
+            bool soloNumeros = Validacion.esFloat(txtPorcentaje.Text);
+
+            if (!soloNumeros) txtPorcentaje.BackColor = Color.LightYellow;
+            else txtPorcentaje.BackColor = Color.White;
+
+            if (String.IsNullOrEmpty(txtPorcentaje.Text)) txtPorcentaje.BackColor = Color.LightYellow;
         }
-        bool esNumero(string a) 
-        {
-          
-            char[] letras = a.ToCharArray();
-            for (int i = 0; i < a.Length; i++)
-            {
-                if (!(a[i] == '1' || a[i] == '2' || a[i] == '3' || a[i] == '4' || a[i] == '5'
-                    || a[i] == '6' || a[i] == '7' || a[i] == '8' || a[i] == '9' || a[i] == '0')) return false;
-                
-            }
-            return true;
-        }
+        
 
         private void txtNombre_TextChanged(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(txtNombre.Text)) txtNombre.BackColor = Color.Yellow;
+            if (String.IsNullOrEmpty(txtNombre.Text)) txtNombre.BackColor = Color.LightYellow;
             else txtNombre.BackColor = Color.White;
+        }
+
+        private void botonCancelar_Click(object sender, EventArgs e)
+        {
+            volverAtras();
+        }
+
+        private void txtDuracion_TextChanged(object sender, EventArgs e)
+        {
+            bool soloNumeros = Validacion.esNumero(txtDuracion.Text);
+
+            if (!soloNumeros) txtDuracion.BackColor = Color.LightYellow;
+            else txtDuracion.BackColor = Color.White;
+
+            if (String.IsNullOrEmpty(txtDuracion.Text)) txtDuracion.BackColor = Color.LightYellow;
         }
 
     }

@@ -49,9 +49,10 @@
             // 
             // botonTerminado
             // 
-            this.botonTerminado.Location = new System.Drawing.Point(546, 359);
+            this.botonTerminado.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.botonTerminado.Location = new System.Drawing.Point(637, 359);
             this.botonTerminado.Name = "botonTerminado";
-            this.botonTerminado.Size = new System.Drawing.Size(92, 23);
+            this.botonTerminado.Size = new System.Drawing.Size(107, 23);
             this.botonTerminado.TabIndex = 23;
             this.botonTerminado.Text = "Terminado";
             this.botonTerminado.UseVisualStyleBackColor = true;
@@ -63,12 +64,12 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(21, 102);
+            this.dataGridView1.Location = new System.Drawing.Point(24, 102);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(880, 241);
+            this.dataGridView1.Size = new System.Drawing.Size(1027, 241);
             this.dataGridView1.TabIndex = 22;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
@@ -80,66 +81,66 @@
             this.groupBox1.Controls.Add(this.txtMail);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtCuit);
-            this.groupBox1.Location = new System.Drawing.Point(17, 16);
+            this.groupBox1.Location = new System.Drawing.Point(20, 16);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(880, 47);
+            this.groupBox1.Size = new System.Drawing.Size(1027, 47);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Herramientas de Filtro";
             // 
             // txtRazonSocial
             // 
-            this.txtRazonSocial.Location = new System.Drawing.Point(178, 19);
+            this.txtRazonSocial.Location = new System.Drawing.Point(208, 19);
             this.txtRazonSocial.Name = "txtRazonSocial";
-            this.txtRazonSocial.Size = new System.Drawing.Size(161, 20);
+            this.txtRazonSocial.Size = new System.Drawing.Size(187, 21);
             this.txtRazonSocial.TabIndex = 5;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(508, 22);
+            this.label6.Location = new System.Drawing.Point(593, 22);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.Size = new System.Drawing.Size(43, 13);
             this.label6.TabIndex = 14;
             this.label6.Text = "E-mail";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(104, 22);
+            this.label2.Location = new System.Drawing.Point(121, 22);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 13);
+            this.label2.Size = new System.Drawing.Size(80, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "Razon Social";
             // 
             // txtMail
             // 
-            this.txtMail.Location = new System.Drawing.Point(550, 19);
+            this.txtMail.Location = new System.Drawing.Point(642, 19);
             this.txtMail.Name = "txtMail";
-            this.txtMail.Size = new System.Drawing.Size(165, 20);
+            this.txtMail.Size = new System.Drawing.Size(192, 21);
             this.txtMail.TabIndex = 13;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(345, 23);
+            this.label3.Location = new System.Drawing.Point(402, 23);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 13);
+            this.label3.Size = new System.Drawing.Size(36, 13);
             this.label3.TabIndex = 7;
             this.label3.Text = "CUIT";
             // 
             // txtCuit
             // 
-            this.txtCuit.Location = new System.Drawing.Point(382, 19);
+            this.txtCuit.Location = new System.Drawing.Point(446, 19);
             this.txtCuit.Name = "txtCuit";
-            this.txtCuit.Size = new System.Drawing.Size(120, 20);
+            this.txtCuit.Size = new System.Drawing.Size(139, 21);
             this.txtCuit.TabIndex = 8;
             // 
             // botonFiltrar
             // 
-            this.botonFiltrar.Location = new System.Drawing.Point(817, 72);
+            this.botonFiltrar.Location = new System.Drawing.Point(953, 72);
             this.botonFiltrar.Name = "botonFiltrar";
-            this.botonFiltrar.Size = new System.Drawing.Size(75, 23);
+            this.botonFiltrar.Size = new System.Drawing.Size(87, 23);
             this.botonFiltrar.TabIndex = 16;
             this.botonFiltrar.Text = "Filtrar";
             this.botonFiltrar.UseVisualStyleBackColor = true;
@@ -147,9 +148,9 @@
             // 
             // botonBorrar
             // 
-            this.botonBorrar.Location = new System.Drawing.Point(740, 73);
+            this.botonBorrar.Location = new System.Drawing.Point(863, 73);
             this.botonBorrar.Name = "botonBorrar";
-            this.botonBorrar.Size = new System.Drawing.Size(75, 23);
+            this.botonBorrar.Size = new System.Drawing.Size(87, 23);
             this.botonBorrar.TabIndex = 15;
             this.botonBorrar.Text = "Borrar";
             this.botonBorrar.UseVisualStyleBackColor = true;
@@ -157,9 +158,9 @@
             // 
             // botonEliminar
             // 
-            this.botonEliminar.Location = new System.Drawing.Point(412, 359);
+            this.botonEliminar.Location = new System.Drawing.Point(481, 359);
             this.botonEliminar.Name = "botonEliminar";
-            this.botonEliminar.Size = new System.Drawing.Size(92, 23);
+            this.botonEliminar.Size = new System.Drawing.Size(107, 23);
             this.botonEliminar.TabIndex = 20;
             this.botonEliminar.Text = "Dar de Baja";
             this.botonEliminar.UseVisualStyleBackColor = true;
@@ -167,9 +168,9 @@
             // 
             // botonModificar
             // 
-            this.botonModificar.Location = new System.Drawing.Point(279, 359);
+            this.botonModificar.Location = new System.Drawing.Point(325, 359);
             this.botonModificar.Name = "botonModificar";
-            this.botonModificar.Size = new System.Drawing.Size(92, 23);
+            this.botonModificar.Size = new System.Drawing.Size(107, 23);
             this.botonModificar.TabIndex = 19;
             this.botonModificar.Text = "Modificar";
             this.botonModificar.UseVisualStyleBackColor = true;
@@ -178,17 +179,17 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 81);
+            this.label1.Location = new System.Drawing.Point(12, 81);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(115, 13);
+            this.label1.Size = new System.Drawing.Size(137, 13);
             this.label1.TabIndex = 18;
             this.label1.Text = "Seleccione un usuario:";
             // 
             // botonMostrar
             // 
-            this.botonMostrar.Location = new System.Drawing.Point(343, 73);
+            this.botonMostrar.Location = new System.Drawing.Point(400, 73);
             this.botonMostrar.Name = "botonMostrar";
-            this.botonMostrar.Size = new System.Drawing.Size(216, 23);
+            this.botonMostrar.Size = new System.Drawing.Size(252, 23);
             this.botonMostrar.TabIndex = 24;
             this.botonMostrar.Text = "Mostrar Inhabilitados";
             this.botonMostrar.UseVisualStyleBackColor = true;
@@ -197,10 +198,10 @@
             // AbmEmpresa
             // 
             this.AcceptButton = this.botonModificar;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.botonTerminado;
-            this.ClientSize = new System.Drawing.Size(995, 325);
+            this.ClientSize = new System.Drawing.Size(1422, 712);
             this.Controls.Add(this.botonMostrar);
             this.Controls.Add(this.botonFiltrar);
             this.Controls.Add(this.botonTerminado);

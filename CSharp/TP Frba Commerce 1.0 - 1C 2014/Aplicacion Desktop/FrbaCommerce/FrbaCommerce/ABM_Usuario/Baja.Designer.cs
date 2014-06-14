@@ -89,7 +89,6 @@
             this.Load += new System.EventHandler(this.Baja_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

@@ -34,8 +34,8 @@ namespace FrbaCommerce.Abm_Visibilidad
 
         private void botonCrearVisibilidad_Click(object sender, EventArgs e)
         {
-            (new FrbaCommerce.Abm_Visibilidad.AltaVisibilidad(this)).Show();
-            this.Enabled = false;
+            (new AltaVisibilidad(this)).Show();
+            this.Visible = false;
         }
 
         private void botonModificar_Click(object sender, EventArgs e)
@@ -73,7 +73,7 @@ namespace FrbaCommerce.Abm_Visibilidad
             else 
             {
                 botonMostrar.Text = "Ocultar Inhabilitados";
-                comandoConsulta = "select Inhabilitado,ID_visibilidad,Nombre,Precio_Por_Publicar,Porcentaje_Venta"+
+                comandoConsulta = "select Inhabilitado,ID_visibilidad,Nombre,Precio_Por_Publicar,Porcentaje_Venta,Duracion"+
                     " from TG.Visibilidad";
                 dataGridView1.DataSource = null;
                 recargarGrid();
@@ -83,7 +83,7 @@ namespace FrbaCommerce.Abm_Visibilidad
 
         private void resetearComando()
         {
-            comandoConsulta = "select ID_visibilidad,Nombre,Precio_Por_Publicar,Porcentaje_Venta " +
+            comandoConsulta = "select ID_visibilidad,Nombre,Precio_Por_Publicar,Porcentaje_Venta,Duracion " +
                 "from TG.Visibilidad where Inhabilitado = 0";
         }
 

@@ -1,9 +1,9 @@
-use GD1C2014
-go
-insert into GD1C2014.TG.Oferta 
+--use GD1C2014
+--go
+insert into TG.Oferta 
 
 select 
-C.ID_User, X.Publicacion_Cod, case when c.ID_User = CO.ID_Comprador then 1 else 0 end, 
+C.ID_User, X.Publicacion_Cod, case when c.ID_User = CO.ID_Comprador then 1 else 0 end,
 X.Oferta_Fecha, X.Oferta_Monto
 
 from  
