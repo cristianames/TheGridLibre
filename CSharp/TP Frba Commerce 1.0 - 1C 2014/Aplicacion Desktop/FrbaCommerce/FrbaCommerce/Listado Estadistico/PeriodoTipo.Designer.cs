@@ -44,7 +44,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.mes_anio = new System.Windows.Forms.ComboBox();
             this.visibilidad = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -110,7 +110,7 @@
             // atras
             // 
             this.atras.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.atras.Location = new System.Drawing.Point(265, 291);
+            this.atras.Location = new System.Drawing.Point(265, 316);
             this.atras.Name = "atras";
             this.atras.Size = new System.Drawing.Size(75, 23);
             this.atras.TabIndex = 7;
@@ -150,12 +150,12 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(20, 142);
+            this.dataGridView1.Location = new System.Drawing.Point(20, 173);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(562, 143);
+            this.dataGridView1.Size = new System.Drawing.Size(562, 135);
             this.dataGridView1.TabIndex = 9;
             // 
             // groupBox2
@@ -218,12 +218,14 @@
             this.visibilidad.Size = new System.Drawing.Size(111, 21);
             this.visibilidad.TabIndex = 0;
             // 
-            // textBox1
+            // label6
             // 
-            this.textBox1.Location = new System.Drawing.Point(38, 311);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 11;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(36, 146);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(65, 13);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "El TOP5 de ";
             // 
             // PeriodoTipo
             // 
@@ -232,7 +234,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.atras;
             this.ClientSize = new System.Drawing.Size(844, 487);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
@@ -267,6 +269,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox visibilidad;
         private System.Windows.Forms.Button botonFiltrar;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label6;
     }
 }

@@ -20,11 +20,11 @@ namespace FrbaCommerce.Listado_Estadistico
             this.ClientSize = new System.Drawing.Size(614, 361);
             ventanaAnterior = anterior;
 
-            string comando = "select distinct CONVERT ( nvarchar(5) , YEAR(Fecha_Vencimiento) ) from TG.Publicacion order by 1 asc";
+            string comando = "select distinct CONVERT ( nvarchar(5) , YEAR(Fecha_Inicio) ) from TG.Publicacion order by 1 asc";
             anio.DataSource = TG.ObtenerListado(comando);
             anio.SelectedIndex = 0;
 
-            comando = "select distinct Visibilidad from TG.VendedoresConMasArticulosNoVendidos";
+            comando = "select distinct Visibilidad from TG.Estad_Productos";
             visibilidad.DataSource = TG.ObtenerListado(comando);
             visibilidad.SelectedIndex = 0;
 
@@ -45,6 +45,9 @@ namespace FrbaCommerce.Listado_Estadistico
             criterios[3] = "Clientes/+Publicaciones sin calificar";
             criterio.DataSource = criterios;
             criterio.SelectedIndex = 0;
+
+            resetearComando();
+            recargarGrilla();
         }
 
         void recargarGrilla() 
@@ -56,24 +59,30 @@ namespace FrbaCommerce.Listado_Estadistico
         private void criterio_SelectedIndexChanged(object sender, EventArgs e)
         {
             groupBox2.Visible = false;
+            label6.Text = "El TOP5 de ";
             
             switch (criterio.SelectedIndex) 
             {
                 case 0:
-                    nombreVista = "VendedoresConMasArticulosNoVendidos";
-                    criterioMaestro = "Mes, ID_Visibilidad, Cantidad desc, Visibilidad";
+                    nombreVista = "Estad_Productos";
+                    criterioMaestro = "Mes, Precio_Visibilidad desc, Cantidad desc, Visibilidad";
+                    label6.Text += "Vendedores con más Articulos no vendidos";
                     groupBox2.Visible = true;
                     break;
                 case 1:
-                    nombreVista = "VendedoresConMayorFacturacion";
+                    nombreVista = "Estad_Facturacion";
                     criterioMaestro = "Facturacion desc";
+                    label6.Text += "Vendedores con mayor Facturación";
                     break;
                 case 2:
-                    nombreVista = "VendedoresConMayoresCalificaciones";
+                    nombreVista = "Estad_Calificaciones";
                     criterioMaestro = "Calificacion desc";
+                    label6.Text += "Vendedores con mayores Calificaciones";
                     break;
                 case 3:
-                    nombreVista = ""; 
+                    nombreVista = "Estad_Calificar";
+                    criterioMaestro = "Cantidad desc";
+                    label6.Text += "Clientes con más Compras sin calificar";
                     break;
             }
             resetearComando();
@@ -144,16 +153,12 @@ namespace FrbaCommerce.Listado_Estadistico
         private void botonConsultar_Click(object sender, EventArgs e)
         {
             resetearComando();
-            //TG.ventanaEmergente(comandoConsulta);
-            textBox1.Text = comandoConsulta;
             recargarGrilla();
         }
 
         private void botonFiltrar_Click(object sender, EventArgs e)
         {
             resetearComandoFiltro();
-            //TG.ventanaEmergente(comandoConsulta);
-            textBox1.Text = comandoConsulta;
             recargarGrilla();
         }
     }
