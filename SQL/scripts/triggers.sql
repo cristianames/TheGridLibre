@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+--use GD1C2014
+--go
+
+=======
+>>>>>>> e4fc2f28f28b612e1cb42414d1677e0937f5024a
 create trigger TG.inhabilitarUsuario on TG.Usuario for update as
 begin
 
@@ -21,7 +27,13 @@ deallocate usuariosModificados
 
 end
 
+<<<<<<< HEAD
+--use GD1C2014
+--go
+
+=======
 go
+>>>>>>> e4fc2f28f28b612e1cb42414d1677e0937f5024a
 create trigger TG.inhabilitarRoles on TG.Rol for update as
 begin
 
@@ -44,6 +56,9 @@ close rolesModificados
 deallocate rolesModificados
 
 end
+<<<<<<< HEAD
+go
+=======
 
 go
 
@@ -69,3 +84,4 @@ close visibilidadesModificadas
 deallocate visibilidadesModificadas
 
 end
+>>>>>>> e4fc2f28f28b612e1cb42414d1677e0937f5024a

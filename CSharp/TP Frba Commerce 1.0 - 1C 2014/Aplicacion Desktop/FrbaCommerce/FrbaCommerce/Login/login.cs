@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using FrbaCommerce.ABM_Usuario;
 
 namespace FrbaCommerce.Login
 {
@@ -17,6 +18,7 @@ namespace FrbaCommerce.Login
         {
             InitializeComponent();
             this.ClientSize = new System.Drawing.Size(340, 140);
+            pictureBox1.Visible = false;
         }
 
         private void submitActions() 
@@ -79,7 +81,12 @@ namespace FrbaCommerce.Login
 
         private void button1_Click(object sender, EventArgs e)
         {
-            submitActions();           
+            button1.Enabled = false;
+            pictureBox1.Visible = true;
+            this.Refresh();
+            submitActions();
+            button1.Enabled = true;
+            pictureBox1.Visible = false;
         }
 
         private bool primerIngreso(string usuario)
@@ -106,9 +113,7 @@ namespace FrbaCommerce.Login
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FrbaCommerce.Registro_de_Usuario.Registro_de_Usuario registro;
-            registro = new Registro_de_Usuario.Registro_de_Usuario(this);
-            registro.Show();
+            (new Registro_de_Usuario(this)).Show();
             this.Visible = false;
         }
 

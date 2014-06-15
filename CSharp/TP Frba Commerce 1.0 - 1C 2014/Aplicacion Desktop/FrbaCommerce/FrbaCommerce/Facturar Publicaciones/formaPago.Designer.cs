@@ -34,12 +34,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.monto = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.numtarjeta = new System.Windows.Forms.TextBox();
-            this.codigo = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.codigo = new System.Windows.Forms.TextBox();
+            this.numtarjeta = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -108,37 +108,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos tarjeta";
             // 
-            // label3
+            // comboBox1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 33);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Numero de tarjeta:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(24, 68);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Codigo:";
-            // 
-            // numtarjeta
-            // 
-            this.numtarjeta.Location = new System.Drawing.Point(140, 26);
-            this.numtarjeta.Name = "numtarjeta";
-            this.numtarjeta.Size = new System.Drawing.Size(135, 20);
-            this.numtarjeta.TabIndex = 2;
-            // 
-            // codigo
-            // 
-            this.codigo.Location = new System.Drawing.Point(85, 61);
-            this.codigo.Name = "codigo";
-            this.codigo.Size = new System.Drawing.Size(73, 20);
-            this.codigo.TabIndex = 3;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(85, 101);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(73, 21);
+            this.comboBox1.TabIndex = 5;
             // 
             // label5
             // 
@@ -149,13 +125,37 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "Tarjeta:";
             // 
-            // comboBox1
+            // codigo
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(85, 101);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(91, 21);
-            this.comboBox1.TabIndex = 5;
+            this.codigo.Location = new System.Drawing.Point(85, 61);
+            this.codigo.Name = "codigo";
+            this.codigo.Size = new System.Drawing.Size(73, 20);
+            this.codigo.TabIndex = 3;
+            // 
+            // numtarjeta
+            // 
+            this.numtarjeta.Location = new System.Drawing.Point(140, 26);
+            this.numtarjeta.Name = "numtarjeta";
+            this.numtarjeta.Size = new System.Drawing.Size(135, 20);
+            this.numtarjeta.TabIndex = 2;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(24, 68);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(43, 13);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Codigo:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(24, 33);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(94, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Numero de tarjeta:";
             // 
             // button1
             // 

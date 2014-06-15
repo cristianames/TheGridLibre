@@ -1,6 +1,6 @@
 --------------------------- INICIO PUBLICACION
-use GD1C2014
-go
+--use GD1C2014
+--go
 insert into TG.Publicacion
 
 SELECT DISTINCT Publicacion_Cod,Publicacion_Descripcion,Publicacion_Stock,Publicacion_Fecha,

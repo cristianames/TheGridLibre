@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using FrbaCommerce.Registro_de_Usuario;
+using FrbaCommerce.ABM_Usuario;
 
 namespace FrbaCommerce.Login
 {
@@ -50,7 +50,7 @@ namespace FrbaCommerce.Login
                     TG.realizarConsultaSinRetorno(comando);
                     
                     if(this.primerIngreso){
-                        (new FrbaCommerce.Registro_de_Usuario.Registro_de_Usuario(ventanaAnterior)).Show();
+                        (new FrbaCommerce.ABM_Usuario.Registro_de_Usuario(ventanaAnterior)).Show();
                     }
                     TG.ventanaEmergente("Se cambió la contraseña exitosamente.");
                     DatosUsuario.actualizarTipoUsuario();

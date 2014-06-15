@@ -5,5 +5,5 @@ drop function TG.dameUserIDdni
 drop function TG.dameUserIDcuit
 drop trigger TG.inhabilitarUsuario
 drop trigger TG.inhabilitarRoles
-drop trigger TG.inhabilitarVisibilidad
+--drop trigger TG.inhabilitarVisibilidad
 go

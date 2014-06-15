@@ -69,11 +69,17 @@
     <Compile Include="Abm Visibilidad\ABMVisibilidad.Designer.cs">
       <DependentUpon>ABMVisibilidad.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm Visibilidad\Form1.cs">
+    <Compile Include="Abm Visibilidad\Baja.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Abm Visibilidad\Form1.designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Abm Visibilidad\Baja.Designer.cs">
+      <DependentUpon>Baja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Visibilidad\AltaModificacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Visibilidad\AltaModificacion.designer.cs">
+      <DependentUpon>AltaModificacion.cs</DependentUpon>
     </Compile>
     <Compile Include="ABM_Usuario\AbmCliente.cs">
       <SubType>Form</SubType>
@@ -135,6 +141,12 @@
     <Compile Include="Calificar Vendedor\SeleccionarUsuario.Designer.cs">
       <DependentUpon>SeleccionarUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DatosUsuario.cs" />
+    <Compile Include="TG.cs" />
+    <Compile Include="Validacion.cs" />
     <Compile Include="Comprar-Ofertar\Buscador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,29 +195,17 @@
     <Compile Include="Facturar Publicaciones\PublicacionesRendir.Designer.cs">
       <DependentUpon>PublicacionesRendir.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gestion de Preguntas\Pendientes.cs">
+    <Compile Include="Gestion de Preguntas\FormularioRespuesta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gestion de Preguntas\Pendientes.Designer.cs">
-      <DependentUpon>Pendientes.cs</DependentUpon>
+    <Compile Include="Gestion de Preguntas\FormularioRespuesta.Designer.cs">
+      <DependentUpon>FormularioRespuesta.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gestion de Preguntas\Respondidas.cs">
+    <Compile Include="Gestion de Preguntas\TipoPregunta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gestion de Preguntas\Respondidas.Designer.cs">
-      <DependentUpon>Respondidas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Gestion de Preguntas\Respuesta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Gestion de Preguntas\Respuesta.Designer.cs">
-      <DependentUpon>Respuesta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Gestion de Preguntas\Seleccion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Gestion de Preguntas\Seleccion.Designer.cs">
-      <DependentUpon>Seleccion.cs</DependentUpon>
+    <Compile Include="Gestion de Preguntas\TipoPregunta.Designer.cs">
+      <DependentUpon>TipoPregunta.cs</DependentUpon>
     </Compile>
     <Compile Include="Login\cambioPass.cs">
       <SubType>Form</SubType>
@@ -237,27 +237,29 @@
     <Compile Include="Generar Publicacion\GenerarPublicacion.Designer.cs">
       <DependentUpon>GenerarPublicacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Historial Cliente\Form1.cs">
+    <Compile Include="Historial Cliente\Historial.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Historial Cliente\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Historial Cliente\Historial.Designer.cs">
+      <DependentUpon>Historial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Listado Estadistico\Form1.cs">
+    <Compile Include="Listado Estadistico\PeriodoTipo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Listado Estadistico\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Listado Estadistico\PeriodoTipo.Designer.cs">
+      <DependentUpon>PeriodoTipo.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Abm Visibilidad\ABMVisibilidad.resx">
       <DependentUpon>ABMVisibilidad.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Abm Visibilidad\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Abm Visibilidad\Baja.resx">
+      <DependentUpon>Baja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Visibilidad\AltaModificacion.resx">
+      <DependentUpon>AltaModificacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ABM_Usuario\AbmCliente.resx">
       <DependentUpon>AbmCliente.cs</DependentUpon>
@@ -314,14 +316,23 @@
     <EmbeddedResource Include="Facturar Publicaciones\PublicacionesRendir.resx">
       <DependentUpon>PublicacionesRendir.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormGrid.resx">
+      <DependentUpon>FormGrid.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Generar Publicacion\GenerarPublicacion.resx">
       <DependentUpon>GenerarPublicacion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gestion de Preguntas\Pendientes.resx">
-      <DependentUpon>Pendientes.cs</DependentUpon>
+    <EmbeddedResource Include="Gestion de Preguntas\FormularioRespuesta.resx">
+      <DependentUpon>FormularioRespuesta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gestion de Preguntas\Seleccion.resx">
-      <DependentUpon>Seleccion.cs</DependentUpon>
+    <EmbeddedResource Include="Gestion de Preguntas\TipoPregunta.resx">
+      <DependentUpon>TipoPregunta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Historial Cliente\Historial.resx">
+      <DependentUpon>Historial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listado Estadistico\PeriodoTipo.resx">
+      <DependentUpon>PeriodoTipo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\cambioPass.resx">
       <DependentUpon>cambioPass.cs</DependentUpon>

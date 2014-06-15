@@ -36,16 +36,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.conTarjetaBox = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.imprimir = new System.Windows.Forms.Button();
             this.atras = new System.Windows.Forms.Button();
             this.efectivoBox.SuspendLayout();
-            this.conTarjetaBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBox1
@@ -74,6 +69,8 @@
             // 
             // efectivoBox
             // 
+            this.efectivoBox.Controls.Add(this.textBox3);
+            this.efectivoBox.Controls.Add(this.label7);
             this.efectivoBox.Controls.Add(this.label2);
             this.efectivoBox.Controls.Add(this.label1);
             this.efectivoBox.Controls.Add(this.fecha);
@@ -118,60 +115,21 @@
             this.textBox1.Size = new System.Drawing.Size(86, 20);
             this.textBox1.TabIndex = 6;
             // 
-            // conTarjetaBox
+            // textBox3
             // 
-            this.conTarjetaBox.Controls.Add(this.textBox3);
-            this.conTarjetaBox.Controls.Add(this.label7);
-            this.conTarjetaBox.Controls.Add(this.label6);
-            this.conTarjetaBox.Controls.Add(this.textBox2);
-            this.conTarjetaBox.Controls.Add(this.label5);
-            this.conTarjetaBox.Location = new System.Drawing.Point(494, 22);
-            this.conTarjetaBox.Name = "conTarjetaBox";
-            this.conTarjetaBox.Size = new System.Drawing.Size(417, 98);
-            this.conTarjetaBox.TabIndex = 7;
-            this.conTarjetaBox.TabStop = false;
-            this.conTarjetaBox.Text = "Datos factura";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(23, 26);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Fecha:";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(69, 19);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 4;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(23, 62);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(138, 13);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Forma de pago:   TARJETA";
+            this.textBox3.Location = new System.Drawing.Point(270, 55);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(120, 20);
+            this.textBox3.TabIndex = 6;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(213, 62);
+            this.label7.Location = new System.Drawing.Point(198, 62);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(66, 13);
             this.label7.TabIndex = 5;
             this.label7.Text = "Nro. Tarjeta:";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(285, 55);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(120, 20);
-            this.textBox3.TabIndex = 6;
             // 
             // imprimir
             // 
@@ -195,10 +153,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(947, 382);
+            this.ClientSize = new System.Drawing.Size(481, 382);
             this.Controls.Add(this.atras);
             this.Controls.Add(this.imprimir);
-            this.Controls.Add(this.conTarjetaBox);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -208,8 +165,6 @@
             this.Text = "FacturaGenerada";
             this.efectivoBox.ResumeLayout(false);
             this.efectivoBox.PerformLayout();
-            this.conTarjetaBox.ResumeLayout(false);
-            this.conTarjetaBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -221,16 +176,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox fecha;
         private System.Windows.Forms.GroupBox efectivoBox;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.GroupBox conTarjetaBox;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button imprimir;
         private System.Windows.Forms.Button atras;
     }

@@ -33,27 +33,33 @@
             this.botonModificar = new System.Windows.Forms.Button();
             this.botonAceptar = new System.Windows.Forms.Button();
             this.botonInhabilitar = new System.Windows.Forms.Button();
+            this.botonMostrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 51);
+            this.dataGridView1.Location = new System.Drawing.Point(34, 51);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(469, 267);
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(402, 267);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // botonCrearVisibilidad
             // 
-            this.botonCrearVisibilidad.Location = new System.Drawing.Point(345, 22);
+            this.botonCrearVisibilidad.Location = new System.Drawing.Point(296, 22);
             this.botonCrearVisibilidad.Name = "botonCrearVisibilidad";
-            this.botonCrearVisibilidad.Size = new System.Drawing.Size(136, 23);
+            this.botonCrearVisibilidad.Size = new System.Drawing.Size(117, 23);
             this.botonCrearVisibilidad.TabIndex = 1;
             this.botonCrearVisibilidad.Text = "Nueva Visibilidad";
             this.botonCrearVisibilidad.UseVisualStyleBackColor = true;
@@ -62,9 +68,9 @@
             // botonModificar
             // 
             this.botonModificar.Enabled = false;
-            this.botonModificar.Location = new System.Drawing.Point(203, 22);
+            this.botonModificar.Location = new System.Drawing.Point(174, 22);
             this.botonModificar.Name = "botonModificar";
-            this.botonModificar.Size = new System.Drawing.Size(136, 23);
+            this.botonModificar.Size = new System.Drawing.Size(117, 23);
             this.botonModificar.TabIndex = 2;
             this.botonModificar.Text = "Modificar";
             this.botonModificar.UseVisualStyleBackColor = true;
@@ -72,30 +78,42 @@
             // 
             // botonAceptar
             // 
-            this.botonAceptar.Location = new System.Drawing.Point(406, 344);
+            this.botonAceptar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.botonAceptar.Location = new System.Drawing.Point(296, 344);
             this.botonAceptar.Name = "botonAceptar";
-            this.botonAceptar.Size = new System.Drawing.Size(75, 23);
+            this.botonAceptar.Size = new System.Drawing.Size(117, 23);
             this.botonAceptar.TabIndex = 3;
-            this.botonAceptar.Text = "Aceptar";
+            this.botonAceptar.Text = "Terminado";
             this.botonAceptar.UseVisualStyleBackColor = true;
             this.botonAceptar.Click += new System.EventHandler(this.botonAceptar_Click);
             // 
             // botonInhabilitar
             // 
-            this.botonInhabilitar.Enabled = false;
-            this.botonInhabilitar.Location = new System.Drawing.Point(61, 22);
+            this.botonInhabilitar.Location = new System.Drawing.Point(52, 22);
             this.botonInhabilitar.Name = "botonInhabilitar";
-            this.botonInhabilitar.Size = new System.Drawing.Size(136, 23);
+            this.botonInhabilitar.Size = new System.Drawing.Size(117, 23);
             this.botonInhabilitar.TabIndex = 4;
             this.botonInhabilitar.Text = "Inhabilitar Visibilidad";
             this.botonInhabilitar.UseVisualStyleBackColor = true;
             this.botonInhabilitar.Click += new System.EventHandler(this.botonInhabilitar_Click);
             // 
+            // botonMostrar
+            // 
+            this.botonMostrar.Location = new System.Drawing.Point(52, 344);
+            this.botonMostrar.Name = "botonMostrar";
+            this.botonMostrar.Size = new System.Drawing.Size(117, 23);
+            this.botonMostrar.TabIndex = 5;
+            this.botonMostrar.Text = "Mostrar Inhabilitados";
+            this.botonMostrar.UseVisualStyleBackColor = true;
+            this.botonMostrar.Click += new System.EventHandler(this.botonMostrar_Click);
+            // 
             // ABMVisibilidad
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(502, 379);
+            this.CancelButton = this.botonAceptar;
+            this.ClientSize = new System.Drawing.Size(844, 487);
+            this.Controls.Add(this.botonMostrar);
             this.Controls.Add(this.botonInhabilitar);
             this.Controls.Add(this.botonAceptar);
             this.Controls.Add(this.botonModificar);
@@ -104,7 +122,7 @@
             this.Name = "ABMVisibilidad";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.ABMVisibilidad_Load);
-            this.EnabledChanged += new System.EventHandler(this.ABMVisibilidad_EnabledChanged);
+            this.VisibleChanged += new System.EventHandler(this.ABMVisibilidad_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -117,5 +135,6 @@
         private System.Windows.Forms.Button botonModificar;
         private System.Windows.Forms.Button botonAceptar;
         private System.Windows.Forms.Button botonInhabilitar;
+        private System.Windows.Forms.Button botonMostrar;
     }
 }

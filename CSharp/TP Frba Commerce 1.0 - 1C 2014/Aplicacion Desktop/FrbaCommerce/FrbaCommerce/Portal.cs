@@ -36,7 +36,7 @@ namespace FrbaCommerce
 
         private void button2_Click(object sender, EventArgs e)
         {
-            (new Registro_de_Usuario.Registro_de_Usuario(this)).Show();
+            (new ABM_Usuario.Registro_de_Usuario(this)).Show();
             this.Visible = false;
         }
      
