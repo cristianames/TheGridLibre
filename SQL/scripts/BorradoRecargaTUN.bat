@@ -7,7 +7,7 @@ echo Migracion
 sqlcmd -S localhost\SQLSERVER2008 -U gd -P gd2014 -i droppeo.sql,Limpiado.sql
 echo .
 echo               Limpieza finalizada         -------   FIN ETAPA 1/8
-sqlcmd -S localhost\SQLSERVER2008 -U gd -P gd2014 -i Creacion.sql,Funciones.sql
+sqlcmd -S localhost\SQLSERVER2008 -U gd -P gd2014 -i Creacion.sql,Funciones.sql,vistas.sql
 echo .
 echo           Tablas y Funciones Cocinadas    -------   FIN ETAPA 2/8
 sqlcmd -S localhost\SQLSERVER2008 -U gd -P gd2014 -i procLogin.sql,triggers.sql

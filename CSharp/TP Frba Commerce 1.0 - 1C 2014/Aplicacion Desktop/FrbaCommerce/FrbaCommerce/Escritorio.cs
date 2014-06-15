@@ -79,6 +79,7 @@ namespace FrbaCommerce
                     case "Historial del Cliente":
                         break;
                     case "Listado Estadistico":
+                        (new Listado_Estadistico.PeriodoTipo(this)).Show();
                         break;
                     default:
                         TG.ventanaEmergente("Esta Funcionalidad todavia no está implementada");

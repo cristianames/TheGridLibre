@@ -1,12 +1,13 @@
 use GD1C2014
 GO
-create table GD1C2014.TG.Tipo_Usuario(
+create table TG.Tipo_Usuario(
     ID_Tipo int identity(1,1) primary key,
     Nombre nvarchar(255) not null,
     Descripcion nvarchar(255)
 )
+go
 
-create table GD1C2014.TG.Usuario(
+create table TG.Usuario(
 	ID_User numeric(18,0) identity(1000,1) Primary key,
 	Pass nvarchar(255),
 	Inhabilitado bit,
@@ -16,8 +17,9 @@ create table GD1C2014.TG.Usuario(
 	Primer_Ingreso bit
 	
 )
+go
 
-create table GD1C2014.TG.Cliente(
+create table TG.Cliente(
 	ID_User numeric(18,0) references TG.Usuario(ID_User),
     Nombre nvarchar(255), 
     Apellido nvarchar(255),
@@ -36,8 +38,9 @@ create table GD1C2014.TG.Cliente(
 	Ciudad nvarchar(255)
     Primary Key(ID_User)
 )
+go
 
-create table GD1C2014.TG.Empresa(
+create table TG.Empresa(
 	ID_User numeric(18,0) references TG.Usuario(ID_User),
     Razon_Social nvarchar(255),  
     CUIT nvarchar(50),
@@ -54,25 +57,29 @@ create table GD1C2014.TG.Empresa(
 	Ciudad nvarchar(20)
     Primary Key(ID_User)
 )
+go
 
-create table GD1C2014.TG.Administrador(
+create table TG.Administrador(
 	ID_User numeric(18,0) references TG.Usuario(ID_User),
     Nombre nvarchar(255),
     Primary Key(ID_User)
 )
+go
 
-create table GD1C2014.TG.Rol(
+create table TG.Rol(
 	ID_Rol numeric(18,0) identity(1,1) primary key,
 	Nombre varchar(20) unique,
 	Inhabilitado bit
 )
+go
 
-create table GD1C2014.TG.Rubro(
+create table TG.Rubro(
 	ID_Rubro numeric(18,0) identity(100,1) primary key,
 	Nombre varchar(256) unique,
 )
+go
 
-create table GD1C2014.TG.Visibilidad(
+create table TG.Visibilidad(
 	ID_Visibilidad numeric(18,0) identity(10002,1) primary key,
 	Nombre varchar(256),
 	Precio_Por_Publicar numeric(18,2),
@@ -80,27 +87,31 @@ create table GD1C2014.TG.Visibilidad(
 	Duracion numeric(3,0),
 	Inhabilitado bit
 )
+go
 
-create table GD1C2014.TG.Roles_x_Usuario(
+create table TG.Roles_x_Usuario(
 	ID_User numeric(18,0) references TG.Usuario(ID_User),
 	ID_Rol numeric(18,0) references TG.Rol(ID_Rol),
 	Inhabilitado bit,
 	Primary Key(ID_User,ID_Rol)
 )
+go
 
-create table GD1C2014.TG.Funcionalidad(
+create table TG.Funcionalidad(
 	ID_Funcionalidad numeric(18,0) identity(1,1) primary key,
 	Nombre nvarchar(255),
 	Descripcion nvarchar(255)
 )
+go
 
-create table GD1C2014.TG.Funcionalidades_x_Rol(
+create table TG.Funcionalidades_x_Rol(
 	ID_Rol numeric(18,0) references TG.Rol(ID_Rol),
 	ID_Funcionalidad numeric(18,0) references TG.Funcionalidad(ID_Funcionalidad),
 	Primary Key(ID_Rol,ID_Funcionalidad)
 )
+go
 
-create table GD1C2014.TG.Publicacion(
+create table TG.Publicacion(
 	
     ID_Publicacion numeric(18,0) /*identity(1000000,1)*/ Primary Key,
 	Descripcion nvarchar(255),
@@ -116,8 +127,9 @@ create table GD1C2014.TG.Publicacion(
 	Permitir_Preuntas bit,		
 	Foreign Key(ID_Vendedor) references TG.Usuario(ID_User)	
 )
+go
 
-create table GD1C2014.TG.Factura(
+create table TG.Factura(
 	ID_Factura numeric(18,0) /*identity(100000,1)*/ primary key,
 	ID_Publicacion numeric(18,0) references TG.Publicacion(ID_Publicacion),
 	Fecha date,
@@ -125,8 +137,9 @@ create table GD1C2014.TG.Factura(
 	Nro_Tarjeta numeric(20,0),
 	Total numeric(18,0)
 )
+go
 
-create table GD1C2014.TG.Oferta(
+create table TG.Oferta(
 	ID_Oferta numeric(18,0) identity(1000000,1) Primary Key,
 	ID_Ofertante numeric(18,0) references TG.Usuario(ID_User),
 	ID_Publicacion numeric(18,0) references TG.Publicacion(ID_Publicacion),
@@ -134,8 +147,9 @@ create table GD1C2014.TG.Oferta(
 	Fecha_Oferta date,
 	Monto_Oferta numeric(18,0),
 )
+go
 
-create table GD1C2014.TG.Compra(
+create table TG.Compra(
 	ID_Operacion numeric(18,0) identity(1000000,1) Primary Key,
 	ID_Factura numeric(18,0) references TG.Factura(ID_Factura),
 	ID_Publicacion numeric(18,0) references TG.Publicacion(ID_Publicacion),
@@ -147,8 +161,9 @@ create table GD1C2014.TG.Compra(
 	Calif_Estrellas numeric(18,0),
 	Calif_Detalle nvarchar(255),
 )
+go
 
-create table GD1C2014.TG.Pregunta(
+create table TG.Pregunta(
 	ID_Pregunta numeric(18,0) identity(1000000,1) Primary Key,
 	ID_Publicacion numeric(18,0) references TG.Publicacion(ID_Publicacion),
 	Pregunta nvarchar(255),

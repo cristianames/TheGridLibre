@@ -1,5 +1,3 @@
---use GD1C2014
---go
 insert into TG.Compra
 select
 f.ID_Factura, m.Publicacion_Cod,

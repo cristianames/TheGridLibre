@@ -1,9 +1,3 @@
-<<<<<<< HEAD
---use GD1C2014
---go
-
-=======
->>>>>>> e4fc2f28f28b612e1cb42414d1677e0937f5024a
 create trigger TG.inhabilitarUsuario on TG.Usuario for update as
 begin
 
@@ -27,13 +21,8 @@ deallocate usuariosModificados
 
 end
 
-<<<<<<< HEAD
---use GD1C2014
---go
-
-=======
 go
->>>>>>> e4fc2f28f28b612e1cb42414d1677e0937f5024a
+
 create trigger TG.inhabilitarRoles on TG.Rol for update as
 begin
 
@@ -56,32 +45,4 @@ close rolesModificados
 deallocate rolesModificados
 
 end
-<<<<<<< HEAD
 go
-=======
-
-go
-
-create trigger TG.inhabilitarVisibilidad on TG.Visibilidad for update as
-begin
-
-declare visibilidadesModificadas cursor for (select ID_Visibilidad, Inhabilitado from inserted)
-declare @visibilidad numeric(18,0)
-declare @inhabilitado bit
-
-open visibilidadesModificadas
-fetch next from visibilidadesModificadas into @visibilidad, @inhabilitado 
-
-while (@@fetch_status = 0)
-begin
-
-update TG.Publicacion set Estado=(CASE when @inhabilitado=1 then 'Pausada' else 'Publicada' end) where ID_Visibilidad = @visibilidad
-
-fetch next from visibilidadesModificadas into @visibilidad, @inhabilitado
-end
-
-close visibilidadesModificadas
-deallocate visibilidadesModificadas
-
-end
->>>>>>> e4fc2f28f28b612e1cb42414d1677e0937f5024a

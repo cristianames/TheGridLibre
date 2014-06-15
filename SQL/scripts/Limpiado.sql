@@ -1,8 +1,3 @@
-<<<<<<< HEAD
---use GD1C2014
---go
-=======
->>>>>>> e4fc2f28f28b612e1cb42414d1677e0937f5024a
 drop table TG.Oferta
 drop table TG.Roles_x_Usuario
 drop table TG.Administrador
