@@ -112,7 +112,6 @@ create table TG.Funcionalidades_x_Rol(
 go
 
 create table TG.Publicacion(
-	
     ID_Publicacion numeric(18,0) /*identity(1000000,1)*/ Primary Key,
 	Descripcion nvarchar(255),
 	Stock numeric(18,0),
@@ -121,11 +120,18 @@ create table TG.Publicacion(
 	Precio numeric(18,2),
 	ID_Visibilidad numeric(18,0) references TG.Visibilidad(ID_Visibilidad),
 	ID_Vendedor numeric(18,0),
-	ID_Rubro numeric(18,0) references TG.Rubro(ID_Rubro),
+	--ID_Rubro numeric(18,0) references TG.Rubro(ID_Rubro),
 	Estado nvarchar(255),
 	Tipo_Publicacion nvarchar(255),
-	Permitir_Preuntas bit,		
+	Permitir_Preguntas bit,		
 	Foreign Key(ID_Vendedor) references TG.Usuario(ID_User)	
+)
+go
+
+create table TG.Rubros_x_Publicacion(
+	ID_Publicacion numeric(18,0) references TG.Publicacion(ID_Publicacion),
+	ID_Rubro numeric(18,0) references TG.Rubro(ID_Rubro)
+	Primary key(ID_Publicacion,ID_Rubro)
 )
 go
 
