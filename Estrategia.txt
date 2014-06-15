@@ -3,3 +3,5 @@
 
 -- Roles x usuario se deshabilitan por trigger al deshabilitar un rol de la tabla Rol
 -- El proceso de login no te deja entrar si el usuario no posee roles actualmente activos (que se curta?)
+-- En el primer estadistico, se considera el stock de cada publicacion como la cantidad de productos no vendidos.
+-- En el tercer estadistico, se mide segun el promedio de calificaciones del vendedor en cuestion.
