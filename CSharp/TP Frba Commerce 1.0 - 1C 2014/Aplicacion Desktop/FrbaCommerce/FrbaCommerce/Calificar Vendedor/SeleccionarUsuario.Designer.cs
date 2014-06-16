@@ -94,7 +94,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.botonAtras;
-            this.ClientSize = new System.Drawing.Size(783, 404);
+            this.ClientSize = new System.Drawing.Size(783, 430);
             this.Controls.Add(this.info);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.botonAtras);

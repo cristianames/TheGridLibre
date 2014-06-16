@@ -44,9 +44,9 @@
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.txtRubro = new System.Windows.Forms.Button();
             this.groupBoxVisibilidad = new System.Windows.Forms.GroupBox();
-            this.labelInicio = new System.Windows.Forms.Label();
-            this.labelPrecioPublicar = new System.Windows.Forms.Label();
             this.labelComision = new System.Windows.Forms.Label();
+            this.labelPrecioPublicar = new System.Windows.Forms.Label();
+            this.labelInicio = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.botonBorrador = new System.Windows.Forms.Button();
             this.botonPublicar = new System.Windows.Forms.Button();
@@ -192,6 +192,7 @@
             this.txtRubro.TabIndex = 18;
             this.txtRubro.Text = "Seleccionar rubros";
             this.txtRubro.UseVisualStyleBackColor = true;
+            this.txtRubro.Click += new System.EventHandler(this.txtRubro_Click);
             // 
             // groupBoxVisibilidad
             // 
@@ -206,14 +207,14 @@
             this.groupBoxVisibilidad.TabStop = false;
             this.groupBoxVisibilidad.Text = "Datos Visibilidad";
             // 
-            // labelInicio
+            // labelComision
             // 
-            this.labelInicio.AutoSize = true;
-            this.labelInicio.Location = new System.Drawing.Point(6, 62);
-            this.labelInicio.Name = "labelInicio";
-            this.labelInicio.Size = new System.Drawing.Size(96, 13);
-            this.labelInicio.TabIndex = 14;
-            this.labelInicio.Text = "Fecha de inicio:";
+            this.labelComision.AutoSize = true;
+            this.labelComision.Location = new System.Drawing.Point(6, 111);
+            this.labelComision.Name = "labelComision";
+            this.labelComision.Size = new System.Drawing.Size(145, 13);
+            this.labelComision.TabIndex = 16;
+            this.labelComision.Text = "Porcentaje de comision:";
             // 
             // labelPrecioPublicar
             // 
@@ -224,14 +225,14 @@
             this.labelPrecioPublicar.TabIndex = 15;
             this.labelPrecioPublicar.Text = "Precio por publicar:";
             // 
-            // labelComision
+            // labelInicio
             // 
-            this.labelComision.AutoSize = true;
-            this.labelComision.Location = new System.Drawing.Point(6, 111);
-            this.labelComision.Name = "labelComision";
-            this.labelComision.Size = new System.Drawing.Size(145, 13);
-            this.labelComision.TabIndex = 16;
-            this.labelComision.Text = "Porcentaje de comision:";
+            this.labelInicio.AutoSize = true;
+            this.labelInicio.Location = new System.Drawing.Point(6, 62);
+            this.labelInicio.Name = "labelInicio";
+            this.labelInicio.Size = new System.Drawing.Size(96, 13);
+            this.labelInicio.TabIndex = 14;
+            this.labelInicio.Text = "Fecha de inicio:";
             // 
             // textBox1
             // 
@@ -249,6 +250,7 @@
             this.botonBorrador.TabIndex = 21;
             this.botonBorrador.Text = "Guardar borrador";
             this.botonBorrador.UseVisualStyleBackColor = true;
+            this.botonBorrador.Click += new System.EventHandler(this.botonBorrador_Click);
             // 
             // botonPublicar
             // 
@@ -258,6 +260,7 @@
             this.botonPublicar.TabIndex = 22;
             this.botonPublicar.Text = "Publicar";
             this.botonPublicar.UseVisualStyleBackColor = true;
+            this.botonPublicar.Click += new System.EventHandler(this.botonPublicar_Click);
             // 
             // botonRegresar
             // 
@@ -267,6 +270,7 @@
             this.botonRegresar.TabIndex = 23;
             this.botonRegresar.Text = "Regresar";
             this.botonRegresar.UseVisualStyleBackColor = true;
+            this.botonRegresar.Click += new System.EventHandler(this.botonRegresar_Click);
             // 
             // GenerarPublicacion
             // 
@@ -295,6 +299,7 @@
             this.Name = "GenerarPublicacion";
             this.Text = "Generar Publicacion";
             this.Load += new System.EventHandler(this.GenerarPublicacion_Load);
+            this.EnabledChanged += new System.EventHandler(this.GenerarPublicacion_EnabledChanged);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.groupBoxVisibilidad.ResumeLayout(false);
             this.groupBoxVisibilidad.PerformLayout();
@@ -317,7 +322,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label labelVencimiento;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Button txtRubro;
         private System.Windows.Forms.GroupBox groupBoxVisibilidad;
@@ -328,6 +332,7 @@
         private System.Windows.Forms.Button botonBorrador;
         private System.Windows.Forms.Button botonPublicar;
         private System.Windows.Forms.Button botonRegresar;
+        private System.Windows.Forms.ComboBox comboBox2;
 
     }
 }

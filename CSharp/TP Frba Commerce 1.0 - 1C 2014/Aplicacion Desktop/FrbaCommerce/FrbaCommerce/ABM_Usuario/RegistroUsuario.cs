@@ -210,7 +210,7 @@ namespace FrbaCommerce.ABM_Usuario
                 if (resultado.Rows.Count > 0)
                 {
                     TG.ventanaEmergente("Razon Social ya existente");
-                    //loggear anomalida
+                    //loggear anomalia
                     return true;
                 }
             }
@@ -229,8 +229,45 @@ namespace FrbaCommerce.ABM_Usuario
             return false;
         }
 
+        private bool validacionPreviaCliente()
+        {
+            bool estado = true;
+            Validator validador = new Validator();
+            if (!validador.validar_numerico(txtTel.Text))
+            {
+                txtTel.BackColor = Color.FromArgb(255, 161, 161);
+                estado = false;
+            }
+            if (!validador.validar_numerico(txtDoc.Text))
+            {
+                txtDoc.BackColor = Color.FromArgb(255, 161, 161);
+                estado = false;
+            }
+            if (!validador.validar_email(txtEmail.Text))
+            {
+                txtEmail.BackColor = Color.FromArgb(255, 161, 161);
+                estado = false;
+            }            
+            if (!validador.validar_numerico(txtNroCalle.Text))
+            {
+                txtNroCalle.BackColor = Color.FromArgb(255, 161, 161);
+                estado = false;
+            }
+            if (txtNroTarjeta.Text != string.Empty)
+            {
+                if (!validador.validar_numerico(txtNroTarjeta.Text))
+                {
+                    txtNroTarjeta.BackColor = Color.FromArgb(255, 161, 161);
+                    estado = false;
+                }
+            }
+            if(!estado)Control1.Text = "Verificar datos";
+            return estado;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
+            if (!validacionPreviaCliente()) return;
             bool error = false;
             List<TextBox> camposOmitibles = new List<TextBox>();
             camposOmitibles.Add(txtNroTarjeta);
@@ -299,8 +336,33 @@ namespace FrbaCommerce.ABM_Usuario
             volverAtras();
         }
 
+        private bool validacionPreviaEmpresa()
+        {
+            bool estado = true;
+            Validator validador = new Validator();
+            if (!validador.validar_numerico(txtTelEmpresa.Text))
+            {
+                txtTelEmpresa.BackColor = Color.FromArgb(255, 161, 161);
+                estado = false;
+            }
+            if (!validador.validar_email(txtEmailEmpresa.Text))
+            {
+                txtEmailEmpresa.BackColor = Color.FromArgb(255, 161, 161);
+                estado = false;
+            }
+            if (!validador.validar_numerico(txtNroCalleEmpresa.Text))
+            {
+                txtNroCalleEmpresa.BackColor = Color.FromArgb(255, 161, 161);
+                estado = false;
+            }
+            
+            if (!estado) Control2.Text = "Verificar datos";
+            return estado;
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
+            if (!validacionPreviaEmpresa()) return;
             bool error = false;
             List<TextBox> camposOmitibles = new List<TextBox>();
             camposOmitibles.Add(txtDepEmpresa);
@@ -360,6 +422,54 @@ namespace FrbaCommerce.ABM_Usuario
                 TG.ventanaEmergente("Usuario creado. Su Username y Password se han enviado a su correo");
             if (DatosUsuario.tipoUsuario == 1) DatosUsuario.resetearDatosModif();
             volverAtras();
+        }
+
+        private void txtDoc_TextChanged(object sender, EventArgs e)
+        {
+            txtDoc.BackColor = Color.FromArgb(255, 255, 255);
+            Control1.Text = "";
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+            txtEmail.BackColor = Color.FromArgb(255, 255, 255);
+            Control1.Text = "";
+        }
+
+        private void txtTel_TextChanged(object sender, EventArgs e)
+        {
+            txtTel.BackColor = Color.FromArgb(255, 255, 255);
+            Control1.Text = "";
+        }
+
+        private void txtNroCalle_TextChanged(object sender, EventArgs e)
+        {
+            txtNroCalle.BackColor = Color.FromArgb(255, 255, 255);
+            Control1.Text = "";
+        }
+
+        private void txtNroTarjeta_TextChanged(object sender, EventArgs e)
+        {
+            txtNroTarjeta.BackColor = Color.FromArgb(255, 255, 255);
+            Control1.Text = "";
+        }
+
+        private void txtEmailEmpresa_TextChanged(object sender, EventArgs e)
+        {
+            txtEmailEmpresa.BackColor = Color.FromArgb(255, 255, 255);
+            Control2.Text = "";
+        }
+
+        private void txtTelEmpresa_TextChanged(object sender, EventArgs e)
+        {
+            txtTelEmpresa.BackColor = Color.FromArgb(255, 255, 255);
+            Control2.Text = "";
+        }
+
+        private void txtNroCalleEmpresa_TextChanged(object sender, EventArgs e)
+        {
+            txtNroCalleEmpresa.BackColor = Color.FromArgb(255, 255, 255);
+            Control2.Text = "";
         }
     }
 }

@@ -32,6 +32,7 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.button3 = new System.Windows.Forms.Button();
             this.grupoEmpresa = new System.Windows.Forms.GroupBox();
+            this.Control2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.txtCalleEmpresa = new System.Windows.Forms.TextBox();
             this.txtNroCalleEmpresa = new System.Windows.Forms.TextBox();
@@ -95,6 +96,7 @@
             this.txtNroCalle = new System.Windows.Forms.TextBox();
             this.txtCalle = new System.Windows.Forms.TextBox();
             this.grupoCliente = new System.Windows.Forms.GroupBox();
+            this.Control1 = new System.Windows.Forms.Label();
             this.grupoEmpresa.SuspendLayout();
             this.grupoCliente.SuspendLayout();
             this.SuspendLayout();
@@ -136,6 +138,7 @@
             // 
             // grupoEmpresa
             // 
+            this.grupoEmpresa.Controls.Add(this.Control2);
             this.grupoEmpresa.Controls.Add(this.button2);
             this.grupoEmpresa.Controls.Add(this.txtCalleEmpresa);
             this.grupoEmpresa.Controls.Add(this.txtNroCalleEmpresa);
@@ -170,6 +173,15 @@
             this.grupoEmpresa.TabStop = false;
             this.grupoEmpresa.Text = "DatosEmpresa";
             // 
+            // Control2
+            // 
+            this.Control2.AutoSize = true;
+            this.Control2.ForeColor = System.Drawing.Color.Red;
+            this.Control2.Location = new System.Drawing.Point(257, 297);
+            this.Control2.Name = "Control2";
+            this.Control2.Size = new System.Drawing.Size(0, 13);
+            this.Control2.TabIndex = 63;
+            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(355, 288);
@@ -193,6 +205,7 @@
             this.txtNroCalleEmpresa.Name = "txtNroCalleEmpresa";
             this.txtNroCalleEmpresa.Size = new System.Drawing.Size(42, 20);
             this.txtNroCalleEmpresa.TabIndex = 42;
+            this.txtNroCalleEmpresa.TextChanged += new System.EventHandler(this.txtNroCalleEmpresa_TextChanged);
             // 
             // txtPisoEmpresa
             // 
@@ -235,6 +248,7 @@
             this.txtEmailEmpresa.Name = "txtEmailEmpresa";
             this.txtEmailEmpresa.Size = new System.Drawing.Size(144, 20);
             this.txtEmailEmpresa.TabIndex = 36;
+            this.txtEmailEmpresa.TextChanged += new System.EventHandler(this.txtEmailEmpresa_TextChanged);
             // 
             // txtTelEmpresa
             // 
@@ -242,6 +256,7 @@
             this.txtTelEmpresa.Name = "txtTelEmpresa";
             this.txtTelEmpresa.Size = new System.Drawing.Size(103, 20);
             this.txtTelEmpresa.TabIndex = 35;
+            this.txtTelEmpresa.TextChanged += new System.EventHandler(this.txtTelEmpresa_TextChanged);
             // 
             // txtNombreContacto
             // 
@@ -439,6 +454,7 @@
             // 
             // txtNombre
             // 
+            this.txtNombre.BackColor = System.Drawing.SystemColors.Window;
             this.txtNombre.Location = new System.Drawing.Point(78, 93);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(129, 20);
@@ -457,6 +473,7 @@
             this.txtDoc.Name = "txtDoc";
             this.txtDoc.Size = new System.Drawing.Size(82, 20);
             this.txtDoc.TabIndex = 3;
+            this.txtDoc.TextChanged += new System.EventHandler(this.txtDoc_TextChanged);
             // 
             // label3
             // 
@@ -530,6 +547,7 @@
             this.txtNroTarjeta.Name = "txtNroTarjeta";
             this.txtNroTarjeta.Size = new System.Drawing.Size(112, 20);
             this.txtNroTarjeta.TabIndex = 25;
+            this.txtNroTarjeta.TextChanged += new System.EventHandler(this.txtNroTarjeta_TextChanged);
             // 
             // dateTimePicker1
             // 
@@ -562,6 +580,7 @@
             this.txtTel.Name = "txtTel";
             this.txtTel.Size = new System.Drawing.Size(103, 20);
             this.txtTel.TabIndex = 47;
+            this.txtTel.TextChanged += new System.EventHandler(this.txtTel_TextChanged);
             // 
             // txtEmail
             // 
@@ -569,6 +588,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(144, 20);
             this.txtEmail.TabIndex = 48;
+            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
             // label14
             // 
@@ -674,6 +694,7 @@
             this.txtNroCalle.Name = "txtNroCalle";
             this.txtNroCalle.Size = new System.Drawing.Size(42, 20);
             this.txtNroCalle.TabIndex = 61;
+            this.txtNroCalle.TextChanged += new System.EventHandler(this.txtNroCalle_TextChanged);
             // 
             // txtCalle
             // 
@@ -684,6 +705,7 @@
             // 
             // grupoCliente
             // 
+            this.grupoCliente.Controls.Add(this.Control1);
             this.grupoCliente.Controls.Add(this.txtCalle);
             this.grupoCliente.Controls.Add(this.txtNroCalle);
             this.grupoCliente.Controls.Add(this.txtPiso);
@@ -722,12 +744,21 @@
             this.grupoCliente.TabStop = false;
             this.grupoCliente.Text = "DatosCliente";
             // 
+            // Control1
+            // 
+            this.Control1.AutoSize = true;
+            this.Control1.ForeColor = System.Drawing.Color.Red;
+            this.Control1.Location = new System.Drawing.Point(253, 293);
+            this.Control1.Name = "Control1";
+            this.Control1.Size = new System.Drawing.Size(0, 13);
+            this.Control1.TabIndex = 50;
+            // 
             // Registro_de_Usuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button3;
-            this.ClientSize = new System.Drawing.Size(842, 487);
+            this.ClientSize = new System.Drawing.Size(922, 421);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.label30);
@@ -746,6 +777,7 @@
             this.grupoCliente.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
@@ -817,5 +849,7 @@
         private System.Windows.Forms.TextBox txtNroCalle;
         private System.Windows.Forms.TextBox txtCalle;
         private System.Windows.Forms.GroupBox grupoCliente;
+        private System.Windows.Forms.Label Control1;
+        private System.Windows.Forms.Label Control2;
     }
 }

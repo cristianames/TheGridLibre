@@ -6,6 +6,7 @@ drop table TG.Empresa
 drop table TG.Compra
 drop table TG.Pregunta
 drop table TG.Factura
+drop table TG.Rubros_x_Publicacion
 drop table TG.Publicacion
 drop table TG.Usuario
 drop table TG.Tipo_Usuario
