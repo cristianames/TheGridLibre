@@ -32,6 +32,7 @@
             this.botonSiguiente = new System.Windows.Forms.Button();
             this.botonAtras = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.info = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,15 +53,18 @@
             this.botonSiguiente.TabIndex = 2;
             this.botonSiguiente.Text = "Siguiente";
             this.botonSiguiente.UseVisualStyleBackColor = true;
+            this.botonSiguiente.Click += new System.EventHandler(this.botonSiguiente_Click);
             // 
             // botonAtras
             // 
+            this.botonAtras.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.botonAtras.Location = new System.Drawing.Point(12, 221);
             this.botonAtras.Name = "botonAtras";
             this.botonAtras.Size = new System.Drawing.Size(75, 23);
             this.botonAtras.TabIndex = 3;
             this.botonAtras.Text = "Atrás";
             this.botonAtras.UseVisualStyleBackColor = true;
+            this.botonAtras.Click += new System.EventHandler(this.botonAtras_Click);
             // 
             // dataGridView1
             // 
@@ -74,18 +78,32 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(409, 150);
             this.dataGridView1.TabIndex = 4;
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            // 
+            // info
+            // 
+            this.info.AutoSize = true;
+            this.info.Location = new System.Drawing.Point(87, 121);
+            this.info.Name = "info";
+            this.info.Size = new System.Drawing.Size(242, 13);
+            this.info.TabIndex = 5;
+            this.info.Text = "No tienes calificaciones pendientes. ¡Estás al día!";
             // 
             // SeleccionarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 273);
+            this.CancelButton = this.botonAtras;
+            this.ClientSize = new System.Drawing.Size(783, 404);
+            this.Controls.Add(this.info);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.botonAtras);
             this.Controls.Add(this.botonSiguiente);
             this.Controls.Add(this.label1);
             this.Name = "SeleccionarUsuario";
-            this.Text = "Seleccionar";
+            this.Text = "Seleccionar publicacion pendiente de calificar";
+            this.Load += new System.EventHandler(this.SeleccionarUsuario_Load);
+            this.VisibleChanged += new System.EventHandler(this.SeleccionarUsuario_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -98,5 +116,6 @@
         private System.Windows.Forms.Button botonSiguiente;
         private System.Windows.Forms.Button botonAtras;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label info;
     }
 }

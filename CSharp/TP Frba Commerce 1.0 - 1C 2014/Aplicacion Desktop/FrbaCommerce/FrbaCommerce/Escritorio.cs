@@ -65,6 +65,7 @@ namespace FrbaCommerce
                         (new Abm_Visibilidad.ABMVisibilidad(this)).Show();// agregar this como parametro
                         break;
                     case "Calificar Vendedor":
+                        (new Calificar_Vendedor.SeleccionarUsuario(this)).Show();
                         break;
                     case "Comprar - Ofertar":
                         break;
