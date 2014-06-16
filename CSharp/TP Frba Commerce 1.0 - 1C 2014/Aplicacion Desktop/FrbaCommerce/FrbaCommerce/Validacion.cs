@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Globalization;
 
 namespace FrbaCommerce
 {
@@ -37,8 +38,25 @@ namespace FrbaCommerce
             int i;
             for (i = 0; i < campo.Length; i++) if(campo[i] == ',') break;
             char[] chars = campo.ToCharArray();
-            chars[i] = '.';
+            if (i < campo.Length) chars[i] = '.';
             return new string(chars);
+        }
+
+        public static string tomarParteEntera(string numeroFloat)
+        {
+            string entero = "";
+            for (int i = 0; i < numeroFloat.Length; i++)
+            {
+                if (numeroFloat[i] == ',') break;
+                entero += numeroFloat[i];
+            }
+            return entero;
+        }
+
+        public static float ToFloat(string numeroFloat)
+        {
+            return Convert.ToSingle(conComa(numeroFloat), CultureInfo.InvariantCulture); 
+            //return Convert.ToSingle(conComa(numeroFloat), CultureInfo.CreateSpecificCulture("es-ES"));
         }
     }
 }

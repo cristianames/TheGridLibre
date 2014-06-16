@@ -9,29 +9,29 @@ using System.Windows.Forms;
 
 namespace FrbaCommerce.Generar_Publicacion
 {
-    public partial class GenerarPublicacion : Form
+    public partial class GenerarPublicacion : FormGrid
     {
         DataTable datosConsultaVisibilidad;
         bool esSubasta;
-        FormGrid ventanaAnterior;
         DateTime fechaHoy;
         DateTime fechaVencimiento;
-
 
         public GenerarPublicacion(FormGrid anterior)
         {
             InitializeComponent();
+            this.ClientSize = new System.Drawing.Size(389, 451);
             ventanaAnterior = anterior;
-            string comando = @"select * from TG.Visibilidad where Inhabilitado=0";
+            string comando = @"select * from TG.Visibilidad where Inhabilitado=0 order by Precio_Por_Publicar desc";
             datosConsultaVisibilidad = TG.realizarConsulta(comando);
             esSubasta = false;
-
+            preguntasComboBox.SelectedIndex = 0;
         }
 
         private void radioSubasta_CheckedChanged(object sender, EventArgs e)
         {
             label4.Enabled = false;
             numericUpDown1.Enabled = false;
+            numericUpDown1.Value = 1;
             labelPrecio.Text = "Precio incial:";
             esSubasta = true;
         }
@@ -47,22 +47,21 @@ namespace FrbaCommerce.Generar_Publicacion
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
            // datosConsultaVisibilidad.Rows[2]["Nombre"].ToString();
-            labelInicio.Text = "Fecha de inicio:" + DateTime.Today.ToString();
+            labelInicio.Text = "Fecha de inicio: " + DateTime.Today.ToString();
             //labelVencimiento.Text;
             fechaHoy =  DateTime.Today;          
-            fechaVencimiento = fechaHoy.AddDays(Convert.ToDouble(datosConsultaVisibilidad.Rows[comboBox1.SelectedIndex]["Duracion"].ToString()));
-            labelVencimiento.Text = "Fecha de vencimiento:" + fechaVencimiento.ToString();
-            labelPrecioPublicar.Text = "Precio por publicar:" + datosConsultaVisibilidad.Rows[comboBox1.SelectedIndex]["Precio_Por_Publicar"].ToString();
-            labelComision.Text = "Porcentaje de comision" + datosConsultaVisibilidad.Rows[comboBox1.SelectedIndex]["Porcentaje_Venta"].ToString();
+            fechaVencimiento = fechaHoy.AddDays(Convert.ToDouble(datosConsultaVisibilidad.Rows[visibilidadComboBox1.SelectedIndex]["Duracion"].ToString()));
+            labelVencimiento.Text = "Fecha de vencimiento: " + fechaVencimiento.ToString();
+            labelPrecioPublicar.Text = "Precio por publicar: $" + datosConsultaVisibilidad.Rows[visibilidadComboBox1.SelectedIndex]["Precio_Por_Publicar"].ToString();
+            labelComision.Text = "Porcentaje de comision: " + datosConsultaVisibilidad.Rows[visibilidadComboBox1.SelectedIndex]["Porcentaje_Venta"].ToString();
             //TG.ventanaEmergente(comboBox1.SelectedIndex.ToString());
-            
+            actualizarTotal();
         }
 
         private void GenerarPublicacion_Load(object sender, EventArgs e)
         {
-            
-            string comando = "select Nombre from TG.Visibilidad";
-            comboBox1.DataSource = TG.ObtenerListado(comando);
+            string comando = "select Nombre from TG.Visibilidad order by Precio_Por_Publicar desc";
+            visibilidadComboBox1.DataSource = TG.ObtenerListado(comando);
            // comando = @"select * from TG.Visibilidad where Inhabilitado=0";            
           // datosConsultaVisibilidad = TG.realizarConsulta(comando);
           //  TG.ventanaEmergente(datosConsultaVisibilidad.Rows[0]["Duracion"].ToString());
@@ -112,7 +111,7 @@ namespace FrbaCommerce.Generar_Publicacion
                 tipo = "Compra Inmediata";
                 stock = numericUpDown1.Value.ToString();
             }
-            if (String.Equals(comboBox2.SelectedItem.ToString(), "SI"))
+            if (String.Equals(preguntasComboBox.SelectedItem.ToString(), "SI"))
             {
                 preguntas = "1";
 
@@ -121,9 +120,9 @@ namespace FrbaCommerce.Generar_Publicacion
 
             consulta = @"insert TG.Publicacion (ID_Publicacion,Descripcion,Estado,Fecha_Inicio,
             Fecha_Vencimiento,
-            ID_Vendedor,ID_Visibilidad,Permitir_Preuntas,Precio,Stock,Tipo_Publicacion)
+            ID_Vendedor,ID_Visibilidad,Permitir_Preguntas,Precio,Stock,Tipo_Publicacion)
             VALUES (" + (Convert.ToInt32(ultimoID) + 1).ToString() + @",'" + richTextBox1.Text + @"','Publicada',convert(datetime,'" + fechaHoy.ToString("yyyy-dd-MM hh:mm:ss") + @"'),convert(datetime,'"
-                      + fechaVencimiento.ToString("yyyy-dd-MM hh:mm:ss") + @"')," + DatosUsuario.usuario.ToString() + @"," + datosConsultaVisibilidad.Rows[comboBox1.SelectedIndex]["ID_Visibilidad"].ToString()
+                      + fechaVencimiento.ToString("yyyy-dd-MM hh:mm:ss") + @"')," + DatosUsuario.usuario.ToString() + @"," + datosConsultaVisibilidad.Rows[visibilidadComboBox1.SelectedIndex]["ID_Visibilidad"].ToString()
                       + @"," + preguntas + @"," + txtPrecio.Text + @"," + stock + @",'" + tipo + @"')";
             TG.realizarConsultaSinRetorno(consulta);
             
@@ -165,7 +164,7 @@ namespace FrbaCommerce.Generar_Publicacion
                 tipo = "Compra Inmediata";
                 stock = numericUpDown1.Value.ToString();
             }
-            if (String.Equals(comboBox2.SelectedItem.ToString(), "SI"))
+            if (String.Equals(preguntasComboBox.SelectedItem.ToString(), "SI"))
             {
                 preguntas = "1";
 
@@ -174,9 +173,9 @@ namespace FrbaCommerce.Generar_Publicacion
 
             consulta = @"insert TG.Publicacion (ID_Publicacion,Descripcion,Estado,Fecha_Inicio,
             Fecha_Vencimiento,
-            ID_Vendedor,ID_Visibilidad,Permitir_Preuntas,Precio,Stock,Tipo_Publicacion)
+            ID_Vendedor,ID_Visibilidad,Permitir_Preguntas,Precio,Stock,Tipo_Publicacion)
             VALUES (" + (Convert.ToInt32(ultimoID) + 1).ToString() + @",'" + richTextBox1.Text + @"','Borrador',convert(datetime,'" + fechaHoy.ToString("yyyy-dd-MM hh:mm:ss") + @"'),convert(datetime,'"
-                      + fechaVencimiento.ToString("yyyy-dd-MM hh:mm:ss") + @"')," + DatosUsuario.usuario.ToString() + @"," + datosConsultaVisibilidad.Rows[comboBox1.SelectedIndex]["ID_Visibilidad"].ToString()
+                      + fechaVencimiento.ToString("yyyy-dd-MM hh:mm:ss") + @"')," + DatosUsuario.usuario.ToString() + @"," + datosConsultaVisibilidad.Rows[visibilidadComboBox1.SelectedIndex]["ID_Visibilidad"].ToString()
                       + @"," + preguntas + @"," + txtPrecio.Text + @"," + stock + @",'" + tipo + @"')";
             TG.realizarConsultaSinRetorno(consulta);
 
@@ -190,12 +189,35 @@ namespace FrbaCommerce.Generar_Publicacion
             TG.ventanaEmergente("Publicacion cargada");
         }
 
+        private void txtPrecio_TextChanged(object sender, EventArgs e)
+        {
+            actualizarTotal();   
+        }
 
+        private void actualizarTotal()
+        {
+            if (String.IsNullOrEmpty(txtPrecio.Text) || !Validacion.esFloat(txtPrecio.Text))
+            {
+                total.Text = "Calculando...";
+                total.Font = new Font("Microsoft Sans Serif", 8.25f);
+            }
+            else
+            {
+                float precio = Validacion.ToFloat(txtPrecio.Text);
+                string stringPrecionPorPublicar = datosConsultaVisibilidad.Rows[visibilidadComboBox1.SelectedIndex]["Precio_Por_Publicar"].ToString();
+                string stringPorcentajeComision = datosConsultaVisibilidad.Rows[visibilidadComboBox1.SelectedIndex]["Porcentaje_Venta"].ToString();
+                float porcentajeComision = Validacion.ToFloat(stringPorcentajeComision);
+                float precioPorPublicar = Validacion.ToFloat(stringPrecionPorPublicar);
+                if (porcentajeComision > 0) porcentajeComision =+ 1;
+                total.Text = "$"+(precio * (float)numericUpDown1.Value * porcentajeComision + precioPorPublicar).ToString();
+                //total.Text = porcentajeComision.ToString();
+                total.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold);
+            }
+        }
 
-            
-
-        
-        
-        
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            actualizarTotal();
+        }
     }
 }
