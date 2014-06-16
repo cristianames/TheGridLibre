@@ -73,6 +73,7 @@ namespace FrbaCommerce
                     case "Facturar Publicaciones":
                         break;
                     case "Generar Publicacion":
+                        (new Generar_Publicacion.GenerarPublicacion(this)).Show();
                         break;
                     case "Gestion De Preguntas":
                         break;

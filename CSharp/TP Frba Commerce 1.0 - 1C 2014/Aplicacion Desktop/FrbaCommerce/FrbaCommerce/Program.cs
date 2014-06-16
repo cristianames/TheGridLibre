@@ -8,6 +8,13 @@ using System.Security.Cryptography;
 
 namespace FrbaCommerce
 {
+
+    static class RubrosSeleccionados //clase que almacena los rubros seleccionados en la ventana FiltroRubros
+    {
+        public static List<string> rubros = new List<string>();
+
+    }
+    
     static class Program
     {
         /// <summary>
