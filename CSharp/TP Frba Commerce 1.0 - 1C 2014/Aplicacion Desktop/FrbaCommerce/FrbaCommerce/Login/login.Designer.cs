@@ -36,6 +36,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Control = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,6 +46,7 @@
             this.userTextbox.Name = "userTextbox";
             this.userTextbox.Size = new System.Drawing.Size(82, 20);
             this.userTextbox.TabIndex = 1;
+            this.userTextbox.TextChanged += new System.EventHandler(this.userTextbox_TextChanged);
             this.userTextbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.userTextbox_KeyDown);
             // 
             // passTextBox
@@ -54,6 +56,7 @@
             this.passTextBox.PasswordChar = '*';
             this.passTextBox.Size = new System.Drawing.Size(130, 20);
             this.passTextBox.TabIndex = 2;
+            this.passTextBox.TextChanged += new System.EventHandler(this.passTextBox_TextChanged);
             this.passTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passTextBox_KeyDown);
             // 
             // label1
@@ -107,12 +110,22 @@
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
+            // Control
+            // 
+            this.Control.AutoSize = true;
+            this.Control.ForeColor = System.Drawing.Color.Red;
+            this.Control.Location = new System.Drawing.Point(245, 107);
+            this.Control.Name = "Control";
+            this.Control.Size = new System.Drawing.Size(0, 13);
+            this.Control.TabIndex = 8;
+            // 
             // login
             // 
             this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(842, 328);
+            this.ClientSize = new System.Drawing.Size(922, 304);
+            this.Controls.Add(this.Control);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.button1);
@@ -139,6 +152,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label Control;
 
     }
 }

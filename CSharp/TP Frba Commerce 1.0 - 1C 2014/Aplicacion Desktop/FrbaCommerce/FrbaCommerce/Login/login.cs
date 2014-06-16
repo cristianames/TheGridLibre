@@ -81,6 +81,13 @@ namespace FrbaCommerce.Login
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Validator validador = new Validator();
+            if (!validador.validar_numerico(userTextbox.Text))
+            {
+                Control.Text = "Verificar datos";
+                userTextbox.BackColor = Color.FromArgb(255, 161, 161);
+                return;
+            }
             button1.Enabled = false;
             pictureBox1.Visible = true;
             this.Refresh();
@@ -121,6 +128,18 @@ namespace FrbaCommerce.Login
         {
             if (this.Visible == true) DatosUsuario.resetearDatos();
         }
+
+        private void userTextbox_TextChanged(object sender, EventArgs e)
+        {
+            userTextbox.BackColor = Color.FromArgb(255, 255, 255);
+            Control.Text = "";
+        }
+
+        private void passTextBox_TextChanged(object sender, EventArgs e)
+        {
+            Control.Text = "";
+        }
+
     }
 }
 
