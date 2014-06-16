@@ -14,8 +14,8 @@ create table TG.Usuario(
 	Antiguo bit,
 	ID_Tipo int References TG.Tipo_Usuario(ID_Tipo),
 	Intentos int,
-	Primer_Ingreso bit
-	
+	Primer_Ingreso bit,
+	Datos_Correctos bit
 )
 go
 

@@ -175,8 +175,8 @@
             this.preguntasComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.preguntasComboBox.FormattingEnabled = true;
             this.preguntasComboBox.Items.AddRange(new object[] {
-            "SI",
-            "NO"});
+            "NO",
+            "SI"});
             this.preguntasComboBox.Location = new System.Drawing.Point(255, 214);
             this.preguntasComboBox.Name = "preguntasComboBox";
             this.preguntasComboBox.Size = new System.Drawing.Size(104, 21);
@@ -304,9 +304,9 @@
             this.total.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.total.Location = new System.Drawing.Point(13, 414);
             this.total.Name = "total";
-            this.total.Size = new System.Drawing.Size(69, 13);
+            this.total.Size = new System.Drawing.Size(16, 13);
             this.total.TabIndex = 25;
-            this.total.Text = "Calculando...";
+            this.total.Text = "...";
             // 
             // GenerarPublicacion
             // 

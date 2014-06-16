@@ -26,7 +26,26 @@ namespace FrbaCommerce
 
         private void Escrtorio_Load(object sender, EventArgs e)
         {
+            verificarDatosUsuario();
+        }
 
+        private void verificarDatosUsuario()
+        {
+            DatosUsuario.actualizarBanderasUsuario();
+            if (DatosUsuario.DatosCorrectos == 0)
+            {
+                listBox1.Enabled = false;
+                button1.Enabled = false;
+                linkLabel1.Text = "Configuración [Datos incorrectos]";
+                linkLabel1.LinkColor = Color.Red;
+            }
+            else
+            {
+                listBox1.Enabled = true;
+                button1.Enabled = true;
+                linkLabel1.Text = "Configuración";
+                linkLabel1.LinkColor = Color.Blue;
+            }
         }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -94,8 +113,7 @@ namespace FrbaCommerce
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FrbaCommerce.ABM_Usuario.Registro_de_Usuario registroFrm = new FrbaCommerce.ABM_Usuario.Registro_de_Usuario(this);
-            registroFrm.Show();
+            (new FrbaCommerce.ABM_Usuario.Registro_de_Usuario(this)).Show();
             this.Visible = false;
         }
 
@@ -107,6 +125,11 @@ namespace FrbaCommerce
         private void Escritorio_KeyDown(object sender, KeyEventArgs e)
         {
 
+        }
+
+        private void Escritorio_VisibleChanged(object sender, EventArgs e)
+        {
+            verificarDatosUsuario();
         }
     }
 }
