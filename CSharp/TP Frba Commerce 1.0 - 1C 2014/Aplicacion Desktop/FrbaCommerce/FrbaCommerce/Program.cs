@@ -23,8 +23,8 @@ namespace FrbaCommerce
         }
         public bool validar_numerico(string fuente)
         {
-            int numero;
-            bool ok = int.TryParse(fuente, out numero);
+            long numero;
+            bool ok = long.TryParse(fuente, out numero);
             return ok;
         }
         public bool validar_email(String email)
