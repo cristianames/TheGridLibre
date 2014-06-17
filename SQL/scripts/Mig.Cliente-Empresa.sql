@@ -20,8 +20,10 @@ fetch next from cursorCliente
 while(@@FETCH_STATUS = 0)
 begin
 
-insert into GD1C2014.TG.Usuario (Pass,Inhabilitado,Antiguo,ID_Tipo,Intentos, Primer_Ingreso) values('37a8eec1ce19687d132fe29051dca629d164e2c4958ba141d5f4133a33f0688f',0,1,2,1,1)
+insert into GD1C2014.TG.Usuario (Pass,Inhabilitado,Antiguo,ID_Tipo,Intentos, Primer_Ingreso, Datos_Correctos) 
+values('37a8eec1ce19687d132fe29051dca629d164e2c4958ba141d5f4133a33f0688f',0,1,2,1,1,0)
 insert into GD1C2014.TG.Roles_x_Usuario values(@contador,2,0)
+insert into GD1C2014.TG.Roles_x_Usuario values(@contador,3,0)
 insert into GD1C2014.TG.Cliente values(@contador,@nombre,@apellido,'DNI',@dni,@mail,0,@nacimiento,0,@calle,@nro,@piso,@depto,'Sin_Localidad',@postal,'Sin_Ciudad')
 
 set @contador = @contador + 1
@@ -49,7 +51,8 @@ fetch next from cursorEmpresa
 while(@@FETCH_STATUS = 0)
 begin
 
-insert into GD1C2014.TG.Usuario (Pass,Inhabilitado,Antiguo,ID_Tipo,Intentos, Primer_Ingreso) values('37a8eec1ce19687d132fe29051dca629d164e2c4958ba141d5f4133a33f0688f',0,1,3,1,1)
+insert into GD1C2014.TG.Usuario (Pass,Inhabilitado,Antiguo,ID_Tipo,Intentos, Primer_Ingreso, Datos_correctos) 
+values('37a8eec1ce19687d132fe29051dca629d164e2c4958ba141d5f4133a33f0688f',0,1,3,1,1,0)
 insert into GD1C2014.TG.Roles_x_Usuario values(@contador,3,0)
 insert into GD1C2014.TG.Empresa values(@contador,@razon,@cuit,@mail,0,@creacion,'Sin_Contacto',@calle,@nro,@piso,@depto,'Sin_Localidad',@postal,'Sin_Ciudad')
 
@@ -63,8 +66,8 @@ deallocate cursorEmpresa
 
 ------------------------------FIN DE EMPRESAS
 
-insert into TG.Usuario(Pass,Inhabilitado,Antiguo,ID_Tipo,Intentos,Primer_Ingreso) 
-values('e6b87050bfcb8143fcb8db0170a4dc9ed00d904ddd3e2a4ad1b1e8dc0fdc9be7',0,0,1,1,0)
+insert into TG.Usuario(Pass,Inhabilitado,Antiguo,ID_Tipo,Intentos,Primer_Ingreso,Datos_Correctos) 
+values('e6b87050bfcb8143fcb8db0170a4dc9ed00d904ddd3e2a4ad1b1e8dc0fdc9be7',0,0,1,1,0,1)
 
 insert into TG.Roles_x_Usuario (ID_User,ID_Rol,Inhabilitado) 
 values ((select top 1 ID_User from TG.Usuario order by ID_User desc),1,0)

@@ -12,7 +12,8 @@ namespace FrbaCommerce
     {
         public VentanaError()
         {
-            InitializeComponent();  
+            InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         public void escribirMsg(string msg)

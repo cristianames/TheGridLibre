@@ -14,13 +14,15 @@ namespace FrbaCommerce
         public static int tipoUsuario = (-1);
         public static int tipoUsuarioModif = (-1);
         public static int usuarioAux = (-1);
+        public static int DatosCorrectos = -1;
 
-        public static void actualizarTipoUsuario()
+        public static void actualizarBanderasUsuario()
         {
-            string comando = "select ID_Tipo from TG.Usuario " +
+            string comando = "select ID_Tipo, Datos_Correctos from TG.Usuario " +
                 "where ID_User = " + DatosUsuario.usuario.ToString();
             DataRow consulta = TG.realizarConsulta(comando).Rows[0];
             DatosUsuario.tipoUsuario = Convert.ToInt32(consulta["ID_Tipo"]);
+            DatosUsuario.DatosCorrectos = Convert.ToInt32(consulta["Datos_Correctos"]);
             return;
         }
 

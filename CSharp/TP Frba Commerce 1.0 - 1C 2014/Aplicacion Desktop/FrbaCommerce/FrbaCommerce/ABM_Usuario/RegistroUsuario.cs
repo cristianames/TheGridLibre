@@ -37,7 +37,6 @@ namespace FrbaCommerce.ABM_Usuario
                             grupoCliente.Enabled = false; 
                             break;
                     }
-
                     break;
 
                 case 2:  //Cliente
@@ -330,6 +329,8 @@ namespace FrbaCommerce.ABM_Usuario
                     where ID_USER =" + DatosUsuario.usuario.ToString();
             TG.realizarConsultaSinRetorno(actualizarCliente);
 
+            if(DatosUsuario.DatosCorrectos == 0) validarUsuario();
+
             if (usuarioNuevo) 
                 TG.ventanaEmergente("Usuario creado. Su Username y Password se han enviado a su correo");
             if (DatosUsuario.tipoUsuario == 1) DatosUsuario.resetearDatosModif();
@@ -418,10 +419,18 @@ namespace FrbaCommerce.ABM_Usuario
                     where ID_USER =" + DatosUsuario.usuario.ToString();
             TG.realizarConsultaSinRetorno(actualizarCliente);
             
+            if(DatosUsuario.DatosCorrectos == 0) validarUsuario();
+
             if (usuarioNuevo)
                 TG.ventanaEmergente("Usuario creado. Su Username y Password se han enviado a su correo");
             if (DatosUsuario.tipoUsuario == 1) DatosUsuario.resetearDatosModif();
             volverAtras();
+        }
+
+        private void validarUsuario()
+        {
+            string comando = "update TG.Usuario set Datos_Correctos = 1 where ID_User = " + DatosUsuario.usuario.ToString();
+            TG.realizarConsultaSinRetorno(comando);
         }
 
         private void txtDoc_TextChanged(object sender, EventArgs e)

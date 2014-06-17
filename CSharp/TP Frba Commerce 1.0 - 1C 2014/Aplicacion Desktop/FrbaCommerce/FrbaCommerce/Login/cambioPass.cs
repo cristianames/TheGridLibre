@@ -23,7 +23,7 @@ namespace FrbaCommerce.Login
             {
                 textBoxOldPass.Enabled = false;
                 textBoxOldPass.Text = "LOOOOOOL";
-                DatosUsuario.actualizarTipoUsuario();
+                DatosUsuario.actualizarBanderasUsuario();
             }
         }
 
@@ -53,7 +53,7 @@ namespace FrbaCommerce.Login
                         (new FrbaCommerce.ABM_Usuario.Registro_de_Usuario(ventanaAnterior)).Show();
                     }
                     TG.ventanaEmergente("Se cambió la contraseña exitosamente.");
-                    DatosUsuario.actualizarTipoUsuario();
+                    DatosUsuario.actualizarBanderasUsuario();
                     this.Close();
                     break;
                 case 1: TG.ventanaEmergente("Ingrese una contraseña valida"); break;
