@@ -11,7 +11,7 @@ namespace FrbaCommerce.Comprar_Ofertar
 {
     public partial class FiltroRubros : FormGrid
     {
-        public FiltroRubros(FormGrid anterior)
+        public FiltroRubros(Form anterior)
         {
             InitializeComponent();
             this.ClientSize = new System.Drawing.Size(521, 366);

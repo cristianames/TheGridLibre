@@ -90,6 +90,7 @@ namespace FrbaCommerce
                         (new Comprar_Ofertar.Buscador(this)).Show();
                         break;
                     case "Editar Publicacion":
+                        (new Editar_Publicacion.EditarPublicacion(this)).Show();
                         break;
                     case "Facturar Publicaciones":
                         break;

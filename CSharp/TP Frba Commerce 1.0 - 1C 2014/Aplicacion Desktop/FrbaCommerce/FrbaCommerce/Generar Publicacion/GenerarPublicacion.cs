@@ -9,13 +9,19 @@ using System.Windows.Forms;
 
 namespace FrbaCommerce.Generar_Publicacion
 {
-    public partial class GenerarPublicacion : FormGrid
+    public partial class GenerarPublicacion : Form
     {
         DataTable datosConsultaVisibilidad;
         bool esSubasta;
         string estado = "";
         DateTime fechaHoy, fechaVencimiento;
+        Form ventanaAnterior;
 
+        //Editar_Publicacion.EditarPublicacion ventanaAnterior;
+        bool actualizar = false; //boolean que me permite saber si estas insertando una nueva publicacion o modificando una existente
+        bool esBorrador;
+        DataTable datosPublicacionViejos;
+        int IDAnterior;
         public GenerarPublicacion(FormGrid anterior)
         {
             InitializeComponent();
@@ -26,13 +32,39 @@ namespace FrbaCommerce.Generar_Publicacion
             esSubasta = false;
             preguntasComboBox.SelectedIndex = 1;
         }
+        public GenerarPublicacion(Editar_Publicacion.EditarPublicacion anterior,string ID,bool valor)
+        {
+            InitializeComponent();
+            ventanaAnterior = anterior;
+            IDAnterior = Convert.ToInt32(anterior);
+            esBorrador = valor;
+            actualizar = true;
+            string comando = @"select * from TG.Visibilidad where Inhabilitado=0 order by Precio_Por_Publicar desc";
+            datosConsultaVisibilidad = TG.realizarConsulta(comando);
+            esSubasta = false;
+            comando = "select * from TG.Publicacion where ID_Publicacion ="+ID;
+            datosPublicacionViejos = TG.realizarConsulta(comando);
+            richTextBox1.Text = datosPublicacionViejos.Rows[0]["Descripcion"].ToString();
+            numericUpDown1.Value = Convert.ToDecimal(datosPublicacionViejos.Rows[0]["Stock"].ToString());
+            if (Convert.ToBoolean(datosPublicacionViejos.Rows[0]["Permitir_Preguntas"].ToString()))
+                preguntasComboBox.SelectedIndex = preguntasComboBox.FindStringExact("SI");
+            else
+                preguntasComboBox.SelectedIndex = preguntasComboBox.FindStringExact("NO");
+            
+            
+            if (!esBorrador)
+            {
+                radioCompra.Enabled = radioSubasta.Enabled = txtPrecio.Enabled= visibilidadComboBox1.Enabled = preguntasComboBox.Enabled = txtRubro.Enabled =  botonBorrador.Enabled= false;
+
+            }
+        }
 
         private void radioSubasta_CheckedChanged(object sender, EventArgs e)
         {
             label4.Enabled = false;
             numericUpDown1.Enabled = false;
             numericUpDown1.Value = 1;
-            labelPrecio.Text = "Precio incial:";
+            labelPrecio.Text = "Precio inicial:";
             esSubasta = true;
         }
 
@@ -62,7 +94,18 @@ namespace FrbaCommerce.Generar_Publicacion
         {
             string comando = "select Nombre from TG.Visibilidad order by Precio_Por_Publicar desc";
             visibilidadComboBox1.DataSource = TG.ObtenerListado(comando);
-           // comando = @"select * from TG.Visibilidad where Inhabilitado=0";            
+            if (actualizar)
+            {
+                foreach (string visibilidad in visibilidadComboBox1.Items) 
+                {
+                    if (visibilidadComboBox1.FindStringExact(visibilidad) != -1)
+                    {
+                        visibilidadComboBox1.SelectedIndex = visibilidadComboBox1.FindStringExact(visibilidad);
+                        
+                    }
+                }
+            } 
+            // comando = @"select * from TG.Visibilidad where Inhabilitado=0";            
           // datosConsultaVisibilidad = TG.realizarConsulta(comando);
           //  TG.ventanaEmergente(datosConsultaVisibilidad.Rows[0]["Duracion"].ToString());
             // datosConsultaVisibilidad.Rows[3]["Nombre"].ToString();
@@ -76,7 +119,9 @@ namespace FrbaCommerce.Generar_Publicacion
 
         private void botonRegresar_Click(object sender, EventArgs e)
         {
-            volverAtras();
+            //volverAtras();
+            ventanaAnterior.Show();
+            this.Close();
         }
         
 
@@ -86,12 +131,72 @@ namespace FrbaCommerce.Generar_Publicacion
             if (RubrosSeleccionados.rubros.Count > 0)
                 foreach (string rubro in RubrosSeleccionados.rubros)
                 {
+                    
                     textBox1.Text = textBox1.Text + "<" + rubro + ">";
                 }
         }
 
         private void botonPublicar_Click(object sender, EventArgs e)
         {
+
+            /*
+<<<<<<< HEAD
+            if (!actualizar)
+            {
+                //Obtener el ultimo ID de publicacion
+                string consulta = "select top 1 ID_Publicacion from TG.Publicacion order by ID_Publicacion desc";
+                string ultimoID = TG.realizarConsulta(consulta).Rows[0]["ID_Publicacion"].ToString();
+                //insertar nueva publacion
+                string tipo;
+                string stock;
+                string preguntas;
+                if (esSubasta)
+                {
+                    tipo = "Subasta";
+                    stock = "1";
+
+                }
+                else
+                {
+                    tipo = "Compra Inmediata";
+                    stock = numericUpDown1.Value.ToString();
+                }
+                if (String.Equals(preguntasComboBox.SelectedItem.ToString(), "SI"))
+                {
+                    preguntas = "1";
+
+                }
+                else preguntas = "0";
+
+                consulta = @"insert TG.Publicacion (ID_Publicacion,Descripcion,Estado,Fecha_Inicio,
+            Fecha_Vencimiento,
+            ID_Vendedor,ID_Visibilidad,Permitir_Preguntas,Precio,Stock,Tipo_Publicacion)
+            VALUES (" + (Convert.ToInt32(ultimoID) + 1).ToString() + @",'" + richTextBox1.Text + @"','Publicada',convert(datetime,'" + fechaHoy.ToString("yyyy-dd-MM hh:mm:ss") + @"'),convert(datetime,'"
+                          + fechaVencimiento.ToString("yyyy-dd-MM hh:mm:ss") + @"')," + DatosUsuario.usuario.ToString() + @"," + datosConsultaVisibilidad.Rows[visibilidadComboBox1.SelectedIndex]["ID_Visibilidad"].ToString()
+                          + @"," + preguntas + @"," + txtPrecio.Text + @"," + stock + @",'" + tipo + @"')";
+                TG.realizarConsultaSinRetorno(consulta);
+
+                //insertar rubros x publicacion
+                foreach (string rubro in RubrosSeleccionados.rubros)
+                {
+                    ObtenerRubro(rubro);//le paso un nombre de un rubro, me devuelve el ID
+                    consulta = "insert TG.Rubros_x_Publicacion (ID_Rubro,ID_Publicacion) values ( " + ObtenerRubro(rubro) + "," + (Convert.ToInt32(ultimoID) + 1).ToString() + ")"; //en este caso no le agrego +1 a ultimo rubro
+                    TG.realizarConsultaSinRetorno(consulta);
+                }
+                TG.ventanaEmergente("Publicacion cargada");
+            }
+            else 
+            {
+                if (esSubasta)
+                {
+                    string consulta = "update TG.Publicacion set Stock=" + numericUpDown1.Value.ToString() + ", Descripcion ='" + richTextBox1.Text + "' where ID_Publicacion=" + IDAnterior.ToString();
+                    TG.realizarConsulta(consulta);
+                    TG.ventanaEmergente("Publicacion actualizada");
+                }
+            }
+
+
+=======*/
             bool error = false;
             if(String.IsNullOrEmpty(txtPrecio.Text))
             {

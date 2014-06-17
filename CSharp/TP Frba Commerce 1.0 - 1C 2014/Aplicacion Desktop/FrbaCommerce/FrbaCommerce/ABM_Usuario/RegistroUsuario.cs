@@ -14,7 +14,7 @@ namespace FrbaCommerce.ABM_Usuario
     {
         bool usuarioNuevo = false; //Uso este boolean para saber mas adelante si tengo que hacer un update o un inserte en la base de datos
 
-        public Registro_de_Usuario(FormGrid anterior)
+        public Registro_de_Usuario(Form anterior)
         {
             InitializeComponent();
             ventanaAnterior = anterior;
