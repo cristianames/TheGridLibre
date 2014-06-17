@@ -165,11 +165,11 @@
     <Compile Include="Comprar-Ofertar\Publicacion.Designer.cs">
       <DependentUpon>Publicacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Editar Publicacion\Form1.cs">
+    <Compile Include="Editar Publicacion\EditarPublicacion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Editar Publicacion\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Editar Publicacion\EditarPublicacion.Designer.cs">
+      <DependentUpon>EditarPublicacion.cs</DependentUpon>
     </Compile>
     <Compile Include="Escritorio.cs">
       <SubType>Form</SubType>
@@ -303,6 +303,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Comprar-Ofertar\Publicacion.resx">
       <DependentUpon>Publicacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editar Publicacion\EditarPublicacion.resx">
+      <DependentUpon>EditarPublicacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Escritorio.resx">
       <DependentUpon>Escritorio.cs</DependentUpon>

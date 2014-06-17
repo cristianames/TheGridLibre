@@ -61,9 +61,9 @@
             // 
             this.radioCompra.AutoSize = true;
             this.radioCompra.Checked = true;
-            this.radioCompra.Location = new System.Drawing.Point(174, 10);
+            this.radioCompra.Location = new System.Drawing.Point(203, 10);
             this.radioCompra.Name = "radioCompra";
-            this.radioCompra.Size = new System.Drawing.Size(110, 17);
+            this.radioCompra.Size = new System.Drawing.Size(133, 17);
             this.radioCompra.TabIndex = 0;
             this.radioCompra.TabStop = true;
             this.radioCompra.Text = "Compra Inmediata";
@@ -73,9 +73,9 @@
             // radioSubasta
             // 
             this.radioSubasta.AutoSize = true;
-            this.radioSubasta.Location = new System.Drawing.Point(307, 10);
+            this.radioSubasta.Location = new System.Drawing.Point(358, 10);
             this.radioSubasta.Name = "radioSubasta";
-            this.radioSubasta.Size = new System.Drawing.Size(64, 17);
+            this.radioSubasta.Size = new System.Drawing.Size(71, 17);
             this.radioSubasta.TabIndex = 1;
             this.radioSubasta.Text = "Subasta";
             this.radioSubasta.UseVisualStyleBackColor = true;
@@ -84,52 +84,52 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 12);
+            this.label1.Location = new System.Drawing.Point(12, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 13);
+            this.label1.Size = new System.Drawing.Size(121, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Tipo de publicacion:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 42);
+            this.label2.Location = new System.Drawing.Point(12, 42);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(120, 13);
+            this.label2.Size = new System.Drawing.Size(145, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Descripcion del articulo:";
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(13, 59);
+            this.richTextBox1.Location = new System.Drawing.Point(15, 59);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(355, 117);
+            this.richTextBox1.Size = new System.Drawing.Size(413, 117);
             this.richTextBox1.TabIndex = 5;
             this.richTextBox1.Text = "";
             // 
             // labelPrecio
             // 
             this.labelPrecio.AutoSize = true;
-            this.labelPrecio.Location = new System.Drawing.Point(10, 191);
+            this.labelPrecio.Location = new System.Drawing.Point(12, 191);
             this.labelPrecio.Name = "labelPrecio";
-            this.labelPrecio.Size = new System.Drawing.Size(58, 13);
+            this.labelPrecio.Size = new System.Drawing.Size(70, 13);
             this.labelPrecio.TabIndex = 6;
             this.labelPrecio.Text = "Precio:    $";
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(65, 188);
+            this.txtPrecio.Location = new System.Drawing.Point(76, 188);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(104, 20);
+            this.txtPrecio.Size = new System.Drawing.Size(121, 21);
             this.txtPrecio.TabIndex = 7;
             this.txtPrecio.TextChanged += new System.EventHandler(this.txtPrecio_TextChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(193, 188);
+            this.label3.Location = new System.Drawing.Point(225, 188);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 13);
+            this.label3.Size = new System.Drawing.Size(69, 13);
             this.label3.TabIndex = 8;
             this.label3.Text = "Visibilidad:";
             // 
@@ -137,36 +137,36 @@
             // 
             this.visibilidadComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.visibilidadComboBox1.FormattingEnabled = true;
-            this.visibilidadComboBox1.Location = new System.Drawing.Point(255, 188);
+            this.visibilidadComboBox1.Location = new System.Drawing.Point(297, 188);
             this.visibilidadComboBox1.Name = "visibilidadComboBox1";
-            this.visibilidadComboBox1.Size = new System.Drawing.Size(104, 21);
+            this.visibilidadComboBox1.Size = new System.Drawing.Size(121, 21);
             this.visibilidadComboBox1.TabIndex = 9;
             this.visibilidadComboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 214);
+            this.label4.Location = new System.Drawing.Point(12, 214);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 13);
+            this.label4.Size = new System.Drawing.Size(44, 13);
             this.label4.TabIndex = 10;
             this.label4.Text = "Stock:";
             // 
             // labelVencimiento
             // 
             this.labelVencimiento.AutoSize = true;
-            this.labelVencimiento.Location = new System.Drawing.Point(22, 45);
+            this.labelVencimiento.Location = new System.Drawing.Point(26, 45);
             this.labelVencimiento.Name = "labelVencimiento";
-            this.labelVencimiento.Size = new System.Drawing.Size(115, 13);
+            this.labelVencimiento.Size = new System.Drawing.Size(136, 13);
             this.labelVencimiento.TabIndex = 12;
             this.labelVencimiento.Text = "Fecha de vencimiento:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(193, 214);
+            this.label6.Location = new System.Drawing.Point(225, 214);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 13);
+            this.label6.Size = new System.Drawing.Size(64, 13);
             this.label6.TabIndex = 14;
             this.label6.Text = "Preguntas";
             // 
@@ -177,14 +177,14 @@
             this.preguntasComboBox.Items.AddRange(new object[] {
             "SI",
             "NO"});
-            this.preguntasComboBox.Location = new System.Drawing.Point(255, 214);
+            this.preguntasComboBox.Location = new System.Drawing.Point(297, 214);
             this.preguntasComboBox.Name = "preguntasComboBox";
-            this.preguntasComboBox.Size = new System.Drawing.Size(104, 21);
+            this.preguntasComboBox.Size = new System.Drawing.Size(121, 21);
             this.preguntasComboBox.TabIndex = 15;
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(66, 212);
+            this.numericUpDown1.Location = new System.Drawing.Point(77, 212);
             this.numericUpDown1.Minimum = new decimal(new int[] {
             1,
             0,
@@ -192,7 +192,7 @@
             0});
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.ReadOnly = true;
-            this.numericUpDown1.Size = new System.Drawing.Size(103, 20);
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 21);
             this.numericUpDown1.TabIndex = 17;
             this.numericUpDown1.Value = new decimal(new int[] {
             1,
@@ -203,9 +203,9 @@
             // 
             // txtRubro
             // 
-            this.txtRubro.Location = new System.Drawing.Point(13, 242);
+            this.txtRubro.Location = new System.Drawing.Point(15, 242);
             this.txtRubro.Name = "txtRubro";
-            this.txtRubro.Size = new System.Drawing.Size(124, 23);
+            this.txtRubro.Size = new System.Drawing.Size(145, 23);
             this.txtRubro.TabIndex = 18;
             this.txtRubro.Text = "Seleccionar rubros";
             this.txtRubro.UseVisualStyleBackColor = true;
@@ -217,9 +217,9 @@
             this.groupBoxVisibilidad.Controls.Add(this.labelPrecioPublicar);
             this.groupBoxVisibilidad.Controls.Add(this.labelInicio);
             this.groupBoxVisibilidad.Controls.Add(this.labelVencimiento);
-            this.groupBoxVisibilidad.Location = new System.Drawing.Point(13, 273);
+            this.groupBoxVisibilidad.Location = new System.Drawing.Point(15, 273);
             this.groupBoxVisibilidad.Name = "groupBoxVisibilidad";
-            this.groupBoxVisibilidad.Size = new System.Drawing.Size(355, 118);
+            this.groupBoxVisibilidad.Size = new System.Drawing.Size(414, 118);
             this.groupBoxVisibilidad.TabIndex = 19;
             this.groupBoxVisibilidad.TabStop = false;
             this.groupBoxVisibilidad.Text = "Datos Visibilidad";
@@ -227,43 +227,43 @@
             // labelComision
             // 
             this.labelComision.AutoSize = true;
-            this.labelComision.Location = new System.Drawing.Point(17, 91);
+            this.labelComision.Location = new System.Drawing.Point(20, 91);
             this.labelComision.Name = "labelComision";
-            this.labelComision.Size = new System.Drawing.Size(120, 13);
+            this.labelComision.Size = new System.Drawing.Size(145, 13);
             this.labelComision.TabIndex = 16;
             this.labelComision.Text = "Porcentaje de comision:";
             // 
             // labelPrecioPublicar
             // 
             this.labelPrecioPublicar.AutoSize = true;
-            this.labelPrecioPublicar.Location = new System.Drawing.Point(39, 68);
+            this.labelPrecioPublicar.Location = new System.Drawing.Point(45, 68);
             this.labelPrecioPublicar.Name = "labelPrecioPublicar";
-            this.labelPrecioPublicar.Size = new System.Drawing.Size(98, 13);
+            this.labelPrecioPublicar.Size = new System.Drawing.Size(119, 13);
             this.labelPrecioPublicar.TabIndex = 15;
             this.labelPrecioPublicar.Text = "Precio por publicar:";
             // 
             // labelInicio
             // 
             this.labelInicio.AutoSize = true;
-            this.labelInicio.Location = new System.Drawing.Point(55, 23);
+            this.labelInicio.Location = new System.Drawing.Point(64, 23);
             this.labelInicio.Name = "labelInicio";
-            this.labelInicio.Size = new System.Drawing.Size(82, 13);
+            this.labelInicio.Size = new System.Drawing.Size(96, 13);
             this.labelInicio.TabIndex = 14;
             this.labelInicio.Text = "Fecha de inicio:";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(143, 243);
+            this.textBox1.Location = new System.Drawing.Point(167, 243);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(225, 20);
+            this.textBox1.Size = new System.Drawing.Size(262, 21);
             this.textBox1.TabIndex = 20;
             // 
             // botonBorrador
             // 
-            this.botonBorrador.Location = new System.Drawing.Point(224, 397);
+            this.botonBorrador.Location = new System.Drawing.Point(261, 397);
             this.botonBorrador.Name = "botonBorrador";
-            this.botonBorrador.Size = new System.Drawing.Size(64, 42);
+            this.botonBorrador.Size = new System.Drawing.Size(75, 42);
             this.botonBorrador.TabIndex = 21;
             this.botonBorrador.Text = "Guardar borrador";
             this.botonBorrador.UseVisualStyleBackColor = true;
@@ -271,9 +271,9 @@
             // 
             // botonPublicar
             // 
-            this.botonPublicar.Location = new System.Drawing.Point(303, 397);
+            this.botonPublicar.Location = new System.Drawing.Point(353, 397);
             this.botonPublicar.Name = "botonPublicar";
-            this.botonPublicar.Size = new System.Drawing.Size(64, 42);
+            this.botonPublicar.Size = new System.Drawing.Size(75, 42);
             this.botonPublicar.TabIndex = 22;
             this.botonPublicar.Text = "Publicar";
             this.botonPublicar.UseVisualStyleBackColor = true;
@@ -281,9 +281,9 @@
             // 
             // botonRegresar
             // 
-            this.botonRegresar.Location = new System.Drawing.Point(143, 398);
+            this.botonRegresar.Location = new System.Drawing.Point(167, 398);
             this.botonRegresar.Name = "botonRegresar";
-            this.botonRegresar.Size = new System.Drawing.Size(64, 41);
+            this.botonRegresar.Size = new System.Drawing.Size(75, 41);
             this.botonRegresar.TabIndex = 23;
             this.botonRegresar.Text = "Regresar";
             this.botonRegresar.UseVisualStyleBackColor = true;
@@ -292,9 +292,9 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 398);
+            this.label5.Location = new System.Drawing.Point(15, 398);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(107, 13);
+            this.label5.Size = new System.Drawing.Size(130, 13);
             this.label5.TabIndex = 24;
             this.label5.Text = "Total por comisiones:";
             // 
@@ -302,7 +302,7 @@
             // 
             this.total.AutoSize = true;
             this.total.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.total.Location = new System.Drawing.Point(13, 414);
+            this.total.Location = new System.Drawing.Point(15, 414);
             this.total.Name = "total";
             this.total.Size = new System.Drawing.Size(69, 13);
             this.total.TabIndex = 25;
@@ -310,9 +310,9 @@
             // 
             // GenerarPublicacion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(844, 487);
+            this.ClientSize = new System.Drawing.Size(1420, 662);
             this.Controls.Add(this.total);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.botonRegresar);

@@ -44,22 +44,22 @@
             this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(34, 51);
+            this.dataGridView1.Location = new System.Drawing.Point(40, 51);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(402, 267);
+            this.dataGridView1.Size = new System.Drawing.Size(469, 267);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // botonCrearVisibilidad
             // 
-            this.botonCrearVisibilidad.Location = new System.Drawing.Point(296, 22);
+            this.botonCrearVisibilidad.Location = new System.Drawing.Point(345, 22);
             this.botonCrearVisibilidad.Name = "botonCrearVisibilidad";
-            this.botonCrearVisibilidad.Size = new System.Drawing.Size(117, 23);
+            this.botonCrearVisibilidad.Size = new System.Drawing.Size(136, 23);
             this.botonCrearVisibilidad.TabIndex = 1;
             this.botonCrearVisibilidad.Text = "Nueva Visibilidad";
             this.botonCrearVisibilidad.UseVisualStyleBackColor = true;
@@ -68,9 +68,9 @@
             // botonModificar
             // 
             this.botonModificar.Enabled = false;
-            this.botonModificar.Location = new System.Drawing.Point(174, 22);
+            this.botonModificar.Location = new System.Drawing.Point(203, 22);
             this.botonModificar.Name = "botonModificar";
-            this.botonModificar.Size = new System.Drawing.Size(117, 23);
+            this.botonModificar.Size = new System.Drawing.Size(136, 23);
             this.botonModificar.TabIndex = 2;
             this.botonModificar.Text = "Modificar";
             this.botonModificar.UseVisualStyleBackColor = true;
@@ -79,9 +79,9 @@
             // botonAceptar
             // 
             this.botonAceptar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.botonAceptar.Location = new System.Drawing.Point(296, 344);
+            this.botonAceptar.Location = new System.Drawing.Point(345, 344);
             this.botonAceptar.Name = "botonAceptar";
-            this.botonAceptar.Size = new System.Drawing.Size(117, 23);
+            this.botonAceptar.Size = new System.Drawing.Size(136, 23);
             this.botonAceptar.TabIndex = 3;
             this.botonAceptar.Text = "Terminado";
             this.botonAceptar.UseVisualStyleBackColor = true;
@@ -89,9 +89,9 @@
             // 
             // botonInhabilitar
             // 
-            this.botonInhabilitar.Location = new System.Drawing.Point(52, 22);
+            this.botonInhabilitar.Location = new System.Drawing.Point(61, 22);
             this.botonInhabilitar.Name = "botonInhabilitar";
-            this.botonInhabilitar.Size = new System.Drawing.Size(117, 23);
+            this.botonInhabilitar.Size = new System.Drawing.Size(136, 23);
             this.botonInhabilitar.TabIndex = 4;
             this.botonInhabilitar.Text = "Inhabilitar Visibilidad";
             this.botonInhabilitar.UseVisualStyleBackColor = true;
@@ -99,9 +99,9 @@
             // 
             // botonMostrar
             // 
-            this.botonMostrar.Location = new System.Drawing.Point(52, 344);
+            this.botonMostrar.Location = new System.Drawing.Point(61, 344);
             this.botonMostrar.Name = "botonMostrar";
-            this.botonMostrar.Size = new System.Drawing.Size(117, 23);
+            this.botonMostrar.Size = new System.Drawing.Size(136, 23);
             this.botonMostrar.TabIndex = 5;
             this.botonMostrar.Text = "Mostrar Inhabilitados";
             this.botonMostrar.UseVisualStyleBackColor = true;
@@ -109,10 +109,10 @@
             // 
             // ABMVisibilidad
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.botonAceptar;
-            this.ClientSize = new System.Drawing.Size(844, 487);
+            this.ClientSize = new System.Drawing.Size(1420, 662);
             this.Controls.Add(this.botonMostrar);
             this.Controls.Add(this.botonInhabilitar);
             this.Controls.Add(this.botonAceptar);

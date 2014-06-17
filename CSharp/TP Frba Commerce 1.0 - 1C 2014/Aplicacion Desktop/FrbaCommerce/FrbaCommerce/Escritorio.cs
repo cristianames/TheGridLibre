@@ -70,6 +70,7 @@ namespace FrbaCommerce
                     case "Comprar - Ofertar":
                         break;
                     case "Editar Publicacion":
+                        (new Editar_Publicacion.EditarPublicacion(this)).Show();
                         break;
                     case "Facturar Publicaciones":
                         break;
