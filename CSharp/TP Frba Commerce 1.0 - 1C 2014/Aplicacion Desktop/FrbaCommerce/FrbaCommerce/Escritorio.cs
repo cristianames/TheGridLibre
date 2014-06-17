@@ -87,6 +87,7 @@ namespace FrbaCommerce
                         (new Calificar_Vendedor.SeleccionarUsuario(this)).Show();
                         break;
                     case "Comprar - Ofertar":
+                        (new Comprar_Ofertar.Buscador(this)).Show();
                         break;
                     case "Editar Publicacion":
                         break;

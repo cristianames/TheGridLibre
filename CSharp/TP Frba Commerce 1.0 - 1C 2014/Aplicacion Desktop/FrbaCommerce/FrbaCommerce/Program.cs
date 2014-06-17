@@ -15,6 +15,12 @@ namespace FrbaCommerce
     {
         public static List<string> rubros = new List<string>();
 
+        public static int ObtenerRubro(string rubro)
+        {
+            string comando = "select ID_Rubro from TG.Rubro where Nombre='" + rubro + "'";
+            return Convert.ToInt32(TG.realizarConsulta(comando).Rows[0]["ID_Rubro"]);
+        }
+
     }
     public class Validator
     {

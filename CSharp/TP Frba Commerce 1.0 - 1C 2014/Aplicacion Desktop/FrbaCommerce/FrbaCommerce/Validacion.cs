@@ -9,6 +9,7 @@ namespace FrbaCommerce
     public static class Validacion
     {
         public static bool esFloat(string campo) {
+            if (String.IsNullOrEmpty(campo)) return false;
             for (int i = 0; i < campo.Length; i++)
             {
                 if (!(campo[i] == '1' || campo[i] == '2' || campo[i] == '3' || campo[i] == '4' ||

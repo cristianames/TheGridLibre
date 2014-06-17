@@ -14,8 +14,7 @@ namespace FrbaCommerce.Generar_Publicacion
         DataTable datosConsultaVisibilidad;
         bool esSubasta;
         string estado = "";
-        DateTime fechaHoy;
-        DateTime fechaVencimiento;
+        DateTime fechaHoy, fechaVencimiento;
 
         public GenerarPublicacion(FormGrid anterior)
         {
@@ -152,8 +151,10 @@ namespace FrbaCommerce.Generar_Publicacion
             //insertar rubros x publicacion
             foreach (string rubro in RubrosSeleccionados.rubros)
             {
-                ObtenerRubro(rubro);//le paso un nombre de un rubro, me devuelve el ID
-                consulta = "insert TG.Rubros_x_Publicacion (ID_Rubro,ID_Publicacion) values ( " + ObtenerRubro(rubro) + "," + (Convert.ToInt32(ultimoID) + 1).ToString() + ")"; //en este caso no le agrego +1 a ultimo rubro
+                RubrosSeleccionados.ObtenerRubro(rubro);//le paso un nombre de un rubro, me devuelve el ID
+                consulta = "insert TG.Rubros_x_Publicacion (ID_Rubro,ID_Publicacion) values ( " + 
+                    RubrosSeleccionados.ObtenerRubro(rubro) + "," + 
+                    (Convert.ToInt32(ultimoID) + 1).ToString() + ")"; //en este caso no le agrego +1 a ultimo rubro
                 TG.realizarConsultaSinRetorno(consulta);
             }
             RubrosSeleccionados.rubros.Clear();
@@ -162,11 +163,7 @@ namespace FrbaCommerce.Generar_Publicacion
             this.Close();
         }
 
-        int ObtenerRubro(string rubro)
-        {
-            string comando = "select ID_Rubro from TG.Rubro where Nombre='"+rubro+"'";
-            return Convert.ToInt32(TG.realizarConsulta(comando).Rows[0]["ID_Rubro"]);
-        }
+        
 
         private void botonBorrador_Click(object sender, EventArgs e)
         {
@@ -195,9 +192,7 @@ namespace FrbaCommerce.Generar_Publicacion
                 string stringPorcentajeComision = datosConsultaVisibilidad.Rows[visibilidadComboBox1.SelectedIndex]["Porcentaje_Venta"].ToString();
                 float porcentajeComision = Validacion.ToFloat(stringPorcentajeComision);
                 float precioPorPublicar = Validacion.ToFloat(stringPrecionPorPublicar);
-                //if (porcentajeComision > 0) porcentajeComision = porcentajeComision + 1;
                 total.Text = "$"+(precio * (float)numericUpDown1.Value * porcentajeComision + precioPorPublicar).ToString();
-                //total.Text = porcentajeComision.ToString();
                 total.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold);
             }
         }

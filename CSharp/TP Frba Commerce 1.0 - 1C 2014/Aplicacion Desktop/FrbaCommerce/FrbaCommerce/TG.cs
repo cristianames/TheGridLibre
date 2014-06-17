@@ -89,6 +89,24 @@ namespace FrbaCommerce
             return true;
         }
 
+        public static DataTable consultaPaginada(int index, int pageSize, string comando)
+        {
+            SqlConnection myConection = TG.conectar();
+            SqlDataAdapter adapter = new SqlDataAdapter(comando, myConection);
+            DataTable data = new DataTable();
+            adapter.Fill(index*pageSize,pageSize,data);
+            myConection.Close();
+            return data;
+        }
+
+        public static object consultaEscalar(string comando){
+            SqlConnection myConection = TG.conectar();
+            SqlCommand myCommand = new SqlCommand(comando,myConection);
+            object resultado = myCommand.ExecuteScalar();
+            myConection.Close();
+            return resultado;
+        }
+
         public static bool esNumerico(string s)
         {
             foreach (char c in s)

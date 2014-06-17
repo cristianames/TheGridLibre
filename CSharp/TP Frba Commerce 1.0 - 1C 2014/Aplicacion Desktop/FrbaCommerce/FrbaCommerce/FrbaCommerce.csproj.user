@@ -14,5 +14,6 @@
     </ErrorReportUrlHistory>
     <FallbackCulture>es-ES</FallbackCulture>
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
+    <ReferencePath>C:\Archivos de programa\Business Objects\Common\2.8\managed\</ReferencePath>
   </PropertyGroup>
 </Project>

@@ -9,12 +9,12 @@ using System.Windows.Forms;
 
 namespace FrbaCommerce.Comprar_Ofertar
 {
-    public partial class FiltroRubros : Form
+    public partial class FiltroRubros : FormGrid
     {
-        Form ventanaAnterior;
-        public FiltroRubros(Form anterior)
+        public FiltroRubros(FormGrid anterior)
         {
             InitializeComponent();
+            this.ClientSize = new System.Drawing.Size(521, 366);
             ventanaAnterior = anterior;
         }
 
