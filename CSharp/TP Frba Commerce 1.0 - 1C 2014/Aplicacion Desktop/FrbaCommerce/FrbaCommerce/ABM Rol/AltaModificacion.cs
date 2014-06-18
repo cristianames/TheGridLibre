@@ -19,18 +19,18 @@ namespace FrbaCommerce.ABM_Usuario
             this.ClientSize = new System.Drawing.Size(186, 323);
             this.ventanaAnterior = anterior;
             this.rol = rol;
-            ((ListBox)checkedListBox1).DataSource = TG.ObtenerListado("SELECT Nombre FROM TG.Funcionalidad");
+            ((ListBox)checkedListBox1).DataSource = TG.ObtenerListado("SELECT Nombre FROM THE_GRID.Funcionalidad");
             if (rol > 0) levantarDatos();
             if (rol == 1) botonCrear.Enabled = false;
         }
 
         private void levantarDatos()
         {
-            string comando = "select Nombre from TG.Rol where ID_Rol =" + rol.ToString();
+            string comando = "select Nombre from THE_GRID.Rol where ID_Rol =" + rol.ToString();
             txtNombre.Text = TG.realizarConsulta(comando).Rows[0]["Nombre"].ToString();
             botonCrear.Text = "Guardar";    
-            comando = "SELECT f.ID_Funcionalidad FROM TG.Funcionalidad f " +
-                "inner join TG.Funcionalidades_x_Rol r on(" +
+            comando = "SELECT f.ID_Funcionalidad FROM THE_GRID.Funcionalidad f " +
+                "inner join THE_GRID.Funcionalidades_x_Rol r on(" +
                 "f.ID_Funcionalidad = r.ID_Funcionalidad and " +
                 "r.ID_Rol = "+rol.ToString() +")";
             DataTable originales = TG.realizarConsulta(comando);
@@ -75,21 +75,21 @@ namespace FrbaCommerce.ABM_Usuario
             string funcionalidad;
             if (rol == 0)
             {
-                comando = "insert into TG.Rol(Nombre,Inhabilitado) values('" +
+                comando = "insert into THE_GRID.Rol(Nombre,Inhabilitado) values('" +
                     txtNombre.Text + "',0)";
                 TG.realizarConsultaSinRetorno(comando);
 
-                comando = "select ID_Rol from TG.Rol where " +
+                comando = "select ID_Rol from THE_GRID.Rol where " +
                     "Nombre = '" + txtNombre.Text + "'";
                 rol = Convert.ToInt32(TG.realizarConsulta(comando).Rows[0]["ID_Rol"]);
             }
             else 
             {
-                comando = "update TG.Rol set Nombre = '" + txtNombre.Text + "'" +
+                comando = "update THE_GRID.Rol set Nombre = '" + txtNombre.Text + "'" +
                     "where ID_Rol = " + rol.ToString();
                 TG.realizarConsulta(comando);
 
-                comando = "delete from TG.Funcionalidades_x_Rol where ID_Rol =" + rol.ToString();
+                comando = "delete from THE_GRID.Funcionalidades_x_Rol where ID_Rol =" + rol.ToString();
                 TG.realizarConsultaSinRetorno(comando);
    
             }
@@ -99,7 +99,7 @@ namespace FrbaCommerce.ABM_Usuario
                 funcionalidad = seleccionados.ElementAt(i).ToString();
                 id_Funcionalidad = checkedListBox1.Items.IndexOf(funcionalidad) + 1;
 
-                comando = "insert into TG.Funcionalidades_x_Rol values("
+                comando = "insert into THE_GRID.Funcionalidades_x_Rol values("
                     + rol.ToString() + "," + id_Funcionalidad.ToString() + ")";
                 TG.realizarConsulta(comando);
             }
@@ -110,7 +110,7 @@ namespace FrbaCommerce.ABM_Usuario
         private bool validarDatos()
         {
             if (botonCrear.Text.Length == 0) return true;
-            string comando = "select Nombre from TG.Rol where ID_Rol =" + rol.ToString();
+            string comando = "select Nombre from THE_GRID.Rol where ID_Rol =" + rol.ToString();
 
             DataTable resultado = TG.realizarConsulta(comando);
 
@@ -119,7 +119,7 @@ namespace FrbaCommerce.ABM_Usuario
                 string nombreRol = resultado.Rows[0]["Nombre"].ToString();
                 if (!String.Equals(txtNombre.Text, nombreRol) && rol > 0)
                 {
-                    comando = "select * from TG.Rol where Nombre = '" + txtNombre.Text + "'";
+                    comando = "select * from THE_GRID.Rol where Nombre = '" + txtNombre.Text + "'";
                     if (TG.realizarConsulta(comando).Rows.Count > 0) return true;
                 }
             }

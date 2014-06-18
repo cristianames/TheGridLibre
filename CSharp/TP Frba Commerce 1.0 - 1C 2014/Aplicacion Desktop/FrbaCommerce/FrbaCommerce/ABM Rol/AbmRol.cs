@@ -27,7 +27,7 @@ namespace FrbaCommerce.ABM_Usuario
 
         private void reiniciarComando()
         {
-            comandoFiltro = "select ID_Rol, Nombre from TG.Rol where Inhabilitado = 0";
+            comandoFiltro = "select ID_Rol, Nombre from THE_GRID.Rol where Inhabilitado = 0";
         }
 
         private void actualizarGrilla()
@@ -112,7 +112,7 @@ namespace FrbaCommerce.ABM_Usuario
             botonEliminar.Enabled = false;
             string comando, idRol = dataGridView1["ID_Rol", filaSeleccionada].Value.ToString();
 
-            comando = "update TG.Rol set Inhabilitado = 1 " +
+            comando = "update THE_GRID.Rol set Inhabilitado = 1 " +
                 " where ID_Rol =" + dataGridView1["ID_Rol", filaSeleccionada].Value.ToString();
             TG.realizarConsultaSinRetorno(comando);
             actualizarGrilla();
@@ -142,7 +142,7 @@ namespace FrbaCommerce.ABM_Usuario
             {
                 recuperacion = true;
                 dataGridView1.DataSource = null;
-                comandoFiltro = "select * from TG.Rol";
+                comandoFiltro = "select * from THE_GRID.Rol";
                 botonRestaurar.Visible = true;
                 botonRecuperacion.Text = "Normal";
             }
@@ -153,7 +153,7 @@ namespace FrbaCommerce.ABM_Usuario
         {
             botonRestaurar.Enabled = false;
             string comando, idRol = dataGridView1["ID_Rol", filaSeleccionada].Value.ToString();
-            comando = "update TG.Rol set Inhabilitado = 0 where ID_Rol = " + idRol;
+            comando = "update THE_GRID.Rol set Inhabilitado = 0 where ID_Rol = " + idRol;
             TG.realizarConsultaSinRetorno(comando);
             botonRestaurar.Enabled = true;
             actualizarGrilla();

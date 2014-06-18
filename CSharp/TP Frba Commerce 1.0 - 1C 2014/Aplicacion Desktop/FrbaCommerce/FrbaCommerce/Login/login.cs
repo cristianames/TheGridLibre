@@ -30,7 +30,7 @@ namespace FrbaCommerce.Login
             }
             
             SqlConnection myConnection = TG.conectar();
-            using (SqlCommand cmd = new SqlCommand("TG.login", myConnection))
+            using (SqlCommand cmd = new SqlCommand("THE_GRID.login", myConnection))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -98,7 +98,7 @@ namespace FrbaCommerce.Login
 
         private bool primerIngreso(string usuario)
         {           
-           string comando = "select Primer_Ingreso from TG.Usuario where ID_User = "+ usuario;
+           string comando = "select Primer_Ingreso from THE_GRID.Usuario where ID_User = "+ usuario;
            DataRow resultado = TG.realizarConsulta(comando).Rows[0];
            return Convert.ToBoolean(resultado["Primer_Ingreso"]);
         }

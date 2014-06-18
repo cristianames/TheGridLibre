@@ -18,7 +18,7 @@ namespace FrbaCommerce.Login
             InitializeComponent();
             this.ventanaAnterior = anterior;
             this.ClientSize = new System.Drawing.Size(370, 170);
-            string comando = "SELECT Nombre FROM TG.Rol R, TG.Roles_x_Usuario U" +
+            string comando = "SELECT Nombre FROM THE_GRID.Rol R, THE_GRID.Roles_x_Usuario U" +
                 " WHERE R.ID_Rol = U.ID_Rol AND U.Inhabilitado = 0 AND " +
                 " U.ID_User = " + DatosUsuario.usuario.ToString();
             comboBox1.DataSource = TG.ObtenerListado(comando);
@@ -33,7 +33,7 @@ namespace FrbaCommerce.Login
         {
             DatosUsuario.nombreRol = comboBox1.SelectedItem.ToString();
 
-            string comando = "select ID_Rol from TG.Rol " +
+            string comando = "select ID_Rol from THE_GRID.Rol " +
                 "where Nombre = '" + comboBox1.SelectedItem.ToString() + "'";
             
             DataRow resultado = TG.realizarConsulta(comando).Rows[0];

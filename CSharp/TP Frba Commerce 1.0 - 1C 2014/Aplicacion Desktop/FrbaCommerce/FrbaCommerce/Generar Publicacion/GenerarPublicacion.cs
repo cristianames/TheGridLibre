@@ -27,7 +27,7 @@ namespace FrbaCommerce.Generar_Publicacion
             InitializeComponent();
             this.ClientSize = new System.Drawing.Size(389, 451);
             ventanaAnterior = anterior;
-            string comando = @"select * from TG.Visibilidad where Inhabilitado=0 order by Precio_Por_Publicar desc";
+            string comando = @"select * from THE_GRID.Visibilidad where Inhabilitado=0 order by Precio_Por_Publicar desc";
             datosConsultaVisibilidad = TG.realizarConsulta(comando);
             esSubasta = false;
             preguntasComboBox.SelectedIndex = 1;
@@ -39,10 +39,10 @@ namespace FrbaCommerce.Generar_Publicacion
             IDAnterior = Convert.ToInt32(anterior);
             esBorrador = valor;
             actualizar = true;
-            string comando = @"select * from TG.Visibilidad where Inhabilitado=0 order by Precio_Por_Publicar desc";
+            string comando = @"select * from THE_GRID.Visibilidad where Inhabilitado=0 order by Precio_Por_Publicar desc";
             datosConsultaVisibilidad = TG.realizarConsulta(comando);
             esSubasta = false;
-            comando = "select * from TG.Publicacion where ID_Publicacion ="+ID;
+            comando = "select * from THE_GRID.Publicacion where ID_Publicacion ="+ID;
             datosPublicacionViejos = TG.realizarConsulta(comando);
             richTextBox1.Text = datosPublicacionViejos.Rows[0]["Descripcion"].ToString();
             numericUpDown1.Value = Convert.ToDecimal(datosPublicacionViejos.Rows[0]["Stock"].ToString());
@@ -92,7 +92,7 @@ namespace FrbaCommerce.Generar_Publicacion
 
         private void GenerarPublicacion_Load(object sender, EventArgs e)
         {
-            string comando = "select Nombre from TG.Visibilidad order by Precio_Por_Publicar desc";
+            string comando = "select Nombre from THE_GRID.Visibilidad order by Precio_Por_Publicar desc";
             visibilidadComboBox1.DataSource = TG.ObtenerListado(comando);
             if (actualizar)
             {
@@ -229,7 +229,7 @@ namespace FrbaCommerce.Generar_Publicacion
             }
 
             //Obtener el ultimo ID de publicacion
-            string consulta = "select top 1 ID_Publicacion from TG.Publicacion order by ID_Publicacion desc";
+            string consulta = "select top 1 ID_Publicacion from THE_GRID.Publicacion order by ID_Publicacion desc";
             string ultimoID = TG.realizarConsulta(consulta).Rows[0]["ID_Publicacion"].ToString();
 
             //insertar nueva publacion
@@ -242,7 +242,7 @@ namespace FrbaCommerce.Generar_Publicacion
             if (esSubasta) tipo = "Subasta"; else tipo = "Compra Inmediata";
             if (String.IsNullOrEmpty(richTextBox1.Text)) descripcion = "Sin Descripcion";
             if (String.IsNullOrEmpty(txtPrecio.Text)) precio = "0";
-            consulta = "insert TG.Publicacion (ID_Publicacion,Descripcion," +
+            consulta = "insert THE_GRID.Publicacion (ID_Publicacion,Descripcion," +
             "Estado,Fecha_Inicio,Fecha_Vencimiento," +
             "ID_Vendedor,ID_Visibilidad,Permitir_Preguntas,Precio,Stock,Tipo_Publicacion)" +
             "VALUES ("+ (Convert.ToInt32(ultimoID) + 1).ToString() + ",'" + descripcion
@@ -257,7 +257,7 @@ namespace FrbaCommerce.Generar_Publicacion
             foreach (string rubro in RubrosSeleccionados.rubros)
             {
                 RubrosSeleccionados.ObtenerRubro(rubro);//le paso un nombre de un rubro, me devuelve el ID
-                consulta = "insert TG.Rubros_x_Publicacion (ID_Rubro,ID_Publicacion) values ( " + 
+                consulta = "insert THE_GRID.Rubros_x_Publicacion (ID_Rubro,ID_Publicacion) values ( " + 
                     RubrosSeleccionados.ObtenerRubro(rubro) + "," + 
                     (Convert.ToInt32(ultimoID) + 1).ToString() + ")"; //en este caso no le agrego +1 a ultimo rubro
                 TG.realizarConsultaSinRetorno(consulta);

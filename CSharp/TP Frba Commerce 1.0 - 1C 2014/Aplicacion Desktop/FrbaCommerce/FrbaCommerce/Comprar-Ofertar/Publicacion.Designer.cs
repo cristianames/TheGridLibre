@@ -179,7 +179,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(844, 354);
+            this.ClientSize = new System.Drawing.Size(844, 487);
             this.Controls.Add(this.WarningLabel);
             this.Controls.Add(this.botonCancelar);
             this.Controls.Add(this.campoPregunta);

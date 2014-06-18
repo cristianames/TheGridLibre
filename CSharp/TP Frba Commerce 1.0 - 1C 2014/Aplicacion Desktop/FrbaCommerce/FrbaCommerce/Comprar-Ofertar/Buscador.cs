@@ -28,12 +28,12 @@ namespace FrbaCommerce.Comprar_Ofertar
         {
             string comando = "SELECT  top "+ ((paginaActual + 1)*tamanioPagina).ToString() +
                 " p.Descripcion, " +  
-                " (select top 1 x.Nombre from TG.Rubros_x_Publicacion y" + 
-	            " inner join TG.Rubro x on (y.ID_Publicacion = p.ID_Publicacion"+
+                " (select top 1 x.Nombre from THE_GRID.Rubros_x_Publicacion y" + 
+	            " inner join THE_GRID.Rubro x on (y.ID_Publicacion = p.ID_Publicacion"+
                 " and x.ID_Rubro = y.ID_Rubro)) as 'Rubro Principal'," +
                 " v.Nombre Visibilidad, p.Tipo_Publicacion, " +
                 " p.Precio, p.Stock, p.ID_Publicacion " +
-                " from TG.Publicacion p inner join TG.Visibilidad v"+ 
+                " from THE_GRID.Publicacion p inner join THE_GRID.Visibilidad v"+ 
                 " on (p.ID_Visibilidad = v.ID_Visibilidad) "+
                 filtroRubro + "where Estado = 'Publicada' or Estado = 'Pausada'" + 
                 filtroPalabra +
@@ -44,7 +44,7 @@ namespace FrbaCommerce.Comprar_Ofertar
 
             this.Refresh();
             comando = "SELECT  top 1 count(*)"+
-                " from TG.Publicacion p inner join TG.Visibilidad v" +
+                " from THE_GRID.Publicacion p inner join THE_GRID.Visibilidad v" +
                 " on (p.ID_Visibilidad = v.ID_Visibilidad) " +
                 filtroRubro + "where Estado = 'Publicada' " +
                 filtroPalabra;
@@ -74,7 +74,7 @@ namespace FrbaCommerce.Comprar_Ofertar
             else filtroPalabra = "";
             if (!String.IsNullOrEmpty(txtRubros.Text))
             {
-                filtroRubro = "inner join TG.Rubros_x_Publicacion r on((";
+                filtroRubro = "inner join THE_GRID.Rubros_x_Publicacion r on((";
                 int i = 0, cant = RubrosSeleccionados.rubros.Count;
                 foreach (string rubro in RubrosSeleccionados.rubros)
                 {

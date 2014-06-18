@@ -24,7 +24,7 @@ namespace FrbaCommerce.Abm_Visibilidad
             InitializeComponent();
             this.ClientSize = new System.Drawing.Size(260, 207);
             ventanaAnterior = anterior;
-            string consulta = "select * from TG.Visibilidad where ID_Visibilidad =" + ID;
+            string consulta = "select * from THE_GRID.Visibilidad where ID_Visibilidad =" + ID;
             DataRow fila = TG.realizarConsulta(consulta).Rows[0];
             txtNombre.Text = fila["Nombre"].ToString();
             txtPrecio.Text = fila["Precio_Por_Publicar"].ToString();
@@ -54,7 +54,7 @@ namespace FrbaCommerce.Abm_Visibilidad
             }
             if (!String.IsNullOrEmpty(IDBaja))
             {
-                string validacionNombreRepetido = "select Nombre from TG.Visibilidad "+
+                string validacionNombreRepetido = "select Nombre from THE_GRID.Visibilidad "+
                     "where Inhabilitado = 0 and ID_Visibilidad <> " + IDBaja;
                 List<string> listaNombres = TG.ObtenerListado(validacionNombreRepetido);
                 foreach (string nombre in listaNombres) //validacion nombre
@@ -68,14 +68,14 @@ namespace FrbaCommerce.Abm_Visibilidad
                         return;
                     }
                 }
-                string comando = "update TG.Visibilidad set Inhabilitado = 1 "+
+                string comando = "update THE_GRID.Visibilidad set Inhabilitado = 1 "+
                     "where ID_Visibilidad = "+IDBaja;
                 TG.realizarConsultaSinRetorno(comando);
             }
             //como no me toma las comas, los convierto en puntos con Validacion.conComa
             string precio = Validacion.conComa(txtPrecio.Text);
             string porcentaje = Validacion.conComa(txtPorcentaje.Text);
-            string consulta="INSERT INTO TG.Visibilidad (Nombre,Precio_Por_Publicar,Porcentaje_Venta,Duracion,Inhabilitado)"+
+            string consulta="INSERT INTO THE_GRID.Visibilidad (Nombre,Precio_Por_Publicar,Porcentaje_Venta,Duracion,Inhabilitado)"+
             "VALUES ('" + txtNombre.Text + "'," + precio + "," + porcentaje + "," + txtDuracion.Text + ",0)";
             TG.realizarConsulta(consulta);
             volverAtras();

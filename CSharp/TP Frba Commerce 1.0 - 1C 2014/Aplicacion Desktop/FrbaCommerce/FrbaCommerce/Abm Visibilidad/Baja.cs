@@ -29,7 +29,7 @@ namespace FrbaCommerce.Abm_Visibilidad
         {
             botonCancelar.Enabled = false;
             botonConfirmar.Enabled = false;
-            string consulta = "update TG.Visibilidad set Inhabilitado='true' where ID_Visibilidad=" + ID_Visibilidad;
+            string consulta = "update THE_GRID.Visibilidad set Inhabilitado='true' where ID_Visibilidad=" + ID_Visibilidad;
             TG.realizarConsultaSinRetorno(consulta);
             volverAtras();
         }

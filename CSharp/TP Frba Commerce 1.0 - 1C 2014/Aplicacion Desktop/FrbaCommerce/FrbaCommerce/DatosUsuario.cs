@@ -18,7 +18,7 @@ namespace FrbaCommerce
 
         public static void actualizarBanderasUsuario()
         {
-            string comando = "select ID_Tipo, Datos_Correctos from TG.Usuario " +
+            string comando = "select ID_Tipo, Datos_Correctos from THE_GRID.Usuario " +
                 "where ID_User = " + DatosUsuario.usuario.ToString();
             DataRow consulta = TG.realizarConsulta(comando).Rows[0];
             DatosUsuario.tipoUsuario = Convert.ToInt32(consulta["ID_Tipo"]);

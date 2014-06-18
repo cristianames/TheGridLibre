@@ -60,7 +60,7 @@ namespace FrbaCommerce.Calificar_Vendedor
             else
                 richTextBox1.BackColor = Color.White;
 
-            string comando = "update TG.Compra set" +
+            string comando = "update THE_GRID.Compra set" +
                 " Calif_Estrellas = " + estrellas.Value.ToString() + "," +
                 " Calif_Detalle = '" + descripcion + "' where" +
                 " ID_Comprador = " + DatosUsuario.usuario.ToString() + " and" +

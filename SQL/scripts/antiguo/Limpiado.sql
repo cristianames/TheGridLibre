@@ -1,12 +1,3 @@
-drop procedure THE_GRID.login
-drop function THE_GRID.dameUserIDdni
-drop function THE_GRID.dameUserIDcuit
-drop trigger THE_GRID.inhabilitarUsuario
-drop trigger THE_GRID.inhabilitarRoles
-drop view THE_GRID.Estad_Productos
-drop view THE_GRID.Estad_Facturacion
-drop view THE_GRID.Estad_Calificaciones
-drop view THE_GRID.Estad_Calificar
 drop table THE_GRID.Oferta
 drop table THE_GRID.Roles_x_Usuario
 drop table THE_GRID.Administrador

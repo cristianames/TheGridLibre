@@ -22,12 +22,12 @@ namespace FrbaCommerce.Comprar_Ofertar
             WarningLabel.Visible = false;
             string comando; 
                 
-            comando = @"select * from TG.Publicacion where ID_Publicacion = " + 
+            comando = @"select * from THE_GRID.Publicacion where ID_Publicacion = " + 
                       idPublicacion.ToString();
 
             infoPublicacion = TG.realizarConsulta(comando).Rows[0];
 
-            comando = @"select v.Nombre from TG.Visibilidad v inner join TG.Publicacion p
+            comando = @"select v.Nombre from THE_GRID.Visibilidad v inner join THE_GRID.Publicacion p
                       on(p.ID_Visibilidad = v.ID_Visibilidad)";
 
             infoDescripcion.Text = "Descripcion: ";
@@ -127,7 +127,7 @@ namespace FrbaCommerce.Comprar_Ofertar
                 campoPregunta.BackColor = Color.LightYellow;
                 return;
             }
-            string comando = "insert into TG.Pregunta(ID_Publicacion,Pregunta,Fecha_Pregunta)"+
+            string comando = "insert into THE_GRID.Pregunta(ID_Publicacion,Pregunta,Fecha_Pregunta)"+
                 " values("+idPublicacion.ToString()+
                 ",'"+campoPregunta.Text+
                 ",convert(datetime,'" + DateTime.Today.ToString("yyyy-dd-MM hh:mm:ss")+ 
@@ -155,7 +155,7 @@ namespace FrbaCommerce.Comprar_Ofertar
             }
             montoOferta.BackColor = Color.White;
             string comando;
-            comando = "insert into TG.Oferta(ID_Ofertante,ID_Publicacion,Concretada," +
+            comando = "insert into THE_GRID.Oferta(ID_Ofertante,ID_Publicacion,Concretada," +
             "Fecha_Oferta,Monto_Oferta) values("+
             DatosUsuario.usuario.ToString()+ "," +
             idPublicacion + ",0,"+
@@ -172,14 +172,14 @@ namespace FrbaCommerce.Comprar_Ofertar
         {
             string comando;
 
-            comando = "select top 1 MAX(ID_Factura) + 1 from TG.Factura";
+            comando = "select top 1 MAX(ID_Factura) + 1 from THE_GRID.Factura";
             string id_Factura = TG.consultaEscalar(comando).ToString();
 
-            comando = "insert into TG.Factura(ID_Factura,ID_Publicacion) values("+
+            comando = "insert into THE_GRID.Factura(ID_Factura,ID_Publicacion) values("+
                 id_Factura+","+idPublicacion+")";
             TG.realizarConsultaSinRetorno(comando);
             
-            comando = "insert into TG.Compra(ID_Factura,ID_Publicacion,ID_Comprador," +
+            comando = "insert into THE_GRID.Compra(ID_Factura,ID_Publicacion,ID_Comprador," +
                 "Item_Cantidad, Item_monto, Fecha, Pagada, Calif_Estrellas, Calif_Detalle) " +
                 "values ("+id_Factura+","+idPublicacion+","+DatosUsuario.usuario.ToString()+
                 ","+numericUpDown1.Value.ToString() + "," + 
@@ -189,13 +189,13 @@ namespace FrbaCommerce.Comprar_Ofertar
             TG.realizarConsultaSinRetorno(comando);
 
             int stock = Convert.ToInt32(infoPublicacion["Stock"]) - (int)numericUpDown1.Value;
-            comando = "update TG.Publicacion set Stock ="+ stock.ToString()+
+            comando = "update THE_GRID.Publicacion set Stock ="+ stock.ToString()+
                 "where ID_Publicacion = " + idPublicacion;
             TG.realizarConsultaSinRetorno(comando);
 
             if (stock == 0) 
             {
-                comando = "update TG.Publicacion set Estado = 'Finalizada' " +
+                comando = "update THE_GRID.Publicacion set Estado = 'Finalizada' " +
                 "where ID_Publicacion = " + idPublicacion;
                 TG.realizarConsultaSinRetorno(comando);
             }

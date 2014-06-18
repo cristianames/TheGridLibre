@@ -62,7 +62,7 @@ namespace FrbaCommerce.ABM_Usuario
         {
             radioButton1.Enabled = false;
             radioButton2.Checked = true;
-            button2.Text = "Guardar"; string comando = "select * from TG.Empresa where ID_User=" + DatosUsuario.usuario;
+            button2.Text = "Guardar"; string comando = "select * from THE_GRID.Empresa where ID_User=" + DatosUsuario.usuario;
             DataRow consulta = TG.realizarConsulta(comando).Rows[0];
 
             //pasar los datos a los campos
@@ -89,7 +89,7 @@ namespace FrbaCommerce.ABM_Usuario
         {
             radioButton2.Enabled = false;
             button1.Text = "Guardar";
-            string comando = "select * from TG.Cliente where ID_User=" + DatosUsuario.usuario;
+            string comando = "select * from THE_GRID.Cliente where ID_User=" + DatosUsuario.usuario;
             DataRow consulta = TG.realizarConsulta(comando).Rows[0];
 
             //pasar los datos a los campos
@@ -151,13 +151,13 @@ namespace FrbaCommerce.ABM_Usuario
         private bool validarDatosCliente() 
         {
             DataTable resultado;
-            string comando = "select * from TG.Cliente where ID_User =" + DatosUsuario.usuario;
+            string comando = "select * from THE_GRID.Cliente where ID_User =" + DatosUsuario.usuario;
             DataRow datosCliente = TG.realizarConsulta(comando).Rows[0];
 
             if (!String.Equals(datosCliente["Tipo_Documento"].ToString(), comboBox1.SelectedItem.ToString()) ||
                 !String.Equals(datosCliente["Documento"].ToString(), txtDoc.Text))
             {
-                comando = "select * from TG.Cliente where " +
+                comando = "select * from THE_GRID.Cliente where " +
                 "Tipo_Documento = '" + comboBox1.SelectedItem.ToString() + "' and " +
                 "Documento = " + txtDoc.Text;
                 resultado = TG.realizarConsulta(comando);
@@ -171,7 +171,7 @@ namespace FrbaCommerce.ABM_Usuario
 
             if (!String.Equals(datosCliente["Telefono"].ToString(), txtTel.Text))
             {
-                comando = "select * from TG.Cliente where Telefono = " + txtTel.Text;
+                comando = "select * from THE_GRID.Cliente where Telefono = " + txtTel.Text;
                 resultado = TG.realizarConsulta(comando);
                 if (resultado.Rows.Count > 0)
                 {
@@ -185,12 +185,12 @@ namespace FrbaCommerce.ABM_Usuario
         private bool validarDatosEmpresa()
         {
             DataTable resultado;
-            string comando = "select * from TG.Empresa where ID_User =" + DatosUsuario.usuario;
+            string comando = "select * from THE_GRID.Empresa where ID_User =" + DatosUsuario.usuario;
             DataRow datosEmpresa = TG.realizarConsulta(comando).Rows[0];
 
             if (!String.Equals(datosEmpresa["CUIT"].ToString(), txtCuit.Text))
             {
-                comando = "select * from TG.Empresa where " +
+                comando = "select * from THE_GRID.Empresa where " +
                     "CUIT = '" + Convert.ToInt32(txtCuit.Text).ToString("#0-00000000-0") + "'";
                 resultado = TG.realizarConsulta(comando);
                 if (resultado.Rows.Count > 0)
@@ -203,7 +203,7 @@ namespace FrbaCommerce.ABM_Usuario
 
             if (!String.Equals(datosEmpresa["Razon_Social"].ToString(), txtRazonSocial.Text))
             {
-                comando = "select * from TG.Empresa where " +
+                comando = "select * from THE_GRID.Empresa where " +
                     "Razon_Social = '" + txtRazonSocial.Text + "'";
                 resultado = TG.realizarConsulta(comando);
                 if (resultado.Rows.Count > 0)
@@ -216,7 +216,7 @@ namespace FrbaCommerce.ABM_Usuario
 
             if (!String.Equals(datosEmpresa["Telefono"].ToString(), txtTel.Text))
             {
-                comando = "select * from TG.Empresa where Telefono = " + txtTelEmpresa.Text;
+                comando = "select * from THE_GRID.Empresa where Telefono = " + txtTelEmpresa.Text;
                 resultado = TG.realizarConsulta(comando);
                 if (resultado.Rows.Count > 0)
                 {
@@ -292,16 +292,16 @@ namespace FrbaCommerce.ABM_Usuario
 
             if (usuarioNuevo)
                 {   // Nuevo usuario
-                    string comandoInsertar = "INSERT INTO TG.Usuario(Pass,Inhabilitado,Antiguo,ID_Tipo,Intentos,Primer_Ingreso)"+
+                    string comandoInsertar = "INSERT INTO THE_GRID.Usuario(Pass,Inhabilitado,Antiguo,ID_Tipo,Intentos,Primer_Ingreso)"+
                     "VALUES ('" + TG.encriptar("w23e") + "',0,0,2,0,1)";
                     TG.realizarConsultaSinRetorno(comandoInsertar);
                     
-                    DataTable consultaUltimoUsuario = TG.realizarConsulta("select top 1 ID_User from TG.Usuario order by ID_User desc");
+                    DataTable consultaUltimoUsuario = TG.realizarConsulta("select top 1 ID_User from THE_GRID.Usuario order by ID_User desc");
                     DatosUsuario.usuario = Convert.ToInt32( consultaUltimoUsuario.Rows[0]["ID_User"]);
 
-                    TG.realizarConsultaSinRetorno("Insert INTO TG.Cliente (ID_User) VALUES("+ DatosUsuario.usuario.ToString() +")" );
-                    TG.realizarConsultaSinRetorno("Insert INTO TG.Roles_x_Usuario (ID_User,ID_Rol,Inhabilitado) VALUES(" + DatosUsuario.usuario.ToString() + ",3,0)");
-                    TG.realizarConsultaSinRetorno("Insert INTO TG.Roles_x_Usuario (ID_User,ID_Rol,Inhabilitado) VALUES(" + DatosUsuario.usuario.ToString() + ",2,0)");
+                    TG.realizarConsultaSinRetorno("Insert INTO THE_GRID.Cliente (ID_User) VALUES("+ DatosUsuario.usuario.ToString() +")" );
+                    TG.realizarConsultaSinRetorno("Insert INTO THE_GRID.Roles_x_Usuario (ID_User,ID_Rol,Inhabilitado) VALUES(" + DatosUsuario.usuario.ToString() + ",3,0)");
+                    TG.realizarConsultaSinRetorno("Insert INTO THE_GRID.Roles_x_Usuario (ID_User,ID_Rol,Inhabilitado) VALUES(" + DatosUsuario.usuario.ToString() + ",2,0)");
                 }
 
             string nroTarjeta = txtNroTarjeta.Text;
@@ -310,7 +310,7 @@ namespace FrbaCommerce.ABM_Usuario
             if (String.Equals(nroTarjeta, "")) nroTarjeta = "0";
             if (String.Equals(piso, "")) piso = "0";
 
-            string actualizarCliente = @"UPDATE TG.Cliente set                     
+            string actualizarCliente = @"UPDATE THE_GRID.Cliente set                     
                     Nombre ='" + txtNombre.Text + @"',
                     Apellido ='" + txtApellido.Text + @"',
                     Tipo_Documento ='" + comboBox1.Text + @"',
@@ -388,21 +388,21 @@ namespace FrbaCommerce.ABM_Usuario
 
             if (usuarioNuevo)
                 {   // Nuevo usuario
-                    string comandoInsertar = "INSERT INTO TG.Usuario(Pass,Inhabilitado,Antiguo,ID_Tipo,Intentos,Primer_Ingreso)" +
+                    string comandoInsertar = "INSERT INTO THE_GRID.Usuario(Pass,Inhabilitado,Antiguo,ID_Tipo,Intentos,Primer_Ingreso)" +
                     "VALUES ('" + TG.encriptar("w23e") + "',0,0,3,0,1)";
                     TG.realizarConsultaSinRetorno(comandoInsertar);
 
-                    DataTable consultaUltimoUsuario = TG.realizarConsulta("select top 1 ID_User from TG.Usuario order by ID_User desc");
+                    DataTable consultaUltimoUsuario = TG.realizarConsulta("select top 1 ID_User from THE_GRID.Usuario order by ID_User desc");
                     DatosUsuario.usuario = Convert.ToInt32(consultaUltimoUsuario.Rows[0]["ID_User"]);
 
-                    TG.realizarConsultaSinRetorno("Insert INTO TG.Empresa (ID_User) VALUES(" + DatosUsuario.usuario.ToString() + ")");
-                    TG.realizarConsultaSinRetorno("Insert INTO TG.Roles_x_Usuario (ID_User,ID_Rol,Inhabilitado) VALUES(" + DatosUsuario.usuario.ToString() + ",3,0)");
+                    TG.realizarConsultaSinRetorno("Insert INTO THE_GRID.Empresa (ID_User) VALUES(" + DatosUsuario.usuario.ToString() + ")");
+                    TG.realizarConsultaSinRetorno("Insert INTO THE_GRID.Roles_x_Usuario (ID_User,ID_Rol,Inhabilitado) VALUES(" + DatosUsuario.usuario.ToString() + ",3,0)");
                 }
 
             string piso = txtPiso.Text;
             if (String.Equals(piso, "")) piso = "0";
 
-            string actualizarCliente = @"UPDATE TG.Empresa set                     
+            string actualizarCliente = @"UPDATE THE_GRID.Empresa set                     
                     Razon_Social ='" + txtRazonSocial.Text + @"',
                     CUIT ='" + Convert.ToInt32(txtCuit.Text).ToString("#0-00000000-0") + @"',
                     Mail ='" + txtEmailEmpresa.Text + @"',
@@ -429,7 +429,7 @@ namespace FrbaCommerce.ABM_Usuario
 
         private void validarUsuario()
         {
-            string comando = "update TG.Usuario set Datos_Correctos = 1 where ID_User = " + DatosUsuario.usuario.ToString();
+            string comando = "update THE_GRID.Usuario set Datos_Correctos = 1 where ID_User = " + DatosUsuario.usuario.ToString();
             TG.realizarConsultaSinRetorno(comando);
         }
 

@@ -19,7 +19,7 @@ namespace FrbaCommerce
             label3.Text = "¡Bienvenido Grid_" + DatosUsuario.usuario.ToString() + "!";
             linkLabel3.Text = DatosUsuario.nombreRol;
 
-            string comando = "SELECT Nombre FROM TG.Funcionalidad f inner join TG.Funcionalidades_x_Rol r "+
+            string comando = "SELECT Nombre FROM THE_GRID.Funcionalidad f inner join THE_GRID.Funcionalidades_x_Rol r "+
                 "on(f.ID_Funcionalidad = r.ID_Funcionalidad and r.ID_Rol = " + DatosUsuario.codigoRol.ToString() + ")";
             listBox1.DataSource = TG.ObtenerListado(comando);
         }

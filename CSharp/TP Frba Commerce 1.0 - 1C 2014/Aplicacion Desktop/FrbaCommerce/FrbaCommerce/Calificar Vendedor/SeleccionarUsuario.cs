@@ -25,7 +25,7 @@ namespace FrbaCommerce.Calificar_Vendedor
         private void recargarGrilla()
         {
             string comando = "select c.ID_Publicacion, p.Descripcion, " +
-                   "p.ID_Vendedor from TG.Compra c, TG.Publicacion p where " +
+                   "p.ID_Vendedor from THE_GRID.Compra c, THE_GRID.Publicacion p where " +
                    "c.ID_Publicacion = p.ID_Publicacion and " +
                    "c.ID_Comprador = " + DatosUsuario.usuario.ToString() +
                    " and Calif_Estrellas = 0";

@@ -34,7 +34,7 @@ namespace FrbaCommerce.ABM_Usuario
 
         private void reiniciarComando()
         {
-            comandoFiltro = "select c.* from TG.Empresa c inner join TG.Usuario u " +
+            comandoFiltro = "select c.* from THE_GRID.Empresa c inner join THE_GRID.Usuario u " +
                 "on(c.ID_User = u.ID_User and u.Inhabilitado = 0)";
         }
 
@@ -132,7 +132,7 @@ namespace FrbaCommerce.ABM_Usuario
             {
                 mostrarInhabilitados = true;
                 dataGridView1.DataSource = null;
-                comandoFiltro = "select u.Inhabilitado, c.* from TG.Empresa c inner join TG.Usuario u " +
+                comandoFiltro = "select u.Inhabilitado, c.* from THE_GRID.Empresa c inner join THE_GRID.Usuario u " +
                 "on(c.ID_User = u.ID_User)";
                 botonMostrar.Text = "Ocultar Inhabilitados";
             }

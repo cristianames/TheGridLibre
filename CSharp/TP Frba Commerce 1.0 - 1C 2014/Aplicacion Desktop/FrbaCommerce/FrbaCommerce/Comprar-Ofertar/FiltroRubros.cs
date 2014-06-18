@@ -20,7 +20,7 @@ namespace FrbaCommerce.Comprar_Ofertar
 
         private void FiltroRubros_Load(object sender, EventArgs e)
         {
-            string comando = "select Nombre from TG.Rubro order by Nombre";
+            string comando = "select Nombre from THE_GRID.Rubro order by Nombre";
             List<string> listaNombres = TG.ObtenerListado(comando);
             string [] nombres = listaNombres.ToArray();
             foreach (string nombre in TG.ObtenerListado(comando)) 

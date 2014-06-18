@@ -20,11 +20,11 @@ namespace FrbaCommerce.Listado_Estadistico
             this.ClientSize = new System.Drawing.Size(614, 361);
             ventanaAnterior = anterior;
 
-            string comando = "select distinct CONVERT ( nvarchar(5) , YEAR(Fecha_Inicio) ) from TG.Publicacion order by 1 asc";
+            string comando = "select distinct CONVERT ( nvarchar(5) , YEAR(Fecha_Inicio) ) from THE_GRID.Publicacion order by 1 asc";
             anio.DataSource = TG.ObtenerListado(comando);
             anio.SelectedIndex = 0;
 
-            comando = "select distinct Visibilidad from TG.Estad_Productos";
+            comando = "select distinct Visibilidad from THE_GRID.Estad_Productos";
             visibilidad.DataSource = TG.ObtenerListado(comando);
             visibilidad.SelectedIndex = 0;
 
@@ -90,7 +90,7 @@ namespace FrbaCommerce.Listado_Estadistico
 
         void resetearComando() 
         {
-            comandoConsulta = "select top 5 * from TG." + nombreVista + 
+            comandoConsulta = "select top 5 * from THE_GRID." + nombreVista + 
               " where Anio = " + anio.Text+ 
               " and Trimestre = "+ ((int)trimestre.SelectedIndex +1).ToString() +
               " order by " + criterioMaestro;
@@ -99,7 +99,7 @@ namespace FrbaCommerce.Listado_Estadistico
         void resetearComandoFiltro() 
         {
             int mes = trimestre.SelectedIndex * 3 + mes_anio.SelectedIndex + 1;
-            comandoConsulta = "select top 5 * from TG." + nombreVista +
+            comandoConsulta = "select top 5 * from THE_GRID." + nombreVista +
             " where Anio = " + anio.Text + " and mes = " + mes.ToString() +
             " and Visibilidad = '" + visibilidad.SelectedItem.ToString() + "'" +
             " order by " + criterioMaestro;

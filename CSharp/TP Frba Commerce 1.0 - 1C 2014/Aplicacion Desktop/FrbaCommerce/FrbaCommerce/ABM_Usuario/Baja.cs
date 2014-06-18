@@ -29,7 +29,7 @@ namespace FrbaCommerce.ABM_Usuario
         {
             botonConfirmar.Enabled = false;
             botonCancelar.Enabled = false;
-            string comando = "update TG.Usuario set Inhabilitado = 1 where ID_User =" + usuario.ToString();
+            string comando = "update THE_GRID.Usuario set Inhabilitado = 1 where ID_User =" + usuario.ToString();
             TG.realizarConsultaSinRetorno(comando);
             volverAtras();
         }

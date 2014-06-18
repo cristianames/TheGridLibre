@@ -74,7 +74,7 @@ namespace FrbaCommerce.Abm_Visibilidad
             {
                 botonMostrar.Text = "Ocultar Inhabilitados";
                 comandoConsulta = "select Inhabilitado,ID_visibilidad,Nombre,Precio_Por_Publicar,Porcentaje_Venta,Duracion"+
-                    " from TG.Visibilidad";
+                    " from THE_GRID.Visibilidad";
                 dataGridView1.DataSource = null;
                 recargarGrid();
                 mostrarInhabilitados = true;
@@ -84,7 +84,7 @@ namespace FrbaCommerce.Abm_Visibilidad
         private void resetearComando()
         {
             comandoConsulta = "select ID_visibilidad,Nombre,Precio_Por_Publicar,Porcentaje_Venta,Duracion " +
-                "from TG.Visibilidad where Inhabilitado = 0";
+                "from THE_GRID.Visibilidad where Inhabilitado = 0";
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)

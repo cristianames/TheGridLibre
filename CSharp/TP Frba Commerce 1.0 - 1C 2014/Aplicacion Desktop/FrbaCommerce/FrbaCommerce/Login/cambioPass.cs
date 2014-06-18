@@ -42,7 +42,7 @@ namespace FrbaCommerce.Login
             switch (checkPass())
             {
                 case 0:
-                    string comando = "update TG.Usuario set "+
+                    string comando = "update THE_GRID.Usuario set "+
                         "Pass='" + TG.encriptar(textBoxPass1.Text) + "',"+
                         "Primer_Ingreso = 0" +
                         "where ID_User = " + DatosUsuario.usuario.ToString();
@@ -69,7 +69,7 @@ namespace FrbaCommerce.Login
 
         private int checkPass()
         {
-            string comando = "select * from TG.Usuario where ID_User = " +
+            string comando = "select * from THE_GRID.Usuario where ID_User = " +
                 DatosUsuario.usuario.ToString() + "and Pass ='" + 
                 TG.encriptar(textBoxOldPass.Text) + "'";
 

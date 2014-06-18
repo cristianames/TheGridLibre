@@ -17,7 +17,7 @@ namespace FrbaCommerce
 
         public static int ObtenerRubro(string rubro)
         {
-            string comando = "select ID_Rubro from TG.Rubro where Nombre='" + rubro + "'";
+            string comando = "select ID_Rubro from THE_GRID.Rubro where Nombre='" + rubro + "'";
             return Convert.ToInt32(TG.realizarConsulta(comando).Rows[0]["ID_Rubro"]);
         }
 

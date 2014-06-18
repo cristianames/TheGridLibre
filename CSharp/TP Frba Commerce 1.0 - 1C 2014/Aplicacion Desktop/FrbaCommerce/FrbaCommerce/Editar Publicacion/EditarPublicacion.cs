@@ -22,7 +22,7 @@ namespace FrbaCommerce.Editar_Publicacion
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            string consulta = "select ID_Publicacion, Descripcion,Estado ,Tipo_Publicacion from TG.Publicacion where ID_Vendedor = " + DatosUsuario.usuario + " order by ID_Publicacion desc";
+            string consulta = "select ID_Publicacion, Descripcion,Estado ,Tipo_Publicacion from THE_GRID.Publicacion where ID_Vendedor = " + DatosUsuario.usuario + " order by ID_Publicacion desc";
             publicacionesUsuario = TG.realizarConsulta(consulta);
             dataGridView1.DataSource = publicacionesUsuario;        
         }
@@ -70,26 +70,26 @@ namespace FrbaCommerce.Editar_Publicacion
             string comando;
             if (String.Equals(estado, "Pausada"))
             {
-                comando = "update TG.Publicacion set Estado ='Publicada' where ID_Publicacion =" + dataGridView1.CurrentRow.Cells["ID_Publicacion"].Value.ToString();
+                comando = "update THE_GRID.Publicacion set Estado ='Publicada' where ID_Publicacion =" + dataGridView1.CurrentRow.Cells["ID_Publicacion"].Value.ToString();
                 botonPausar.Text = "Pausar";
             }
             else
             {
-                comando = "update TG.Publicacion set Estado ='Pausada' where ID_Publicacion =" + dataGridView1.CurrentRow.Cells["ID_Publicacion"].Value.ToString();
+                comando = "update THE_GRID.Publicacion set Estado ='Pausada' where ID_Publicacion =" + dataGridView1.CurrentRow.Cells["ID_Publicacion"].Value.ToString();
                 botonPausar.Text = "Reanudar";
             }
             TG.realizarConsultaControladaSinRetorno(comando);
-            string consulta = "select ID_Publicacion, Descripcion,Estado ,Tipo_Publicacion from TG.Publicacion where ID_Vendedor = " + DatosUsuario.usuario + " order by ID_Publicacion desc";
+            string consulta = "select ID_Publicacion, Descripcion,Estado ,Tipo_Publicacion from THE_GRID.Publicacion where ID_Vendedor = " + DatosUsuario.usuario + " order by ID_Publicacion desc";
             publicacionesUsuario = TG.realizarConsulta(consulta);
             dataGridView1.DataSource = publicacionesUsuario;   
         }
 
         private void botonFinalizar_Click(object sender, EventArgs e)
         {
-            string comando = "update TG.Publicacion set Estado ='Finalizada' where ID_Publicacion =" + dataGridView1.CurrentRow.Cells["ID_Publicacion"].Value.ToString();
+            string comando = "update THE_GRID.Publicacion set Estado ='Finalizada' where ID_Publicacion =" + dataGridView1.CurrentRow.Cells["ID_Publicacion"].Value.ToString();
             TG.realizarConsultaControladaSinRetorno(comando);
             botonModificar.Enabled = botonPausar.Enabled = botonFinalizar.Enabled = false;
-            string consulta = "select ID_Publicacion, Descripcion,Estado ,Tipo_Publicacion from TG.Publicacion where ID_Vendedor = " + DatosUsuario.usuario + " order by ID_Publicacion desc";
+            string consulta = "select ID_Publicacion, Descripcion,Estado ,Tipo_Publicacion from THE_GRID.Publicacion where ID_Vendedor = " + DatosUsuario.usuario + " order by ID_Publicacion desc";
             publicacionesUsuario = TG.realizarConsulta(consulta);
             dataGridView1.DataSource = publicacionesUsuario;   
         }
