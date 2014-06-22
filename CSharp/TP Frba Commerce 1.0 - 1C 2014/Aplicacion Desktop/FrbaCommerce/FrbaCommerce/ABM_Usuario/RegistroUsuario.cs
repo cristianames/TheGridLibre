@@ -23,6 +23,8 @@ namespace FrbaCommerce.ABM_Usuario
             this.ClientSize = new System.Drawing.Size(487, 428);
             comboBox1.SelectedIndex = 0;
             label31.Text += DatosUsuario.usuario.ToString();
+            dateTimePicker1.Value = TG.fechaDelSistema;
+            dateTimePicker2.Value = TG.fechaDelSistema;
             
             switch (DatosUsuario.tipoUsuario) 
             {

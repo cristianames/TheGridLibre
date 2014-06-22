@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace FrbaCommerce
 {
@@ -57,7 +58,30 @@ namespace FrbaCommerce
         public static float ToFloat(string numeroFloat)
         {
             return Convert.ToSingle(conComa(numeroFloat), CultureInfo.InvariantCulture); 
-            //return Convert.ToSingle(conComa(numeroFloat), CultureInfo.CreateSpecificCulture("es-ES"));
+        }
+    }
+
+    public class Validator
+    {
+        public Validator()
+        {
+        }
+        public bool validar_numerico(string fuente)
+        {
+            long numero;
+            bool ok = long.TryParse(fuente, out numero);
+            return ok;
+        }
+        public bool validar_email(String email)
+        {
+            String expresion;
+            expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+            if (Regex.IsMatch(email, expresion))
+            {
+                if (Regex.Replace(email, expresion, String.Empty).Length == 0) return true;
+                else return false;
+            }
+            else return false;
         }
     }
 }

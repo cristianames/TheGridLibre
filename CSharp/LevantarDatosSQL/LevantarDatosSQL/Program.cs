@@ -26,6 +26,9 @@ namespace LevantarDatosSQL
                 "Password=gd2014"
             );
 
+            DateTime unaFecha = Convert.ToDateTime("18/6/2014");
+            System.Console.Out.WriteLine(unaFecha.ToString());
+
             //////////////////////////
             //   USANDO UNA FUNCION
             /////////////////////////

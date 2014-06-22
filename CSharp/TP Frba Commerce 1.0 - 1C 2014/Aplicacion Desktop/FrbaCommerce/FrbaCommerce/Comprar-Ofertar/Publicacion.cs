@@ -65,7 +65,7 @@ namespace FrbaCommerce.Comprar_Ofertar
             if (String.Equals(estado,"Pausada")) bloquearTodo();
 
             DateTime fechaVencimiento = Convert.ToDateTime(infoPublicacion["Fecha_Vencimiento"]);
-            if (fechaVencimiento < DateTime.Today) bloquearTodo();
+            if (fechaVencimiento < TG.fechaDelSistema) bloquearTodo();
 
             actualizarInfo();
         }
@@ -130,7 +130,7 @@ namespace FrbaCommerce.Comprar_Ofertar
             string comando = "insert into THE_GRID.Pregunta(ID_Publicacion,Pregunta,Fecha_Pregunta)"+
                 " values("+idPublicacion.ToString()+
                 ",'"+campoPregunta.Text+
-                ",convert(datetime,'" + DateTime.Today.ToString("yyyy-dd-MM hh:mm:ss")+ 
+                ",convert(datetime,'" + TG.fechaDelSistema.ToString("yyyy-dd-MM hh:mm:ss")+ 
                 "'))";
             TG.realizarConsultaSinRetorno(comando);
             TG.ventanaEmergente("Pregunta realizada");
@@ -159,7 +159,7 @@ namespace FrbaCommerce.Comprar_Ofertar
             "Fecha_Oferta,Monto_Oferta) values("+
             DatosUsuario.usuario.ToString()+ "," +
             idPublicacion + ",0,"+
-            "convert(datetime,'" + DateTime.Today.ToString("yyyy-dd-MM hh:mm:ss")+"'),"+
+            "convert(datetime,'" + TG.fechaDelSistema.ToString("yyyy-dd-MM hh:mm:ss")+"'),"+
             Validacion.conComa( montoOferta.Text) + ")";
             TG.realizarConsultaSinRetorno(comando);
 
@@ -184,7 +184,7 @@ namespace FrbaCommerce.Comprar_Ofertar
                 "values ("+id_Factura+","+idPublicacion+","+DatosUsuario.usuario.ToString()+
                 ","+numericUpDown1.Value.ToString() + "," + 
                 Validacion.conComa(infoPublicacion["Precio"].ToString()) +
-                ",convert(datetime,'" + DateTime.Today.ToString("yyyy-dd-MM hh:mm:ss") +
+                ",convert(datetime,'" + TG.fechaDelSistema.ToString("yyyy-dd-MM hh:mm:ss") +
                 "'),0,0,'')";
             TG.realizarConsultaSinRetorno(comando);
 

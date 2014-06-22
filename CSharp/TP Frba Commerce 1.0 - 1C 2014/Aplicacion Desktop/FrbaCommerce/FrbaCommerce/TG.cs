@@ -4,21 +4,36 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace FrbaCommerce
 {
     static class TG
     {
         public static FormGrid elLogin;
+        private static string conexion = "";
+        public static DateTime fechaDelSistema;
         public static SqlConnection conectar()
         {
-            SqlConnection Conexion = new SqlConnection(@"Data Source=localhost\SQLSERVER2008;" +
+            /*SqlConnection Conexion = new SqlConnection(@"Data Source=localhost\SQLSERVER2008;" +
                                       "user id=gd;" +
                                       "password=gd2014;" +
                                       "Initial Catalog=GD1C2014; " +
                                       "Integrated Security=True");
+            
+            */
+            SqlConnection Conexion = new SqlConnection(@conexion);
             Conexion.Open();
             return Conexion;
+        }
+
+        public static void levantarConfig()
+        {
+            //tiene esa ruta porque el .exe se genera en la carpeta de debuggeo 
+            StreamReader sr = File.OpenText(@"..\..\config.txt");
+            conexion = sr.ReadLine();
+            fechaDelSistema = Convert.ToDateTime( sr.ReadLine() );
+            sr.Close();
         }
 
         public static string encriptar(string input)

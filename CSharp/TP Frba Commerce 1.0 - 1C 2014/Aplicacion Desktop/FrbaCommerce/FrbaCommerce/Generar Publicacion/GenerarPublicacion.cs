@@ -79,9 +79,9 @@ namespace FrbaCommerce.Generar_Publicacion
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
            // datosConsultaVisibilidad.Rows[2]["Nombre"].ToString();
-            labelInicio.Text = "Fecha de inicio: " + DateTime.Today.ToString();
+            labelInicio.Text = "Fecha de inicio: " + TG.fechaDelSistema.ToString();
             //labelVencimiento.Text;
-            fechaHoy =  DateTime.Today;          
+            fechaHoy =  TG.fechaDelSistema;          
             fechaVencimiento = fechaHoy.AddDays(Convert.ToDouble(datosConsultaVisibilidad.Rows[visibilidadComboBox1.SelectedIndex]["Duracion"].ToString()));
             labelVencimiento.Text = "Fecha de vencimiento: " + fechaVencimiento.ToString();
             labelPrecioPublicar.Text = "Precio por publicar: $" + datosConsultaVisibilidad.Rows[visibilidadComboBox1.SelectedIndex]["Precio_Por_Publicar"].ToString();
@@ -138,65 +138,6 @@ namespace FrbaCommerce.Generar_Publicacion
 
         private void botonPublicar_Click(object sender, EventArgs e)
         {
-
-            /*
-<<<<<<< HEAD
-            if (!actualizar)
-            {
-                //Obtener el ultimo ID de publicacion
-                string consulta = "select top 1 ID_Publicacion from TG.Publicacion order by ID_Publicacion desc";
-                string ultimoID = TG.realizarConsulta(consulta).Rows[0]["ID_Publicacion"].ToString();
-                //insertar nueva publacion
-                string tipo;
-                string stock;
-                string preguntas;
-                if (esSubasta)
-                {
-                    tipo = "Subasta";
-                    stock = "1";
-
-                }
-                else
-                {
-                    tipo = "Compra Inmediata";
-                    stock = numericUpDown1.Value.ToString();
-                }
-                if (String.Equals(preguntasComboBox.SelectedItem.ToString(), "SI"))
-                {
-                    preguntas = "1";
-
-                }
-                else preguntas = "0";
-
-                consulta = @"insert TG.Publicacion (ID_Publicacion,Descripcion,Estado,Fecha_Inicio,
-            Fecha_Vencimiento,
-            ID_Vendedor,ID_Visibilidad,Permitir_Preguntas,Precio,Stock,Tipo_Publicacion)
-            VALUES (" + (Convert.ToInt32(ultimoID) + 1).ToString() + @",'" + richTextBox1.Text + @"','Publicada',convert(datetime,'" + fechaHoy.ToString("yyyy-dd-MM hh:mm:ss") + @"'),convert(datetime,'"
-                          + fechaVencimiento.ToString("yyyy-dd-MM hh:mm:ss") + @"')," + DatosUsuario.usuario.ToString() + @"," + datosConsultaVisibilidad.Rows[visibilidadComboBox1.SelectedIndex]["ID_Visibilidad"].ToString()
-                          + @"," + preguntas + @"," + txtPrecio.Text + @"," + stock + @",'" + tipo + @"')";
-                TG.realizarConsultaSinRetorno(consulta);
-
-                //insertar rubros x publicacion
-                foreach (string rubro in RubrosSeleccionados.rubros)
-                {
-                    ObtenerRubro(rubro);//le paso un nombre de un rubro, me devuelve el ID
-                    consulta = "insert TG.Rubros_x_Publicacion (ID_Rubro,ID_Publicacion) values ( " + ObtenerRubro(rubro) + "," + (Convert.ToInt32(ultimoID) + 1).ToString() + ")"; //en este caso no le agrego +1 a ultimo rubro
-                    TG.realizarConsultaSinRetorno(consulta);
-                }
-                TG.ventanaEmergente("Publicacion cargada");
-            }
-            else 
-            {
-                if (esSubasta)
-                {
-                    string consulta = "update TG.Publicacion set Stock=" + numericUpDown1.Value.ToString() + ", Descripcion ='" + richTextBox1.Text + "' where ID_Publicacion=" + IDAnterior.ToString();
-                    TG.realizarConsulta(consulta);
-                    TG.ventanaEmergente("Publicacion actualizada");
-                }
-            }
-
-
-=======*/
             bool error = false;
             if(String.IsNullOrEmpty(txtPrecio.Text))
             {
