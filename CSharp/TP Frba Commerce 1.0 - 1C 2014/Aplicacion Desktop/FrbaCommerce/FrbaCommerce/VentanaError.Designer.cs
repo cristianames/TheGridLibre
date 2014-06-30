@@ -54,14 +54,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(906, 487);
+            this.ClientSize = new System.Drawing.Size(922, 360);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "VentanaError";
             this.Padding = new System.Windows.Forms.Padding(9);
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AVISO";
             this.Load += new System.EventHandler(this.VentanaError_Load);
             this.ResumeLayout(false);

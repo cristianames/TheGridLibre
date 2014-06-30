@@ -49,6 +49,7 @@
             this.InfoLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.sinResultados = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -269,13 +270,24 @@
             0});
             this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
+            // sinResultados
+            // 
+            this.sinResultados.AutoSize = true;
+            this.sinResultados.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sinResultados.Location = new System.Drawing.Point(287, 174);
+            this.sinResultados.Name = "sinResultados";
+            this.sinResultados.Size = new System.Drawing.Size(284, 42);
+            this.sinResultados.TabIndex = 22;
+            this.sinResultados.Text = "Sin Resultados";
+            // 
             // Buscador
             // 
             this.AcceptButton = this.botonSeleccionar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.botonAtras;
-            this.ClientSize = new System.Drawing.Size(844, 487);
+            this.ClientSize = new System.Drawing.Size(844, 513);
+            this.Controls.Add(this.sinResultados);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.InfoLabel);
@@ -329,5 +341,6 @@
         private System.Windows.Forms.Label InfoLabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label sinResultados;
     }
 }

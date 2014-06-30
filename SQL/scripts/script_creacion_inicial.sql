@@ -126,12 +126,11 @@ create table THE_GRID.Publicacion(
 	Fecha_Vencimiento datetime,
 	Precio numeric(18,2),
 	ID_Visibilidad numeric(18,0) references THE_GRID.Visibilidad(ID_Visibilidad),
-	ID_Vendedor numeric(18,0),
+	ID_Vendedor numeric(18,0) references THE_GRID.Usuario(ID_User),
 	--ID_Rubro numeric(18,0) references THE_GRID.Rubro(ID_Rubro),
 	Estado nvarchar(255),
 	Tipo_Publicacion nvarchar(255),
-	Permitir_Preguntas bit,		
-	Foreign Key(ID_Vendedor) references THE_GRID.Usuario(ID_User)	
+	Permitir_Preguntas bit,			
 )
 go
 
@@ -192,7 +191,9 @@ create table THE_GRID.Pregunta(
 	Pregunta nvarchar(255),
 	Fecha_Pregunta date,
 	Respuesta nvarchar(255),
-	Fecha_Respuesta date
+	Fecha_Respuesta date,
+	ID_Comprador numeric(18,0) references THE_GRID.Usuario(ID_User),
+	ID_Vendedor numeric(18,0) references THE_GRID.Usuario(ID_User)
 )
 
 GO
@@ -263,6 +264,9 @@ values(2,9)
 
 insert into THE_GRID.Funcionalidades_x_Rol 
 values(2,14)
+
+insert into THE_GRID.Funcionalidades_x_Rol 
+values(2,13)
 
 ------------------------------------------------------------------------------------
 

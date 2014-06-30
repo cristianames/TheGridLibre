@@ -20,6 +20,7 @@ namespace FrbaCommerce
             Application.SetCompatibleTextRenderingDefault(false);
             TG.levantarConfig();
             Application.Run(new Portal());
+
         }
 
     }

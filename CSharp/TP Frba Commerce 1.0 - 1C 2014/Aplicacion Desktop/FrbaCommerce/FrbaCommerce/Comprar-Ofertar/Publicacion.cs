@@ -12,7 +12,7 @@ namespace FrbaCommerce.Comprar_Ofertar
     public partial class Publicacion : FormGrid
     {
         private string idPublicacion;
-        DataRow infoPublicacion;
+        private DataRow infoPublicacion;
         public Publicacion(FormGrid anterior, string _idPublicacion)
         {
             InitializeComponent();
@@ -116,25 +116,21 @@ namespace FrbaCommerce.Comprar_Ofertar
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-            
             if (String.IsNullOrEmpty(campoPregunta.Text))
             {
                 campoPregunta.BackColor = Color.LightYellow;
                 return;
             }
-            string comando = "insert into THE_GRID.Pregunta(ID_Publicacion,Pregunta,Fecha_Pregunta)"+
-                " values("+idPublicacion.ToString()+
-                ",'"+campoPregunta.Text+
-                ",convert(datetime,'" + TG.fechaDelSistema.ToString("yyyy-dd-MM hh:mm:ss")+ 
-                "'))";
+            string comando = "insert into THE_GRID.Pregunta" +
+                "(ID_Publicacion,Pregunta,Fecha_Pregunta,ID_Comprador,ID_Vendedor)" +
+                " values(" + idPublicacion.ToString() +
+                ",'" + campoPregunta.Text + "'" +
+                ",convert(datetime,'" + TG.fechaDelSistema.ToString("yyyy-dd-MM hh:mm:ss") + "')" +
+                "," + DatosUsuario.usuario.ToString() +
+                "," + infoPublicacion["ID_Vendedor"] + ")";
             TG.realizarConsultaSinRetorno(comando);
             TG.ventanaEmergente("Pregunta realizada");
-            }
+        }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
@@ -171,17 +167,17 @@ namespace FrbaCommerce.Comprar_Ofertar
         private void botonComprar_Click(object sender, EventArgs e)
         {
             string comando;
-
+            /***********************************************************************
             comando = "select top 1 MAX(ID_Factura) + 1 from THE_GRID.Factura";
             string id_Factura = TG.consultaEscalar(comando).ToString();
 
             comando = "insert into THE_GRID.Factura(ID_Factura,ID_Publicacion) values("+
                 id_Factura+","+idPublicacion+")";
             TG.realizarConsultaSinRetorno(comando);
-            
-            comando = "insert into THE_GRID.Compra(ID_Factura,ID_Publicacion,ID_Comprador," +
+            *******************************************************/
+            comando = "insert into THE_GRID.Compra(ID_Publicacion,ID_Comprador," +
                 "Item_Cantidad, Item_monto, Fecha, Pagada, Calif_Estrellas, Calif_Detalle) " +
-                "values ("+id_Factura+","+idPublicacion+","+DatosUsuario.usuario.ToString()+
+                "values ("+idPublicacion+","+DatosUsuario.usuario.ToString()+
                 ","+numericUpDown1.Value.ToString() + "," + 
                 Validacion.conComa(infoPublicacion["Precio"].ToString()) +
                 ",convert(datetime,'" + TG.fechaDelSistema.ToString("yyyy-dd-MM hh:mm:ss") +

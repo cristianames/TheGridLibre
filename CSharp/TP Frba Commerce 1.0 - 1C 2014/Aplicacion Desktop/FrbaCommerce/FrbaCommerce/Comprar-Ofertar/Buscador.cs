@@ -20,6 +20,8 @@ namespace FrbaCommerce.Comprar_Ofertar
             this.ClientSize = new System.Drawing.Size(820, 396);
             ventanaAnterior = anterior;
             numericUpDown1.Value = tamanioPagina;
+            sinResultados.Visible = false;
+            if (DatosUsuario.tipoUsuario != 1) richTextBox1.Visible = false;
             actualizarGrilla();
             reiniciarBotonera();
         }
@@ -35,7 +37,7 @@ namespace FrbaCommerce.Comprar_Ofertar
                 " p.Precio, p.Stock, p.ID_Publicacion " +
                 " from THE_GRID.Publicacion p inner join THE_GRID.Visibilidad v"+ 
                 " on (p.ID_Visibilidad = v.ID_Visibilidad) "+
-                filtroRubro + "where Estado = 'Publicada' or Estado = 'Pausada'" + 
+                filtroRubro + "where (Estado = 'Publicada' or Estado = 'Pausada') " + 
                 filtroPalabra +
                 " Order By v.Precio_por_Publicar desc";
             dataGridView1.DataSource = TG.consultaPaginada(paginaActual,tamanioPagina,comando);
@@ -46,24 +48,28 @@ namespace FrbaCommerce.Comprar_Ofertar
             comando = "SELECT  top 1 count(*)"+
                 " from THE_GRID.Publicacion p inner join THE_GRID.Visibilidad v" +
                 " on (p.ID_Visibilidad = v.ID_Visibilidad) " +
-                filtroRubro + "where Estado = 'Publicada' " +
+                filtroRubro + "where (Estado = 'Publicada' or Estado = 'Pausada') " +
                 filtroPalabra;
             totalResultados = (int)TG.consultaEscalar(comando);
             paginas =  totalResultados/tamanioPagina;
+            if (totalResultados % tamanioPagina == 0) paginas--;
             actualizarInfo();
         }
 
         private void actualizarInfo()
         {
-            int limite = (paginaActual+1)*tamanioPagina;
-            if (limite > totalResultados) limite = totalResultados;
+            int limite = (paginaActual+1)*tamanioPagina, contador = 1;
+            if (limite > totalResultados)limite = totalResultados;
+            if (totalResultados == 0) contador = 0;
             InfoLabel.Text = "Mostrando pagina ";
-            InfoLabel.Text += (paginaActual * tamanioPagina + 1).ToString();
+            InfoLabel.Text += (paginaActual * tamanioPagina + contador).ToString();
             InfoLabel.Text += " a ";
             InfoLabel.Text += limite.ToString();
             InfoLabel.Text += " de ";
             InfoLabel.Text += totalResultados.ToString();
             InfoLabel.Text += " resultados";
+
+            
         }
 
         private void botonBuscar_Click(object sender, EventArgs e)
@@ -97,6 +103,15 @@ namespace FrbaCommerce.Comprar_Ofertar
             botonPrincipio.Enabled = false;
             botonFinal.Enabled = true;
             botonNext.Enabled = true;
+            dataGridView1.Visible = true;
+            sinResultados.Visible = false;
+            if (totalResultados == 0) 
+            {
+                botonFinal.Enabled = false;
+                botonNext.Enabled = false;
+                dataGridView1.Visible = false;
+                sinResultados.Visible = true;
+            }
         }
 
         private void Buscador_Load(object sender, EventArgs e)
@@ -106,6 +121,7 @@ namespace FrbaCommerce.Comprar_Ofertar
 
         private void button2_Click(object sender, EventArgs e)
         {
+            RubrosSeleccionados.rubros.Clear();
             volverAtras();
         }
 

@@ -32,6 +32,7 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.button3 = new System.Windows.Forms.Button();
             this.grupoEmpresa = new System.Windows.Forms.GroupBox();
+            this.txtCuit = new System.Windows.Forms.MaskedTextBox();
             this.Control2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.txtCalleEmpresa = new System.Windows.Forms.TextBox();
@@ -40,7 +41,6 @@
             this.txtCodPosEmpresa = new System.Windows.Forms.TextBox();
             this.txtDepEmpresa = new System.Windows.Forms.TextBox();
             this.txtRazonSocial = new System.Windows.Forms.TextBox();
-            this.txtCuit = new System.Windows.Forms.TextBox();
             this.txtEmailEmpresa = new System.Windows.Forms.TextBox();
             this.txtTelEmpresa = new System.Windows.Forms.TextBox();
             this.txtNombreContacto = new System.Windows.Forms.TextBox();
@@ -138,6 +138,7 @@
             // 
             // grupoEmpresa
             // 
+            this.grupoEmpresa.Controls.Add(this.txtCuit);
             this.grupoEmpresa.Controls.Add(this.Control2);
             this.grupoEmpresa.Controls.Add(this.button2);
             this.grupoEmpresa.Controls.Add(this.txtCalleEmpresa);
@@ -146,7 +147,6 @@
             this.grupoEmpresa.Controls.Add(this.txtCodPosEmpresa);
             this.grupoEmpresa.Controls.Add(this.txtDepEmpresa);
             this.grupoEmpresa.Controls.Add(this.txtRazonSocial);
-            this.grupoEmpresa.Controls.Add(this.txtCuit);
             this.grupoEmpresa.Controls.Add(this.txtEmailEmpresa);
             this.grupoEmpresa.Controls.Add(this.txtTelEmpresa);
             this.grupoEmpresa.Controls.Add(this.txtNombreContacto);
@@ -172,6 +172,15 @@
             this.grupoEmpresa.TabIndex = 0;
             this.grupoEmpresa.TabStop = false;
             this.grupoEmpresa.Text = "DatosEmpresa";
+            // 
+            // txtCuit
+            // 
+            this.txtCuit.Location = new System.Drawing.Point(296, 23);
+            this.txtCuit.Mask = "00-00000000-00";
+            this.txtCuit.Name = "txtCuit";
+            this.txtCuit.ResetOnSpace = false;
+            this.txtCuit.Size = new System.Drawing.Size(103, 20);
+            this.txtCuit.TabIndex = 64;
             // 
             // Control2
             // 
@@ -234,13 +243,6 @@
             this.txtRazonSocial.Name = "txtRazonSocial";
             this.txtRazonSocial.Size = new System.Drawing.Size(108, 20);
             this.txtRazonSocial.TabIndex = 38;
-            // 
-            // txtCuit
-            // 
-            this.txtCuit.Location = new System.Drawing.Point(296, 24);
-            this.txtCuit.Name = "txtCuit";
-            this.txtCuit.Size = new System.Drawing.Size(103, 20);
-            this.txtCuit.TabIndex = 37;
             // 
             // txtEmailEmpresa
             // 
@@ -758,7 +760,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button3;
-            this.ClientSize = new System.Drawing.Size(922, 421);
+            this.ClientSize = new System.Drawing.Size(844, 513);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.label30);
@@ -801,7 +803,6 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox txtRazonSocial;
-        private System.Windows.Forms.TextBox txtCuit;
         private System.Windows.Forms.TextBox txtEmailEmpresa;
         private System.Windows.Forms.TextBox txtTelEmpresa;
         private System.Windows.Forms.TextBox txtNombreContacto;
@@ -851,5 +852,6 @@
         private System.Windows.Forms.GroupBox grupoCliente;
         private System.Windows.Forms.Label Control1;
         private System.Windows.Forms.Label Control2;
+        private System.Windows.Forms.MaskedTextBox txtCuit;
     }
 }

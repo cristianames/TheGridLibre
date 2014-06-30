@@ -70,6 +70,7 @@ namespace FrbaCommerce.ABM_Usuario
             //pasar los datos a los campos
             txtRazonSocial.Text = consulta["Razon_Social"].ToString();
             txtCuit.Text = consulta["CUIT"].ToString();
+            txtCuit.Text = consulta["CUIT"].ToString();
             txtEmailEmpresa.Text = consulta["Mail"].ToString();
             if (!String.Equals(consulta["Telefono"].ToString(), "0"))
                 txtTelEmpresa.Text = consulta["Telefono"].ToString();
@@ -193,7 +194,7 @@ namespace FrbaCommerce.ABM_Usuario
             if (!String.Equals(datosEmpresa["CUIT"].ToString(), txtCuit.Text))
             {
                 comando = "select * from THE_GRID.Empresa where " +
-                    "CUIT = '" + Convert.ToInt32(txtCuit.Text).ToString("#0-00000000-0") + "'";
+                    "CUIT = '" + txtCuit.Text + "'";
                 resultado = TG.realizarConsulta(comando);
                 if (resultado.Rows.Count > 0)
                 {
@@ -343,6 +344,13 @@ namespace FrbaCommerce.ABM_Usuario
         {
             bool estado = true;
             Validator validador = new Validator();
+
+            if (!txtCuit.MaskCompleted) {
+                txtCuit.BackColor = Color.LightYellow;
+                estado = false;
+            }
+            else txtCuit.BackColor = Color.White;
+
             if (!validador.validar_numerico(txtTelEmpresa.Text))
             {
                 txtTelEmpresa.BackColor = Color.FromArgb(255, 161, 161);
@@ -404,22 +412,22 @@ namespace FrbaCommerce.ABM_Usuario
             string piso = txtPiso.Text;
             if (String.Equals(piso, "")) piso = "0";
 
-            string actualizarCliente = @"UPDATE THE_GRID.Empresa set                     
-                    Razon_Social ='" + txtRazonSocial.Text + @"',
-                    CUIT ='" + Convert.ToInt32(txtCuit.Text).ToString("#0-00000000-0") + @"',
-                    Mail ='" + txtEmailEmpresa.Text + @"',
-                    Telefono =" + txtTelEmpresa.Text + @",
-                    Fecha_Creacion = convert(datetime,'" + dateTimePicker2.Value.ToString("yyyy-dd-MM hh:mm:ss") + @"'),
-                    Nombre_Contacto = '" + txtNombreContacto.Text + @"',
-                    Calle = '" + txtCalleEmpresa.Text + @"',
-                    Nro_Calle = " + txtNroCalleEmpresa.Text + @",
-                    Nro_Piso = " + piso + @",
-                    Departamento = '" + txtDepEmpresa.Text + @"',
-                    Localidad = '" + txtLocEmpresa.Text + @"',
-                    Cod_Postal = " + txtCodPosEmpresa.Text + @",
-                    Ciudad = '" + txtCiudadEmpresa.Text + @"'
-                    where ID_USER =" + DatosUsuario.usuario.ToString();
-            TG.realizarConsultaSinRetorno(actualizarCliente);
+            string actualizarEmpresa = "UPDATE THE_GRID.Empresa set "+                     
+                    "Razon_Social ='" + txtRazonSocial.Text + "'" +
+                    ",CUIT ='" + txtCuit.Text + "'" +
+                    ",Mail ='" + txtEmailEmpresa.Text + "'" +
+                    ",Telefono =" + txtTelEmpresa.Text + 
+                    ",Fecha_Creacion = convert(datetime,'" + dateTimePicker2.Value.ToString("yyyy-dd-MM hh:mm:ss") + "')"+
+                    ",Nombre_Contacto = '" + txtNombreContacto.Text + "'" +
+                    ",Calle = '" + txtCalleEmpresa.Text + "'" +
+                    ",Nro_Calle = " + txtNroCalleEmpresa.Text + 
+                    ",Nro_Piso = " + piso +
+                    ",Departamento = '" + txtDepEmpresa.Text + "'" +
+                    ",Localidad = '" + txtLocEmpresa.Text + "'" +
+                    ",Cod_Postal = " + txtCodPosEmpresa.Text +
+                    ",Ciudad = '" + txtCiudadEmpresa.Text + "'" + 
+                    " where ID_USER =" + DatosUsuario.usuario.ToString();
+            TG.realizarConsultaSinRetorno(actualizarEmpresa);
             
             if(DatosUsuario.DatosCorrectos == 0) validarUsuario();
 

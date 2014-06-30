@@ -98,6 +98,7 @@ namespace FrbaCommerce
                         (new Generar_Publicacion.GenerarPublicacion(this)).Show();
                         break;
                     case "Gestion De Preguntas":
+                        (new Gestion_de_Preguntas.TipoPregunta(this)).Show();
                         break;
                     case "Historial del Cliente":
                         break;

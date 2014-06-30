@@ -6,19 +6,20 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 using FrbaCommerce.ABM_Usuario;
+
 
 namespace FrbaCommerce.Login
 {
     public partial class login : FormGridTerminal
-    {
-        
+    {        
         public login()
         {
             InitializeComponent();
             this.ClientSize = new System.Drawing.Size(340, 140);
-            pictureBox1.Visible = false;
+            this.pictureBox1.Visible = false;
         }
 
         private void submitActions() 
@@ -84,16 +85,14 @@ namespace FrbaCommerce.Login
             Validator validador = new Validator();
             if (!validador.validar_numerico(userTextbox.Text))
             {
-                Control.Text = "Verificar datos";
+                Control.Visible = true;
                 userTextbox.BackColor = Color.FromArgb(255, 161, 161);
                 return;
             }
             button1.Enabled = false;
-            pictureBox1.Visible = true;
             this.Refresh();
             submitActions();
             button1.Enabled = true;
-            pictureBox1.Visible = false;
         }
 
         private bool primerIngreso(string usuario)
@@ -139,7 +138,6 @@ namespace FrbaCommerce.Login
         {
             Control.Text = "";
         }
-
     }
 }
 
