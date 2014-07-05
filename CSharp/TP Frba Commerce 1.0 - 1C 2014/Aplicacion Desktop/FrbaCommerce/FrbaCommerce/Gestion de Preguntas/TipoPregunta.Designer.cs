@@ -156,6 +156,7 @@
             this.Name = "TipoPregunta";
             this.Text = "Seleccionar pregunta";
             this.Load += new System.EventHandler(this.Pendientes_Load);
+            this.VisibleChanged += new System.EventHandler(this.TipoPregunta_VisibleChanged);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

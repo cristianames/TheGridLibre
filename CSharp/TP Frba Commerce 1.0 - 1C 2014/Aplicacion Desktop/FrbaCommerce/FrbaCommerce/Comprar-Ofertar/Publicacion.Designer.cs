@@ -150,6 +150,7 @@
             // campoPregunta
             // 
             this.campoPregunta.Location = new System.Drawing.Point(24, 199);
+            this.campoPregunta.MaxLength = 255;
             this.campoPregunta.Name = "campoPregunta";
             this.campoPregunta.Size = new System.Drawing.Size(319, 84);
             this.campoPregunta.TabIndex = 10;

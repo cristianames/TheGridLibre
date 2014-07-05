@@ -29,98 +29,154 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.otorgadas = new System.Windows.Forms.RadioButton();
             this.recibidas = new System.Windows.Forms.RadioButton();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.refrescar = new System.Windows.Forms.Button();
+            this.otorgadas = new System.Windows.Forms.RadioButton();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.atras = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.seleccionar = new System.Windows.Forms.Button();
+            this.sinResultados = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.recibidas);
+            this.groupBox1.Controls.Add(this.refrescar);
             this.groupBox1.Controls.Add(this.otorgadas);
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(24, 29);
+            this.groupBox1.Location = new System.Drawing.Point(10, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(391, 110);
+            this.groupBox1.Size = new System.Drawing.Size(391, 59);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Historial";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(31, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Criterio:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(79, 30);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 2;
-            // 
-            // otorgadas
-            // 
-            this.otorgadas.AutoSize = true;
-            this.otorgadas.Location = new System.Drawing.Point(34, 78);
-            this.otorgadas.Name = "otorgadas";
-            this.otorgadas.Size = new System.Drawing.Size(74, 17);
-            this.otorgadas.TabIndex = 3;
-            this.otorgadas.TabStop = true;
-            this.otorgadas.Text = "Otorgadas";
-            this.otorgadas.UseVisualStyleBackColor = true;
-            this.otorgadas.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
-            // 
             // recibidas
             // 
             this.recibidas.AutoSize = true;
-            this.recibidas.Location = new System.Drawing.Point(186, 78);
+            this.recibidas.Checked = true;
+            this.recibidas.Location = new System.Drawing.Point(313, 25);
             this.recibidas.Name = "recibidas";
             this.recibidas.Size = new System.Drawing.Size(72, 17);
             this.recibidas.TabIndex = 4;
             this.recibidas.TabStop = true;
             this.recibidas.Text = "Recibidas";
             this.recibidas.UseVisualStyleBackColor = true;
+            this.recibidas.CheckedChanged += new System.EventHandler(this.recibidas_CheckedChanged);
             // 
-            // listBox1
+            // refrescar
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(24, 154);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(391, 121);
-            this.listBox1.TabIndex = 5;
+            this.refrescar.Location = new System.Drawing.Point(154, 22);
+            this.refrescar.Name = "refrescar";
+            this.refrescar.Size = new System.Drawing.Size(75, 23);
+            this.refrescar.TabIndex = 9;
+            this.refrescar.Text = "Refrescar";
+            this.refrescar.UseVisualStyleBackColor = true;
+            this.refrescar.Click += new System.EventHandler(this.refrescar_Click);
+            // 
+            // otorgadas
+            // 
+            this.otorgadas.AutoSize = true;
+            this.otorgadas.Location = new System.Drawing.Point(233, 25);
+            this.otorgadas.Name = "otorgadas";
+            this.otorgadas.Size = new System.Drawing.Size(74, 17);
+            this.otorgadas.TabIndex = 3;
+            this.otorgadas.Text = "Otorgadas";
+            this.otorgadas.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Calificaciones",
+            "Compras",
+            "Ofertas"});
+            this.comboBox1.Location = new System.Drawing.Point(55, 23);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(95, 21);
+            this.comboBox1.TabIndex = 2;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(42, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Criterio:";
             // 
             // atras
             // 
-            this.atras.Location = new System.Drawing.Point(308, 297);
+            this.atras.Location = new System.Drawing.Point(324, 300);
             this.atras.Name = "atras";
             this.atras.Size = new System.Drawing.Size(75, 23);
             this.atras.TabIndex = 6;
             this.atras.Text = "Atrás";
             this.atras.UseVisualStyleBackColor = true;
+            this.atras.Click += new System.EventHandler(this.atras_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(10, 78);
+            this.dataGridView1.MultiSelect = false;
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(391, 216);
+            this.dataGridView1.TabIndex = 7;
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            // 
+            // seleccionar
+            // 
+            this.seleccionar.Location = new System.Drawing.Point(243, 300);
+            this.seleccionar.Name = "seleccionar";
+            this.seleccionar.Size = new System.Drawing.Size(75, 23);
+            this.seleccionar.TabIndex = 8;
+            this.seleccionar.Text = "Ver";
+            this.seleccionar.UseVisualStyleBackColor = true;
+            this.seleccionar.Click += new System.EventHandler(this.seleccionar_Click);
+            // 
+            // sinResultados
+            // 
+            this.sinResultados.AutoSize = true;
+            this.sinResultados.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sinResultados.Location = new System.Drawing.Point(58, 160);
+            this.sinResultados.Name = "sinResultados";
+            this.sinResultados.Size = new System.Drawing.Size(284, 42);
+            this.sinResultados.TabIndex = 23;
+            this.sinResultados.Text = "Sin Resultados";
             // 
             // Historial
             // 
+            this.AcceptButton = this.seleccionar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(437, 335);
+            this.CancelButton = this.atras;
+            this.ClientSize = new System.Drawing.Size(844, 513);
+            this.Controls.Add(this.sinResultados);
+            this.Controls.Add(this.seleccionar);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.atras);
-            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.groupBox1);
             this.Name = "Historial";
-            this.Text = "Form1";
+            this.Text = "Historial de Cliente";
+            this.Load += new System.EventHandler(this.Historial_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -131,7 +187,10 @@
         private System.Windows.Forms.RadioButton otorgadas;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button atras;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button seleccionar;
+        private System.Windows.Forms.Button refrescar;
+        private System.Windows.Forms.Label sinResultados;
     }
 }

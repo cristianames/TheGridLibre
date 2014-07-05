@@ -223,13 +223,13 @@ namespace FrbaCommerce.Comprar_Ofertar
 
         private void botonSeleccionar_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
             (new Publicacion(this, publicacion)).Show();
+            this.Visible = false;
         }
 
         private void Buscador_VisibleChanged(object sender, EventArgs e)
         {
-            actualizarGrilla();
+            if (this.Visible) actualizarGrilla();
         }
     }
 }

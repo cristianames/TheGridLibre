@@ -263,10 +263,10 @@ insert into THE_GRID.Funcionalidades_x_Rol
 values(2,9)
 
 insert into THE_GRID.Funcionalidades_x_Rol 
-values(2,14)
+values(2,13)
 
 insert into THE_GRID.Funcionalidades_x_Rol 
-values(2,13)
+values(2,14)
 
 ------------------------------------------------------------------------------------
 
@@ -281,6 +281,9 @@ values(3,12)
 
 insert into THE_GRID.Funcionalidades_x_Rol 
 values(3,13)
+
+insert into THE_GRID.Funcionalidades_x_Rol 
+values(3,14)
 
 GO
 

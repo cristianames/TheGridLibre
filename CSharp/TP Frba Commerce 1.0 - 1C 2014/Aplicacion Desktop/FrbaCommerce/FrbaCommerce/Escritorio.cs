@@ -101,6 +101,7 @@ namespace FrbaCommerce
                         (new Gestion_de_Preguntas.TipoPregunta(this)).Show();
                         break;
                     case "Historial del Cliente":
+                        (new Historial_Cliente.Historial(this)).Show();
                         break;
                     case "Listado Estadistico":
                         (new Listado_Estadistico.PeriodoTipo(this)).Show();

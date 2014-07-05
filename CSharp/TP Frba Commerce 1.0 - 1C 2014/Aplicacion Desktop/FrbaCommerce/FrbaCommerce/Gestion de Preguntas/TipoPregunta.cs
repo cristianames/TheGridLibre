@@ -89,5 +89,10 @@ namespace FrbaCommerce.Gestion_de_Preguntas
             this.Visible = false;
         }
 
+        private void TipoPregunta_VisibleChanged(object sender, EventArgs e)
+        {
+            recagarGrilla();
+        }
+
     }
 }

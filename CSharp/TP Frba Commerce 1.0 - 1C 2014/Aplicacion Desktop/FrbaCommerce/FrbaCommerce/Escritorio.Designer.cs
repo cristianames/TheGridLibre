@@ -126,8 +126,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.linkLabel2;
-
-            this.ClientSize = new System.Drawing.Size(1420, 662);
+            this.ClientSize = new System.Drawing.Size(844, 513);
             this.Controls.Add(this.linkLabel3);
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.linkLabel1);
@@ -137,7 +136,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listBox1);
             this.Name = "Escritorio";
-            this.Text = "Escrtorio";
+            this.Text = "Escritorio";
             this.Load += new System.EventHandler(this.Escrtorio_Load);
             this.VisibleChanged += new System.EventHandler(this.Escritorio_VisibleChanged);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Escritorio_KeyDown);

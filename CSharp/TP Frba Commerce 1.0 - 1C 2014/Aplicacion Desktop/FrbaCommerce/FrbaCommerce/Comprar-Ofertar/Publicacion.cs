@@ -116,6 +116,8 @@ namespace FrbaCommerce.Comprar_Ofertar
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (verificarSiEsElMismo()) return;
+            
             if (String.IsNullOrEmpty(campoPregunta.Text))
             {
                 campoPregunta.BackColor = Color.LightYellow;
@@ -132,6 +134,18 @@ namespace FrbaCommerce.Comprar_Ofertar
             TG.ventanaEmergente("Pregunta realizada");
         }
 
+        private bool verificarSiEsElMismo()
+        {
+            string idVendedor = infoPublicacion["ID_Vendedor"].ToString();
+            string idComprador = DatosUsuario.usuario.ToString();
+            if (String.Equals(idComprador, idVendedor))
+            {
+                TG.ventanaEmergente("No se puede realizar esta operación en tu propia publicación");
+                return true;
+            }
+            return false;
+        }
+
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             actualizarInfo();
@@ -144,6 +158,7 @@ namespace FrbaCommerce.Comprar_Ofertar
 
         private void botonOfertar_Click(object sender, EventArgs e)
         {
+            if (verificarSiEsElMismo()) return;
             if (!Validacion.esFloat(montoOferta.Text))
             {
                 montoOferta.BackColor = Color.LightYellow;
@@ -166,6 +181,7 @@ namespace FrbaCommerce.Comprar_Ofertar
 
         private void botonComprar_Click(object sender, EventArgs e)
         {
+            if (verificarSiEsElMismo()) return;
             string comando;
             /***********************************************************************
             comando = "select top 1 MAX(ID_Factura) + 1 from THE_GRID.Factura";
