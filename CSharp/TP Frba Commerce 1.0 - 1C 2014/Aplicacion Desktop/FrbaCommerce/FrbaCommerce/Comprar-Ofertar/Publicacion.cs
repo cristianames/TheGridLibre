@@ -30,7 +30,7 @@ namespace FrbaCommerce.Comprar_Ofertar
             comando = @"select v.Nombre from THE_GRID.Visibilidad v inner join THE_GRID.Publicacion p
                       on(p.ID_Visibilidad = v.ID_Visibilidad)";
 
-            infoDescripcion.Text = "Descripcion: ";
+            infoDescripcion.Text = " Descripcion: ";
             infoDescripcion.Text += infoPublicacion["Descripcion"].ToString();
             infoDescripcion.Text += "\n\r Stock: ";
             infoDescripcion.Text += infoPublicacion["Stock"].ToString();
@@ -87,11 +87,19 @@ namespace FrbaCommerce.Comprar_Ofertar
         {
             string tipoPubli = infoPublicacion["Tipo_Publicacion"].ToString();
             string tipoPrecio = "Precio: $";
-            if (String.Equals(tipoPubli, "Subasta")) tipoPrecio = "Precio Actual: $";
-            infoPrecio.Text = "Tipo de publicacion : ";
+            string precio = infoPublicacion["Precio"].ToString();
+            if (String.Equals(tipoPubli, "Subasta"))
+            {
+                tipoPrecio = "Mejor precio hasta ahora: $";
+                string comando = "select ISNULL( MAX(Monto_Oferta),'Sin ofertas') " +
+                    "from THE_GRID.Oferta where ID_Publicacion = " + idPublicacion;
+                if(String.Equals(TG.consultaEscalar(comando).ToString(),"Sin ofertas"))
+                precio = TG.consultaEscalar(comando).ToString();
+            }
+            infoPrecio.Text = " Tipo de publicacion : ";
             infoPrecio.Text += tipoPubli;
             infoPrecio.Text += ("\n\r "+ tipoPrecio);
-            infoPrecio.Text += infoPublicacion["Precio"].ToString();
+            infoPrecio.Text += precio;
             infoPrecio.Text += "\n\r Total a pagar: ";
             infoPrecio.Text += calcularTotal();
         }
@@ -220,6 +228,11 @@ namespace FrbaCommerce.Comprar_Ofertar
         private void botonCancelar_Click(object sender, EventArgs e)
         {
             volverAtras();
+        }
+
+        private void Publicacion_Load(object sender, EventArgs e)
+        {
+
         }
 
         

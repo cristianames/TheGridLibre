@@ -76,12 +76,12 @@ namespace FrbaCommerce.Historial_Cliente
                     DatosUsuario.usuario.ToString() + " and Calif_Estrellas > 0 " +
                     "order by Fecha desc";
                     break;
-                case 1: comandoGrilla = "select ID_Publicacion COD, "+
+                case 1: comandoGrilla = "select ID_Operacion COD, "+
                     "Item_Cantidad Cantidad, Item_Monto 'Precio Unitario',Fecha "+
                     "from THE_GRID.Compra where ID_Comprador ="+DatosUsuario.usuario.ToString()+
                     "order by Fecha desc";
                     break;
-                case 2: comandoGrilla = "select ID_Publicacion COD, "+
+                case 2: comandoGrilla = "select ID_Oferta COD, "+
                     "Monto_Oferta 'Monto Ofertado', Fecha_Oferta Fecha, Concretada "+
                     "from THE_GRID.Oferta where ID_Ofertante ="+DatosUsuario.usuario.ToString()+
                     "order by Fecha_Oferta desc";
@@ -120,8 +120,11 @@ namespace FrbaCommerce.Historial_Cliente
                 case 0: 
                     (new detalleCalificacion(this, COD)).Show();
                     break;
-                default:
-                    (new Publicacion(this,COD)).Show();
+                case 1:
+                    (new detalleCompraOferta(this, COD, true)).Show();
+                    break;
+                case 2:
+                    (new detalleCompraOferta(this, COD, false)).Show();
                     break;
             }
             this.Visible = false;

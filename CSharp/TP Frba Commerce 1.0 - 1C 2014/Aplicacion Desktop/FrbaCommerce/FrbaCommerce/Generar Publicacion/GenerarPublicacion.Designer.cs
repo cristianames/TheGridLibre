@@ -53,6 +53,7 @@
             this.botonRegresar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.total = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBoxVisibilidad.SuspendLayout();
             this.SuspendLayout();
@@ -102,6 +103,7 @@
             // richTextBox1
             // 
             this.richTextBox1.Location = new System.Drawing.Point(13, 59);
+            this.richTextBox1.MaxLength = 255;
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(355, 117);
             this.richTextBox1.TabIndex = 5;
@@ -112,15 +114,15 @@
             this.labelPrecio.AutoSize = true;
             this.labelPrecio.Location = new System.Drawing.Point(10, 191);
             this.labelPrecio.Name = "labelPrecio";
-            this.labelPrecio.Size = new System.Drawing.Size(58, 13);
+            this.labelPrecio.Size = new System.Drawing.Size(77, 13);
             this.labelPrecio.TabIndex = 6;
-            this.labelPrecio.Text = "Precio:    $";
+            this.labelPrecio.Text = "Precio unitario:";
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(65, 188);
+            this.txtPrecio.Location = new System.Drawing.Point(96, 188);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(104, 20);
+            this.txtPrecio.Size = new System.Drawing.Size(91, 20);
             this.txtPrecio.TabIndex = 7;
             this.txtPrecio.TextChanged += new System.EventHandler(this.txtPrecio_TextChanged);
             // 
@@ -184,7 +186,7 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(66, 212);
+            this.numericUpDown1.Location = new System.Drawing.Point(96, 212);
             this.numericUpDown1.Minimum = new decimal(new int[] {
             1,
             0,
@@ -192,7 +194,7 @@
             0});
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.ReadOnly = true;
-            this.numericUpDown1.Size = new System.Drawing.Size(103, 20);
+            this.numericUpDown1.Size = new System.Drawing.Size(91, 20);
             this.numericUpDown1.TabIndex = 17;
             this.numericUpDown1.Value = new decimal(new int[] {
             1,
@@ -308,11 +310,21 @@
             this.total.TabIndex = 25;
             this.total.Text = "...";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(83, 191);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(13, 13);
+            this.label7.TabIndex = 26;
+            this.label7.Text = "$";
+            // 
             // GenerarPublicacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1137, 662);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.total);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.botonRegresar);
@@ -373,6 +385,7 @@
         private System.Windows.Forms.ComboBox preguntasComboBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label total;
+        private System.Windows.Forms.Label label7;
 
     }
 }
