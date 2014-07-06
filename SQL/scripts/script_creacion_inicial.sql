@@ -86,6 +86,18 @@ create table THE_GRID.Rubro(
 )
 go
 
+create table THE_GRID.Tipo_Publicacion(
+	ID_Tipo numeric(18,0) identity(100,1) primary key,
+	Nombre varchar(256) unique,
+)
+go
+
+create table THE_GRID.Estado_Publicacion(
+	ID_Estado numeric(18,0) identity(100,1) primary key,
+	Nombre varchar(256) unique,
+)
+go
+
 create table THE_GRID.Visibilidad(
 	ID_Visibilidad numeric(18,0) identity(10002,1) primary key,
 	Nombre varchar(256),
@@ -127,9 +139,8 @@ create table THE_GRID.Publicacion(
 	Precio numeric(18,2),
 	ID_Visibilidad numeric(18,0) references THE_GRID.Visibilidad(ID_Visibilidad),
 	ID_Vendedor numeric(18,0) references THE_GRID.Usuario(ID_User),
-	--ID_Rubro numeric(18,0) references THE_GRID.Rubro(ID_Rubro),
-	Estado nvarchar(255),
-	Tipo_Publicacion nvarchar(255),
+	ID_Estado numeric(18,0) references THE_GRID.Estado_Publicacion(ID_Estado),
+	ID_Tipo numeric(18,0) references THE_GRID.Tipo_Publicacion(ID_Tipo),
 	Permitir_Preguntas bit,			
 )
 go
@@ -140,8 +151,6 @@ create table THE_GRID.Rubros_x_Publicacion(
 	Primary key(ID_Publicacion,ID_Rubro)
 )
 go
-
-
 
 create table THE_GRID.Oferta(
 	ID_Oferta numeric(18,0) identity(1000000,1) Primary Key,
@@ -576,7 +585,26 @@ SELECT DISTINCT Publicacion_Rubro_Descripcion
 from gd_esquema.Maestra
 where Publicacion_Rubro_Descripcion is not null
 
---------------------------- FIN RUBRO
+--------------------------- FIN RUBRO -- INICIO TIPO_PUBLICACION
+
+insert into THE_GRID.Tipo_Publicacion(Nombre)
+values('Compra Inmediata')
+insert into THE_GRID.Tipo_Publicacion(Nombre)
+values('Subasta')
+
+
+--------------------------- FIN TIPO_PUBLICACION -- INICIO ESTADO_PUBLICACION
+
+insert into THE_GRID.Estado_Publicacion(Nombre)
+values('Publicada')
+insert into THE_GRID.Estado_Publicacion(Nombre)
+values('Borrador')
+insert into THE_GRID.Estado_Publicacion(Nombre)
+values('Pausada')
+insert into THE_GRID.Estado_Publicacion(Nombre)
+values('Finalizada')
+
+--------------------------- FIN ESTADO_PUBLICACION
 
 --Publicaciones
 
@@ -584,7 +612,8 @@ insert into THE_GRID.Publicacion
 
 SELECT DISTINCT Publicacion_Cod,Publicacion_Descripcion,Publicacion_Stock,Publicacion_Fecha,
 Publicacion_Fecha_Venc,Publicacion_Precio,Publicacion_Visibilidad_Cod, c.ID_User,
-Publicacion_Estado,Publicacion_Tipo,1
+100,case when Publicacion_Tipo = 'Compra Inmediata' then 100
+	when Publicacion_Tipo = 'Subasta' then 101 end,1
 
 from gd_esquema.Maestra 
 inner join THE_GRID.Cliente c on Publ_Cli_Dni = c.Documento
