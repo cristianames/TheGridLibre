@@ -150,7 +150,7 @@ namespace FrbaCommerce.Generar_Publicacion
                 error = true;
             } else richTextBox1.BackColor = Color.White;
             if (error) return;
-            estado = "Publicada";
+            estado = "100"; //publicada
             guardar();
         }
 
@@ -180,12 +180,12 @@ namespace FrbaCommerce.Generar_Publicacion
             string tipo;
             string descripcion = richTextBox1.Text;
             string precio = txtPrecio.Text;
-            if (esSubasta) tipo = "Subasta"; else tipo = "Compra Inmediata";
+            if (esSubasta) tipo = "101"; else tipo = "100";
             if (String.IsNullOrEmpty(richTextBox1.Text)) descripcion = "Sin Descripcion";
             if (String.IsNullOrEmpty(txtPrecio.Text)) precio = "0";
             consulta = "insert THE_GRID.Publicacion (ID_Publicacion,Descripcion," +
-            "Estado,Fecha_Inicio,Fecha_Vencimiento," +
-            "ID_Vendedor,ID_Visibilidad,Permitir_Preguntas,Precio,Stock,Tipo_Publicacion)" +
+            "ID_Estado,Fecha_Inicio,Fecha_Vencimiento," +
+            "ID_Vendedor,ID_Visibilidad,Permitir_Preguntas,Precio,Stock,ID_Tipo)" +
             "VALUES ("+ (Convert.ToInt32(ultimoID) + 1).ToString() + ",'" + descripcion
                       + "','" + estado + "'"
                       + ",convert(datetime,'" + fechaHoy.ToString("yyyy-dd-MM hh:mm:ss")
@@ -215,7 +215,7 @@ namespace FrbaCommerce.Generar_Publicacion
         {
             txtPrecio.BackColor = Color.White;
             richTextBox1.BackColor = Color.White;
-            estado = "Borrador";
+            estado = "101"; //borrador
             guardar();
         }
 

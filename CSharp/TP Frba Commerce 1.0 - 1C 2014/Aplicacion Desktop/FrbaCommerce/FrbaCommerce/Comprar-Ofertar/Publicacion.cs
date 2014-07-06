@@ -22,8 +22,10 @@ namespace FrbaCommerce.Comprar_Ofertar
             WarningLabel.Visible = false;
             string comando; 
                 
-            comando = @"select * from THE_GRID.Publicacion where ID_Publicacion = " + 
-                      idPublicacion.ToString();
+            comando = @"select p.*, e.Nombre Estado, t.Nombre Tipo_Publicacion from THE_GRID.Publicacion p "+
+                "inner join THE_GRID.Estado_Publicacion e on p.ID_Tipo = e.ID_Estado "+
+                "inner join THE_GRID.Tipo_Publicacion t on p.ID_Tipo = t.ID_Tipo "+
+                "where ID_Publicacion = " + idPublicacion;
 
             infoPublicacion = TG.realizarConsulta(comando).Rows[0];
 
@@ -34,34 +36,45 @@ namespace FrbaCommerce.Comprar_Ofertar
             infoDescripcion.Text += infoPublicacion["Descripcion"].ToString();
             infoDescripcion.Text += "\n\r Stock: ";
             infoDescripcion.Text += infoPublicacion["Stock"].ToString();
-            infoDescripcion.Text += "\n\r Publicación.Tipo: ";
+            infoDescripcion.Text += "\n Publicación.Tipo: ";
             infoDescripcion.Text += (string)TG.consultaEscalar(comando);
 
             if( !(bool)infoPublicacion["Permitir_Preguntas"] )
             {
-                infoDescripcion.Text += "\n\r No se ";
+                infoDescripcion.Text += "\n No se ";
                 campoPregunta.Enabled = false;
                 botonPreguntar.Enabled = false;
             }
-            else infoDescripcion.Text += "\n\r Se ";
+            else infoDescripcion.Text += "\n Se ";
             infoDescripcion.Text += "permiten preguntas";
-            infoDescripcion.Text += "\n\r Publicado el ";
+            infoDescripcion.Text += "\n Publicado el ";
             infoDescripcion.Text += infoPublicacion["Fecha_Inicio"].ToString();
+            infoDescripcion.Text += "\n\r Rubros: ";
+            comando = "select distinct r.Nombre from THE_GRID.Rubro r "+
+                "inner join THE_GRID.Rubros_x_Publicacion rp on rp.ID_Rubro = r.ID_Rubro "+
+                "and rp.ID_Publicacion = " + idPublicacion + " order by 1";
+            List<string> rubros = TG.ObtenerListado(comando);
+            foreach (string rubrito in rubros)
+            {
+                infoDescripcion.Text += "\n "+rubrito;
+            }
 
             string tipoPubli = infoPublicacion["Tipo_Publicacion"].ToString();
             if (String.Equals(tipoPubli, "Subasta"))
             {
-                numericUpDown1.Enabled = false;
+                numericUpDown1.Visible = false;
+                labelUnidades.Visible = false;
                 botonComprar.Visible = false;
             }
             else 
             {
-                montoOferta.Enabled = false;
+                montoOferta.Visible = false;
                 botonOfertar.Visible = false;
+                labelMonto.Visible = false;
                 numericUpDown1.Maximum = Convert.ToInt32(infoPublicacion["Stock"]);
             }
 
-            string estado = infoPublicacion["Tipo_Publicacion"].ToString();
+            string estado = infoPublicacion["Estado"].ToString();
             if (String.Equals(estado,"Pausada")) bloquearTodo();
 
             DateTime fechaVencimiento = Convert.ToDateTime(infoPublicacion["Fecha_Vencimiento"]);
@@ -75,8 +88,10 @@ namespace FrbaCommerce.Comprar_Ofertar
             botonComprar.Visible = false;
             botonOfertar.Visible = false;
             botonPreguntar.Enabled = false;
-            numericUpDown1.Enabled = false;
-            montoOferta.Enabled = false;
+            numericUpDown1.Visible = false;
+            montoOferta.Visible = false;
+            labelMonto.Visible = false;
+            labelUnidades.Visible = false;
             campoPregunta.Enabled = false;
             WarningLabel.Text = "Publicación no disponible";
             WarningLabel.Location = new System.Drawing.Point(372, 283);
@@ -100,7 +115,7 @@ namespace FrbaCommerce.Comprar_Ofertar
             infoPrecio.Text += tipoPubli;
             infoPrecio.Text += ("\n\r "+ tipoPrecio);
             infoPrecio.Text += precio;
-            infoPrecio.Text += "\n\r Total a pagar: ";
+            infoPrecio.Text += "\n Total a pagar: ";
             infoPrecio.Text += calcularTotal();
         }
 
@@ -215,7 +230,7 @@ namespace FrbaCommerce.Comprar_Ofertar
 
             if (stock == 0) 
             {
-                comando = "update THE_GRID.Publicacion set Estado = 'Finalizada' " +
+                comando = "update THE_GRID.Publicacion set ID_Estado = 103 " +
                 "where ID_Publicacion = " + idPublicacion;
                 TG.realizarConsultaSinRetorno(comando);
             }

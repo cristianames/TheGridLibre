@@ -32,13 +32,14 @@ namespace FrbaCommerce.Comprar_Ofertar
                 " (select top 1 x.Nombre from THE_GRID.Rubros_x_Publicacion y" + 
 	            " inner join THE_GRID.Rubro x on (y.ID_Publicacion = p.ID_Publicacion"+
                 " and x.ID_Rubro = y.ID_Rubro)) as 'Rubro Principal'," +
-                " v.Nombre Visibilidad, p.Tipo_Publicacion, " +
+                " v.Nombre Visibilidad, t.Nombre 'Tipo de Publicación', " +
                 " isnull( (select MAX(Monto_Oferta) from THE_GRID.Oferta o "+
                 " where o.ID_Publicacion = p.ID_Publicacion) ,p.Precio) Precio, " +
                 " p.Stock, p.ID_Publicacion " +
                 " from THE_GRID.Publicacion p inner join THE_GRID.Visibilidad v"+ 
                 " on (p.ID_Visibilidad = v.ID_Visibilidad) "+
-                filtroRubro + "where (Estado = 'Publicada' or Estado = 'Pausada') " + 
+                " inner join THE_GRID.Tipo_Publicacion t on t.ID_Tipo = p.ID_Tipo " +
+                filtroRubro + "where (ID_Estado = 100 or ID_Estado = 102) " + //publicada o pausada 
                 filtroPalabra +
                 " Order By v.Precio_por_Publicar desc";
             dataGridView1.DataSource = TG.consultaPaginada(paginaActual,tamanioPagina,comando);
@@ -49,7 +50,7 @@ namespace FrbaCommerce.Comprar_Ofertar
             comando = "SELECT  top 1 count(*)"+
                 " from THE_GRID.Publicacion p inner join THE_GRID.Visibilidad v" +
                 " on (p.ID_Visibilidad = v.ID_Visibilidad) " +
-                filtroRubro + "where (Estado = 'Publicada' or Estado = 'Pausada') " +
+                filtroRubro + "where (ID_Estado = 100 or ID_Estado = 102) " +
                 filtroPalabra;
             totalResultados = (int)TG.consultaEscalar(comando);
             paginas =  totalResultados/tamanioPagina;

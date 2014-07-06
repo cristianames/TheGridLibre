@@ -31,8 +31,8 @@
             this.infoDescripcion = new System.Windows.Forms.RichTextBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.infoPrecio = new System.Windows.Forms.RichTextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelUnidades = new System.Windows.Forms.Label();
+            this.labelMonto = new System.Windows.Forms.Label();
             this.montoOferta = new System.Windows.Forms.TextBox();
             this.botonPreguntar = new System.Windows.Forms.Button();
             this.botonOfertar = new System.Windows.Forms.Button();
@@ -81,24 +81,24 @@
             this.infoPrecio.TabIndex = 2;
             this.infoPrecio.Text = "";
             // 
-            // label1
+            // labelUnidades
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(352, 202);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Unidades deseadas:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.labelUnidades.AutoSize = true;
+            this.labelUnidades.Location = new System.Drawing.Point(352, 202);
+            this.labelUnidades.Name = "labelUnidades";
+            this.labelUnidades.Size = new System.Drawing.Size(104, 13);
+            this.labelUnidades.TabIndex = 3;
+            this.labelUnidades.Text = "Unidades deseadas:";
+            this.labelUnidades.Click += new System.EventHandler(this.label1_Click);
             // 
-            // label2
+            // labelMonto
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(352, 235);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Monto a ofertar:      $";
+            this.labelMonto.AutoSize = true;
+            this.labelMonto.Location = new System.Drawing.Point(352, 235);
+            this.labelMonto.Name = "labelMonto";
+            this.labelMonto.Size = new System.Drawing.Size(106, 13);
+            this.labelMonto.TabIndex = 4;
+            this.labelMonto.Text = "Monto a ofertar:      $";
             // 
             // montoOferta
             // 
@@ -180,6 +180,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.botonCancelar;
             this.ClientSize = new System.Drawing.Size(844, 513);
             this.Controls.Add(this.WarningLabel);
             this.Controls.Add(this.botonCancelar);
@@ -189,8 +190,8 @@
             this.Controls.Add(this.botonOfertar);
             this.Controls.Add(this.botonPreguntar);
             this.Controls.Add(this.montoOferta);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelMonto);
+            this.Controls.Add(this.labelUnidades);
             this.Controls.Add(this.infoPrecio);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.infoDescripcion);
@@ -208,8 +209,8 @@
         private System.Windows.Forms.RichTextBox infoDescripcion;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.RichTextBox infoPrecio;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelUnidades;
+        private System.Windows.Forms.Label labelMonto;
         private System.Windows.Forms.TextBox montoOferta;
         private System.Windows.Forms.Button botonPreguntar;
         private System.Windows.Forms.Button botonOfertar;

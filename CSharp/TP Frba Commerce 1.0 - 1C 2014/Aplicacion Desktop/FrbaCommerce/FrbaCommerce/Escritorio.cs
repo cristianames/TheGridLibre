@@ -20,7 +20,8 @@ namespace FrbaCommerce
             linkLabel3.Text = DatosUsuario.nombreRol;
 
             string comando = "SELECT Nombre FROM THE_GRID.Funcionalidad f inner join THE_GRID.Funcionalidades_x_Rol r "+
-                "on(f.ID_Funcionalidad = r.ID_Funcionalidad and r.ID_Rol = " + DatosUsuario.codigoRol.ToString() + ")";
+                "on(f.ID_Funcionalidad = r.ID_Funcionalidad and r.ID_Rol = " + DatosUsuario.codigoRol.ToString() + ") "+
+                "order by 1";
             listBox1.DataSource = TG.ObtenerListado(comando);
         }
 

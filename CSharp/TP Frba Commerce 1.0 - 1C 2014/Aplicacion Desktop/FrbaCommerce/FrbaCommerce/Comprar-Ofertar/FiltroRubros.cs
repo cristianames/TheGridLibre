@@ -78,6 +78,16 @@ namespace FrbaCommerce.Comprar_Ofertar
             ventanaAnterior.Enabled = true;
             this.Close();
         }
+
+        private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (listBox1.Items.Count > 0) button1_Click(null, null);
+        }
+
+        private void listBox2_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (listBox2.Items.Count > 0) button2_Click(null, null);
+        }
        
     }
 }
