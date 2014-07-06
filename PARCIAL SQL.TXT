@@ -1,0 +1,15 @@
+select i1.item_sucursal,p1.prod_rubro,
+(
+
+select top 1 p2.prod_codigo
+from
+Item_Factura i2
+join Producto p2 on i2.item_producto=p2.prod_codigo 
+where i2.item_sucursal=i1.item_sucursal
+and p2.prod_rubro=P1.prod_rubro
+group by i1.item_sucursal,P1.prod_rubro,p2.prod_codigo
+order by SUM(item_cantidad) asc
+) as ProductoMenosExitoso
+from Item_Factura i1
+join Producto P1 on P1.prod_codigo=I1.item_producto
+group by i1.item_sucursal,P1.prod_rubro
