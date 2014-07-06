@@ -196,6 +196,7 @@
             this.Controls.Add(this.infoDescripcion);
             this.Name = "Publicacion";
             this.Text = "Publicacion";
+            this.Load += new System.EventHandler(this.Publicacion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -72,7 +72,7 @@ namespace FrbaCommerce.Generar_Publicacion
         {
             label4.Enabled = true;
             numericUpDown1.Enabled = true;
-            labelPrecio.Text = "Precio:";
+            labelPrecio.Text = "Precio unitario:";
             esSubasta = false;
         }
 

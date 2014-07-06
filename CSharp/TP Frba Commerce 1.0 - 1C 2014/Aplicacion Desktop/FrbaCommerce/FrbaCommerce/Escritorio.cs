@@ -70,6 +70,8 @@ namespace FrbaCommerce
                 {
                     case "ABM Usuario":
                         //(new AbmUsuario.AbmUsuario(this)).Show();
+                        TG.ventanaEmergente("Esta Funcionalidad todavia no está implementada");
+                        continuar = false;
                         break;
                     case "ABM Cliente":
                         (new ABM_Usuario.AbmCliente(this)).Show();
@@ -81,7 +83,7 @@ namespace FrbaCommerce
                         (new ABM_Usuario.AbmRol(this)).Show();
                         break;
                     case "ABM Visibilidad":
-                        (new Abm_Visibilidad.ABMVisibilidad(this)).Show();// agregar this como parametro
+                        (new Abm_Visibilidad.ABMVisibilidad(this)).Show();
                         break;
                     case "Calificar Vendedor":
                         (new Calificar_Vendedor.SeleccionarUsuario(this)).Show();

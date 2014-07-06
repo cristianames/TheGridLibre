@@ -114,6 +114,7 @@
             // 
             // atras
             // 
+            this.atras.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.atras.Location = new System.Drawing.Point(324, 300);
             this.atras.Name = "atras";
             this.atras.Size = new System.Drawing.Size(75, 23);

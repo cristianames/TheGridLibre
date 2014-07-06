@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Microsoft.Reporting.WinForms;
 
 namespace FrbaCommerce.Comprar_Ofertar
 {
@@ -34,7 +33,9 @@ namespace FrbaCommerce.Comprar_Ofertar
 	            " inner join THE_GRID.Rubro x on (y.ID_Publicacion = p.ID_Publicacion"+
                 " and x.ID_Rubro = y.ID_Rubro)) as 'Rubro Principal'," +
                 " v.Nombre Visibilidad, p.Tipo_Publicacion, " +
-                " p.Precio, p.Stock, p.ID_Publicacion " +
+                " isnull( (select MAX(Monto_Oferta) from THE_GRID.Oferta o "+
+                " where o.ID_Publicacion = p.ID_Publicacion) ,p.Precio) Precio, " +
+                " p.Stock, p.ID_Publicacion " +
                 " from THE_GRID.Publicacion p inner join THE_GRID.Visibilidad v"+ 
                 " on (p.ID_Visibilidad = v.ID_Visibilidad) "+
                 filtroRubro + "where (Estado = 'Publicada' or Estado = 'Pausada') " + 
