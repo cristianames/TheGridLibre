@@ -649,7 +649,11 @@ from gd_esquema.Maestra where Factura_Nro is not null order by Factura_Nro
 insert into THE_GRID.Compra
 select
 m.Publicacion_Cod,
-THE_GRID.dameUserIDdni(m.Cli_Dni), m.Compra_Cantidad, m.Publicacion_Precio, m.Compra_Fecha, 1,
+THE_GRID.dameUserIDdni(m.Cli_Dni), m.Compra_Cantidad, 
+isnull( 
+	(select MAX(x.Oferta_Monto) from gd_esquema.Maestra x where x.Publicacion_Cod = m.Publicacion_Cod) 
+,m.Publicacion_Precio), 
+m.Compra_Fecha, 1,
 m.Calificacion_Cant_Estrellas, m.Calificacion_Descripcion
 
 from gd_esquema.Maestra m

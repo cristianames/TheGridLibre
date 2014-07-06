@@ -19,7 +19,7 @@ namespace FrbaCommerce
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             TG.levantarConfig();
-            Application.Run(new Portal());
+            Application.Run(new Inicio());
 
         }
 

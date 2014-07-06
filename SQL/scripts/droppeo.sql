@@ -25,4 +25,6 @@ drop table THE_GRID.Funcionalidad
 drop table THE_GRID.Rol
 drop table THE_GRID.Rubro
 drop table THE_GRID.Visibilidad
+drop table THE_GRID.Estado_Publicacion
+drop table THE_GRID.Tipo_Publicacion
 drop schema [THE_GRID]

@@ -93,7 +93,7 @@ namespace FrbaCommerce.Comprar_Ofertar
                 tipoPrecio = "Mejor precio hasta ahora: $";
                 string comando = "select ISNULL( MAX(Monto_Oferta),'Sin ofertas') " +
                     "from THE_GRID.Oferta where ID_Publicacion = " + idPublicacion;
-                if(String.Equals(TG.consultaEscalar(comando).ToString(),"Sin ofertas"))
+                if(!String.Equals(TG.consultaEscalar(comando).ToString(),"Sin ofertas"))
                 precio = TG.consultaEscalar(comando).ToString();
             }
             infoPrecio.Text = " Tipo de publicacion : ";
