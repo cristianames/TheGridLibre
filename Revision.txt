@@ -1,0 +1,5 @@
+----------
+HISTORIAL DE CLIENTE
+-Testear Historial de cliente, cuando pone "Sin Resultados"
+-Cuando estas en Compras u Ofertas y volves a Calificaciones no se habilita la opcion ver. Solo despues de tocar Otorgadas/Recibidas
+----------

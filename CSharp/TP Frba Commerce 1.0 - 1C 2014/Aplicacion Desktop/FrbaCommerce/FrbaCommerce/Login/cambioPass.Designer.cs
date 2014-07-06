@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(cambioPass));
             this.textBoxOldPass = new System.Windows.Forms.TextBox();
             this.textBoxPass1 = new System.Windows.Forms.TextBox();
             this.textBoxPass2 = new System.Windows.Forms.TextBox();
@@ -41,58 +42,74 @@
             // 
             // textBoxOldPass
             // 
-            this.textBoxOldPass.Location = new System.Drawing.Point(166, 30);
+            this.textBoxOldPass.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxOldPass.Location = new System.Drawing.Point(226, 32);
             this.textBoxOldPass.Name = "textBoxOldPass";
             this.textBoxOldPass.PasswordChar = '*';
-            this.textBoxOldPass.Size = new System.Drawing.Size(100, 20);
+            this.textBoxOldPass.Size = new System.Drawing.Size(113, 18);
             this.textBoxOldPass.TabIndex = 0;
             // 
             // textBoxPass1
             // 
-            this.textBoxPass1.Location = new System.Drawing.Point(166, 72);
+            this.textBoxPass1.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPass1.Location = new System.Drawing.Point(226, 74);
             this.textBoxPass1.Name = "textBoxPass1";
             this.textBoxPass1.PasswordChar = '*';
-            this.textBoxPass1.Size = new System.Drawing.Size(100, 20);
+            this.textBoxPass1.Size = new System.Drawing.Size(113, 18);
             this.textBoxPass1.TabIndex = 1;
             // 
             // textBoxPass2
             // 
-            this.textBoxPass2.Location = new System.Drawing.Point(166, 113);
+            this.textBoxPass2.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPass2.Location = new System.Drawing.Point(226, 115);
             this.textBoxPass2.Name = "textBoxPass2";
             this.textBoxPass2.PasswordChar = '*';
-            this.textBoxPass2.Size = new System.Drawing.Size(100, 20);
+            this.textBoxPass2.Size = new System.Drawing.Size(113, 18);
             this.textBoxPass2.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(12, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(148, 13);
+            this.label1.Size = new System.Drawing.Size(208, 11);
             this.label1.TabIndex = 3;
             this.label1.Text = "Introduzca contraseña actual:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(12, 79);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(149, 13);
+            this.label2.Size = new System.Drawing.Size(201, 11);
             this.label2.TabIndex = 4;
             this.label2.Text = "Introduzca nueva contraseña:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(12, 120);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 13);
+            this.label3.Size = new System.Drawing.Size(152, 11);
             this.label3.TabIndex = 5;
             this.label3.Text = "Confirmar contraseña:";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(47, 208);
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(65, 208);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 6;
@@ -102,8 +119,12 @@
             // 
             // button2
             // 
+            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button2.Location = new System.Drawing.Point(166, 208);
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(217, 208);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 7;
@@ -114,9 +135,12 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(12, 167);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(239, 13);
+            this.label4.Size = new System.Drawing.Size(341, 11);
             this.label4.TabIndex = 8;
             this.label4.Text = "Contraseña alfanumérica entre 8 y 10 caracteres.";
             // 
@@ -125,8 +149,9 @@
             this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.CancelButton = this.button2;
-            this.ClientSize = new System.Drawing.Size(995, 325);
+            this.ClientSize = new System.Drawing.Size(922, 342);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -136,9 +161,9 @@
             this.Controls.Add(this.textBoxPass2);
             this.Controls.Add(this.textBoxPass1);
             this.Controls.Add(this.textBoxOldPass);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "cambioPass";
             this.Text = "Cambio de Contraseña";
-            this.Load += new System.EventHandler(this.cambioPass_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

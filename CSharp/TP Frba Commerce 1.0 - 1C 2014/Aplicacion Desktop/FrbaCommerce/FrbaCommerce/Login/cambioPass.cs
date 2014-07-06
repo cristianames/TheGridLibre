@@ -18,18 +18,13 @@ namespace FrbaCommerce.Login
             InitializeComponent();
             this.primerIngreso = primerIngreso;
             this.ventanaAnterior = ventanaAnterior;
-            this.ClientSize = new System.Drawing.Size(292, 266);
+            this.ClientSize = new System.Drawing.Size(365, 266);
             if (primerIngreso)
             {
                 textBoxOldPass.Enabled = false;
                 textBoxOldPass.Text = "LOOOOOOL";
                 DatosUsuario.actualizarBanderasUsuario();
             }
-        }
-
-        private void cambioPass_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void button2_Click(object sender, EventArgs e)

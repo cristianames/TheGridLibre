@@ -19,7 +19,6 @@ namespace FrbaCommerce.Login
         {
             InitializeComponent();
             this.ClientSize = new System.Drawing.Size(340, 140);
-            this.pictureBox1.Visible = false;
         }
 
         private void submitActions() 

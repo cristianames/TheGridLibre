@@ -15,7 +15,7 @@ namespace FrbaCommerce
         {
             InitializeComponent();
             this.ventanaAnterior = anterior;
-            this.ClientSize = new System.Drawing.Size(194, 352);
+            this.ClientSize = new System.Drawing.Size(205, 352);
             label3.Text = "¡Bienvenido Grid_" + DatosUsuario.usuario.ToString() + "!";
             linkLabel3.Text = DatosUsuario.nombreRol;
 
@@ -44,7 +44,7 @@ namespace FrbaCommerce
                 listBox1.Enabled = true;
                 button1.Enabled = true;
                 linkLabel1.Text = "Configuración";
-                linkLabel1.LinkColor = Color.Blue;
+                linkLabel1.LinkColor = Color.Cyan;
             }
         }
 

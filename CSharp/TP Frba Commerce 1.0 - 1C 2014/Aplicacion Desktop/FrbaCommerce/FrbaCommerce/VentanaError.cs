@@ -26,7 +26,7 @@ namespace FrbaCommerce
                 anchoMensaje = button1.Width;
                 label1.Location = new System.Drawing.Point(25 + button1.Width/2 - label1.Width / 2, 25);
             }
-            this.Size = new Size( anchoMensaje + 50, 130);
+            this.Size = new Size( anchoMensaje + 50, 90);
             button1.Location = new System.Drawing.Point(25 + anchoMensaje / 2 - button1.Width/2, 49);
         }
 

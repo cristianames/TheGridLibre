@@ -459,7 +459,7 @@ fetch next from usuariosModificados into @usuario
 while (@@fetch_status = 0)
 begin
 
-update THE_GRID.Publicacion set Estado= 'Pausada' where ID_Vendedor = @usuario and Estado = 'Publicada'
+update THE_GRID.Publicacion set ID_Estado= 102 where ID_Vendedor = @usuario and ID_Estado = 100
 
 fetch next from usuariosModificados into @usuario
 end
@@ -624,7 +624,8 @@ union
 
 SELECT DISTINCT Publicacion_Cod,Publicacion_Descripcion,Publicacion_Stock,Publicacion_Fecha,
 Publicacion_Fecha_Venc,Publicacion_Precio,Publicacion_Visibilidad_Cod, e.ID_User,
-Publicacion_Estado,Publicacion_Tipo,1
+100,case when Publicacion_Tipo = 'Compra Inmediata' then 100
+	when Publicacion_Tipo = 'Subasta' then 101 end,1
 
 from gd_esquema.Maestra 
 inner join THE_GRID.Empresa e on Publ_Empresa_Cuit = e.CUIT

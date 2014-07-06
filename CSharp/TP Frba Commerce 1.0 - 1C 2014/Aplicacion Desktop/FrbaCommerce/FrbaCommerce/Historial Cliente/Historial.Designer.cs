@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Historial));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.recibidas = new System.Windows.Forms.RadioButton();
             this.refrescar = new System.Windows.Forms.Button();
@@ -44,11 +45,13 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.recibidas);
             this.groupBox1.Controls.Add(this.refrescar);
             this.groupBox1.Controls.Add(this.otorgadas);
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(10, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(391, 59);
@@ -60,9 +63,9 @@
             // 
             this.recibidas.AutoSize = true;
             this.recibidas.Checked = true;
-            this.recibidas.Location = new System.Drawing.Point(313, 25);
+            this.recibidas.Location = new System.Drawing.Point(281, 35);
             this.recibidas.Name = "recibidas";
-            this.recibidas.Size = new System.Drawing.Size(72, 17);
+            this.recibidas.Size = new System.Drawing.Size(86, 15);
             this.recibidas.TabIndex = 4;
             this.recibidas.TabStop = true;
             this.recibidas.Text = "Recibidas";
@@ -71,9 +74,13 @@
             // 
             // refrescar
             // 
-            this.refrescar.Location = new System.Drawing.Point(154, 22);
+            this.refrescar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("refrescar.BackgroundImage")));
+            this.refrescar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.refrescar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.refrescar.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refrescar.Location = new System.Drawing.Point(184, 21);
             this.refrescar.Name = "refrescar";
-            this.refrescar.Size = new System.Drawing.Size(75, 23);
+            this.refrescar.Size = new System.Drawing.Size(87, 23);
             this.refrescar.TabIndex = 9;
             this.refrescar.Text = "Refrescar";
             this.refrescar.UseVisualStyleBackColor = true;
@@ -82,9 +89,9 @@
             // otorgadas
             // 
             this.otorgadas.AutoSize = true;
-            this.otorgadas.Location = new System.Drawing.Point(233, 25);
+            this.otorgadas.Location = new System.Drawing.Point(281, 14);
             this.otorgadas.Name = "otorgadas";
-            this.otorgadas.Size = new System.Drawing.Size(74, 17);
+            this.otorgadas.Size = new System.Drawing.Size(86, 15);
             this.otorgadas.TabIndex = 3;
             this.otorgadas.Text = "Otorgadas";
             this.otorgadas.UseVisualStyleBackColor = true;
@@ -97,9 +104,9 @@
             "Calificaciones",
             "Compras",
             "Ofertas"});
-            this.comboBox1.Location = new System.Drawing.Point(55, 23);
+            this.comboBox1.Location = new System.Drawing.Point(81, 24);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(95, 21);
+            this.comboBox1.Size = new System.Drawing.Size(95, 19);
             this.comboBox1.TabIndex = 2;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -108,13 +115,17 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(7, 27);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 13);
+            this.label1.Size = new System.Drawing.Size(68, 11);
             this.label1.TabIndex = 1;
             this.label1.Text = "Criterio:";
             // 
             // atras
             // 
+            this.atras.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("atras.BackgroundImage")));
+            this.atras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.atras.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.atras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.atras.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.atras.Location = new System.Drawing.Point(324, 300);
             this.atras.Name = "atras";
             this.atras.Size = new System.Drawing.Size(75, 23);
@@ -140,6 +151,10 @@
             // 
             // seleccionar
             // 
+            this.seleccionar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("seleccionar.BackgroundImage")));
+            this.seleccionar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.seleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.seleccionar.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.seleccionar.Location = new System.Drawing.Point(243, 300);
             this.seleccionar.Name = "seleccionar";
             this.seleccionar.Size = new System.Drawing.Size(75, 23);
@@ -151,10 +166,11 @@
             // sinResultados
             // 
             this.sinResultados.AutoSize = true;
-            this.sinResultados.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sinResultados.Location = new System.Drawing.Point(58, 160);
+            this.sinResultados.BackColor = System.Drawing.Color.Transparent;
+            this.sinResultados.Font = new System.Drawing.Font("Lucida Console", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sinResultados.Location = new System.Drawing.Point(34, 160);
             this.sinResultados.Name = "sinResultados";
-            this.sinResultados.Size = new System.Drawing.Size(284, 42);
+            this.sinResultados.Size = new System.Drawing.Size(339, 37);
             this.sinResultados.TabIndex = 23;
             this.sinResultados.Text = "Sin Resultados";
             // 
@@ -163,13 +179,16 @@
             this.AcceptButton = this.seleccionar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.atras;
-            this.ClientSize = new System.Drawing.Size(844, 513);
+            this.ClientSize = new System.Drawing.Size(922, 334);
             this.Controls.Add(this.sinResultados);
             this.Controls.Add(this.seleccionar);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.atras);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Historial";
             this.Text = "Historial de Cliente";
             this.Load += new System.EventHandler(this.Historial_Load);
