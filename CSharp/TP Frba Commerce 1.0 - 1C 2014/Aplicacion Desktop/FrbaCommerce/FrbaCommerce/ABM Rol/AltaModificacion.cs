@@ -117,7 +117,7 @@ namespace FrbaCommerce.ABM_Usuario
             if (resultado.Rows.Count > 0)
             {
                 string nombreRol = resultado.Rows[0]["Nombre"].ToString();
-                if (!String.Equals(txtNombre.Text, nombreRol) && rol > 0)
+                if (txtNombre.Text != nombreRol && rol > 0)
                 {
                     comando = "select * from THE_GRID.Rol where Nombre = '" + txtNombre.Text + "'";
                     if (TG.realizarConsulta(comando).Rows.Count > 0) return true;

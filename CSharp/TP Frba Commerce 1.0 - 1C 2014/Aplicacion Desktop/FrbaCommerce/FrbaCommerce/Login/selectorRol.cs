@@ -37,7 +37,7 @@ namespace FrbaCommerce.Login
                 "where Nombre = '" + comboBox1.SelectedItem.ToString() + "'";
             
             DataRow resultado = TG.realizarConsulta(comando).Rows[0];
-            DatosUsuario.codigoRol = Convert.ToInt32(resultado["ID_Rol"]);
+            DatosUsuario.codigoRol = resultado["ID_Rol"].ToString();
             
             FrbaCommerce.Escritorio desk = new Escritorio(this);
             desk.Show();

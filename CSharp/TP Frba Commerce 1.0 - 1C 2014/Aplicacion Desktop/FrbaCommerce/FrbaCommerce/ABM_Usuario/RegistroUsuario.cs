@@ -28,11 +28,11 @@ namespace FrbaCommerce.ABM_Usuario
             
             switch (DatosUsuario.tipoUsuario) 
             {
-                case 1:  //Administrador
+                case "1":  //Administrador
                     switch (DatosUsuario.tipoUsuarioModif)
                     {
-                        case 2: levantarDatosCliente(); break;
-                        case 3: levantarDatosEmpresa(); break;
+                        case "2": levantarDatosCliente(); break;
+                        case "3": levantarDatosEmpresa(); break;
                         default: 
                             radioButton1.Enabled = false;
                             radioButton2.Enabled = false; 
@@ -41,12 +41,12 @@ namespace FrbaCommerce.ABM_Usuario
                     }
                     break;
 
-                case 2:  //Cliente
+                case "2":  //Cliente
                     label29.Text = "Por favor, mantenga sus datos actualizados";
                     levantarDatosCliente();
                     break;
 
-                case 3:  //Empresa
+                case "3":  //Empresa
                     label29.Text = "Por favor, mantenga sus datos actualizados";
                     levantarDatosEmpresa();
                     break;
@@ -72,19 +72,19 @@ namespace FrbaCommerce.ABM_Usuario
             txtCuit.Text = consulta["CUIT"].ToString();
             txtCuit.Text = consulta["CUIT"].ToString();
             txtEmailEmpresa.Text = consulta["Mail"].ToString();
-            if (!String.Equals(consulta["Telefono"].ToString(), "0"))
+            if (consulta["Telefono"].ToString() != "0")
                 txtTelEmpresa.Text = consulta["Telefono"].ToString();
             dateTimePicker2.Value = Convert.ToDateTime(consulta["Fecha_Creacion"]);
-            if (!String.Equals(consulta["Nombre_Contacto"].ToString(), "Sin_Contacto"))
+            if (consulta["Nombre_Contacto"].ToString() != "Sin_Contacto")
                 txtNombreContacto.Text = consulta["Nombre_Contacto"].ToString();
             txtCalleEmpresa.Text = consulta["Calle"].ToString();
             txtNroCalleEmpresa.Text = consulta["Nro_Calle"].ToString();
             txtPisoEmpresa.Text = consulta["Nro_Piso"].ToString();
             txtDepEmpresa.Text = consulta["Departamento"].ToString();
-            if (!String.Equals(consulta["Localidad"].ToString(), "Sin_Localidad"))
+            if (consulta["Localidad"].ToString() != "Sin_Localidad")
                 txtLocEmpresa.Text = consulta["Localidad"].ToString();
             txtCodPosEmpresa.Text = consulta["Cod_Postal"].ToString();
-            if (!String.Equals(consulta["Ciudad"].ToString(), "Sin_Ciudad"))
+            if (consulta["Ciudad"].ToString() != "Sin_Ciudad")
                 txtCiudadEmpresa.Text = consulta["Ciudad"].ToString();
         }
 
@@ -106,19 +106,19 @@ namespace FrbaCommerce.ABM_Usuario
             }
             txtDoc.Text = consulta["Documento"].ToString();
             txtEmail.Text = consulta["Mail"].ToString();
-            if (!String.Equals(consulta["Telefono"].ToString(), "0"))
+            if (consulta["Telefono"].ToString() != "0")
                 txtTel.Text = consulta["Telefono"].ToString();
             dateTimePicker1.Value = Convert.ToDateTime(consulta["Fecha_Nacimiento"]);
-            if (!String.Equals(consulta["Nro_Tarjeta"].ToString(), "0"))
+            if (consulta["Nro_Tarjeta"].ToString() != "0")
                 txtNroTarjeta.Text = consulta["Nro_Tarjeta"].ToString();
             txtCalle.Text = consulta["Calle"].ToString();
             txtNroCalle.Text = consulta["Nro_Calle"].ToString();
             txtPiso.Text = consulta["Nro_Piso"].ToString();
             txtDep.Text = consulta["Departamento"].ToString();
-            if (!String.Equals(consulta["Localidad"].ToString(), "Sin_Localidad"))
+            if (consulta["Localidad"].ToString() != "Sin_Localidad")
                 txtLoc.Text = consulta["Localidad"].ToString();
             txtCodPos.Text = consulta["Cod_Postal"].ToString();
-            if (!String.Equals(consulta["Ciudad"].ToString(), "Sin_Ciudad"))
+            if (consulta["Ciudad"].ToString() != "Sin_Ciudad")
                 txtCiudad.Text = consulta["Ciudad"].ToString();
         }
 
@@ -136,7 +136,7 @@ namespace FrbaCommerce.ABM_Usuario
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (DatosUsuario.tipoUsuario == 1 && DatosUsuario.tipoUsuarioModif != (-1))
+            if (DatosUsuario.tipoUsuario == "1" && DatosUsuario.tipoUsuarioModif != "-1")
             DatosUsuario.resetearDatosModif();
             volverAtras();
         }
@@ -157,8 +157,8 @@ namespace FrbaCommerce.ABM_Usuario
             string comando = "select * from THE_GRID.Cliente where ID_User =" + DatosUsuario.usuario;
             DataRow datosCliente = TG.realizarConsulta(comando).Rows[0];
 
-            if (!String.Equals(datosCliente["Tipo_Documento"].ToString(), comboBox1.SelectedItem.ToString()) ||
-                !String.Equals(datosCliente["Documento"].ToString(), txtDoc.Text))
+            if (datosCliente["Tipo_Documento"].ToString()!= comboBox1.SelectedItem.ToString() ||
+                datosCliente["Documento"].ToString() != txtDoc.Text)
             {
                 comando = "select * from THE_GRID.Cliente where " +
                 "Tipo_Documento = '" + comboBox1.SelectedItem.ToString() + "' and " +
@@ -172,7 +172,7 @@ namespace FrbaCommerce.ABM_Usuario
                 }
             }
 
-            if (!String.Equals(datosCliente["Telefono"].ToString(), txtTel.Text))
+            if (datosCliente["Telefono"].ToString() != txtTel.Text)
             {
                 comando = "select * from THE_GRID.Cliente where Telefono = " + txtTel.Text;
                 resultado = TG.realizarConsulta(comando);
@@ -191,7 +191,7 @@ namespace FrbaCommerce.ABM_Usuario
             string comando = "select * from THE_GRID.Empresa where ID_User =" + DatosUsuario.usuario;
             DataRow datosEmpresa = TG.realizarConsulta(comando).Rows[0];
 
-            if (!String.Equals(datosEmpresa["CUIT"].ToString(), txtCuit.Text))
+            if (datosEmpresa["CUIT"].ToString() != txtCuit.Text)
             {
                 comando = "select * from THE_GRID.Empresa where " +
                     "CUIT = '" + txtCuit.Text + "'";
@@ -204,7 +204,7 @@ namespace FrbaCommerce.ABM_Usuario
                 }
             }
 
-            if (!String.Equals(datosEmpresa["Razon_Social"].ToString(), txtRazonSocial.Text))
+            if (datosEmpresa["Razon_Social"].ToString() != txtRazonSocial.Text)
             {
                 comando = "select * from THE_GRID.Empresa where " +
                     "Razon_Social = '" + txtRazonSocial.Text + "'";
@@ -217,7 +217,7 @@ namespace FrbaCommerce.ABM_Usuario
                 }
             }
 
-            if (!String.Equals(datosEmpresa["Telefono"].ToString(), txtTel.Text))
+            if (datosEmpresa["Telefono"].ToString() != txtTel.Text)
             {
                 comando = "select * from THE_GRID.Empresa where Telefono = " + txtTelEmpresa.Text;
                 resultado = TG.realizarConsulta(comando);
@@ -290,6 +290,7 @@ namespace FrbaCommerce.ABM_Usuario
             }
             if (error) return;
 
+            if(!usuarioNuevo)
             error = validarDatosCliente();
             if (error) return;
 
@@ -300,7 +301,7 @@ namespace FrbaCommerce.ABM_Usuario
                     TG.realizarConsultaSinRetorno(comandoInsertar);
                     
                     DataTable consultaUltimoUsuario = TG.realizarConsulta("select top 1 ID_User from THE_GRID.Usuario order by ID_User desc");
-                    DatosUsuario.usuario = Convert.ToInt32( consultaUltimoUsuario.Rows[0]["ID_User"]);
+                    DatosUsuario.usuario = consultaUltimoUsuario.Rows[0]["ID_User"].ToString();
 
                     TG.realizarConsultaSinRetorno("Insert INTO THE_GRID.Cliente (ID_User) VALUES("+ DatosUsuario.usuario.ToString() +")" );
                     TG.realizarConsultaSinRetorno("Insert INTO THE_GRID.Roles_x_Usuario (ID_User,ID_Rol,Inhabilitado) VALUES(" + DatosUsuario.usuario.ToString() + ",3,0)");
@@ -310,8 +311,8 @@ namespace FrbaCommerce.ABM_Usuario
             string nroTarjeta = txtNroTarjeta.Text;
             string piso = txtPiso.Text;
 
-            if (String.Equals(nroTarjeta, "")) nroTarjeta = "0";
-            if (String.Equals(piso, "")) piso = "0";
+            if (nroTarjeta == "") nroTarjeta = "0";
+            if (piso == "") piso = "0";
 
             string actualizarCliente = @"UPDATE THE_GRID.Cliente set                     
                     Nombre ='" + txtNombre.Text + @"',
@@ -332,12 +333,13 @@ namespace FrbaCommerce.ABM_Usuario
                     where ID_USER =" + DatosUsuario.usuario.ToString();
             TG.realizarConsultaSinRetorno(actualizarCliente);
 
-            if(DatosUsuario.DatosCorrectos == 0) validarUsuario();
+            if(DatosUsuario.DatosCorrectos == "0") validarUsuario();
 
-            if (usuarioNuevo) 
+            if (DatosUsuario.tipoUsuario == "1") DatosUsuario.resetearDatosModif();
+            ventanaAnterior.Show();
+            if (usuarioNuevo)
                 TG.ventanaEmergente("Usuario creado. Su Username y Password se han enviado a su correo");
-            if (DatosUsuario.tipoUsuario == 1) DatosUsuario.resetearDatosModif();
-            volverAtras();
+            this.Close();
         }
 
         private bool validacionPreviaEmpresa()
@@ -393,6 +395,7 @@ namespace FrbaCommerce.ABM_Usuario
             }
             if (error) return;
 
+            if (!usuarioNuevo)
             error = validarDatosEmpresa();
             if (error) return;
 
@@ -403,14 +406,14 @@ namespace FrbaCommerce.ABM_Usuario
                     TG.realizarConsultaSinRetorno(comandoInsertar);
 
                     DataTable consultaUltimoUsuario = TG.realizarConsulta("select top 1 ID_User from THE_GRID.Usuario order by ID_User desc");
-                    DatosUsuario.usuario = Convert.ToInt32(consultaUltimoUsuario.Rows[0]["ID_User"]);
+                    DatosUsuario.usuario = consultaUltimoUsuario.Rows[0]["ID_User"].ToString();
 
                     TG.realizarConsultaSinRetorno("Insert INTO THE_GRID.Empresa (ID_User) VALUES(" + DatosUsuario.usuario.ToString() + ")");
                     TG.realizarConsultaSinRetorno("Insert INTO THE_GRID.Roles_x_Usuario (ID_User,ID_Rol,Inhabilitado) VALUES(" + DatosUsuario.usuario.ToString() + ",3,0)");
                 }
 
             string piso = txtPiso.Text;
-            if (String.Equals(piso, "")) piso = "0";
+            if (piso == "") piso = "0";
 
             string actualizarEmpresa = "UPDATE THE_GRID.Empresa set "+                     
                     "Razon_Social ='" + txtRazonSocial.Text + "'" +
@@ -429,12 +432,13 @@ namespace FrbaCommerce.ABM_Usuario
                     " where ID_USER =" + DatosUsuario.usuario.ToString();
             TG.realizarConsultaSinRetorno(actualizarEmpresa);
             
-            if(DatosUsuario.DatosCorrectos == 0) validarUsuario();
+            if(DatosUsuario.DatosCorrectos == "0") validarUsuario();
 
+            if (DatosUsuario.tipoUsuario == "1") DatosUsuario.resetearDatosModif();
+            ventanaAnterior.Show();
             if (usuarioNuevo)
                 TG.ventanaEmergente("Usuario creado. Su Username y Password se han enviado a su correo");
-            if (DatosUsuario.tipoUsuario == 1) DatosUsuario.resetearDatosModif();
-            volverAtras();
+            this.Close();
         }
 
         private void validarUsuario()

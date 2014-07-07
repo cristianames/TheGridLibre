@@ -28,7 +28,7 @@ namespace FrbaCommerce.Historial_Cliente
             List<String> lista = new List<String>();
             lista.Add("Calificaciones");
             
-            if (DatosUsuario.codigoRol == 3) otorgadas.Enabled = false;
+            if (DatosUsuario.codigoRol == "3") otorgadas.Enabled = false;
             else 
             {
                 lista.Add("Compras");

@@ -111,6 +111,12 @@
     <Compile Include="ABM Rol\AltaModificacion.Designer.cs">
       <DependentUpon>AltaModificacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="ABM_Usuario\Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM_Usuario\Admin.Designer.cs">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </Compile>
     <Compile Include="ABM_Usuario\Baja.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,12 @@
     </Compile>
     <Compile Include="Abm Rubro\ModificarRubro.Designer.cs">
       <DependentUpon>ModificarRubro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM_Usuario\ABM_Usuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM_Usuario\ABM_Usuario.Designer.cs">
+      <DependentUpon>ABM_Usuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Calificar Vendedor\FormularioCalificacion.cs">
       <SubType>Form</SubType>
@@ -301,6 +313,9 @@
       <DependentUpon>AltaModificacion.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="ABM_Usuario\Admin.resx">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ABM_Usuario\Baja.resx">
       <DependentUpon>Baja.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -313,6 +328,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Rubro\ModificarRubro.resx">
       <DependentUpon>ModificarRubro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM_Usuario\ABM_Usuario.resx">
+      <DependentUpon>ABM_Usuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Calificar Vendedor\FormularioCalificacion.resx">
       <DependentUpon>FormularioCalificacion.cs</DependentUpon>

@@ -20,7 +20,7 @@ namespace FrbaCommerce.Comprar_Ofertar
             ventanaAnterior = anterior;
             numericUpDown1.Value = tamanioPagina;
             sinResultados.Visible = false;
-            if (DatosUsuario.tipoUsuario != 1) richTextBox1.Visible = false;
+            if (DatosUsuario.tipoUsuario != "1") richTextBox1.Visible = false;
             actualizarGrilla();
             reiniciarBotonera();
         }

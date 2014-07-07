@@ -117,8 +117,8 @@ namespace FrbaCommerce.ABM_Usuario
         private void botonModificar_Click(object sender, EventArgs e)
         {
             DatosUsuario.usuarioAux = DatosUsuario.usuario;
-            DatosUsuario.usuario = Convert.ToInt32(dataGridView1["ID_User", filaSeleccionada].Value);
-            DatosUsuario.tipoUsuarioModif = 2;
+            DatosUsuario.usuario = dataGridView1["ID_User", filaSeleccionada].Value.ToString();
+            DatosUsuario.tipoUsuarioModif = "2";
             (new FrbaCommerce.ABM_Usuario.Registro_de_Usuario(this)).Show();
             this.Visible = false;
         }
@@ -130,7 +130,7 @@ namespace FrbaCommerce.ABM_Usuario
 
         private void botonEliminar_Click(object sender, EventArgs e)
         {
-            int usuario = Convert.ToInt32(dataGridView1["ID_User", filaSeleccionada].Value);
+            string usuario = dataGridView1["ID_User", filaSeleccionada].Value.ToString();
             (new Baja(this,usuario)).Show();
             this.Visible = false;
         }

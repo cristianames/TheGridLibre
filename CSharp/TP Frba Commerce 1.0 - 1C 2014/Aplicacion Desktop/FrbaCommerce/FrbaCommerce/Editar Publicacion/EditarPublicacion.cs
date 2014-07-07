@@ -68,7 +68,7 @@ namespace FrbaCommerce.Editar_Publicacion
         {
             string estado = dataGridView1.CurrentRow.Cells["Estado"].Value.ToString();
             string comando;
-            if (String.Equals(estado, "Pausada"))
+            if (estado == "Pausada")
             {
                 comando = "update THE_GRID.Publicacion set Estado ='Publicada' where ID_Publicacion =" + dataGridView1.CurrentRow.Cells["ID_Publicacion"].Value.ToString();
                 botonPausar.Text = "Pausar";

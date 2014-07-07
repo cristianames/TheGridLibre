@@ -566,6 +566,9 @@ deallocate cursorEmpresa
 insert into THE_GRID.Usuario(Pass,Inhabilitado,Antiguo,ID_Tipo,Intentos,Primer_Ingreso,Datos_Correctos) 
 values('e6b87050bfcb8143fcb8db0170a4dc9ed00d904ddd3e2a4ad1b1e8dc0fdc9be7',0,0,1,1,0,1)
 
+insert into THE_GRID.Administrador 
+values ((select top 1 ID_User from THE_GRID.Usuario order by ID_User desc),'Administrador General')
+
 insert into THE_GRID.Roles_x_Usuario (ID_User,ID_Rol,Inhabilitado) 
 values ((select top 1 ID_User from THE_GRID.Usuario order by ID_User desc),1,0)
 

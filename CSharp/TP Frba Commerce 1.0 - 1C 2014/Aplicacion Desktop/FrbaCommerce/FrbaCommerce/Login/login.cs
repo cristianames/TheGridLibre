@@ -63,14 +63,14 @@ namespace FrbaCommerce.Login
                 else if (protocol == 5) TG.ventanaEmergente("No hay roles disponibles para este usuario");
                 else if (primerIngreso(userTextbox.Text))
                 {
-                    DatosUsuario.usuario = Convert.ToInt32(userTextbox.Text);
+                    DatosUsuario.usuario = userTextbox.Text;
                     FrbaCommerce.Login.cambioPass cambioDePass = new cambioPass(this,true);
                     cambioDePass.Show();
                     this.Visible = false;
                 }
                 else
                 {
-                    DatosUsuario.usuario = Convert.ToInt32(userTextbox.Text);
+                    DatosUsuario.usuario = userTextbox.Text;
                     DatosUsuario.actualizarBanderasUsuario();
                     FrbaCommerce.Login.selectorRol seleccionRol = new selectorRol(this);
                     seleccionRol.Show();

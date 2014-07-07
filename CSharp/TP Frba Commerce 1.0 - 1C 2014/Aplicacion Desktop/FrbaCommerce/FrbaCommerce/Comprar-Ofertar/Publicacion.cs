@@ -60,7 +60,7 @@ namespace FrbaCommerce.Comprar_Ofertar
             }
 
             string tipoPubli = infoPublicacion["Tipo_Publicacion"].ToString();
-            if (String.Equals(tipoPubli, "Subasta"))
+            if (tipoPubli == "Subasta")
             {
                 numericUpDown1.Visible = false;
                 labelUnidades.Visible = false;
@@ -75,7 +75,7 @@ namespace FrbaCommerce.Comprar_Ofertar
             }
 
             string estado = infoPublicacion["Estado"].ToString();
-            if (String.Equals(estado,"Pausada")) bloquearTodo();
+            if (estado == "Pausada") bloquearTodo();
 
             DateTime fechaVencimiento = Convert.ToDateTime(infoPublicacion["Fecha_Vencimiento"]);
             if (fechaVencimiento < TG.fechaDelSistema) bloquearTodo();
@@ -103,12 +103,12 @@ namespace FrbaCommerce.Comprar_Ofertar
             string tipoPubli = infoPublicacion["Tipo_Publicacion"].ToString();
             string tipoPrecio = "Precio: $";
             string precio = infoPublicacion["Precio"].ToString();
-            if (String.Equals(tipoPubli, "Subasta"))
+            if (tipoPubli == "Subasta")
             {
                 tipoPrecio = "Mejor precio hasta ahora: $";
                 string comando = "select ISNULL( MAX(Monto_Oferta),'Sin ofertas') " +
                     "from THE_GRID.Oferta where ID_Publicacion = " + idPublicacion;
-                if(!String.Equals(TG.consultaEscalar(comando).ToString(),"Sin ofertas"))
+                if(TG.consultaEscalar(comando).ToString() != "Sin ofertas")
                 precio = TG.consultaEscalar(comando).ToString();
             }
             infoPrecio.Text = " Tipo de publicacion : ";
@@ -122,11 +122,11 @@ namespace FrbaCommerce.Comprar_Ofertar
         private string calcularTotal()
         {
             string tipoPubli = infoPublicacion["Tipo_Publicacion"].ToString();
-            if (String.Equals(tipoPubli, "Subasta") && !Validacion.esFloat(montoOferta.Text))
+            if (tipoPubli == "Subasta" && !Validacion.esFloat(montoOferta.Text))
                 return "...";
 
             string _precio = infoPublicacion["Precio"].ToString();
-            if (String.Equals(tipoPubli, "Subasta")) _precio = montoOferta.Text;
+            if (tipoPubli == "Subasta") _precio = montoOferta.Text;
             
             float precio = Validacion.ToFloat(_precio);
             return (precio * (float)numericUpDown1.Value).ToString();
@@ -161,7 +161,7 @@ namespace FrbaCommerce.Comprar_Ofertar
         {
             string idVendedor = infoPublicacion["ID_Vendedor"].ToString();
             string idComprador = DatosUsuario.usuario.ToString();
-            if (String.Equals(idComprador, idVendedor))
+            if (idComprador == idVendedor)
             {
                 TG.ventanaEmergente("No se puede realizar esta operación en tu propia publicación");
                 return true;

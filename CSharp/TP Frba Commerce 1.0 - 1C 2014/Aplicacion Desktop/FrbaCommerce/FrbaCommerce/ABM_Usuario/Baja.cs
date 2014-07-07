@@ -11,8 +11,8 @@ namespace FrbaCommerce.ABM_Usuario
 {
     public partial class Baja : FormGrid
     {
-        private int usuario;
-        public Baja(FormGrid anterior, int usuario)
+        private string usuario;
+        public Baja(FormGrid anterior, string usuario)
         {
             InitializeComponent();
             this.ClientSize = new System.Drawing.Size(366, 107);
@@ -29,7 +29,7 @@ namespace FrbaCommerce.ABM_Usuario
         {
             botonConfirmar.Enabled = false;
             botonCancelar.Enabled = false;
-            string comando = "update THE_GRID.Usuario set Inhabilitado = 1 where ID_User =" + usuario.ToString();
+            string comando = "update THE_GRID.Usuario set Inhabilitado = 1 where ID_User =" + usuario;
             TG.realizarConsultaSinRetorno(comando);
             volverAtras();
         }

@@ -94,7 +94,7 @@ namespace FrbaCommerce.Abm_Visibilidad
             botonModificar.Enabled = true;
             if (mostrarInhabilitados)
             {
-                if (String.Equals(seleccion.Cells["Inhabilitado"].Value.ToString(), "True"))
+                if (seleccion.Cells["Inhabilitado"].Value.ToString() == "True")
                 {
                     botonInhabilitar.Enabled = false;
                     botonModificar.Enabled = false;

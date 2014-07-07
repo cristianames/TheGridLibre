@@ -20,7 +20,7 @@ namespace FrbaCommerce.Gestion_de_Preguntas
             
             //dice si se llamó al form para ver las preguntas hechas, 
             //o responder preguntas que le hicieron
-            if (DatosUsuario.codigoRol == 3)
+            if (DatosUsuario.codigoRol == "3")
             {
                 consultarPreguntas = false;
                 titulo.Text = "Preguntas que me hicieron";

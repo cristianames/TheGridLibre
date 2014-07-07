@@ -30,14 +30,14 @@ namespace FrbaCommerce.Gestion_de_Preguntas
             if (estaRespondida) textoRespuesta.Text = datosPregunta["Respuesta"].ToString();
             else
             {
-                if (DatosUsuario.codigoRol == 3)
+                if (DatosUsuario.codigoRol == "3")
                 {
                     botonResponder.Visible = true;
                     infoRespuesta.Visible = true;
                 }
                 else labelRespuesta.Text = "(Sin respuesta todavía)";
             }
-            if (estaRespondida || DatosUsuario.codigoRol != 3) textoRespuesta.ReadOnly = true;
+            if (estaRespondida || DatosUsuario.codigoRol != "3") textoRespuesta.ReadOnly = true;
         }
 
         private void botonAtras_Click(object sender, EventArgs e)

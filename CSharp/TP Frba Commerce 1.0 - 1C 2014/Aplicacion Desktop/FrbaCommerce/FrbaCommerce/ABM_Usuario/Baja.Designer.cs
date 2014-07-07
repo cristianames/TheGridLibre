@@ -71,7 +71,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(283, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Esta operaciòn no se puede deshacer. ¿Desea continuar?";
+            this.label2.Text = "Esta operación no se puede deshacer. ¿Desea continuar?";
             // 
             // Baja
             // 
@@ -79,7 +79,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.botonCancelar;
-            this.ClientSize = new System.Drawing.Size(842, 328);
+            this.ClientSize = new System.Drawing.Size(844, 513);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.botonCancelar);
             this.Controls.Add(this.botonConfirmar);
@@ -89,6 +89,7 @@
             this.Load += new System.EventHandler(this.Baja_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion

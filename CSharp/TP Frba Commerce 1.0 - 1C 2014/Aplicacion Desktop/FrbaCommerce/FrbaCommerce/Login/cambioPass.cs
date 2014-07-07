@@ -70,7 +70,7 @@ namespace FrbaCommerce.Login
 
             DataTable consulta = TG.realizarConsulta(comando);
             if (consulta.Rows.Count == 0 && textBoxOldPass.Enabled) return 1;
-            if (!string.Equals(textBoxPass1.Text, textBoxPass2.Text)) return 2;
+            if (textBoxPass1.Text != textBoxPass2.Text) return 2;
             if (textBoxPass1.Text.Length < 8 || textBoxPass1.Text.Length > 10) return 3;
             return 0;
             

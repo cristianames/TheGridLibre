@@ -59,7 +59,7 @@ namespace FrbaCommerce.Abm_Visibilidad
                 List<string> listaNombres = TG.ObtenerListado(validacionNombreRepetido);
                 foreach (string nombre in listaNombres) //validacion nombre
                 {
-                    if (String.Equals(nombre, txtNombre.Text))
+                    if (nombre == txtNombre.Text)
                     {
                         TG.ventanaEmergente("Nombre repetido, ingrese otro por favor");
                         txtNombre.BackColor = Color.LightYellow;

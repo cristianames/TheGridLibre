@@ -33,7 +33,7 @@ namespace FrbaCommerce
         private void verificarDatosUsuario()
         {
             DatosUsuario.actualizarBanderasUsuario();
-            if (DatosUsuario.DatosCorrectos == 0)
+            if (DatosUsuario.DatosCorrectos == "0")
             {
                 listBox1.Enabled = false;
                 button1.Enabled = false;
@@ -70,9 +70,7 @@ namespace FrbaCommerce
                 switch (listBox1.SelectedItem.ToString())
                 {
                     case "ABM Usuario":
-                        //(new AbmUsuario.AbmUsuario(this)).Show();
-                        TG.ventanaEmergente("Esta Funcionalidad todavia no está implementada");
-                        continuar = false;
+                        (new ABM_Usuario.ABM_Usuario(this)).Show();
                         break;
                     case "ABM Cliente":
                         (new ABM_Usuario.AbmCliente(this)).Show();
