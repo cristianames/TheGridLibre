@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormularioRespuesta));
             this.textoPregunta = new System.Windows.Forms.RichTextBox();
             this.textoRespuesta = new System.Windows.Forms.RichTextBox();
             this.botonResponder = new System.Windows.Forms.Button();
@@ -40,6 +41,7 @@
             // 
             // textoPregunta
             // 
+            this.textoPregunta.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textoPregunta.Location = new System.Drawing.Point(14, 36);
             this.textoPregunta.Name = "textoPregunta";
             this.textoPregunta.ReadOnly = true;
@@ -49,6 +51,7 @@
             // 
             // textoRespuesta
             // 
+            this.textoRespuesta.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textoRespuesta.Location = new System.Drawing.Point(14, 146);
             this.textoRespuesta.MaxLength = 255;
             this.textoRespuesta.Name = "textoRespuesta";
@@ -58,6 +61,10 @@
             // 
             // botonResponder
             // 
+            this.botonResponder.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botonResponder.BackgroundImage")));
+            this.botonResponder.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.botonResponder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.botonResponder.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botonResponder.Location = new System.Drawing.Point(334, 226);
             this.botonResponder.Name = "botonResponder";
             this.botonResponder.Size = new System.Drawing.Size(91, 23);
@@ -68,7 +75,11 @@
             // 
             // botonAtras
             // 
+            this.botonAtras.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botonAtras.BackgroundImage")));
+            this.botonAtras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.botonAtras.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.botonAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.botonAtras.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botonAtras.Location = new System.Drawing.Point(17, 226);
             this.botonAtras.Name = "botonAtras";
             this.botonAtras.Size = new System.Drawing.Size(91, 23);
@@ -80,9 +91,11 @@
             // linkPublicacion
             // 
             this.linkPublicacion.AutoSize = true;
-            this.linkPublicacion.Location = new System.Drawing.Point(307, 9);
+            this.linkPublicacion.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkPublicacion.LinkColor = System.Drawing.Color.Lime;
+            this.linkPublicacion.Location = new System.Drawing.Point(248, 9);
             this.linkPublicacion.Name = "linkPublicacion";
-            this.linkPublicacion.Size = new System.Drawing.Size(118, 13);
+            this.linkPublicacion.Size = new System.Drawing.Size(173, 11);
             this.linkPublicacion.TabIndex = 4;
             this.linkPublicacion.TabStop = true;
             this.linkPublicacion.Text = "Mira aqui la publicación";
@@ -91,27 +104,30 @@
             // infoRespuesta
             // 
             this.infoRespuesta.AutoSize = true;
-            this.infoRespuesta.Location = new System.Drawing.Point(202, 122);
+            this.infoRespuesta.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.infoRespuesta.Location = new System.Drawing.Point(248, 122);
             this.infoRespuesta.Name = "infoRespuesta";
-            this.infoRespuesta.Size = new System.Drawing.Size(225, 13);
+            this.infoRespuesta.Size = new System.Drawing.Size(173, 11);
             this.infoRespuesta.TabIndex = 5;
-            this.infoRespuesta.Text = "La respuesta tiene como límite 255 caracteres";
+            this.infoRespuesta.Text = "Límite de 255 caracteres";
             // 
             // labelRespuesta
             // 
             this.labelRespuesta.AutoSize = true;
+            this.labelRespuesta.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRespuesta.Location = new System.Drawing.Point(14, 122);
             this.labelRespuesta.Name = "labelRespuesta";
-            this.labelRespuesta.Size = new System.Drawing.Size(58, 13);
+            this.labelRespuesta.Size = new System.Drawing.Size(68, 11);
             this.labelRespuesta.TabIndex = 6;
             this.labelRespuesta.Text = "Respuesta";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(14, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 13);
+            this.label2.Size = new System.Drawing.Size(61, 11);
             this.label2.TabIndex = 7;
             this.label2.Text = "Pregunta";
             // 
@@ -121,7 +137,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.botonAtras;
-            this.ClientSize = new System.Drawing.Size(844, 513);
+            this.ClientSize = new System.Drawing.Size(922, 335);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.labelRespuesta);
             this.Controls.Add(this.infoRespuesta);
@@ -131,7 +147,7 @@
             this.Controls.Add(this.textoRespuesta);
             this.Controls.Add(this.textoPregunta);
             this.Name = "FormularioRespuesta";
-            this.Text = "Respondiendo...";
+            this.Text = "Formulario de Respuestas";
             this.ResumeLayout(false);
             this.PerformLayout();
 

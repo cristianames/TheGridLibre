@@ -13,35 +13,23 @@ namespace FrbaCommerce
 {
     public partial class Inicio : Form
     {
-        private int repeticiones = 0;
-        System.Windows.Forms.Timer MyTimer = new System.Windows.Forms.Timer(); 
+        private bool fst = true;
+        //System.Windows.Forms.Timer MyTimer = new System.Windows.Forms.Timer(); 
 
         public Inicio()
         {
             InitializeComponent();
-            MyTimer.Interval = 500;
-            MyTimer.Tick += new EventHandler(this.DoWork);
-            MyTimer.Enabled = true;            
+            //MyTimer.Interval = 500;
+            //MyTimer.Tick += new EventHandler(this.DoWork);
+            //MyTimer.Enabled = true;            
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-           Login.login loginFrm = new Login.login();
-           loginFrm.Show();
-           TG.elLogin = loginFrm;
-           this.Visible = false;
-        }
-
+    /*
         public void DoWork(object sender, EventArgs e) 
         {
             if (this.repeticiones<15)
             {
                 int mod;
-                mod= repeticiones % 4;
-                if (mod == 0) label2.Text = "Cargando.";
-                if (mod == 1) label2.Text = "Cargando..";
-                if (mod == 2) label2.Text = "Cargando...";
-                if (mod == 3) label2.Text = "Cargando";                    
+                mod= repeticiones % 4;                             
                 this.repeticiones++;
             }
             else
@@ -49,48 +37,46 @@ namespace FrbaCommerce
                 this.activar();
             }            
         }
-
+        */
         private void activar()
         {
-            MyTimer.Enabled = false;
+            //MyTimer.Enabled = false;
             pictureBox1.Image = Image.FromFile(Application.StartupPath + @"\Imagenes\TheGRID.jpg");
-            label2.Visible = false;
             label1.Visible = true;
             button1.Visible = true;
+            pictureBox2.Visible = false;
         }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void correrLogin()
         {
-            this.activar();
-        }
-
-        private void Inicio_MouseClick(object sender, MouseEventArgs e)
-        {
-            this.activar();
+            Login.login loginFrm = new Login.login();
+            loginFrm.Show();
+            TG.elLogin = loginFrm;
+            this.Visible = false;
         }
 
         private void Inicio_KeyDown(object sender, KeyEventArgs e)
         {
+            if (fst)
+            {
+                if (e.KeyCode == Keys.Space)
+                {
+                    fst = false;
+                    activar();
+                }
+            }
+            else correrLogin();
+          
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            correrLogin();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            fst = false;
             this.activar();
         }
 
-        private void cargarDatos()
-        {
-            //dgvGrilla.DataSource = TG.realizarConsulta("select top 10 * from gd_esquema.Maestra");
-        }
-
-        private void Inicio_Load(object sender, EventArgs e)
-        {
-            cargarDatos();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-            cargarDatos();
-        }
-
-     
-
-      
     }
 }

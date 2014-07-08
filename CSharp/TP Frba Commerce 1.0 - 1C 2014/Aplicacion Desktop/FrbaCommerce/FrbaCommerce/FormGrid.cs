@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace FrbaCommerce
 {
@@ -16,6 +17,13 @@ namespace FrbaCommerce
             this.MinimizeBox = false;
             this.ShowIcon = false;
             this.Dock = DockStyle.Fill;
+
+            //Carga el fondo
+            //this.BackgroundImage = Image.FromFile(Application.StartupPath + @"\Imagenes\Fondo_Moderno.jpg");
+            this.BackgroundImageLayout = ImageLayout.Stretch;
+
+            //Ajusta la barra de titulo
+            this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
 
             // Define the border style of the form to a dialog box.
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
@@ -42,12 +50,10 @@ namespace FrbaCommerce
 
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGrid));
             this.SuspendLayout();
             // 
             // FormGrid
             // 
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(292, 266);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;

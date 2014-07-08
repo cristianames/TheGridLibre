@@ -419,6 +419,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -474,6 +475,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="config.txt" />
+    <None Include="Resources\Fondo_Delirio.jpg" />
+    <None Include="Resources\Fondo_Azul.jpg" />
+    <None Include="Resources\Fondo_Advertencia_1.jpg" />
+    <None Include="Resources\Boton_Advertencia_2.jpg" />
+    <None Include="Resources\Boton_Advertencia_1.jpg" />
+    <None Include="Resources\Fondo_Moderno.jpg" />
+    <None Include="Resources\Boton_Azul.jpg" />
+    <None Include="Resources\Boton_Moderno.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

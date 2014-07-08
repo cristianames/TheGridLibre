@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(cambioPass));
             this.textBoxOldPass = new System.Windows.Forms.TextBox();
             this.textBoxPass1 = new System.Windows.Forms.TextBox();
             this.textBoxPass2 = new System.Windows.Forms.TextBox();
@@ -105,7 +104,7 @@
             // 
             // button1
             // 
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImage = global::FrbaCommerce.Properties.Resources.Boton_Moderno;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -119,7 +118,7 @@
             // 
             // button2
             // 
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
+            this.button2.BackgroundImage = global::FrbaCommerce.Properties.Resources.Boton_Moderno;
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -149,9 +148,8 @@
             this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.CancelButton = this.button2;
-            this.ClientSize = new System.Drawing.Size(922, 342);
+            this.ClientSize = new System.Drawing.Size(922, 343);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);

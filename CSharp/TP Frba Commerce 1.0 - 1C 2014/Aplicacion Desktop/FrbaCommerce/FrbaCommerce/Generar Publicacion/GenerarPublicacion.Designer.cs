@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GenerarPublicacion));
             this.radioCompra = new System.Windows.Forms.RadioButton();
             this.radioSubasta = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
@@ -62,9 +63,10 @@
             // 
             this.radioCompra.AutoSize = true;
             this.radioCompra.Checked = true;
-            this.radioCompra.Location = new System.Drawing.Point(174, 10);
+            this.radioCompra.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioCompra.Location = new System.Drawing.Point(183, 8);
             this.radioCompra.Name = "radioCompra";
-            this.radioCompra.Size = new System.Drawing.Size(110, 17);
+            this.radioCompra.Size = new System.Drawing.Size(135, 15);
             this.radioCompra.TabIndex = 0;
             this.radioCompra.TabStop = true;
             this.radioCompra.Text = "Compra Inmediata";
@@ -74,9 +76,10 @@
             // radioSubasta
             // 
             this.radioSubasta.AutoSize = true;
-            this.radioSubasta.Location = new System.Drawing.Point(307, 10);
+            this.radioSubasta.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioSubasta.Location = new System.Drawing.Point(344, 8);
             this.radioSubasta.Name = "radioSubasta";
-            this.radioSubasta.Size = new System.Drawing.Size(64, 17);
+            this.radioSubasta.Size = new System.Drawing.Size(72, 15);
             this.radioSubasta.TabIndex = 1;
             this.radioSubasta.Text = "Subasta";
             this.radioSubasta.UseVisualStyleBackColor = true;
@@ -85,108 +88,119 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 12);
+            this.label1.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 13);
+            this.label1.Size = new System.Drawing.Size(145, 11);
             this.label1.TabIndex = 2;
             this.label1.Text = "Tipo de publicacion:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 42);
+            this.label2.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(12, 36);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(120, 13);
+            this.label2.Size = new System.Drawing.Size(180, 11);
             this.label2.TabIndex = 3;
             this.label2.Text = "Descripcion del articulo:";
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(13, 59);
+            this.richTextBox1.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox1.Location = new System.Drawing.Point(15, 50);
             this.richTextBox1.MaxLength = 255;
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(355, 117);
+            this.richTextBox1.Size = new System.Drawing.Size(413, 100);
             this.richTextBox1.TabIndex = 5;
             this.richTextBox1.Text = "";
             // 
             // labelPrecio
             // 
             this.labelPrecio.AutoSize = true;
-            this.labelPrecio.Location = new System.Drawing.Point(10, 191);
+            this.labelPrecio.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPrecio.Location = new System.Drawing.Point(6, 162);
             this.labelPrecio.Name = "labelPrecio";
-            this.labelPrecio.Size = new System.Drawing.Size(77, 13);
+            this.labelPrecio.Size = new System.Drawing.Size(96, 11);
             this.labelPrecio.TabIndex = 6;
-            this.labelPrecio.Text = "Precio unitario:";
+            this.labelPrecio.Text = "Precio unit.:";
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(96, 188);
+            this.txtPrecio.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecio.Location = new System.Drawing.Point(129, 160);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(91, 20);
+            this.txtPrecio.Size = new System.Drawing.Size(74, 18);
             this.txtPrecio.TabIndex = 7;
             this.txtPrecio.TextChanged += new System.EventHandler(this.txtPrecio_TextChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(193, 188);
+            this.label3.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(206, 162);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 13);
+            this.label3.Size = new System.Drawing.Size(89, 11);
             this.label3.TabIndex = 8;
             this.label3.Text = "Visibilidad:";
             // 
             // visibilidadComboBox1
             // 
             this.visibilidadComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.visibilidadComboBox1.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.visibilidadComboBox1.FormattingEnabled = true;
-            this.visibilidadComboBox1.Location = new System.Drawing.Point(255, 188);
+            this.visibilidadComboBox1.Location = new System.Drawing.Point(306, 159);
             this.visibilidadComboBox1.Name = "visibilidadComboBox1";
-            this.visibilidadComboBox1.Size = new System.Drawing.Size(104, 21);
+            this.visibilidadComboBox1.Size = new System.Drawing.Size(121, 19);
             this.visibilidadComboBox1.TabIndex = 9;
             this.visibilidadComboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 214);
+            this.label4.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(6, 183);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 13);
+            this.label4.Size = new System.Drawing.Size(47, 11);
             this.label4.TabIndex = 10;
             this.label4.Text = "Stock:";
             // 
             // labelVencimiento
             // 
             this.labelVencimiento.AutoSize = true;
-            this.labelVencimiento.Location = new System.Drawing.Point(22, 45);
+            this.labelVencimiento.Location = new System.Drawing.Point(25, 39);
             this.labelVencimiento.Name = "labelVencimiento";
-            this.labelVencimiento.Size = new System.Drawing.Size(115, 13);
+            this.labelVencimiento.Size = new System.Drawing.Size(152, 11);
             this.labelVencimiento.TabIndex = 12;
             this.labelVencimiento.Text = "Fecha de vencimiento:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(193, 214);
+            this.label6.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(210, 183);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 13);
+            this.label6.Size = new System.Drawing.Size(68, 11);
             this.label6.TabIndex = 14;
             this.label6.Text = "Preguntas";
             // 
             // preguntasComboBox
             // 
             this.preguntasComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.preguntasComboBox.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.preguntasComboBox.FormattingEnabled = true;
             this.preguntasComboBox.Items.AddRange(new object[] {
             "NO",
             "SI"});
-            this.preguntasComboBox.Location = new System.Drawing.Point(255, 214);
+            this.preguntasComboBox.Location = new System.Drawing.Point(306, 180);
             this.preguntasComboBox.Name = "preguntasComboBox";
-            this.preguntasComboBox.Size = new System.Drawing.Size(104, 21);
+            this.preguntasComboBox.Size = new System.Drawing.Size(121, 19);
             this.preguntasComboBox.TabIndex = 15;
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(96, 212);
+            this.numericUpDown1.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown1.Location = new System.Drawing.Point(112, 179);
             this.numericUpDown1.Minimum = new decimal(new int[] {
             1,
             0,
@@ -194,7 +208,7 @@
             0});
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.ReadOnly = true;
-            this.numericUpDown1.Size = new System.Drawing.Size(91, 20);
+            this.numericUpDown1.Size = new System.Drawing.Size(92, 18);
             this.numericUpDown1.TabIndex = 17;
             this.numericUpDown1.Value = new decimal(new int[] {
             1,
@@ -205,9 +219,13 @@
             // 
             // txtRubro
             // 
-            this.txtRubro.Location = new System.Drawing.Point(13, 242);
+            this.txtRubro.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txtRubro.BackgroundImage")));
+            this.txtRubro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.txtRubro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.txtRubro.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRubro.Location = new System.Drawing.Point(15, 205);
             this.txtRubro.Name = "txtRubro";
-            this.txtRubro.Size = new System.Drawing.Size(124, 23);
+            this.txtRubro.Size = new System.Drawing.Size(145, 19);
             this.txtRubro.TabIndex = 18;
             this.txtRubro.Text = "Seleccionar rubros";
             this.txtRubro.UseVisualStyleBackColor = true;
@@ -219,9 +237,10 @@
             this.groupBoxVisibilidad.Controls.Add(this.labelPrecioPublicar);
             this.groupBoxVisibilidad.Controls.Add(this.labelInicio);
             this.groupBoxVisibilidad.Controls.Add(this.labelVencimiento);
-            this.groupBoxVisibilidad.Location = new System.Drawing.Point(13, 273);
+            this.groupBoxVisibilidad.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxVisibilidad.Location = new System.Drawing.Point(15, 231);
             this.groupBoxVisibilidad.Name = "groupBoxVisibilidad";
-            this.groupBoxVisibilidad.Size = new System.Drawing.Size(355, 118);
+            this.groupBoxVisibilidad.Size = new System.Drawing.Size(414, 100);
             this.groupBoxVisibilidad.TabIndex = 19;
             this.groupBoxVisibilidad.TabStop = false;
             this.groupBoxVisibilidad.Text = "Datos Visibilidad";
@@ -229,43 +248,48 @@
             // labelComision
             // 
             this.labelComision.AutoSize = true;
-            this.labelComision.Location = new System.Drawing.Point(17, 91);
+            this.labelComision.Location = new System.Drawing.Point(25, 76);
             this.labelComision.Name = "labelComision";
-            this.labelComision.Size = new System.Drawing.Size(120, 13);
+            this.labelComision.Size = new System.Drawing.Size(166, 11);
             this.labelComision.TabIndex = 16;
             this.labelComision.Text = "Porcentaje de comision:";
             // 
             // labelPrecioPublicar
             // 
             this.labelPrecioPublicar.AutoSize = true;
-            this.labelPrecioPublicar.Location = new System.Drawing.Point(39, 68);
+            this.labelPrecioPublicar.Location = new System.Drawing.Point(25, 58);
             this.labelPrecioPublicar.Name = "labelPrecioPublicar";
-            this.labelPrecioPublicar.Size = new System.Drawing.Size(98, 13);
+            this.labelPrecioPublicar.Size = new System.Drawing.Size(145, 11);
             this.labelPrecioPublicar.TabIndex = 15;
             this.labelPrecioPublicar.Text = "Precio por publicar:";
             // 
             // labelInicio
             // 
             this.labelInicio.AutoSize = true;
-            this.labelInicio.Location = new System.Drawing.Point(55, 23);
+            this.labelInicio.Location = new System.Drawing.Point(25, 21);
             this.labelInicio.Name = "labelInicio";
-            this.labelInicio.Size = new System.Drawing.Size(82, 13);
+            this.labelInicio.Size = new System.Drawing.Size(117, 11);
             this.labelInicio.TabIndex = 14;
             this.labelInicio.Text = "Fecha de inicio:";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(143, 243);
+            this.textBox1.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(167, 206);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(225, 20);
+            this.textBox1.Size = new System.Drawing.Size(262, 18);
             this.textBox1.TabIndex = 20;
             // 
             // botonBorrador
             // 
-            this.botonBorrador.Location = new System.Drawing.Point(224, 397);
+            this.botonBorrador.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botonBorrador.BackgroundImage")));
+            this.botonBorrador.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.botonBorrador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.botonBorrador.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonBorrador.Location = new System.Drawing.Point(261, 336);
             this.botonBorrador.Name = "botonBorrador";
-            this.botonBorrador.Size = new System.Drawing.Size(64, 42);
+            this.botonBorrador.Size = new System.Drawing.Size(75, 36);
             this.botonBorrador.TabIndex = 21;
             this.botonBorrador.Text = "Guardar borrador";
             this.botonBorrador.UseVisualStyleBackColor = true;
@@ -273,9 +297,13 @@
             // 
             // botonPublicar
             // 
-            this.botonPublicar.Location = new System.Drawing.Point(303, 397);
+            this.botonPublicar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botonPublicar.BackgroundImage")));
+            this.botonPublicar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.botonPublicar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.botonPublicar.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonPublicar.Location = new System.Drawing.Point(353, 336);
             this.botonPublicar.Name = "botonPublicar";
-            this.botonPublicar.Size = new System.Drawing.Size(64, 42);
+            this.botonPublicar.Size = new System.Drawing.Size(75, 36);
             this.botonPublicar.TabIndex = 22;
             this.botonPublicar.Text = "Publicar";
             this.botonPublicar.UseVisualStyleBackColor = true;
@@ -283,9 +311,13 @@
             // 
             // botonRegresar
             // 
-            this.botonRegresar.Location = new System.Drawing.Point(143, 398);
+            this.botonRegresar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botonRegresar.BackgroundImage")));
+            this.botonRegresar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.botonRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.botonRegresar.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonRegresar.Location = new System.Drawing.Point(167, 337);
             this.botonRegresar.Name = "botonRegresar";
-            this.botonRegresar.Size = new System.Drawing.Size(64, 41);
+            this.botonRegresar.Size = new System.Drawing.Size(75, 35);
             this.botonRegresar.TabIndex = 23;
             this.botonRegresar.Text = "Regresar";
             this.botonRegresar.UseVisualStyleBackColor = true;
@@ -294,36 +326,36 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 398);
+            this.label5.Location = new System.Drawing.Point(15, 337);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(107, 13);
+            this.label5.Size = new System.Drawing.Size(152, 11);
             this.label5.TabIndex = 24;
             this.label5.Text = "Total por comisiones:";
             // 
             // total
             // 
             this.total.AutoSize = true;
-            this.total.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.total.Location = new System.Drawing.Point(13, 414);
+            this.total.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.total.Location = new System.Drawing.Point(15, 350);
             this.total.Name = "total";
-            this.total.Size = new System.Drawing.Size(16, 13);
+            this.total.Size = new System.Drawing.Size(26, 11);
             this.total.TabIndex = 25;
             this.total.Text = "...";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(83, 191);
+            this.label7.Location = new System.Drawing.Point(115, 161);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(13, 13);
+            this.label7.Size = new System.Drawing.Size(12, 11);
             this.label7.TabIndex = 26;
             this.label7.Text = "$";
             // 
             // GenerarPublicacion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 11F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1137, 662);
+            this.ClientSize = new System.Drawing.Size(1321, 560);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.total);
             this.Controls.Add(this.label5);
@@ -346,6 +378,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.radioSubasta);
             this.Controls.Add(this.radioCompra);
+            this.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "GenerarPublicacion";
             this.Text = "Generar Publicacion";
             this.Load += new System.EventHandler(this.GenerarPublicacion_Load);

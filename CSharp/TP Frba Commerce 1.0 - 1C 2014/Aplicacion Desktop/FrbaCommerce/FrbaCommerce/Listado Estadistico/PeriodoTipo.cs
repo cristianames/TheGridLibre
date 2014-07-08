@@ -161,5 +161,6 @@ namespace FrbaCommerce.Listado_Estadistico
             resetearComandoFiltro();
             recargarGrilla();
         }
+
     }
 }

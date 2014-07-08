@@ -179,10 +179,8 @@
             this.AcceptButton = this.seleccionar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.atras;
-            this.ClientSize = new System.Drawing.Size(922, 334);
+            this.ClientSize = new System.Drawing.Size(922, 343);
             this.Controls.Add(this.sinResultados);
             this.Controls.Add(this.seleccionar);
             this.Controls.Add(this.dataGridView1);

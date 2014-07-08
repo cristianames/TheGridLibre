@@ -47,10 +47,11 @@
             // 
             this.button1.BackColor = System.Drawing.Color.Lime;
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Maroon;
-            this.button1.Location = new System.Drawing.Point(37, 58);
+            this.button1.Location = new System.Drawing.Point(49, 66);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(74, 23);
             this.button1.TabIndex = 1;
@@ -64,7 +65,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(928, 366);
+            this.ClientSize = new System.Drawing.Size(928, 367);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Cursor = System.Windows.Forms.Cursors.Default;

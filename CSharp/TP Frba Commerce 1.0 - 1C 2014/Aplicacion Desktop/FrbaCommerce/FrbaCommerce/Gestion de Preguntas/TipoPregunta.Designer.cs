@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TipoPregunta));
             this.label1 = new System.Windows.Forms.Label();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -44,9 +45,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 24);
+            this.label1.Location = new System.Drawing.Point(8, 29);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(154, 13);
+            this.label1.Size = new System.Drawing.Size(222, 11);
             this.label1.TabIndex = 0;
             this.label1.Text = "Seleccione el tipo de pregunta:";
             // 
@@ -54,9 +55,9 @@
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(180, 22);
+            this.radioButton1.Location = new System.Drawing.Point(241, 17);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(78, 17);
+            this.radioButton1.Size = new System.Drawing.Size(93, 15);
             this.radioButton1.TabIndex = 1;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Pendientes";
@@ -66,9 +67,9 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(273, 22);
+            this.radioButton2.Location = new System.Drawing.Point(241, 38);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(87, 17);
+            this.radioButton2.Size = new System.Drawing.Size(100, 15);
             this.radioButton2.TabIndex = 2;
             this.radioButton2.Text = "Respondidas";
             this.radioButton2.UseVisualStyleBackColor = true;
@@ -79,15 +80,20 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.radioButton1);
             this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Location = new System.Drawing.Point(32, 26);
+            this.groupBox1.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(32, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(366, 53);
+            this.groupBox1.Size = new System.Drawing.Size(366, 67);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tipo de pregunta";
             // 
             // botonSeleccionar
             // 
+            this.botonSeleccionar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botonSeleccionar.BackgroundImage")));
+            this.botonSeleccionar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.botonSeleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.botonSeleccionar.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botonSeleccionar.Location = new System.Drawing.Point(236, 310);
             this.botonSeleccionar.Name = "botonSeleccionar";
             this.botonSeleccionar.Size = new System.Drawing.Size(75, 23);
@@ -98,7 +104,11 @@
             // 
             // botonAtras
             // 
+            this.botonAtras.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botonAtras.BackgroundImage")));
+            this.botonAtras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.botonAtras.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.botonAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.botonAtras.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botonAtras.Location = new System.Drawing.Point(317, 310);
             this.botonAtras.Name = "botonAtras";
             this.botonAtras.Size = new System.Drawing.Size(75, 23);
@@ -124,19 +134,22 @@
             // sinPreguntas
             // 
             this.sinPreguntas.AutoSize = true;
-            this.sinPreguntas.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sinPreguntas.Location = new System.Drawing.Point(80, 162);
+            this.sinPreguntas.BackColor = System.Drawing.Color.Transparent;
+            this.sinPreguntas.Font = new System.Drawing.Font("Lucida Console", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sinPreguntas.Location = new System.Drawing.Point(58, 190);
             this.sinPreguntas.Name = "sinPreguntas";
-            this.sinPreguntas.Size = new System.Drawing.Size(266, 42);
+            this.sinPreguntas.Size = new System.Drawing.Size(316, 37);
             this.sinPreguntas.TabIndex = 23;
             this.sinPreguntas.Text = "Sin Preguntas";
             // 
             // titulo
             // 
             this.titulo.AutoSize = true;
+            this.titulo.BackColor = System.Drawing.Color.Transparent;
+            this.titulo.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titulo.Location = new System.Drawing.Point(37, 89);
             this.titulo.Name = "titulo";
-            this.titulo.Size = new System.Drawing.Size(99, 13);
+            this.titulo.Size = new System.Drawing.Size(131, 11);
             this.titulo.TabIndex = 24;
             this.titulo.Text = "Preguntas que hice";
             // 
@@ -146,7 +159,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.botonAtras;
-            this.ClientSize = new System.Drawing.Size(844, 513);
+            this.ClientSize = new System.Drawing.Size(922, 335);
             this.Controls.Add(this.titulo);
             this.Controls.Add(this.sinPreguntas);
             this.Controls.Add(this.dataGridView1);

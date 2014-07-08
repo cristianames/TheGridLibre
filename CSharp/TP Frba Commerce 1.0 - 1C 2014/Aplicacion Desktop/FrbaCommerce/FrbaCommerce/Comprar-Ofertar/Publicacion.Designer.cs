@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Publicacion));
             this.infoDescripcion = new System.Windows.Forms.RichTextBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.infoPrecio = new System.Windows.Forms.RichTextBox();
@@ -46,6 +47,7 @@
             // 
             // infoDescripcion
             // 
+            this.infoDescripcion.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.infoDescripcion.Location = new System.Drawing.Point(24, 16);
             this.infoDescripcion.Name = "infoDescripcion";
             this.infoDescripcion.ReadOnly = true;
@@ -55,7 +57,8 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(459, 200);
+            this.numericUpDown1.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown1.Location = new System.Drawing.Point(482, 200);
             this.numericUpDown1.Minimum = new decimal(new int[] {
             1,
             0,
@@ -63,7 +66,7 @@
             0});
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.ReadOnly = true;
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown1.Size = new System.Drawing.Size(97, 18);
             this.numericUpDown1.TabIndex = 1;
             this.numericUpDown1.Value = new decimal(new int[] {
             1,
@@ -74,6 +77,7 @@
             // 
             // infoPrecio
             // 
+            this.infoPrecio.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.infoPrecio.Location = new System.Drawing.Point(355, 16);
             this.infoPrecio.Name = "infoPrecio";
             this.infoPrecio.ReadOnly = true;
@@ -84,9 +88,10 @@
             // labelUnidades
             // 
             this.labelUnidades.AutoSize = true;
+            this.labelUnidades.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUnidades.Location = new System.Drawing.Point(352, 202);
             this.labelUnidades.Name = "labelUnidades";
-            this.labelUnidades.Size = new System.Drawing.Size(104, 13);
+            this.labelUnidades.Size = new System.Drawing.Size(131, 11);
             this.labelUnidades.TabIndex = 3;
             this.labelUnidades.Text = "Unidades deseadas:";
             this.labelUnidades.Click += new System.EventHandler(this.label1_Click);
@@ -94,22 +99,28 @@
             // labelMonto
             // 
             this.labelMonto.AutoSize = true;
+            this.labelMonto.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMonto.Location = new System.Drawing.Point(352, 235);
             this.labelMonto.Name = "labelMonto";
-            this.labelMonto.Size = new System.Drawing.Size(106, 13);
+            this.labelMonto.Size = new System.Drawing.Size(166, 11);
             this.labelMonto.TabIndex = 4;
             this.labelMonto.Text = "Monto a ofertar:      $";
             // 
             // montoOferta
             // 
-            this.montoOferta.Location = new System.Drawing.Point(459, 232);
+            this.montoOferta.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.montoOferta.Location = new System.Drawing.Point(482, 232);
             this.montoOferta.Name = "montoOferta";
-            this.montoOferta.Size = new System.Drawing.Size(120, 20);
+            this.montoOferta.Size = new System.Drawing.Size(97, 18);
             this.montoOferta.TabIndex = 5;
             this.montoOferta.TextChanged += new System.EventHandler(this.montoOferta_TextChanged);
             // 
             // botonPreguntar
             // 
+            this.botonPreguntar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botonPreguntar.BackgroundImage")));
+            this.botonPreguntar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.botonPreguntar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.botonPreguntar.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botonPreguntar.Location = new System.Drawing.Point(223, 292);
             this.botonPreguntar.Name = "botonPreguntar";
             this.botonPreguntar.Size = new System.Drawing.Size(120, 23);
@@ -120,6 +131,10 @@
             // 
             // botonOfertar
             // 
+            this.botonOfertar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botonOfertar.BackgroundImage")));
+            this.botonOfertar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.botonOfertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.botonOfertar.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botonOfertar.Location = new System.Drawing.Point(381, 268);
             this.botonOfertar.Name = "botonOfertar";
             this.botonOfertar.Size = new System.Drawing.Size(75, 47);
@@ -130,6 +145,10 @@
             // 
             // botonComprar
             // 
+            this.botonComprar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botonComprar.BackgroundImage")));
+            this.botonComprar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.botonComprar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.botonComprar.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botonComprar.Location = new System.Drawing.Point(482, 268);
             this.botonComprar.Name = "botonComprar";
             this.botonComprar.Size = new System.Drawing.Size(75, 47);
@@ -141,14 +160,16 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(21, 181);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 13);
+            this.label3.Size = new System.Drawing.Size(117, 11);
             this.label3.TabIndex = 9;
             this.label3.Text = "Haz tu pregunta:";
             // 
             // campoPregunta
             // 
+            this.campoPregunta.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.campoPregunta.Location = new System.Drawing.Point(24, 199);
             this.campoPregunta.MaxLength = 255;
             this.campoPregunta.Name = "campoPregunta";
@@ -158,6 +179,11 @@
             // 
             // botonCancelar
             // 
+            this.botonCancelar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botonCancelar.BackgroundImage")));
+            this.botonCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.botonCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.botonCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.botonCancelar.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botonCancelar.Location = new System.Drawing.Point(24, 292);
             this.botonCancelar.Name = "botonCancelar";
             this.botonCancelar.Size = new System.Drawing.Size(120, 23);
@@ -169,10 +195,10 @@
             // WarningLabel
             // 
             this.WarningLabel.AutoSize = true;
-            this.WarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WarningLabel.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WarningLabel.Location = new System.Drawing.Point(357, 178);
             this.WarningLabel.Name = "WarningLabel";
-            this.WarningLabel.Size = new System.Drawing.Size(104, 16);
+            this.WarningLabel.Size = new System.Drawing.Size(115, 13);
             this.WarningLabel.TabIndex = 12;
             this.WarningLabel.Text = "WarningLabel";
             // 
@@ -181,7 +207,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.botonCancelar;
-            this.ClientSize = new System.Drawing.Size(844, 513);
+            this.ClientSize = new System.Drawing.Size(922, 335);
             this.Controls.Add(this.WarningLabel);
             this.Controls.Add(this.botonCancelar);
             this.Controls.Add(this.campoPregunta);
