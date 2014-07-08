@@ -147,6 +147,12 @@
     <Compile Include="ABM_Usuario\ABM_Usuario.Designer.cs">
       <DependentUpon>ABM_Usuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="ABM_Usuario\ModificarRolesUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM_Usuario\ModificarRolesUsuarios.Designer.cs">
+      <DependentUpon>ModificarRolesUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Calificar Vendedor\FormularioCalificacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -331,6 +337,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ABM_Usuario\ABM_Usuario.resx">
       <DependentUpon>ABM_Usuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM_Usuario\ModificarRolesUsuarios.resx">
+      <DependentUpon>ModificarRolesUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Calificar Vendedor\FormularioCalificacion.resx">
       <DependentUpon>FormularioCalificacion.cs</DependentUpon>

@@ -13,15 +13,15 @@ namespace FrbaCommerce.ABM_Usuario
     {
         private int filaSeleccionada;
         private string comandoGrilla, tipoUsuario = DatosUsuario.tipoUsuario;
-        public ABM_Usuario(FormGrid anterior)
+        public ABM_Usuario(Form anterior)
         {
             InitializeComponent();
             this.ClientSize = new System.Drawing.Size(411, 335);
             ventanaAnterior = anterior;
             comandoGrilla = "select ID_User, 'GRID_'+ltrim(str(ID_User)) Username, isnull("+
                 "(select top 1 r.Nombre from THE_GRID.Rol r inner join THE_GRID.Roles_x_Usuario rs "+
-                "on rs.ID_Rol = r.ID_Rol and rs.ID_User = u.ID_User),'Sin rol') 'Rol principal', "+
-                "t.Nombre Tipo, " +
+                "on rs.ID_Rol = r.ID_Rol and rs.ID_User = u.ID_User and rs.Inhabilitado = 0),"+
+                "'Sin rol') 'Rol principal', t.Nombre Tipo, " +
                 "Inhabilitado, Intentos, Primer_Ingreso, Datos_Correctos " +
                 "from THE_GRID.Usuario u inner join THE_GRID.Tipo_Usuario t "+
                 "on t.ID_Tipo = u.ID_Tipo order by 1 desc";
@@ -108,6 +108,14 @@ namespace FrbaCommerce.ABM_Usuario
             DatosUsuario.usuarioAux = DatosUsuario.usuario;
             DatosUsuario.usuario = dataGridView1["ID_User", filaSeleccionada].Value.ToString();
             (new Admin(this, true)).Show();
+            this.Visible = false;
+        }
+
+        private void botonRoles_Click(object sender, EventArgs e)
+        {
+            DatosUsuario.usuarioAux = DatosUsuario.usuario;
+            DatosUsuario.usuario = dataGridView1["ID_User", filaSeleccionada].Value.ToString();
+            (new ModificarRolesUsuario(this)).Show();
             this.Visible = false;
         }
     }

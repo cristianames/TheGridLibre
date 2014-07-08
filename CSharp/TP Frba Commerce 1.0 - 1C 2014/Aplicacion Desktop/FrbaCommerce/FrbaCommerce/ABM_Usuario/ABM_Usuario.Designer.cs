@@ -109,6 +109,7 @@
             this.botonRoles.TabIndex = 26;
             this.botonRoles.Text = "Modificar Roles";
             this.botonRoles.UseVisualStyleBackColor = true;
+            this.botonRoles.Click += new System.EventHandler(this.botonRoles_Click);
             // 
             // botonBaja
             // 
@@ -135,9 +136,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.atras;
-            this.ClientSize = new System.Drawing.Size(844, 521);
+            this.ClientSize = new System.Drawing.Size(844, 457);
             this.Controls.Add(this.botonModificar);
             this.Controls.Add(this.botonBaja);
             this.Controls.Add(this.botonRoles);

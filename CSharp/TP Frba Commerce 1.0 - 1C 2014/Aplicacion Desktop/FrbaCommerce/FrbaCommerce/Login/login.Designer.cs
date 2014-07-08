@@ -130,7 +130,7 @@
             this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(922, 343);
+            this.ClientSize = new System.Drawing.Size(844, 457);
             this.Controls.Add(this.Control);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.button1);
