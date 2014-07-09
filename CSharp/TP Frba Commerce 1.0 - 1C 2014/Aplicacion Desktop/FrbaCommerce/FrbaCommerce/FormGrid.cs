@@ -19,7 +19,7 @@ namespace FrbaCommerce
             this.Dock = DockStyle.Fill;
 
             //Carga el fondo
-            //this.BackgroundImage = Image.FromFile(Application.StartupPath + @"\Imagenes\Fondo_Moderno.jpg");
+            this.BackgroundImage = Image.FromFile(Application.StartupPath + @"\Imagenes\Fondo_Moderno.jpg");
             this.BackgroundImageLayout = ImageLayout.Stretch;
 
             //Ajusta la barra de titulo

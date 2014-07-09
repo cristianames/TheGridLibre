@@ -15,7 +15,7 @@ namespace FrbaCommerce
         {
             InitializeComponent();
             this.ventanaAnterior = anterior;
-            this.ClientSize = new System.Drawing.Size(205, 352);
+            this.ClientSize = new System.Drawing.Size(205, 342);
             label3.Text = "¡Bienvenido Grid_" + DatosUsuario.usuario.ToString() + "!";
             linkLabel3.Text = DatosUsuario.nombreRol;
 
@@ -94,6 +94,7 @@ namespace FrbaCommerce
                         (new Editar_Publicacion.EditarPublicacion(this)).Show();
                         break;
                     case "Facturar Publicaciones":
+                        (new Facturar_Publicaciones.PublicacionesRendir(this)).Show();
                         break;
                     case "Generar Publicacion":
                         (new Generar_Publicacion.GenerarPublicacion(this)).Show();

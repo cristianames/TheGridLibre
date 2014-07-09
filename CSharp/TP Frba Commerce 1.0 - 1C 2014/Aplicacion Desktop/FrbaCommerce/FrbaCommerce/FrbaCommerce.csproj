@@ -165,6 +165,12 @@
     <Compile Include="Calificar Vendedor\SeleccionarUsuario.Designer.cs">
       <DependentUpon>SeleccionarUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Facturar Publicaciones\resumenYFormaDePago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturar Publicaciones\resumenYFormaDePago.Designer.cs">
+      <DependentUpon>resumenYFormaDePago.cs</DependentUpon>
+    </Compile>
     <Compile Include="Historial Cliente\detalleCompraOferta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -361,6 +367,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Escritorio.resx">
       <DependentUpon>Escritorio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturar Publicaciones\resumenYFormaDePago.resx">
+      <DependentUpon>resumenYFormaDePago.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Facturar Publicaciones\FacturaGenerada.resx">
       <DependentUpon>FacturaGenerada.cs</DependentUpon>
