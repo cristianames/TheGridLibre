@@ -484,6 +484,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="config.txt" />
+    <None Include="Resources\Intro.gif" />
+    <None Include="Resources\TheGRID.jpg" />
+    <None Include="Resources\TheGRID.gif" />
     <None Include="Resources\Fondo_Delirio.jpg" />
     <None Include="Resources\Fondo_Azul.jpg" />
     <None Include="Resources\Fondo_Advertencia_1.jpg" />
