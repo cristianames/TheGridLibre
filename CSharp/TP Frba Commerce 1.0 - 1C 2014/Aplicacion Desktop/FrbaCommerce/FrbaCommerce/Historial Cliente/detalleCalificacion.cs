@@ -13,7 +13,7 @@ namespace FrbaCommerce.Historial_Cliente
     public partial class detalleCalificacion : FormGrid
     {
         private string idPublicacion;
-        public detalleCalificacion(FormGrid anterior, string idCompra)
+        public detalleCalificacion(Form anterior, string idCompra)
         {
             InitializeComponent();
             this.ClientSize = new System.Drawing.Size(411, 335);

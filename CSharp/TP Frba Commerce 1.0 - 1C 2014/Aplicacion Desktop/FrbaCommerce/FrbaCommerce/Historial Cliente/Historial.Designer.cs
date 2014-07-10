@@ -119,10 +119,8 @@
             // 
             // atras
             // 
-            this.atras.BackgroundImage = global::FrbaCommerce.Properties.Resources.Boton_Azul;
             this.atras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.atras.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.atras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.atras.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.atras.Location = new System.Drawing.Point(324, 300);
             this.atras.Name = "atras";
@@ -149,9 +147,7 @@
             // 
             // seleccionar
             // 
-            this.seleccionar.BackgroundImage = global::FrbaCommerce.Properties.Resources.Boton_Azul;
             this.seleccionar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.seleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.seleccionar.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.seleccionar.Location = new System.Drawing.Point(243, 300);
             this.seleccionar.Name = "seleccionar";
@@ -174,9 +170,7 @@
             // 
             // botonFacturas
             // 
-            this.botonFacturas.BackgroundImage = global::FrbaCommerce.Properties.Resources.Boton_Azul;
             this.botonFacturas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.botonFacturas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.botonFacturas.Location = new System.Drawing.Point(19, 300);
             this.botonFacturas.Name = "botonFacturas";
             this.botonFacturas.Size = new System.Drawing.Size(107, 23);
@@ -190,8 +184,10 @@
             this.AcceptButton = this.seleccionar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.atras;
             this.ClientSize = new System.Drawing.Size(844, 521);
+            this.ControlBox = false;
             this.Controls.Add(this.botonFacturas);
             this.Controls.Add(this.sinResultados);
             this.Controls.Add(this.seleccionar);
@@ -199,7 +195,10 @@
             this.Controls.Add(this.atras);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Historial";
+            this.ShowIcon = false;
             this.Text = "Historial de Cliente";
             this.Load += new System.EventHandler(this.Historial_Load);
             this.groupBox1.ResumeLayout(false);

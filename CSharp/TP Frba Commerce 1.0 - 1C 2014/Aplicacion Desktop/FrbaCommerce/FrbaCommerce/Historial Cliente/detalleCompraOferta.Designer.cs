@@ -42,10 +42,8 @@
             // 
             // atras
             // 
-            this.atras.BackgroundImage = global::FrbaCommerce.Properties.Resources.Boton_Moderno;
             this.atras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.atras.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.atras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.atras.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.atras.Location = new System.Drawing.Point(324, 300);
             this.atras.Name = "atras";
@@ -112,7 +110,7 @@
             // 
             this.cantidad.AutoSize = true;
             this.cantidad.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cantidad.Location = new System.Drawing.Point(272, 15);
+            this.cantidad.Location = new System.Drawing.Point(236, 15);
             this.cantidad.Name = "cantidad";
             this.cantidad.Size = new System.Drawing.Size(85, 11);
             this.cantidad.TabIndex = 17;
@@ -122,7 +120,7 @@
             // 
             this.gano.AutoSize = true;
             this.gano.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gano.Location = new System.Drawing.Point(108, 15);
+            this.gano.Location = new System.Drawing.Point(236, 31);
             this.gano.Name = "gano";
             this.gano.Size = new System.Drawing.Size(149, 11);
             this.gano.TabIndex = 18;
@@ -159,8 +157,10 @@
             this.AcceptButton = this.linkPublicacion;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.atras;
             this.ClientSize = new System.Drawing.Size(844, 513);
+            this.ControlBox = false;
             this.Controls.Add(this.calificacionLink);
             this.Controls.Add(this.compraLink);
             this.Controls.Add(this.gano);
@@ -171,7 +171,11 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.atras);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "detalleCompraOferta";
+            this.ShowIcon = false;
             this.Text = "Detalle de la Operación";
             this.Load += new System.EventHandler(this.detalleCalificacion_Load);
             this.ResumeLayout(false);

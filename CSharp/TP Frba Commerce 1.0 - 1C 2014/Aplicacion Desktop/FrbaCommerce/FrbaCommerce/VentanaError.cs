@@ -8,12 +8,14 @@ using System.Windows.Forms;
 
 namespace FrbaCommerce
 {
-    partial class VentanaError : FormGrid
+    partial class VentanaError : Form
     {
         public VentanaError()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
+            this.BackgroundImage = Properties.Resources.Boton_Advertencia_1;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
         public void escribirMsg(string msg)

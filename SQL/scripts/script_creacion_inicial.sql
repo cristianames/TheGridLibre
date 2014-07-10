@@ -575,7 +575,8 @@ fetch next from rolesModificados into @ID_Rol, @Inhabilitado
 while (@@fetch_status = 0)
 begin
 
-update THE_GRID.Roles_X_Usuario set Inhabilitado = @Inhabilitado where ID_Rol = @ID_Rol
+if @Inhabilitado = 1
+update THE_GRID.Roles_X_Usuario set Inhabilitado = 1 where ID_Rol = @ID_Rol
 
 fetch next from rolesModificados into @ID_Rol, @Inhabilitado
 end

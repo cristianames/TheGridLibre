@@ -83,9 +83,10 @@
             // info
             // 
             this.info.AutoSize = true;
-            this.info.Location = new System.Drawing.Point(87, 121);
+            this.info.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.info.Location = new System.Drawing.Point(25, 115);
             this.info.Name = "info";
-            this.info.Size = new System.Drawing.Size(242, 13);
+            this.info.Size = new System.Drawing.Size(380, 18);
             this.info.TabIndex = 5;
             this.info.Text = "No tienes calificaciones pendientes. ¡Estás al día!";
             // 
@@ -94,7 +95,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.botonAtras;
-            this.ClientSize = new System.Drawing.Size(783, 430);
+            this.ClientSize = new System.Drawing.Size(844, 513);
             this.Controls.Add(this.info);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.botonAtras);

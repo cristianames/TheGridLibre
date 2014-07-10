@@ -12,6 +12,17 @@ namespace FrbaCommerce
         protected Form ventanaAnterior;
         protected FormGrid()
         {
+            // Set the start position of the form to the center of the screen.
+            this.StartPosition = FormStartPosition.CenterScreen;
+
+            
+            this.Load += new System.EventHandler(cosasAlInicio);
+            // Display the form as a modal dialog box.
+            //this.ShowDialog();
+        }
+
+        private void cosasAlInicio(object sender, EventArgs e)
+        {
             this.ControlBox = false;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -19,7 +30,7 @@ namespace FrbaCommerce
             this.Dock = DockStyle.Fill;
 
             //Carga el fondo
-            this.BackgroundImage = FrbaCommerce.Properties.Resources.Fondo_Azul;
+            this.BackgroundImage = Properties.Resources.Fondo_Azul;
             this.BackgroundImageLayout = ImageLayout.Stretch;
 
             //Ajusta la barra de titulo
@@ -27,18 +38,7 @@ namespace FrbaCommerce
 
             // Define the border style of the form to a dialog box.
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
-
-            // Set the start position of the form to the center of the screen.
-            this.StartPosition = FormStartPosition.CenterScreen;
-            this.Load += new System.EventHandler(cosasAlInicio);
             
-
-            // Display the form as a modal dialog box.
-            //this.ShowDialog();
-        }
-
-        private void cosasAlInicio(object sender, EventArgs e)
-        {
             foreach (Control control in this.Controls)
             {
                 if (control is Label)
@@ -60,7 +60,7 @@ namespace FrbaCommerce
                             ((Button)subcontrol).ForeColor = Color.Black;
                         if (subcontrol is Button)
                         {
-                            ((Button)subcontrol).BackgroundImage = FrbaCommerce.Properties.Resources.Boton_Azul;
+                            ((Button)subcontrol).BackgroundImage = Properties.Resources.Boton_Azul;
                             ((Button)subcontrol).BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
                             ((Button)subcontrol).FlatStyle = System.Windows.Forms.FlatStyle.Flat;
                         }
@@ -68,7 +68,7 @@ namespace FrbaCommerce
                 }
                 if (control is Button)
                 {
-                    ((Button)control).BackgroundImage = FrbaCommerce.Properties.Resources.Boton_Azul;
+                    ((Button)control).BackgroundImage = Properties.Resources.Boton_Azul;
                     ((Button)control).BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
                     ((Button)control).FlatStyle = System.Windows.Forms.FlatStyle.Flat;
                 }
@@ -77,6 +77,18 @@ namespace FrbaCommerce
                     ((RichTextBox)control).ForeColor = Color.Silver;
                     ((RichTextBox)control).BackColor = Color.SteelBlue;
                     ((RichTextBox)control).Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                }
+                if (control is ListBox)
+                {
+                    ((ListBox)control).BackColor = Color.LightSteelBlue;
+                }
+                if (control is ComboBox)
+                {
+                    ((ComboBox)control).BackColor = Color.LightSteelBlue;
+                }
+                if (control is NumericUpDown)
+                {
+                    ((NumericUpDown)control).BackColor = Color.LightSteelBlue;
                 }
 
             }

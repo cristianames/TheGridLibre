@@ -58,7 +58,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(8, 62);
+            this.label1.Location = new System.Drawing.Point(8, 73);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 11);
             this.label1.TabIndex = 2;
@@ -68,18 +68,16 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(7, 84);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(6, 91);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(194, 11);
+            this.label2.Size = new System.Drawing.Size(193, 15);
             this.label2.TabIndex = 3;
             this.label2.Text = "Funcionalidades Disponibles";
             // 
             // button1
             // 
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(21, 313);
             this.button1.Name = "button1";
@@ -93,10 +91,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(2, 13);
+            this.label3.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(5, 24);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(159, 11);
+            this.label3.Size = new System.Drawing.Size(181, 11);
             this.label3.TabIndex = 5;
             this.label3.Text = "¡Bienvenido Grid_xxxx!";
             // 
@@ -106,7 +104,7 @@
             this.linkLabel1.BackColor = System.Drawing.Color.Transparent;
             this.linkLabel1.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel1.LinkColor = System.Drawing.Color.Cyan;
-            this.linkLabel1.Location = new System.Drawing.Point(17, 36);
+            this.linkLabel1.Location = new System.Drawing.Point(7, 46);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(96, 11);
             this.linkLabel1.TabIndex = 6;
@@ -120,7 +118,7 @@
             this.linkLabel2.BackColor = System.Drawing.Color.Transparent;
             this.linkLabel2.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel2.LinkColor = System.Drawing.Color.Red;
-            this.linkLabel2.Location = new System.Drawing.Point(160, 13);
+            this.linkLabel2.Location = new System.Drawing.Point(157, 6);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(40, 11);
             this.linkLabel2.TabIndex = 7;
@@ -134,7 +132,7 @@
             this.linkLabel3.BackColor = System.Drawing.Color.Transparent;
             this.linkLabel3.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel3.LinkColor = System.Drawing.Color.Cyan;
-            this.linkLabel3.Location = new System.Drawing.Point(101, 62);
+            this.linkLabel3.Location = new System.Drawing.Point(101, 73);
             this.linkLabel3.Name = "linkLabel3";
             this.linkLabel3.Size = new System.Drawing.Size(37, 11);
             this.linkLabel3.TabIndex = 8;
@@ -151,6 +149,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.linkLabel2;
             this.ClientSize = new System.Drawing.Size(844, 521);
+            this.ControlBox = false;
             this.Controls.Add(this.linkLabel3);
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.linkLabel1);
@@ -160,7 +159,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Escritorio";
+            this.ShowIcon = false;
             this.Text = "Escritorio";
             this.Load += new System.EventHandler(this.Escrtorio_Load);
             this.VisibleChanged += new System.EventHandler(this.Escritorio_VisibleChanged);

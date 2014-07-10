@@ -38,7 +38,7 @@
             this.botonPreguntar = new System.Windows.Forms.Button();
             this.botonOfertar = new System.Windows.Forms.Button();
             this.botonComprar = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelPregunta = new System.Windows.Forms.Label();
             this.campoPregunta = new System.Windows.Forms.RichTextBox();
             this.botonCancelar = new System.Windows.Forms.Button();
             this.WarningLabel = new System.Windows.Forms.Label();
@@ -158,15 +158,15 @@
             this.botonComprar.UseVisualStyleBackColor = true;
             this.botonComprar.Click += new System.EventHandler(this.botonComprar_Click);
             // 
-            // label3
+            // labelPregunta
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(21, 181);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(117, 11);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Haz tu pregunta:";
+            this.labelPregunta.AutoSize = true;
+            this.labelPregunta.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPregunta.Location = new System.Drawing.Point(21, 181);
+            this.labelPregunta.Name = "labelPregunta";
+            this.labelPregunta.Size = new System.Drawing.Size(117, 11);
+            this.labelPregunta.TabIndex = 9;
+            this.labelPregunta.Text = "Haz tu pregunta:";
             // 
             // campoPregunta
             // 
@@ -212,7 +212,7 @@
             this.Controls.Add(this.WarningLabel);
             this.Controls.Add(this.botonCancelar);
             this.Controls.Add(this.campoPregunta);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.labelPregunta);
             this.Controls.Add(this.botonComprar);
             this.Controls.Add(this.botonOfertar);
             this.Controls.Add(this.botonPreguntar);
@@ -242,7 +242,7 @@
         private System.Windows.Forms.Button botonPreguntar;
         private System.Windows.Forms.Button botonOfertar;
         private System.Windows.Forms.Button botonComprar;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelPregunta;
         private System.Windows.Forms.RichTextBox campoPregunta;
         private System.Windows.Forms.Button botonCancelar;
         private System.Windows.Forms.Label WarningLabel;

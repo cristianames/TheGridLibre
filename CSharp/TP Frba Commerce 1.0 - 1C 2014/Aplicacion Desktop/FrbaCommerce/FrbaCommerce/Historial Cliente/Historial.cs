@@ -14,7 +14,7 @@ namespace FrbaCommerce.Historial_Cliente
     {
         private int filaSeleccionada;
         private string comandoGrilla;
-        public Historial(FormGrid anterior)
+        public Historial(Form anterior)
         {
             InitializeComponent();
             this.ClientSize = new System.Drawing.Size(411, 335);

@@ -43,6 +43,7 @@ namespace FrbaCommerce.Comprar_Ofertar
             {
                 infoDescripcion.Text += "\n No se ";
                 campoPregunta.Visible = botonPreguntar.Visible = false;
+                labelPregunta.Visible = false;
             }
             else infoDescripcion.Text += "\n Se ";
             infoDescripcion.Text += "permiten preguntas";
@@ -91,6 +92,7 @@ namespace FrbaCommerce.Comprar_Ofertar
             montoOferta.Visible = false;
             labelMonto.Visible = false;
             labelUnidades.Visible = false;
+            labelPregunta.Visible = false;
             campoPregunta.Visible = false;
             WarningLabel.Text = "Publicación no disponible";
             WarningLabel.Location = new System.Drawing.Point(360, 283);
@@ -114,7 +116,7 @@ namespace FrbaCommerce.Comprar_Ofertar
             infoPrecio.Text += tipoPubli;
             infoPrecio.Text += ("\n\r "+ tipoPrecio);
             infoPrecio.Text += precio;
-            infoPrecio.Text += "\n Total a pagar: ";
+            infoPrecio.Text += "\n Total a pagar: $";
             infoPrecio.Text += calcularTotal();
         }
 

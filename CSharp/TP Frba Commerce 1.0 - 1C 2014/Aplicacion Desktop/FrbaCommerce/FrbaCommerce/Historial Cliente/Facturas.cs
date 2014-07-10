@@ -13,7 +13,7 @@ namespace FrbaCommerce.Historial_Cliente
     public partial class Facturas : FormGrid
     {
         private int filaSeleccionada;
-        public Facturas(FormGrid anterior)
+        public Facturas(Form anterior)
         {
             InitializeComponent();
             this.ClientSize = new System.Drawing.Size(411, 335);
@@ -44,6 +44,11 @@ namespace FrbaCommerce.Historial_Cliente
             {
                 filaSeleccionada = row.Index;
             }
+        }
+
+        private void Facturas_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

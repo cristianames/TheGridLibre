@@ -39,7 +39,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.codigo = new System.Windows.Forms.TextBox();
             this.numtarjeta = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -83,7 +82,7 @@
             this.richTextBox1.Location = new System.Drawing.Point(13, 31);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(427, 150);
+            this.richTextBox1.Size = new System.Drawing.Size(427, 178);
             this.richTextBox1.TabIndex = 6;
             this.richTextBox1.Text = "";
             // 
@@ -139,14 +138,13 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.codigo);
             this.groupBox1.Controls.Add(this.numtarjeta);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Location = new System.Drawing.Point(16, 187);
+            this.groupBox1.Location = new System.Drawing.Point(16, 215);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(424, 100);
+            this.groupBox1.Size = new System.Drawing.Size(424, 72);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos tarjeta";
@@ -161,19 +159,10 @@
             "VISA",
             "VISA Electron",
             "GridPlus"});
-            this.comboBox1.Location = new System.Drawing.Point(140, 69);
+            this.comboBox1.Location = new System.Drawing.Point(219, 42);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(135, 21);
             this.comboBox1.TabIndex = 5;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(75, 72);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Tarjeta:";
             // 
             // codigo
             // 
@@ -186,7 +175,7 @@
             // 
             this.numtarjeta.Location = new System.Drawing.Point(140, 18);
             this.numtarjeta.Name = "numtarjeta";
-            this.numtarjeta.Size = new System.Drawing.Size(135, 20);
+            this.numtarjeta.Size = new System.Drawing.Size(214, 20);
             this.numtarjeta.TabIndex = 2;
             // 
             // label4
@@ -213,8 +202,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::FrbaCommerce.Properties.Resources.Fondo_Azul;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.botonAtras;
             this.ClientSize = new System.Drawing.Size(844, 513);
+            this.ControlBox = false;
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.monto);
             this.Controls.Add(this.label2);
@@ -225,7 +216,11 @@
             this.Controls.Add(this.botonAtras);
             this.Controls.Add(this.botonContinuar);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "resumenYFormaDePago";
+            this.ShowIcon = false;
             this.Text = "Selección de Publicaciones";
             this.Load += new System.EventHandler(this.PublicacionesRendir_Load);
             this.groupBox1.ResumeLayout(false);
@@ -248,7 +243,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox codigo;
         private System.Windows.Forms.TextBox numtarjeta;
         private System.Windows.Forms.Label label4;

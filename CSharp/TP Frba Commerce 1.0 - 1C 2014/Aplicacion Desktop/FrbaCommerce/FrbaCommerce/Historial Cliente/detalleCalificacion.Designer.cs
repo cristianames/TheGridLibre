@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(detalleCalificacion));
             this.atras = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -38,10 +39,8 @@
             // 
             // atras
             // 
-            this.atras.BackgroundImage = global::FrbaCommerce.Properties.Resources.Boton_Moderno;
             this.atras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.atras.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.atras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.atras.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.atras.Location = new System.Drawing.Point(324, 300);
             this.atras.Name = "atras";
@@ -109,15 +108,22 @@
             this.AcceptButton = this.linkPublicacion;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.atras;
-            this.ClientSize = new System.Drawing.Size(922, 335);
+            this.ClientSize = new System.Drawing.Size(844, 513);
+            this.ControlBox = false;
             this.Controls.Add(this.linkPublicacion);
             this.Controls.Add(this.estrellas);
             this.Controls.Add(this.calificador);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.atras);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "detalleCalificacion";
+            this.ShowIcon = false;
             this.Text = "Detalle de la Calificación";
             this.Load += new System.EventHandler(this.detalleCalificacion_Load);
             this.ResumeLayout(false);

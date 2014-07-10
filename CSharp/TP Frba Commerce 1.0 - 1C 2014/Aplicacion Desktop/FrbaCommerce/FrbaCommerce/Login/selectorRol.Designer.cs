@@ -49,10 +49,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(89, 43);
+            this.label1.Font = new System.Drawing.Font("Lucida Console", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(74, 43);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(194, 11);
+            this.label1.Size = new System.Drawing.Size(221, 12);
             this.label1.TabIndex = 1;
             this.label1.Text = "Por favor seleccione su rol";
             // 
@@ -91,14 +91,19 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.button2;
             this.ClientSize = new System.Drawing.Size(844, 521);
+            this.ControlBox = false;
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "selectorRol";
+            this.ShowIcon = false;
             this.Text = "SelectorRol";
             this.Load += new System.EventHandler(this.selectorRol_Load);
             this.ResumeLayout(false);

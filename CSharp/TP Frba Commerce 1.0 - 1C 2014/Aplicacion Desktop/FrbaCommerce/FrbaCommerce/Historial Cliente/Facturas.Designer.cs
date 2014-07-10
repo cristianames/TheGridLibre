@@ -37,10 +37,8 @@
             // 
             // atras
             // 
-            this.atras.BackgroundImage = global::FrbaCommerce.Properties.Resources.Boton_Azul;
             this.atras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.atras.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.atras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.atras.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.atras.Location = new System.Drawing.Point(324, 300);
             this.atras.Name = "atras";
@@ -67,9 +65,7 @@
             // 
             // seleccionar
             // 
-            this.seleccionar.BackgroundImage = global::FrbaCommerce.Properties.Resources.Boton_Azul;
             this.seleccionar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.seleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.seleccionar.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.seleccionar.Location = new System.Drawing.Point(243, 300);
             this.seleccionar.Name = "seleccionar";
@@ -95,16 +91,21 @@
             this.AcceptButton = this.seleccionar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::FrbaCommerce.Properties.Resources.Fondo_Azul;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.atras;
             this.ClientSize = new System.Drawing.Size(844, 521);
+            this.ControlBox = false;
             this.Controls.Add(this.sinResultados);
             this.Controls.Add(this.seleccionar);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.atras);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Facturas";
+            this.ShowIcon = false;
             this.Text = "Mis Facturas";
+            this.Load += new System.EventHandler(this.Facturas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

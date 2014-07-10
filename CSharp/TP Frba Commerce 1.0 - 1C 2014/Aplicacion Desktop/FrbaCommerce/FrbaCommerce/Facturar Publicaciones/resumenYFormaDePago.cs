@@ -168,7 +168,7 @@ namespace FrbaCommerce.Facturar_Publicaciones
         {
             groupBox1.Visible = !efectivo.Checked;
             if (efectivo.Checked) richTextBox1.Size = new System.Drawing.Size(427, 256);
-            else richTextBox1.Size = new System.Drawing.Size(427, 150);
+            else richTextBox1.Size = new System.Drawing.Size(427, 178);
         }
 
     }

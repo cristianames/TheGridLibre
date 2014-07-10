@@ -14,7 +14,7 @@ namespace FrbaCommerce.Historial_Cliente
     {
         private string idPublicacion;
         private string idCompra = "";
-        public detalleCompraOferta(FormGrid anterior, string codigo, bool esCompra)
+        public detalleCompraOferta(Form anterior, string codigo, bool esCompra)
         {
             InitializeComponent();
             this.ClientSize = new System.Drawing.Size(411, 335);

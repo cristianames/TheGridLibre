@@ -14,11 +14,14 @@ namespace FrbaCommerce.Generar_Publicacion
         DataTable datosConsultaVisibilidad;
         bool esSubasta;
         string estado = "";
+        int cantGratuitas;
         DateTime fechaHoy, fechaVencimiento;
         Form ventanaAnterior;
 
         //Editar_Publicacion.EditarPublicacion ventanaAnterior;
-        bool actualizar = false; //boolean que me permite saber si estas insertando una nueva publicacion o modificando una existente
+        bool actualizar = false; 
+        //boolean que me permite saber si estas insertando una nueva publicacion 
+        //o modificando una existente
         bool esBorrador;
         DataTable datosPublicacionViejos;
         int IDAnterior;
@@ -31,6 +34,13 @@ namespace FrbaCommerce.Generar_Publicacion
             datosConsultaVisibilidad = TG.realizarConsulta(comando);
             esSubasta = false;
             preguntasComboBox.SelectedIndex = 1;
+            comando = @"select COUNT(*) from THE_GRID.Publicacion p
+inner join THE_GRID.Estado_Publicacion e on e.ID_Estado = p.ID_Estado and e.Nombre = 'Publicada'
+inner join THE_GRID.Visibilidad v on v.ID_Visibilidad = p.ID_Visibilidad
+and v.Precio_Por_Publicar = 0 and v.Porcentaje_Venta = 0 
+where Facturada = 0 and ID_Vendedor = " + DatosUsuario.usuario;
+            cantGratuitas = Convert.ToInt32(TG.consultaEscalar(comando).ToString());
+            labelActivas.Text += cantGratuitas;
         }
         public GenerarPublicacion(Editar_Publicacion.EditarPublicacion anterior,string ID,bool valor)
         {
@@ -92,7 +102,8 @@ namespace FrbaCommerce.Generar_Publicacion
 
         private void GenerarPublicacion_Load(object sender, EventArgs e)
         {
-            string comando = "select Nombre from THE_GRID.Visibilidad order by Precio_Por_Publicar desc";
+            string comando = @"select Nombre from THE_GRID.Visibilidad 
+                            where Inhabilitado = 0 order by Precio_Por_Publicar desc";
             visibilidadComboBox1.DataSource = TG.ObtenerListado(comando);
             if (actualizar)
             {
@@ -149,6 +160,19 @@ namespace FrbaCommerce.Generar_Publicacion
                 richTextBox1.BackColor = Color.LightYellow;
                 error = true;
             } else richTextBox1.BackColor = Color.White;
+            string visibilidad = datosConsultaVisibilidad.Rows[visibilidadComboBox1.SelectedIndex]["ID_Visibilidad"].ToString();
+
+            string comando = @"select COUNT(*) from THE_GRID.Visibilidad
+where Inhabilitado = 0 and Precio_Por_Publicar = 0 and Porcentaje_Venta = 0 
+and ID_Visibilidad = '"+visibilidad+"'";
+
+            int resultado = Convert.ToInt32(TG.consultaEscalar(comando).ToString());
+            if (cantGratuitas >= 3 && resultado > 0)
+            {
+                TG.ventanaEmergente("Ya tiene 3 publicaciones gratuitas activas. Está en el límite");
+                error = true;
+            }
+
             if (error) return;
             estado = "100"; //publicada
             guardar();
@@ -185,13 +209,13 @@ namespace FrbaCommerce.Generar_Publicacion
             if (String.IsNullOrEmpty(txtPrecio.Text)) precio = "0";
             consulta = "insert THE_GRID.Publicacion (ID_Publicacion,Descripcion," +
             "ID_Estado,Fecha_Inicio,Fecha_Vencimiento," +
-            "ID_Vendedor,ID_Visibilidad,Permitir_Preguntas,Precio,Stock,ID_Tipo)" +
+            "ID_Vendedor,ID_Visibilidad,Permitir_Preguntas,Precio,Stock,ID_Tipo,Facturada)" +
             "VALUES ("+ (Convert.ToInt32(ultimoID) + 1).ToString() + ",'" + descripcion
                       + "','" + estado + "'"
                       + ",convert(datetime,'" + fechaHoy.ToString("yyyy-dd-MM hh:mm:ss")
                       + "'),convert(datetime,'" + fechaVencimiento.ToString("yyyy-dd-MM hh:mm:ss")
                       + "')," + DatosUsuario.usuario.ToString() + "," + visibilidad
-                      + "," + preguntas + "," + precio + "," + stock + ",'" + tipo + "')";
+                      + "," + preguntas + "," + precio + "," + stock + ",'" + tipo + "',0)";
             TG.realizarConsultaSinRetorno(consulta);
 
             //insertar rubros x publicacion

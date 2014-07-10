@@ -59,17 +59,18 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(6, 52);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(117, 13);
+            this.label2.Size = new System.Drawing.Size(137, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "¿Qué estás buscando?";
             // 
             // txtFiltro
             // 
-            this.txtFiltro.Location = new System.Drawing.Point(127, 48);
+            this.txtFiltro.Location = new System.Drawing.Point(146, 48);
             this.txtFiltro.Name = "txtFiltro";
-            this.txtFiltro.Size = new System.Drawing.Size(640, 20);
+            this.txtFiltro.Size = new System.Drawing.Size(621, 20);
             this.txtFiltro.TabIndex = 3;
             // 
             // pictureBox1
@@ -232,18 +233,20 @@
             // InfoLabel
             // 
             this.InfoLabel.AutoSize = true;
+            this.InfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InfoLabel.Location = new System.Drawing.Point(38, 99);
             this.InfoLabel.Name = "InfoLabel";
-            this.InfoLabel.Size = new System.Drawing.Size(187, 13);
+            this.InfoLabel.Size = new System.Drawing.Size(225, 13);
             this.InfoLabel.TabIndex = 19;
             this.InfoLabel.Text = "Informacion del selector de pagina >:3";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(332, 99);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(318, 100);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(116, 13);
+            this.label1.Size = new System.Drawing.Size(138, 13);
             this.label1.TabIndex = 20;
             this.label1.Text = "Resultados por página:";
             // 
@@ -286,8 +289,11 @@
             this.AcceptButton = this.botonSeleccionar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.botonAtras;
             this.ClientSize = new System.Drawing.Size(844, 513);
+            this.ControlBox = false;
             this.Controls.Add(this.sinResultados);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label1);
@@ -305,7 +311,11 @@
             this.Controls.Add(this.botonAtras);
             this.Controls.Add(this.botonSeleccionar);
             this.Controls.Add(this.pictureBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Buscador";
+            this.ShowIcon = false;
             this.Text = "Buscador";
             this.Load += new System.EventHandler(this.Buscador_Load);
             this.EnabledChanged += new System.EventHandler(this.Buscador_EnabledChanged);
