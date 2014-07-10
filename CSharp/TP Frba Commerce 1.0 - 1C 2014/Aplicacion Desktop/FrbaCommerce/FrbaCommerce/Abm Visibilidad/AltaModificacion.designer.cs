@@ -141,7 +141,7 @@ namespace FrbaCommerce.Abm_Visibilidad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(844, 487);
+            this.ClientSize = new System.Drawing.Size(844, 513);
             this.Controls.Add(this.txtDuracion);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.botonCancelar);

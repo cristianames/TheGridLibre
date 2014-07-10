@@ -22,14 +22,15 @@ namespace FrbaCommerce.Facturar_Publicaciones
 
             string comando =
               @"select p.ID_Publicacion COD, v.Precio_Por_Publicar 'Precio por publicar', 
-                SUM(c.Item_Cantidad + c.Item_Monto) * v.Porcentaje_Venta 'Comision por ventas'
-                ,p.Fecha_Inicio Fecha
-                from THE_GRID.Publicacion p inner join THE_GRID.Estado_Publicacion ep on 
-                p.ID_Estado = ep.ID_Estado and ep.Nombre = 'Publicada' 
-                and p.Facturada = 0 and p.ID_Vendedor = " + DatosUsuario.usuario + 
-             @" inner join THE_GRID.Visibilidad v on p.ID_Visibilidad = v.ID_Visibilidad 
+                SUM(c.Item_Cantidad+c.Item_Monto)*v.Porcentaje_Venta 'Comision por ventas',
+                p.Fecha_Inicio Fecha
+                from THE_GRID.Publicacion p 
+                inner join THE_GRID.Visibilidad v on p.ID_Visibilidad = v.ID_Visibilidad
                 inner join THE_GRID.Compra c on p.ID_Publicacion = c.ID_Publicacion
-                group by p.ID_Publicacion, v.Precio_Por_Publicar,v.Porcentaje_Venta,p.Fecha_Inicio
+                where p.Fecha_Vencimiento <= 
+                      convert(datetime,'"+TG.fechaDelSistema.ToString("yyyy-dd-MM hh:mm:ss")+
+                     "') and p.Facturada = 0 and p.ID_Vendedor = " + DatosUsuario.usuario + 
+             @" group by p.ID_Publicacion, v.Precio_Por_Publicar,v.Porcentaje_Venta,p.Fecha_Inicio
                 order by p.Fecha_Inicio";
             DataTable datos = TG.realizarConsulta(comando);
             numericUpDown1.Maximum = datos.Rows.Count;

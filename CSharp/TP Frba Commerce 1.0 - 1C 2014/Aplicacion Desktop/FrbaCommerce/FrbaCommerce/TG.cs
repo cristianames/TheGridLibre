@@ -131,5 +131,65 @@ namespace FrbaCommerce
             }
             return true;
         }
+
+        public static void procGenerarFactura(int top, string formaPago, string tarjeta) 
+        {
+            SqlConnection myConnection = TG.conectar();
+            SqlCommand cmd = new SqlCommand("THE_GRID.GenerarFactura", myConnection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlParameter _top = new SqlParameter("@top", SqlDbType.Int);
+            _top.Value = top;
+            _top.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(_top);
+            SqlParameter _ID_Vendedor = new SqlParameter("@ID_Vendedor", SqlDbType.Int);
+            _ID_Vendedor.Value = Convert.ToInt32(DatosUsuario.usuario);
+            _ID_Vendedor.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(_ID_Vendedor);
+            SqlParameter _fecha = new SqlParameter("@fecha", SqlDbType.Date);
+            _fecha.Value = TG.fechaDelSistema;
+            _fecha.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(_fecha);
+            SqlParameter _FormaPago = new SqlParameter("@FormaPago", SqlDbType.NVarChar);
+            _FormaPago.Value = formaPago;
+            _FormaPago.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(_FormaPago);
+            SqlParameter _tarjeta = new SqlParameter("@tarjeta", SqlDbType.Int);
+            _tarjeta.Value = Convert.ToInt32(tarjeta);
+            _tarjeta.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(_tarjeta);
+            cmd.ExecuteNonQuery();
+            myConnection.Close();
+        }
+
+        internal static int procLogin(string usuario, string password)
+        {
+            
+                SqlConnection myConnection = TG.conectar();
+                SqlCommand cmd = new SqlCommand("THE_GRID.login", myConnection);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter user;
+                user = new SqlParameter("@user", SqlDbType.Int);
+                user.Value = Convert.ToInt32(usuario);
+                user.Direction = ParameterDirection.Input;
+                cmd.Parameters.Add(user);
+
+                SqlParameter pass;
+                pass = new SqlParameter("@pass", SqlDbType.NVarChar);
+                pass.Value = TG.encriptar(password);
+                pass.Direction = ParameterDirection.Input;
+                cmd.Parameters.Add(pass);
+
+                SqlParameter protocolo;
+                protocolo = new SqlParameter("@protocolo", SqlDbType.Int);
+                protocolo.Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(protocolo);
+
+                cmd.ExecuteNonQuery();
+                myConnection.Close();
+
+                return Convert.ToInt32(protocolo.Value);
+        }
     }
 }

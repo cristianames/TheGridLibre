@@ -13,7 +13,7 @@ namespace FrbaCommerce.Comprar_Ofertar
     {
         private string idPublicacion;
         private DataRow infoPublicacion;
-        public Publicacion(FormGrid anterior, string _idPublicacion)
+        public Publicacion(Form anterior, string _idPublicacion)
         {
             InitializeComponent();
             ventanaAnterior = anterior;
@@ -42,8 +42,7 @@ namespace FrbaCommerce.Comprar_Ofertar
             if( !(bool)infoPublicacion["Permitir_Preguntas"] )
             {
                 infoDescripcion.Text += "\n No se ";
-                campoPregunta.Enabled = false;
-                botonPreguntar.Enabled = false;
+                campoPregunta.Visible = botonPreguntar.Visible = false;
             }
             else infoDescripcion.Text += "\n Se ";
             infoDescripcion.Text += "permiten preguntas";
@@ -87,14 +86,14 @@ namespace FrbaCommerce.Comprar_Ofertar
         {
             botonComprar.Visible = false;
             botonOfertar.Visible = false;
-            botonPreguntar.Enabled = false;
+            botonPreguntar.Visible = false;
             numericUpDown1.Visible = false;
             montoOferta.Visible = false;
             labelMonto.Visible = false;
             labelUnidades.Visible = false;
-            campoPregunta.Enabled = false;
+            campoPregunta.Visible = false;
             WarningLabel.Text = "Publicación no disponible";
-            WarningLabel.Location = new System.Drawing.Point(372, 283);
+            WarningLabel.Location = new System.Drawing.Point(360, 283);
             WarningLabel.Visible = true;
         }
 

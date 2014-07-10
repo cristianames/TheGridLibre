@@ -19,17 +19,21 @@ namespace FrbaCommerce.Historial_Cliente
             InitializeComponent();
             this.ClientSize = new System.Drawing.Size(411, 335);
             ventanaAnterior = anterior;
-            refrescar.Enabled = false;
-            sinResultados.Visible = false;
+            refrescar.Visible = false;
+            sinResultados.Visible = botonFacturas.Visible = false;
             /* Calificaciones
              * Compras
              * Ofertas
              */
             List<String> lista = new List<String>();
             lista.Add("Calificaciones");
-            
-            if (DatosUsuario.codigoRol == "3") otorgadas.Enabled = false;
-            else 
+
+            if (DatosUsuario.codigoRol == "3")
+            {
+                otorgadas.Enabled = false;
+                botonFacturas.Visible = true;
+            }
+            else
             {
                 lista.Add("Compras");
                 lista.Add("Ofertas");
@@ -51,9 +55,8 @@ namespace FrbaCommerce.Historial_Cliente
             if (comboBox1.SelectedIndex != 0) bandera = false;
             recibidas.Visible = otorgadas.Visible = bandera;
 
-            dataGridView1.Enabled = false;
-            seleccionar.Enabled = false;
-            refrescar.Enabled = true;
+            dataGridView1.Enabled = seleccionar.Enabled = false;
+            refrescar.Visible = true;
         }
 
         private void refrescar_Click(object sender, EventArgs e)
@@ -89,7 +92,7 @@ namespace FrbaCommerce.Historial_Cliente
             }
             refrescarGrilla();
             seleccionar.Enabled = true;
-            refrescar.Enabled = false;
+            refrescar.Visible = false;
             dataGridView1.Enabled = true;
         }
 
@@ -136,6 +139,12 @@ namespace FrbaCommerce.Historial_Cliente
             {
                 filaSeleccionada = row.Index;
             }
+        }
+
+        private void botonFacturas_Click(object sender, EventArgs e)
+        {
+            (new Facturas(this)).Show();
+            this.Visible = false;
         }
     }
 }

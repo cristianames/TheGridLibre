@@ -115,5 +115,33 @@ namespace FrbaCommerce.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        internal static System.Drawing.Bitmap Intro {
+            get {
+                object obj = ResourceManager.GetObject("Intro", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Tarzan {
+            get {
+                object obj = ResourceManager.GetObject("Tarzan", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap TheGRID {
+            get {
+                object obj = ResourceManager.GetObject("TheGRID", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap TheGRID1 {
+            get {
+                object obj = ResourceManager.GetObject("TheGRID1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

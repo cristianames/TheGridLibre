@@ -1,4 +1,5 @@
 drop procedure THE_GRID.login
+drop procedure THE_GRID.GenerarFactura
 drop function THE_GRID.dameUserIDdni
 drop function THE_GRID.dameUserIDcuit
 drop trigger THE_GRID.inhabilitarUsuario
@@ -18,6 +19,7 @@ drop table THE_GRID.RenglonFactura
 drop table THE_GRID.Factura
 drop table THE_GRID.Rubros_x_Publicacion
 drop table THE_GRID.Publicacion
+drop table THE_GRID.Contador_Visibilidad_x_Vendedor
 drop table THE_GRID.Usuario
 drop table THE_GRID.Tipo_Usuario
 drop table THE_GRID.Funcionalidades_x_Rol
@@ -25,6 +27,7 @@ drop table THE_GRID.Funcionalidad
 drop table THE_GRID.Rol
 drop table THE_GRID.Rubro
 drop table THE_GRID.Visibilidad
+drop table THE_GRID.Tipo_Visibilidad
 drop table THE_GRID.Estado_Publicacion
 drop table THE_GRID.Tipo_Publicacion
 drop schema [THE_GRID]

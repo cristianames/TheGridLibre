@@ -11,6 +11,7 @@ namespace FrbaCommerce.Facturar_Publicaciones
 {
     public partial class resumenYFormaDePago : FormGrid
     {
+        int cant;
         public resumenYFormaDePago(Form anterior, int cantPublicaciones)
         {
             InitializeComponent();
@@ -18,21 +19,26 @@ namespace FrbaCommerce.Facturar_Publicaciones
             this.ClientSize = new System.Drawing.Size(451, 367);
             ventanaAnterior = anterior;
             efectivo_CheckedChanged(null, null);
+            comboBox1.SelectedIndex = 0;
+            cant = cantPublicaciones;
 
             string comando =
                "select top " + cantPublicaciones.ToString() +
              @" p.ID_Publicacion COD, p.Descripcion, p.Precio,
                 v.Precio_Por_Publicar, v.Porcentaje_Venta * 100 'Porcentaje_Venta', v.Nombre,
+                v.ID_Tipo, isnull((select contador from THE_GRID.Contador_Visibilidad_x_Vendedor cv
+                where cv.ID_Tipo = v.ID_Tipo and cv.ID_Vendedor =" + DatosUsuario.usuario + @"),0) Contador,
                 cast(SUM(c.Item_Cantidad * c.Item_Monto) * v.Porcentaje_Venta as decimal(18,2)) 'Subtotal',
                 cast(SUM(c.Item_Cantidad * c.Item_Monto) * v.Porcentaje_Venta + v.Precio_Por_Publicar as decimal(18,2)) 'Final',
                 p.Fecha_Inicio Fecha
-                from THE_GRID.Publicacion p inner join THE_GRID.Estado_Publicacion ep on 
-                p.ID_Estado = ep.ID_Estado and ep.Nombre = 'Publicada' 
-                and p.Facturada = 0 and p.ID_Vendedor = " + DatosUsuario.usuario +
-             @" inner join THE_GRID.Visibilidad v on p.ID_Visibilidad = v.ID_Visibilidad 
+                from THE_GRID.Publicacion p 
+                inner join THE_GRID.Visibilidad v on p.ID_Visibilidad = v.ID_Visibilidad 
                 inner join THE_GRID.Compra c on p.ID_Publicacion = c.ID_Publicacion
-                group by p.ID_Publicacion, p.Descripcion, p.Precio, v.Precio_Por_Publicar,
-                v.Nombre, v.Porcentaje_Venta,p.Fecha_Inicio
+                where p.Fecha_Vencimiento <= 
+                      convert(datetime,'" + TG.fechaDelSistema.ToString("yyyy-dd-MM hh:mm:ss") +
+                     "') and p.Facturada = 0 and p.ID_Vendedor = " + DatosUsuario.usuario +
+             @" group by p.ID_Publicacion, p.Descripcion, p.Precio, v.Precio_Por_Publicar,
+                v.Nombre, v.Porcentaje_Venta, v.ID_Tipo, p.Fecha_Inicio
                 order by p.Fecha_Inicio";
             DataTable publicaciones = TG.realizarConsulta(comando), compras;
             int j;
@@ -56,7 +62,9 @@ namespace FrbaCommerce.Facturar_Publicaciones
                 richTextBox1.Text += "\n   . Precio por publicar: $";
                 richTextBox1.Text += publicaciones.Rows[i]["Precio_Por_Publicar"].ToString();
                 richTextBox1.Text += "\n   . Comisión (porcentaje de cada venta): ";
-                richTextBox1.Text += publicaciones.Rows[i]["Porcentaje_Venta"].ToString()+@"%";
+                richTextBox1.Text += publicaciones.Rows[i]["Porcentaje_Venta"].ToString() + @"%";
+                richTextBox1.Text += "\n   . Contador de la visibilidad: ";
+                richTextBox1.Text += publicaciones.Rows[i]["Contador"].ToString();
                 richTextBox1.Text += "\n   . ";
                 richTextBox1.Text += "\n--Compras en la Publicación " + (i + 1).ToString() + "--";
                 
@@ -90,8 +98,14 @@ namespace FrbaCommerce.Facturar_Publicaciones
                 richTextBox1.Text += publicaciones.Rows[i]["Precio_Por_Publicar"].ToString();
                 richTextBox1.Text += "\n  Subtotal: $";
                 richTextBox1.Text += publicaciones.Rows[i]["Final"].ToString();
+                if (publicaciones.Rows[i]["Contador"].ToString() == "10") {
+                    richTextBox1.Text += "\n\n  Tu publicación tiene una bonificación!!!";
+                    richTextBox1.Text += "\n  Descuento: -$";
+                    richTextBox1.Text += publicaciones.Rows[i]["Final"].ToString();
+                }
                 richTextBox1.Text += "\n\n  --------------------------------------\n\n";
 
+                if (publicaciones.Rows[i]["Contador"].ToString() != "10")
                 montoFinal += Validacion.ToFloat(publicaciones.Rows[i]["Final"].ToString());
             }
             monto.Text = "$" + montoFinal.ToString();
@@ -105,7 +119,44 @@ namespace FrbaCommerce.Facturar_Publicaciones
 
         private void botonContinuar_Click(object sender, EventArgs e)
         {
+            botonAtras.Enabled = botonContinuar.Enabled = false;
+            string formaPago = "Tarjeta de credito";
+            if(!efectivo.Checked && !datosTarjetaCorrectos())
+            {
+                TG.ventanaEmergente("Si desea abonar con tarjeta, complete correctamente los campos");
+                botonAtras.Enabled = botonContinuar.Enabled = true;
+                return;
+            }
+            if (efectivo.Checked) {
+                numtarjeta.Text = "0";
+                formaPago = "Efectivo";
+            }
+            TG.procGenerarFactura(cant,formaPago,numtarjeta.Text);
+            string comando = "select max(ID_Factura) from THE_GRID.Factura where "+
+                "ID_Vendedor = " + DatosUsuario.usuario;
+            string ID_Factura = (string)TG.consultaEscalar(comando).ToString();
+            (new Generada(ventanaAnterior, ID_Factura)).Show();
+            this.Close();
+        }
 
+        private bool datosTarjetaCorrectos()
+        {
+            bool error = false;
+            if (String.IsNullOrEmpty(numtarjeta.Text) || !Validacion.esNumero(numtarjeta.Text))
+            {
+                numtarjeta.BackColor = Color.LightYellow;
+                error = true;
+            }
+            else numtarjeta.BackColor = Color.White;
+
+            if (String.IsNullOrEmpty(codigo.Text) || !Validacion.esNumero(codigo.Text))
+            {
+                codigo.BackColor = Color.LightYellow;
+                error = true;
+            }
+            else codigo.BackColor = Color.White;
+
+            return !error;
         }
 
         private void botonAtras_Click(object sender, EventArgs e)

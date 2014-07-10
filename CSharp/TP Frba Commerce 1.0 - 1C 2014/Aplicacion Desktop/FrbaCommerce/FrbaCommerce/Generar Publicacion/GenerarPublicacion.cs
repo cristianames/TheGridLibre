@@ -22,10 +22,10 @@ namespace FrbaCommerce.Generar_Publicacion
         bool esBorrador;
         DataTable datosPublicacionViejos;
         int IDAnterior;
-        public GenerarPublicacion(FormGrid anterior)
+        public GenerarPublicacion(Form anterior)
         {
             InitializeComponent();
-            this.ClientSize = new System.Drawing.Size(389, 451);
+            this.ClientSize = new System.Drawing.Size(451, 426);
             ventanaAnterior = anterior;
             string comando = @"select * from THE_GRID.Visibilidad where Inhabilitado=0 order by Precio_Por_Publicar desc";
             datosConsultaVisibilidad = TG.realizarConsulta(comando);

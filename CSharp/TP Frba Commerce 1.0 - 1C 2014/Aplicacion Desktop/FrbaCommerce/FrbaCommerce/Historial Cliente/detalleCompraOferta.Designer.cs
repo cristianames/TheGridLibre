@@ -69,7 +69,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 55);
+            this.label1.Location = new System.Drawing.Point(12, 63);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(215, 11);
             this.label1.TabIndex = 11;
@@ -80,7 +80,7 @@
             this.linkPublicacion.AutoSize = true;
             this.linkPublicacion.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkPublicacion.LinkColor = System.Drawing.Color.Lime;
-            this.linkPublicacion.Location = new System.Drawing.Point(258, 36);
+            this.linkPublicacion.Location = new System.Drawing.Point(311, 52);
             this.linkPublicacion.Name = "linkPublicacion";
             this.linkPublicacion.Size = new System.Drawing.Size(82, 11);
             this.linkPublicacion.TabIndex = 14;
@@ -133,7 +133,7 @@
             this.compraLink.AutoSize = true;
             this.compraLink.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.compraLink.LinkColor = System.Drawing.Color.Lime;
-            this.compraLink.Location = new System.Drawing.Point(15, 314);
+            this.compraLink.Location = new System.Drawing.Point(15, 309);
             this.compraLink.Name = "compraLink";
             this.compraLink.Size = new System.Drawing.Size(250, 11);
             this.compraLink.TabIndex = 19;
@@ -160,7 +160,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.atras;
-            this.ClientSize = new System.Drawing.Size(922, 335);
+            this.ClientSize = new System.Drawing.Size(844, 513);
             this.Controls.Add(this.calificacionLink);
             this.Controls.Add(this.compraLink);
             this.Controls.Add(this.gano);

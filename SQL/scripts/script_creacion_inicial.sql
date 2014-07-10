@@ -35,7 +35,7 @@ create table THE_GRID.Cliente(
     Mail nvarchar(255),
     Telefono numeric(18,0),
     Fecha_Nacimiento datetime, 
-    Nro_Tarjeta numeric(20,0),
+    Nro_Tarjeta nvarchar(40),
     Calle nvarchar(255), 
 	Nro_Calle numeric(18,0), 
 	Nro_Piso numeric(18,0), 
@@ -98,13 +98,29 @@ create table THE_GRID.Estado_Publicacion(
 )
 go
 
+
+create table THE_GRID.Tipo_Visibilidad(
+	ID_Tipo numeric(18,0) identity(1,1) primary key,
+	Nombre varchar(256)
+)
+go
+
 create table THE_GRID.Visibilidad(
 	ID_Visibilidad numeric(18,0) identity(10002,1) primary key,
 	Nombre varchar(256),
 	Precio_Por_Publicar numeric(18,2),
 	Porcentaje_Venta numeric(18,2),
 	Duracion numeric(3,0),
-	Inhabilitado bit
+	Inhabilitado bit,
+	ID_Tipo numeric(18,0) references THE_GRID.Tipo_Visibilidad(ID_Tipo)
+)
+go
+
+create table THE_GRID.Contador_Visibilidad_x_Vendedor(
+	ID_Tipo numeric(18,0) references THE_GRID.Tipo_Visibilidad(ID_Tipo),
+	ID_Vendedor numeric(18,0) references THE_GRID.Usuario(ID_User),
+	Contador numeric(2,0)
+	primary key(ID_Tipo,ID_Vendedor)
 )
 go
 
@@ -141,7 +157,8 @@ create table THE_GRID.Publicacion(
 	ID_Vendedor numeric(18,0) references THE_GRID.Usuario(ID_User),
 	ID_Estado numeric(18,0) references THE_GRID.Estado_Publicacion(ID_Estado),
 	ID_Tipo numeric(18,0) references THE_GRID.Tipo_Publicacion(ID_Tipo),
-	Permitir_Preguntas bit,			
+	Permitir_Preguntas bit,
+	Facturada bit			
 )
 go
 
@@ -181,7 +198,7 @@ create table THE_GRID.Factura(
 	Fecha date,
 	Forma_Pago nvarchar(255),
 	Nro_Tarjeta numeric(20,0),
-	Total numeric(18,0)
+	Total numeric(18,2)
 )
 go
 
@@ -444,29 +461,103 @@ return
 end
 go
 
+create procedure THE_GRID.GenerarFactura 
+				@top int,
+				@ID_Vendedor numeric(18,0),
+				@fecha date, 
+				@formaPago nvarchar(255), 
+				@tarjeta numeric(20,0)
+as
+begin tran
+
+declare publicaciones cursor for
+select top (@top) p.ID_Publicacion,
+v.Precio_Por_Publicar, v.Porcentaje_Venta,
+v.ID_Tipo, isnull((select contador from THE_GRID.Contador_Visibilidad_x_Vendedor cv
+where cv.ID_Tipo = v.ID_Tipo and cv.ID_Vendedor = (@ID_Vendedor)),0) Contador
+from THE_GRID.Publicacion p 
+inner join THE_GRID.Visibilidad v on p.ID_Visibilidad = v.ID_Visibilidad 
+inner join THE_GRID.Compra c on p.ID_Publicacion = c.ID_Publicacion
+where p.Fecha_Vencimiento <= @fecha and p.Facturada = 0 and p.ID_Vendedor = @ID_Vendedor             
+group by p.ID_Publicacion, v.Precio_Por_Publicar,v.Porcentaje_Venta, v.ID_Tipo, p.Fecha_Inicio
+order by p.Fecha_Inicio
+
+open publicaciones
+declare @ID_Publicacion numeric(18,0);
+declare @precioPublicar numeric(18,2);
+declare @porcentajeVenta numeric(18,2);
+declare @ID_Tipo numeric(18,0);
+declare @contador numeric(2,0);
+declare @nroFactura numeric(18,0);
+
+set @nroFactura = (select MAX(ID_Factura) + 1 from THE_GRID.Factura)
+insert into THE_GRID.Factura values(@nroFactura,@ID_Vendedor,@fecha,@formaPago,@tarjeta,0)
+
+fetch next from publicaciones into @ID_Publicacion,@precioPublicar,@porcentajeVenta,@ID_Tipo,@contador
+
+while @@FETCH_STATUS = 0 
+begin
+	if (select COUNT(*) from THE_GRID.Contador_Visibilidad_x_Vendedor 
+		where ID_Tipo = @ID_Tipo and ID_Vendedor = @ID_Vendedor) = 0 
+	insert into THE_GRID.Contador_Visibilidad_x_Vendedor values(@ID_Tipo,@ID_Vendedor,0)
+	
+	update THE_GRID.Contador_Visibilidad_x_Vendedor set Contador = @contador+1
+	where ID_Tipo = @ID_Tipo and ID_Vendedor = @ID_Vendedor
+	
+	update THE_GRID.Publicacion set Facturada = 1 where ID_Publicacion = @ID_Publicacion
+	
+	if @contador = 10 
+	begin 
+		insert into THE_GRID.RenglonFactura
+		select @nroFactura, @ID_Publicacion, 0, c.Item_Cantidad 
+		from THE_GRID.Compra c where ID_Publicacion = @ID_Publicacion
+	
+		insert into THE_GRID.RenglonFactura values(@nroFactura,@ID_Publicacion,0,1)
+		
+		update THE_GRID.Contador_Visibilidad_x_Vendedor set Contador = 1
+		where ID_Tipo = @ID_Tipo and ID_Vendedor = @ID_Vendedor
+	end
+	else
+	begin
+		insert into THE_GRID.RenglonFactura
+		select @nroFactura, @ID_Publicacion, c.Item_Monto*c.Item_Cantidad*@porcentajeVenta, c.Item_Cantidad 
+		from THE_GRID.Compra c where ID_Publicacion = @ID_Publicacion
+	
+		insert into THE_GRID.RenglonFactura values(@nroFactura,@ID_Publicacion,@precioPublicar,1)
+	end
+	
+	fetch next from publicaciones into @ID_Publicacion,@precioPublicar,@porcentajeVenta,@ID_Tipo,@contador
+end
+
+close publicaciones
+deallocate publicaciones
+
+update THE_GRID.Factura 
+set Total = (select SUM(Item_Monto) from THE_GRID.RenglonFactura r where r.ID_Factura = @nroFactura)              
+where ID_Factura = @nroFactura
+commit
+go
+
 --------------------------------------------------------------------------------------------
 --Triggers
 
-create trigger THE_GRID.inhabilitarUsuario on THE_GRID.Usuario for update as
+create trigger THE_GRID.inhabilitarUsuario on THE_GRID.Usuario for update 
+as
 begin
 
-declare usuariosModificados cursor for (select ID_User from inserted)
-declare @usuario numeric(18,0)
-
-open usuariosModificados
-fetch next from usuariosModificados into @usuario
-
-while (@@fetch_status = 0)
-begin
-
-update THE_GRID.Publicacion set ID_Estado= 102 where ID_Vendedor = @usuario and ID_Estado = 100
-
-fetch next from usuariosModificados into @usuario
+if update(Inhabilitado) begin
+	declare usuariosModificados cursor for (select ID_User from inserted)
+	declare @usuario numeric(18,0)
+	open usuariosModificados
+	fetch next from usuariosModificados into @usuario
+	while (@@fetch_status = 0)
+	begin
+		update THE_GRID.Publicacion set ID_Estado= 102 where ID_Vendedor = @usuario and ID_Estado = 100
+		fetch next from usuariosModificados into @usuario
+	end
+	close usuariosModificados
+	deallocate usuariosModificados
 end
-
-close usuariosModificados
-deallocate usuariosModificados
-
 end
 
 go
@@ -521,7 +612,7 @@ insert into GD1C2014.THE_GRID.Usuario (Pass,Inhabilitado,Antiguo,ID_Tipo,Intento
 values('37a8eec1ce19687d132fe29051dca629d164e2c4958ba141d5f4133a33f0688f',0,1,2,1,1,0)
 insert into GD1C2014.THE_GRID.Roles_x_Usuario values(@contador,2,0)
 insert into GD1C2014.THE_GRID.Roles_x_Usuario values(@contador,3,0)
-insert into GD1C2014.THE_GRID.Cliente values(@contador,@nombre,@apellido,'DNI',@dni,@mail,0,@nacimiento,0,@calle,@nro,@piso,@depto,'Sin_Localidad',@postal,'Sin_Ciudad')
+insert into GD1C2014.THE_GRID.Cliente values(@contador,@nombre,@apellido,'DNI',@dni,@mail,0,@nacimiento,'',@calle,@nro,@piso,@depto,'Sin_Localidad',@postal,'Sin_Ciudad')
 
 set @contador = @contador + 1
 fetch next from cursorCliente
@@ -575,11 +666,31 @@ values ((select top 1 ID_User from THE_GRID.Usuario order by ID_User desc),1,0)
 ---------------------------------------------------------------------------------------------------------
 --Visibilidades
 
-insert into THE_GRID.Visibilidad
-SELECT DISTINCT Publicacion_Visibilidad_Desc,Publicacion_Visibilidad_Precio, Publicacion_Visibilidad_Porcentaje,7,0
-from gd_esquema.Maestra
-where Publicacion_Visibilidad_Cod is not null
-order by Publicacion_Visibilidad_Desc
+declare visibilidades cursor for (SELECT DISTINCT Publicacion_Visibilidad_Desc,
+	   Publicacion_Visibilidad_Precio, 
+	   Publicacion_Visibilidad_Porcentaje
+		from gd_esquema.Maestra
+		where Publicacion_Visibilidad_Cod is not null)
+declare @visibilidadNombre  varchar(256);
+declare @visibilidadPrecio numeric(18,2);
+declare @visibilidadPorcentaje  numeric(18,2);
+declare @visibilidadTipo  numeric(18,0);
+
+open visibilidades
+fetch next from visibilidades into @visibilidadNombre,@visibilidadPrecio,@visibilidadPorcentaje
+set @visibilidadTipo = 1;
+
+while @@FETCH_STATUS = 0 begin
+	insert into THE_GRID.Tipo_Visibilidad values(@visibilidadNombre)
+	
+	insert into THE_GRID.Visibilidad 
+	values(@visibilidadNombre,@visibilidadPrecio,@visibilidadPorcentaje,7,0,@visibilidadTipo)
+	fetch next from visibilidades into @visibilidadNombre,@visibilidadPrecio,@visibilidadPorcentaje
+	set @visibilidadTipo = @visibilidadTipo + 1
+end
+
+close visibilidades
+deallocate visibilidades
 
 --------------------------- FIN VISIBILIDAD -- INICIO RUBRO
 
@@ -616,11 +727,10 @@ insert into THE_GRID.Publicacion
 SELECT DISTINCT Publicacion_Cod,Publicacion_Descripcion,Publicacion_Stock,Publicacion_Fecha,
 Publicacion_Fecha_Venc,Publicacion_Precio,Publicacion_Visibilidad_Cod, c.ID_User,
 100,case when Publicacion_Tipo = 'Compra Inmediata' then 100
-	when Publicacion_Tipo = 'Subasta' then 101 end,1
+	when Publicacion_Tipo = 'Subasta' then 101 end,1,0
 
 from gd_esquema.Maestra 
 inner join THE_GRID.Cliente c on Publ_Cli_Dni = c.Documento
---inner join THE_GRID.Rubro r on Publicacion_Rubro_Descripcion = r.Nombre
 where Publ_Cli_Dni is not null 
 
 union 
@@ -628,11 +738,10 @@ union
 SELECT DISTINCT Publicacion_Cod,Publicacion_Descripcion,Publicacion_Stock,Publicacion_Fecha,
 Publicacion_Fecha_Venc,Publicacion_Precio,Publicacion_Visibilidad_Cod, e.ID_User,
 100,case when Publicacion_Tipo = 'Compra Inmediata' then 100
-	when Publicacion_Tipo = 'Subasta' then 101 end,1
+	when Publicacion_Tipo = 'Subasta' then 101 end,1,1
 
 from gd_esquema.Maestra 
 inner join THE_GRID.Empresa e on Publ_Empresa_Cuit = e.CUIT
---inner join THE_GRID.Rubro r on Publicacion_Rubro_Descripcion = r.Nombre
 where Publ_Empresa_Razon_Social is not null
 
 order by Publicacion_Cod

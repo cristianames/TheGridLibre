@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
+//using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,62 +21,36 @@ namespace FrbaCommerce.Login
             this.ClientSize = new System.Drawing.Size(340, 140);
         }
 
-        private void submitActions() 
+        private void submitActions()
         {
             if (userTextbox.Text == "" || passTextBox.Text == "")
             {
                 TG.ventanaEmergente("Campos incompletos");
                 return;
             }
-            
-            SqlConnection myConnection = TG.conectar();
-            using (SqlCommand cmd = new SqlCommand("THE_GRID.login", myConnection))
+            int protocol = TG.procLogin(userTextbox.Text, passTextBox.Text);
+
+            if (protocol == 1) TG.ventanaEmergente("Usuario NO Encontrado o pass incorrecto");// usuario no encontrado
+            else if (protocol == 2) TG.ventanaEmergente("Usuario Inhabilitado!");
+            else if (protocol == 3) TG.ventanaEmergente("Usuario NO Encontrado o pass incorrecto");// pass incorrecto
+            else if (protocol == 4) TG.ventanaEmergente("Inhabilitado por poner mal el pass 3 veces!");
+            else if (protocol == 5) TG.ventanaEmergente("No hay roles disponibles para este usuario");
+            else if (primerIngreso(userTextbox.Text))
             {
-                cmd.CommandType = CommandType.StoredProcedure;
+                DatosUsuario.usuario = userTextbox.Text;
+                FrbaCommerce.Login.cambioPass cambioDePass = new cambioPass(this, true);
+                cambioDePass.Show();
+                this.Visible = false;
+            }
+            else
+            {
+                DatosUsuario.usuario = userTextbox.Text;
+                DatosUsuario.actualizarBanderasUsuario();
+                FrbaCommerce.Login.selectorRol seleccionRol = new selectorRol(this);
+                seleccionRol.Show();
+                this.Visible = false;
+            }
 
-                SqlParameter user;
-                user = new SqlParameter("@user", SqlDbType.Int);
-                user.Value = Convert.ToInt32(userTextbox.Text);
-                user.Direction = ParameterDirection.Input;
-                cmd.Parameters.Add(user);
-
-                SqlParameter pass;
-                pass = new SqlParameter("@pass", SqlDbType.NVarChar);
-                pass.Value = TG.encriptar(passTextBox.Text);
-                pass.Direction = ParameterDirection.Input;
-                cmd.Parameters.Add(pass);
-
-                SqlParameter protocolo;
-                protocolo = new SqlParameter("@protocolo", SqlDbType.Int);
-                protocolo.Direction = ParameterDirection.Output;
-                cmd.Parameters.Add(protocolo);
-
-                cmd.ExecuteNonQuery();
-                myConnection.Close();
-
-                int protocol = Convert.ToInt32(protocolo.Value);
-
-                     if (protocol == 1) TG.ventanaEmergente("Usuario NO Encontrado o pass incorrecto");// usuario no encontrado
-                else if (protocol == 2) TG.ventanaEmergente("Usuario Inhabilitado!");
-                else if (protocol == 3) TG.ventanaEmergente("Usuario NO Encontrado o pass incorrecto");// pass incorrecto
-                else if (protocol == 4) TG.ventanaEmergente("Inhabilitado por poner mal el pass 3 veces!");
-                else if (protocol == 5) TG.ventanaEmergente("No hay roles disponibles para este usuario");
-                else if (primerIngreso(userTextbox.Text))
-                {
-                    DatosUsuario.usuario = userTextbox.Text;
-                    FrbaCommerce.Login.cambioPass cambioDePass = new cambioPass(this,true);
-                    cambioDePass.Show();
-                    this.Visible = false;
-                }
-                else
-                {
-                    DatosUsuario.usuario = userTextbox.Text;
-                    DatosUsuario.actualizarBanderasUsuario();
-                    FrbaCommerce.Login.selectorRol seleccionRol = new selectorRol(this);
-                    seleccionRol.Show();
-                    this.Visible = false;
-                }
-            }    
         }
 
         private void button1_Click(object sender, EventArgs e)

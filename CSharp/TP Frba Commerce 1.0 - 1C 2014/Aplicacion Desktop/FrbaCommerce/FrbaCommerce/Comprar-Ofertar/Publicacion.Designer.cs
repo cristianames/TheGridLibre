@@ -47,7 +47,8 @@
             // 
             // infoDescripcion
             // 
-            this.infoDescripcion.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.infoDescripcion.BackColor = System.Drawing.Color.SteelBlue;
+            this.infoDescripcion.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.infoDescripcion.Location = new System.Drawing.Point(24, 16);
             this.infoDescripcion.Name = "infoDescripcion";
             this.infoDescripcion.ReadOnly = true;
@@ -207,7 +208,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.botonCancelar;
-            this.ClientSize = new System.Drawing.Size(922, 335);
+            this.ClientSize = new System.Drawing.Size(844, 513);
             this.Controls.Add(this.WarningLabel);
             this.Controls.Add(this.botonCancelar);
             this.Controls.Add(this.campoPregunta);

@@ -153,7 +153,14 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "MasterCard",
+            "Maestro",
+            "VISA",
+            "VISA Electron",
+            "GridPlus"});
             this.comboBox1.Location = new System.Drawing.Point(140, 69);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(135, 21);
@@ -205,6 +212,7 @@
             this.AcceptButton = this.botonContinuar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::FrbaCommerce.Properties.Resources.Fondo_Azul;
             this.CancelButton = this.botonAtras;
             this.ClientSize = new System.Drawing.Size(844, 513);
             this.Controls.Add(this.groupBox1);

@@ -11,13 +11,14 @@ namespace FrbaCommerce.Abm_Visibilidad
 {
     public partial class AltaVisibilidad : FormGrid
     {
-        string IDBaja = "";
-        string nombreBaja= "";
+        string IDBaja = "",nombreBaja= "",ID_Tipo;
         public AltaVisibilidad(FormGrid anterior)
         {
             InitializeComponent();
             this.ClientSize = new System.Drawing.Size(260, 207);
             ventanaAnterior = anterior;
+            string comando = "select max(ID_Tipo) + 1 from THE_GRID.Tipo_Visibilidad";
+            ID_Tipo = TG.consultaEscalar(comando).ToString();
         }
         public AltaVisibilidad(FormGrid anterior,string ID)
         {
@@ -33,7 +34,7 @@ namespace FrbaCommerce.Abm_Visibilidad
             //labelAviso.Text = "Recuerde que si desea guardar los cambios, debera insertar otro codigo para la visibilidad y la actual sera dada de baja";
             IDBaja = ID;
             nombreBaja = fila["Nombre"].ToString();
-           
+            ID_Tipo = fila["ID_Tipo"].ToString();
         }
         private void botonLimpiar_Click(object sender, EventArgs e)
         {
@@ -52,31 +53,41 @@ namespace FrbaCommerce.Abm_Visibilidad
                 botonGuardar.Enabled = true;
                 return;
             }
-            if (!String.IsNullOrEmpty(IDBaja))
+
+            string validacionNombreRepetido = "select Nombre from THE_GRID.Visibilidad " +
+                    "where Inhabilitado = 0";
+
+            if(!String.IsNullOrEmpty(IDBaja)) 
+                validacionNombreRepetido +=" and ID_Visibilidad <> " + IDBaja;
+
+            List<string> listaNombres = TG.ObtenerListado(validacionNombreRepetido);
+            foreach (string nombre in listaNombres) //validacion nombre
             {
-                string validacionNombreRepetido = "select Nombre from THE_GRID.Visibilidad "+
-                    "where Inhabilitado = 0 and ID_Visibilidad <> " + IDBaja;
-                List<string> listaNombres = TG.ObtenerListado(validacionNombreRepetido);
-                foreach (string nombre in listaNombres) //validacion nombre
+                if (nombre == txtNombre.Text)
                 {
-                    if (nombre == txtNombre.Text)
-                    {
-                        TG.ventanaEmergente("Nombre repetido, ingrese otro por favor");
-                        txtNombre.BackColor = Color.LightYellow;
-                        botonCancelar.Enabled = true;
-                        botonGuardar.Enabled = true;
-                        return;
-                    }
+                    TG.ventanaEmergente("Nombre repetido, ingrese otro por favor");
+                    txtNombre.BackColor = Color.LightYellow;
+                    botonCancelar.Enabled = true;
+                    botonGuardar.Enabled = true;
+                    return;
                 }
-                string comando = "update THE_GRID.Visibilidad set Inhabilitado = 1 "+
-                    "where ID_Visibilidad = "+IDBaja;
-                TG.realizarConsultaSinRetorno(comando);
             }
+            string comando;
+            if (!String.IsNullOrEmpty(IDBaja))
+                comando = "update THE_GRID.Visibilidad set Inhabilitado = 1 " +
+                    "where ID_Visibilidad = " + IDBaja;
+            else
+                comando = "insert into THE_GRID.Tipo_Visibilidad values('"+
+                    txtNombre.Text + "')";
+            TG.realizarConsultaSinRetorno(comando);
+            
             //como no me toma las comas, los convierto en puntos con Validacion.conComa
             string precio = Validacion.conComa(txtPrecio.Text);
             string porcentaje = Validacion.conComa(txtPorcentaje.Text);
-            string consulta="INSERT INTO THE_GRID.Visibilidad (Nombre,Precio_Por_Publicar,Porcentaje_Venta,Duracion,Inhabilitado)"+
-            "VALUES ('" + txtNombre.Text + "'," + precio + "," + porcentaje + "," + txtDuracion.Text + ",0)";
+            string consulta="INSERT INTO THE_GRID.Visibilidad (Nombre,Precio_Por_Publicar,"+
+                "Porcentaje_Venta,Duracion,Inhabilitado,ID_Tipo)"+
+            "VALUES ('" + txtNombre.Text + "'," + precio + "," + porcentaje + "," + 
+            txtDuracion.Text + ",0,"+ID_Tipo+")";
             TG.realizarConsulta(consulta);
             volverAtras();
         }

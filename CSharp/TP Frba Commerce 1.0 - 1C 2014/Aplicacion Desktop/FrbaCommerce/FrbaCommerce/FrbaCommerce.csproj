@@ -165,11 +165,23 @@
     <Compile Include="Calificar Vendedor\SeleccionarUsuario.Designer.cs">
       <DependentUpon>SeleccionarUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Facturar Publicaciones\Generada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturar Publicaciones\Generada.Designer.cs">
+      <DependentUpon>Generada.cs</DependentUpon>
+    </Compile>
     <Compile Include="Facturar Publicaciones\resumenYFormaDePago.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Facturar Publicaciones\resumenYFormaDePago.Designer.cs">
       <DependentUpon>resumenYFormaDePago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Historial Cliente\Facturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Historial Cliente\Facturas.Designer.cs">
+      <DependentUpon>Facturas.cs</DependentUpon>
     </Compile>
     <Compile Include="Historial Cliente\detalleCompraOferta.cs">
       <SubType>Form</SubType>
@@ -225,18 +237,6 @@
     </Compile>
     <Compile Include="Escritorio.Designer.cs">
       <DependentUpon>Escritorio.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturar Publicaciones\FacturaGenerada.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturar Publicaciones\FacturaGenerada.Designer.cs">
-      <DependentUpon>FacturaGenerada.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturar Publicaciones\formaPago.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturar Publicaciones\formaPago.Designer.cs">
-      <DependentUpon>formaPago.cs</DependentUpon>
     </Compile>
     <Compile Include="Facturar Publicaciones\PublicacionesRendir.cs">
       <SubType>Form</SubType>
@@ -368,17 +368,17 @@
     <EmbeddedResource Include="Escritorio.resx">
       <DependentUpon>Escritorio.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Facturar Publicaciones\Generada.resx">
+      <DependentUpon>Generada.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Facturar Publicaciones\resumenYFormaDePago.resx">
       <DependentUpon>resumenYFormaDePago.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Facturar Publicaciones\FacturaGenerada.resx">
-      <DependentUpon>FacturaGenerada.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturar Publicaciones\formaPago.resx">
-      <DependentUpon>formaPago.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Facturar Publicaciones\PublicacionesRendir.resx">
       <DependentUpon>PublicacionesRendir.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Historial Cliente\Facturas.resx">
+      <DependentUpon>Facturas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Historial Cliente\detalleCompraOferta.resx">
       <DependentUpon>detalleCompraOferta.cs</DependentUpon>
@@ -493,6 +493,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="config.txt" />
+    <None Include="Resources\Tarzan.gif" />
+    <None Include="Resources\Intro.gif" />
+    <None Include="Resources\TheGRID.jpg" />
+    <None Include="Resources\TheGRID.gif" />
     <None Include="Resources\Fondo_Delirio.jpg" />
     <None Include="Resources\Fondo_Azul.jpg" />
     <None Include="Resources\Fondo_Advertencia_1.jpg" />

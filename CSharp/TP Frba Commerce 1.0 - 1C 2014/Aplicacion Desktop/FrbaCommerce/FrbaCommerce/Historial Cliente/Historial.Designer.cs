@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Historial));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.recibidas = new System.Windows.Forms.RadioButton();
             this.refrescar = new System.Windows.Forms.Button();
@@ -39,6 +38,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.seleccionar = new System.Windows.Forms.Button();
             this.sinResultados = new System.Windows.Forms.Label();
+            this.botonFacturas = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -74,9 +74,7 @@
             // 
             // refrescar
             // 
-            this.refrescar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("refrescar.BackgroundImage")));
             this.refrescar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.refrescar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.refrescar.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.refrescar.Location = new System.Drawing.Point(184, 21);
             this.refrescar.Name = "refrescar";
@@ -121,7 +119,7 @@
             // 
             // atras
             // 
-            this.atras.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("atras.BackgroundImage")));
+            this.atras.BackgroundImage = global::FrbaCommerce.Properties.Resources.Boton_Azul;
             this.atras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.atras.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.atras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -151,7 +149,7 @@
             // 
             // seleccionar
             // 
-            this.seleccionar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("seleccionar.BackgroundImage")));
+            this.seleccionar.BackgroundImage = global::FrbaCommerce.Properties.Resources.Boton_Azul;
             this.seleccionar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.seleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.seleccionar.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -174,13 +172,27 @@
             this.sinResultados.TabIndex = 23;
             this.sinResultados.Text = "Sin Resultados";
             // 
+            // botonFacturas
+            // 
+            this.botonFacturas.BackgroundImage = global::FrbaCommerce.Properties.Resources.Boton_Azul;
+            this.botonFacturas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.botonFacturas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.botonFacturas.Location = new System.Drawing.Point(19, 300);
+            this.botonFacturas.Name = "botonFacturas";
+            this.botonFacturas.Size = new System.Drawing.Size(107, 23);
+            this.botonFacturas.TabIndex = 24;
+            this.botonFacturas.Text = "Mis Facturas";
+            this.botonFacturas.UseVisualStyleBackColor = true;
+            this.botonFacturas.Click += new System.EventHandler(this.botonFacturas_Click);
+            // 
             // Historial
             // 
             this.AcceptButton = this.seleccionar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.atras;
-            this.ClientSize = new System.Drawing.Size(922, 343);
+            this.ClientSize = new System.Drawing.Size(844, 521);
+            this.Controls.Add(this.botonFacturas);
             this.Controls.Add(this.sinResultados);
             this.Controls.Add(this.seleccionar);
             this.Controls.Add(this.dataGridView1);
@@ -210,5 +222,6 @@
         private System.Windows.Forms.Button seleccionar;
         private System.Windows.Forms.Button refrescar;
         private System.Windows.Forms.Label sinResultados;
+        private System.Windows.Forms.Button botonFacturas;
     }
 }

@@ -14,34 +14,14 @@ namespace FrbaCommerce
     public partial class Inicio : Form
     {
         private bool fst = true;
-        //System.Windows.Forms.Timer MyTimer = new System.Windows.Forms.Timer(); 
 
         public Inicio()
         {
             InitializeComponent();
-            //MyTimer.Interval = 500;
-            //MyTimer.Tick += new EventHandler(this.DoWork);
-            //MyTimer.Enabled = true;            
         }
-    /*
-        public void DoWork(object sender, EventArgs e) 
-        {
-            if (this.repeticiones<15)
-            {
-                int mod;
-                mod= repeticiones % 4;                             
-                this.repeticiones++;
-            }
-            else
-            {
-                this.activar();
-            }            
-        }
-        */
         private void activar()
         {
-            //MyTimer.Enabled = false;
-            pictureBox1.Image = Image.FromFile(Application.StartupPath + @"\Imagenes\TheGRID.jpg");
+            pictureBox1.Image = FrbaCommerce.Properties.Resources.TheGRID1;
             label1.Visible = true;
             button1.Visible = true;
             pictureBox2.Visible = false;
