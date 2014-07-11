@@ -154,33 +154,43 @@ namespace FrbaCommerce.ABM_Usuario
         private bool validarDatosCliente() 
         {
             DataTable resultado;
-            string comando = "select * from THE_GRID.Cliente where ID_User =" + DatosUsuario.usuario;
-            DataRow datosCliente = TG.realizarConsulta(comando).Rows[0];
 
-            if (datosCliente["Tipo_Documento"].ToString()!= comboBox1.SelectedItem.ToString() ||
-                datosCliente["Documento"].ToString() != txtDoc.Text)
+            string comando = "select x.ID_User from THE_GRID.Cliente x " +
+                    "inner join THE_GRID.Usuario u on x.ID_User = u.ID_User " +
+                    "and u.Inhabilitado = 0 " +
+                    "where Tipo_Documento = '" + comboBox1.SelectedItem.ToString() +
+                    "' and Documento = " + txtDoc.Text;
+            resultado = TG.realizarConsulta(comando);
+            if (resultado.Rows.Count > 0 &&
+             (usuarioNuevo || (resultado.Rows[0]["ID_User"].ToString() != DatosUsuario.usuario))
+             )
             {
-                comando = "select * from THE_GRID.Cliente where " +
-                "Tipo_Documento = '" + comboBox1.SelectedItem.ToString() + "' and " +
-                "Documento = " + txtDoc.Text;
-                resultado = TG.realizarConsulta(comando);
-                if (resultado.Rows.Count > 0)
-                {
-                    TG.ventanaEmergente("Documento ya existente");
-                    //loggear anomalida
-                    return true;
-                }
+                TG.ventanaEmergente("Documento ya existente");
+                comando = "insert into THE_GRID.Anomalia values (" +
+                    resultado.Rows[0]["ID_User"].ToString() + ",'" +
+                    "Documento',convert(datetime,'" +
+                    TG.fechaDelSistema.ToString("yyyy-dd-MM hh:mm:ss")
+                  + "'))";
+                TG.realizarConsultaSinRetorno(comando);
+                return true;
             }
-
-            if (datosCliente["Telefono"].ToString() != txtTel.Text)
+            comando = "select x.ID_User from THE_GRID.Cliente x " +
+                                "inner join THE_GRID.Usuario u on x.ID_User = u.ID_User " +
+                                "and u.Inhabilitado = 0 " +
+                                "where Telefono = " + txtTel.Text;
+            resultado = TG.realizarConsulta(comando);
+            if (resultado.Rows.Count > 0 &&
+                (usuarioNuevo || (resultado.Rows[0]["ID_User"].ToString() != DatosUsuario.usuario))
+                )
             {
-                comando = "select * from THE_GRID.Cliente where Telefono = " + txtTel.Text;
-                resultado = TG.realizarConsulta(comando);
-                if (resultado.Rows.Count > 0)
-                {
-                    TG.ventanaEmergente("Telefono ya existente");
-                    return true;
-                }
+                TG.ventanaEmergente("Telefono ya existente");
+                comando = "insert into THE_GRID.Anomalia values (" +
+                    resultado.Rows[0]["ID_User"].ToString() + ",'" +
+                    "TelCliente',convert(datetime,'" +
+                    TG.fechaDelSistema.ToString("yyyy-dd-MM hh:mm:ss")
+                  + "'))";
+                TG.realizarConsultaSinRetorno(comando);
+                return true;
             }
             return false;
         }
@@ -188,46 +198,63 @@ namespace FrbaCommerce.ABM_Usuario
         private bool validarDatosEmpresa()
         {
             DataTable resultado;
-            string comando = "select * from THE_GRID.Empresa where ID_User =" + DatosUsuario.usuario;
-            DataRow datosEmpresa = TG.realizarConsulta(comando).Rows[0];
+            string comando = "select x.ID_User from THE_GRID.Empresa x " +
+                    "inner join THE_GRID.Usuario u on x.ID_User = u.ID_User " +
+                    "and u.Inhabilitado = 0 " +
+                    "where CUIT = '" + txtCuit.Text + "'";
+            resultado = TG.realizarConsulta(comando);
 
-            if (datosEmpresa["CUIT"].ToString() != txtCuit.Text)
+            if (resultado.Rows.Count > 0 && 
+                (usuarioNuevo || (resultado.Rows[0]["ID_User"].ToString() != DatosUsuario.usuario))
+                )
+            {   
+                TG.ventanaEmergente("CUIT ya existente");
+                comando = "insert into THE_GRID.Anomalia values (" +
+                    resultado.Rows[0]["ID_User"].ToString() + ",'" +
+                    "CUIT',convert(datetime,'" +
+                    TG.fechaDelSistema.ToString("yyyy-dd-MM hh:mm:ss")
+                  + "'))";
+                TG.realizarConsultaSinRetorno(comando);
+                return true;
+            }
+            
+            comando = "select x.ID_User from THE_GRID.Empresa x " +
+                    "inner join THE_GRID.Usuario u on x.ID_User = u.ID_User " +
+                    "and u.Inhabilitado = 0 " +
+                    "where x.Razon_Social = '" + txtRazonSocial.Text + "'";
+            resultado = TG.realizarConsulta(comando);
+            if (resultado.Rows.Count > 0 &&
+            (usuarioNuevo || (resultado.Rows[0]["ID_User"].ToString() != DatosUsuario.usuario))
+            )
             {
-                comando = "select * from THE_GRID.Empresa where " +
-                    "CUIT = '" + txtCuit.Text + "'";
-                resultado = TG.realizarConsulta(comando);
-                if (resultado.Rows.Count > 0)
-                {
-                    TG.ventanaEmergente("CUIT ya existente");
-                    //loggear anomalida
-                    return true;
-                }
+                TG.ventanaEmergente("Razon Social ya existente");
+                comando = "insert into THE_GRID.Anomalia values (" +
+                    resultado.Rows[0]["ID_User"].ToString() + ",'" +
+                    "RazonSocial',convert(datetime,'" +
+                    TG.fechaDelSistema.ToString("yyyy-dd-MM hh:mm:ss")
+                  + "'))";
+                TG.realizarConsultaSinRetorno(comando);
+                return true;
             }
 
-            if (datosEmpresa["Razon_Social"].ToString() != txtRazonSocial.Text)
+            comando = "select x.ID_User from THE_GRID.Empresa x " +
+                    "inner join THE_GRID.Usuario u on x.ID_User = u.ID_User " +
+                    "and u.Inhabilitado = 0 " +
+                    "where Telefono = " + txtTelEmpresa.Text;
+            resultado = TG.realizarConsulta(comando);
+            if (resultado.Rows.Count > 0 &&
+                (usuarioNuevo || (resultado.Rows[0]["ID_User"].ToString() != DatosUsuario.usuario))
+                )
             {
-                comando = "select * from THE_GRID.Empresa where " +
-                    "Razon_Social = '" + txtRazonSocial.Text + "'";
-                resultado = TG.realizarConsulta(comando);
-                if (resultado.Rows.Count > 0)
-                {
-                    TG.ventanaEmergente("Razon Social ya existente");
-                    //loggear anomalia
-                    return true;
-                }
+                comando = "insert into THE_GRID.Anomalia values (" +
+                    resultado.Rows[0]["ID_User"].ToString() + ",'" +
+                    "TelEmpresa',convert(datetime,'" +
+                    TG.fechaDelSistema.ToString("yyyy-dd-MM hh:mm:ss")
+                  + "'))";
+                TG.realizarConsultaSinRetorno(comando);
+                TG.ventanaEmergente("Telefono ya existente");
+                return true;
             }
-
-            if (datosEmpresa["Telefono"].ToString() != txtTel.Text)
-            {
-                comando = "select * from THE_GRID.Empresa where Telefono = " + txtTelEmpresa.Text;
-                resultado = TG.realizarConsulta(comando);
-                if (resultado.Rows.Count > 0)
-                {
-                    TG.ventanaEmergente("Telefono ya existente");
-                    return true;
-                }
-            }
-
             return false;
         }
 
@@ -290,22 +317,18 @@ namespace FrbaCommerce.ABM_Usuario
             }
             if (error) return;
 
-            if(!usuarioNuevo)
             error = validarDatosCliente();
             if (error) return;
 
             if (usuarioNuevo)
                 {   // Nuevo usuario
-                    string comandoInsertar = "INSERT INTO THE_GRID.Usuario(Pass,Inhabilitado,Antiguo,ID_Tipo,Intentos,Primer_Ingreso)"+
+                    string comandoInsertar = "INSERT INTO THE_GRID.Usuario(Pass,Inhabilitado,Eliminado,ID_Tipo,Intentos,Primer_Ingreso)"+
                     "VALUES ('" + TG.encriptar("w23e") + "',0,0,2,0,1)";
                     TG.realizarConsultaSinRetorno(comandoInsertar);
-                    
-                    DataTable consultaUltimoUsuario = TG.realizarConsulta("select top 1 ID_User from THE_GRID.Usuario order by ID_User desc");
-                    DatosUsuario.usuario = consultaUltimoUsuario.Rows[0]["ID_User"].ToString();
-
-                    TG.realizarConsultaSinRetorno("Insert INTO THE_GRID.Cliente (ID_User) VALUES("+ DatosUsuario.usuario.ToString() +")" );
-                    TG.realizarConsultaSinRetorno("Insert INTO THE_GRID.Roles_x_Usuario (ID_User,ID_Rol,Inhabilitado) VALUES(" + DatosUsuario.usuario.ToString() + ",3,0)");
-                    TG.realizarConsultaSinRetorno("Insert INTO THE_GRID.Roles_x_Usuario (ID_User,ID_Rol,Inhabilitado) VALUES(" + DatosUsuario.usuario.ToString() + ",2,0)");
+                    DatosUsuario.usuario = TG.consultaEscalar("select max(ID_User) from THE_GRID.Usuario").ToString();
+                    TG.realizarConsultaSinRetorno("Insert INTO THE_GRID.Cliente (ID_User) VALUES("+ DatosUsuario.usuario +")" );
+                    TG.realizarConsultaSinRetorno("Insert INTO THE_GRID.Roles_x_Usuario (ID_User,ID_Rol,Inhabilitado) VALUES(" + DatosUsuario.usuario + ",3,0)");
+                    TG.realizarConsultaSinRetorno("Insert INTO THE_GRID.Roles_x_Usuario (ID_User,ID_Rol,Inhabilitado) VALUES(" + DatosUsuario.usuario + ",2,0)");
                 }
 
             string nroTarjeta = txtNroTarjeta.Text;
@@ -333,7 +356,7 @@ namespace FrbaCommerce.ABM_Usuario
                     where ID_USER =" + DatosUsuario.usuario.ToString();
             TG.realizarConsultaSinRetorno(actualizarCliente);
 
-            if(DatosUsuario.DatosCorrectos == "0") validarUsuario();
+            if (DatosUsuario.DatosCorrectos == "False") validarUsuario();
 
             if (DatosUsuario.tipoUsuario == "1") DatosUsuario.resetearDatosModif();
             ventanaAnterior.Show();
@@ -395,7 +418,6 @@ namespace FrbaCommerce.ABM_Usuario
             }
             if (error) return;
 
-            if (!usuarioNuevo)
             error = validarDatosEmpresa();
             if (error) return;
 
@@ -432,7 +454,7 @@ namespace FrbaCommerce.ABM_Usuario
                     " where ID_USER =" + DatosUsuario.usuario.ToString();
             TG.realizarConsultaSinRetorno(actualizarEmpresa);
             
-            if(DatosUsuario.DatosCorrectos == "0") validarUsuario();
+            if(DatosUsuario.DatosCorrectos == "False") validarUsuario();
 
             if (DatosUsuario.tipoUsuario == "1") DatosUsuario.resetearDatosModif();
             ventanaAnterior.Show();
@@ -443,7 +465,7 @@ namespace FrbaCommerce.ABM_Usuario
 
         private void validarUsuario()
         {
-            string comando = "update THE_GRID.Usuario set Datos_Correctos = 1 where ID_User = " + DatosUsuario.usuario.ToString();
+            string comando = "update THE_GRID.Usuario set Datos_Correctos = 1 where ID_User = " + DatosUsuario.usuario;
             TG.realizarConsultaSinRetorno(comando);
         }
 

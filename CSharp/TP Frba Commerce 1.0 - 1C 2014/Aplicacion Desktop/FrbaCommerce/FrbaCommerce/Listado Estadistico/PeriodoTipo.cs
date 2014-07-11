@@ -14,7 +14,7 @@ namespace FrbaCommerce.Listado_Estadistico
         private string nombreVista = "";
         private string criterioMaestro = "";
         private string comandoConsulta = "";
-        public PeriodoTipo(FormGrid anterior)
+        public PeriodoTipo(Form anterior)
         {
             InitializeComponent();
             this.ClientSize = new System.Drawing.Size(614, 361);

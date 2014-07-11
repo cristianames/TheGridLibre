@@ -15,7 +15,7 @@ namespace FrbaCommerce.ABM_Usuario
         private int filaSeleccionada = 0;
         private string comandoFiltro;
         private bool recuperacion = false;
-        public AbmRol(FormGrid anterior)
+        public AbmRol(Form anterior)
         {
             InitializeComponent();
             this.ClientSize = new System.Drawing.Size(328, 337);

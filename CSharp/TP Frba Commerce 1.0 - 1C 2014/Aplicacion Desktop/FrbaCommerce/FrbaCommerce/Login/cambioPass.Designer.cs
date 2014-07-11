@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(cambioPass));
             this.textBoxOldPass = new System.Windows.Forms.TextBox();
             this.textBoxPass1 = new System.Windows.Forms.TextBox();
             this.textBoxPass2 = new System.Windows.Forms.TextBox();
@@ -148,8 +149,11 @@
             this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.button2;
             this.ClientSize = new System.Drawing.Size(844, 521);
+            this.ControlBox = false;
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -160,8 +164,12 @@
             this.Controls.Add(this.textBoxPass1);
             this.Controls.Add(this.textBoxOldPass);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "cambioPass";
+            this.ShowIcon = false;
             this.Text = "Cambio de Contraseña";
+            this.Load += new System.EventHandler(this.cambioPass_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

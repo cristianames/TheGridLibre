@@ -123,6 +123,13 @@ namespace FrbaCommerce.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap mural {
+            get {
+                object obj = ResourceManager.GetObject("mural", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Tarzan {
             get {
                 object obj = ResourceManager.GetObject("Tarzan", resourceCulture);

@@ -13,7 +13,7 @@ namespace FrbaCommerce.Comprar_Ofertar
     {
         private string publicacion = "", filtroPalabra = "", filtroRubro = "";
         private int paginas = 0, paginaActual = 0, totalResultados = 0, tamanioPagina = 6;
-        public Buscador(FormGrid anterior)
+        public Buscador(Form anterior)
         {
             InitializeComponent();
             this.ClientSize = new System.Drawing.Size(820, 396);

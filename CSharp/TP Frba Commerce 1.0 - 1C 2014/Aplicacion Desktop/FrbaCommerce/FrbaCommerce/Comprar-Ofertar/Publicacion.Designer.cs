@@ -207,8 +207,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.botonCancelar;
-            this.ClientSize = new System.Drawing.Size(844, 513);
+            this.ClientSize = new System.Drawing.Size(863, 513);
+            this.ControlBox = false;
             this.Controls.Add(this.WarningLabel);
             this.Controls.Add(this.botonCancelar);
             this.Controls.Add(this.campoPregunta);
@@ -222,7 +225,11 @@
             this.Controls.Add(this.infoPrecio);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.infoDescripcion);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Publicacion";
+            this.ShowIcon = false;
             this.Text = "Publicacion";
             this.Load += new System.EventHandler(this.Publicacion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();

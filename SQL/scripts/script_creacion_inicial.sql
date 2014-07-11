@@ -18,7 +18,7 @@ create table THE_GRID.Usuario(
 	ID_User numeric(18,0) identity(1000,1) Primary key,
 	Pass nvarchar(255),
 	Inhabilitado bit,
-	Antiguo bit,
+	Eliminado bit,
 	ID_Tipo int References THE_GRID.Tipo_Usuario(ID_Tipo),
 	Intentos int,
 	Primer_Ingreso bit,
@@ -72,6 +72,14 @@ create table THE_GRID.Administrador(
     Primary Key(ID_User)
 )
 go
+
+create table THE_GRID.Anomalia(
+	ID_User numeric(18,0) references THE_GRID.Usuario(ID_User),
+    Detalle nvarchar(255),
+    Fecha date
+)
+go
+
 
 create table THE_GRID.Rol(
 	ID_Rol numeric(18,0) identity(1,1) primary key,
@@ -540,20 +548,44 @@ go
 
 --------------------------------------------------------------------------------------------
 --Triggers
+create trigger THE_GRID.usuarioEliminado on THE_GRID.Usuario for update
+as
+begin
+
+if update(Eliminado) begin
+	declare usuariosModificados cursor for (select ID_User, Eliminado from inserted)
+	declare @usuario numeric(18,0)
+	declare @eliminado bit
+	open usuariosModificados
+	fetch next from usuariosModificados into @usuario, @eliminado
+	while (@@fetch_status = 0)
+	begin
+		if @eliminado = 1
+		update THE_GRID.Publicacion set ID_Estado= 103 where ID_Vendedor = @usuario
+		fetch next from usuariosModificados into @usuario, @eliminado
+	end
+	close usuariosModificados
+	deallocate usuariosModificados
+end
+end
+go
 
 create trigger THE_GRID.inhabilitarUsuario on THE_GRID.Usuario for update 
 as
 begin
 
 if update(Inhabilitado) begin
-	declare usuariosModificados cursor for (select ID_User from inserted)
+	declare usuariosModificados cursor for (select ID_User, Inhabilitado, Eliminado from inserted)
 	declare @usuario numeric(18,0)
+	declare @inhabilitado bit
+	declare @eliminado bit
 	open usuariosModificados
-	fetch next from usuariosModificados into @usuario
+	fetch next from usuariosModificados into @usuario, @inhabilitado, @eliminado
 	while (@@fetch_status = 0)
 	begin
+		if @inhabilitado = 1 and @eliminado = 0
 		update THE_GRID.Publicacion set ID_Estado= 102 where ID_Vendedor = @usuario and ID_Estado = 100
-		fetch next from usuariosModificados into @usuario
+	fetch next from usuariosModificados into @usuario, @inhabilitado, @eliminado
 	end
 	close usuariosModificados
 	deallocate usuariosModificados
@@ -609,7 +641,7 @@ fetch next from cursorCliente
 while(@@FETCH_STATUS = 0)
 begin
 
-insert into GD1C2014.THE_GRID.Usuario (Pass,Inhabilitado,Antiguo,ID_Tipo,Intentos, Primer_Ingreso, Datos_Correctos) 
+insert into GD1C2014.THE_GRID.Usuario (Pass,Inhabilitado,Eliminado,ID_Tipo,Intentos, Primer_Ingreso, Datos_Correctos) 
 values('37a8eec1ce19687d132fe29051dca629d164e2c4958ba141d5f4133a33f0688f',0,1,2,1,1,0)
 insert into GD1C2014.THE_GRID.Roles_x_Usuario values(@contador,2,0)
 insert into GD1C2014.THE_GRID.Roles_x_Usuario values(@contador,3,0)
@@ -640,7 +672,7 @@ fetch next from cursorEmpresa
 while(@@FETCH_STATUS = 0)
 begin
 
-insert into GD1C2014.THE_GRID.Usuario (Pass,Inhabilitado,Antiguo,ID_Tipo,Intentos, Primer_Ingreso, Datos_correctos) 
+insert into GD1C2014.THE_GRID.Usuario (Pass,Inhabilitado,Eliminado,ID_Tipo,Intentos, Primer_Ingreso, Datos_correctos) 
 values('37a8eec1ce19687d132fe29051dca629d164e2c4958ba141d5f4133a33f0688f',0,1,3,1,1,0)
 insert into GD1C2014.THE_GRID.Roles_x_Usuario values(@contador,3,0)
 insert into GD1C2014.THE_GRID.Empresa values(@contador,@razon,@cuit,@mail,0,@creacion,'Sin_Contacto',@calle,@nro,@piso,@depto,'Sin_Localidad',@postal,'Sin_Ciudad')
@@ -655,7 +687,7 @@ deallocate cursorEmpresa
 
 ------------------------------FIN DE EMPRESAS
 
-insert into THE_GRID.Usuario(Pass,Inhabilitado,Antiguo,ID_Tipo,Intentos,Primer_Ingreso,Datos_Correctos) 
+insert into THE_GRID.Usuario(Pass,Inhabilitado,Eliminado,ID_Tipo,Intentos,Primer_Ingreso,Datos_Correctos) 
 values('e6b87050bfcb8143fcb8db0170a4dc9ed00d904ddd3e2a4ad1b1e8dc0fdc9be7',0,0,1,1,0,1)
 
 insert into THE_GRID.Administrador 

@@ -12,7 +12,7 @@ namespace FrbaCommerce.Abm_Visibilidad
     public partial class Baja : FormGrid
     {
         private string ID_Visibilidad;
-        public Baja(FormGrid anterior, string ID_Visibilidad)
+        public Baja(Form anterior, string ID_Visibilidad)
         {
             InitializeComponent();
             this.ClientSize = new System.Drawing.Size(366, 107);

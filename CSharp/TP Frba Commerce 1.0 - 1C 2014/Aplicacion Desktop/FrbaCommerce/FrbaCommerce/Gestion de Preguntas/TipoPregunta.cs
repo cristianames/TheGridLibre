@@ -13,7 +13,7 @@ namespace FrbaCommerce.Gestion_de_Preguntas
     {
         private int filaSeleccionada = 0;
         private bool pendientes = true, consultarPreguntas = true;
-        public TipoPregunta(FormGrid anterior)
+        public TipoPregunta(Form anterior)
         {
             InitializeComponent();
             this.ClientSize = new System.Drawing.Size(444, 351);

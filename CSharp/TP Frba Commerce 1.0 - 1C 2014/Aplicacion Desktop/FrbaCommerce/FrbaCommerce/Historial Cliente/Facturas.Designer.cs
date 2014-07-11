@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Facturas));
             this.atras = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.seleccionar = new System.Windows.Forms.Button();
@@ -91,9 +92,10 @@
             this.AcceptButton = this.seleccionar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.atras;
-            this.ClientSize = new System.Drawing.Size(844, 521);
+            this.ClientSize = new System.Drawing.Size(863, 521);
             this.ControlBox = false;
             this.Controls.Add(this.sinResultados);
             this.Controls.Add(this.seleccionar);

@@ -13,7 +13,7 @@ namespace FrbaCommerce.ABM_Usuario
 
     {
         private int rol;
-        public AltaModificacion(FormGrid anterior, int rol)
+        public AltaModificacion(Form anterior, int rol)
         {
             InitializeComponent();
             this.ClientSize = new System.Drawing.Size(186, 323);
