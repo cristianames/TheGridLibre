@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Registro_de_Usuario));
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.button3 = new System.Windows.Forms.Button();
@@ -759,8 +760,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.button3;
-            this.ClientSize = new System.Drawing.Size(844, 513);
+            this.ClientSize = new System.Drawing.Size(863, 513);
+            this.ControlBox = false;
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.label30);
@@ -770,7 +774,11 @@
             this.Controls.Add(this.grupoCliente);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Registro_de_Usuario";
+            this.ShowIcon = false;
             this.Text = "Datos de Registro";
             this.Load += new System.EventHandler(this.RegistroUsuario_Load);
             this.grupoEmpresa.ResumeLayout(false);

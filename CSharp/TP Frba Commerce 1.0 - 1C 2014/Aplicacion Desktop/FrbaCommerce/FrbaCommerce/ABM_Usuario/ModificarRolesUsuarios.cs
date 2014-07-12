@@ -87,6 +87,7 @@ namespace FrbaCommerce.ABM_Usuario
 
         private void button4_Click(object sender, EventArgs e)
         {
+            DatosUsuario.resetearDatosModif();
             volverAtras();
         }
 

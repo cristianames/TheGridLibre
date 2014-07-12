@@ -38,7 +38,7 @@ namespace FrbaCommerce
         {
             if (fst)
             {
-                if (e.KeyCode == Keys.Space)
+                if (e.KeyCode == Keys.Enter)
                 {
                     fst = false;
                     activar();

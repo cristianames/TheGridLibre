@@ -136,8 +136,11 @@
             this.AcceptButton = this.botonResponder;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.botonAtras;
-            this.ClientSize = new System.Drawing.Size(922, 335);
+            this.ClientSize = new System.Drawing.Size(863, 513);
+            this.ControlBox = false;
             this.Controls.Add(this.label2);
             this.Controls.Add(this.labelRespuesta);
             this.Controls.Add(this.infoRespuesta);
@@ -146,7 +149,11 @@
             this.Controls.Add(this.botonResponder);
             this.Controls.Add(this.textoRespuesta);
             this.Controls.Add(this.textoPregunta);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormularioRespuesta";
+            this.ShowIcon = false;
             this.Text = "Formulario de Respuestas";
             this.ResumeLayout(false);
             this.PerformLayout();

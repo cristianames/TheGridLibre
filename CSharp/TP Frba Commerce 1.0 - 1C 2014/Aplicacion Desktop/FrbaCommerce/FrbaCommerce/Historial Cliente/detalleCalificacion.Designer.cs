@@ -111,7 +111,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.atras;
-            this.ClientSize = new System.Drawing.Size(844, 513);
+            this.ClientSize = new System.Drawing.Size(863, 513);
             this.ControlBox = false;
             this.Controls.Add(this.linkPublicacion);
             this.Controls.Add(this.estrellas);

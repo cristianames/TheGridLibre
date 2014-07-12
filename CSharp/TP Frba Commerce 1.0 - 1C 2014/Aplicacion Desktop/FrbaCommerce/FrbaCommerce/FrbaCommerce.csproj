@@ -147,6 +147,12 @@
     <Compile Include="ABM_Usuario\ABM_Usuario.Designer.cs">
       <DependentUpon>ABM_Usuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="ABM_Usuario\Inhabilitacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM_Usuario\Inhabilitacion.Designer.cs">
+      <DependentUpon>Inhabilitacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="ABM_Usuario\ModificarRolesUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -344,6 +350,10 @@
     <EmbeddedResource Include="ABM_Usuario\ABM_Usuario.resx">
       <DependentUpon>ABM_Usuario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ABM_Usuario\Inhabilitacion.resx">
+      <DependentUpon>Inhabilitacion.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="ABM_Usuario\ModificarRolesUsuarios.resx">
       <DependentUpon>ModificarRolesUsuarios.cs</DependentUpon>
     </EmbeddedResource>
@@ -493,6 +503,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="config.txt" />
+    <None Include="Resources\Boton_Moderno_DK .jpg" />
+    <None Include="Resources\Boton_Moderno_DK.jpg" />
+    <None Include="Resources\Boton_Moderno_BR.jpg" />
+    <None Include="Resources\Boton_Moderno_BN.jpeg" />
+    <None Include="Resources\Boton_Moderno_SP.jpeg" />
+    <None Include="Resources\mural.png" />
     <None Include="Resources\Tarzan.gif" />
     <None Include="Resources\Intro.gif" />
     <None Include="Resources\TheGRID.jpg" />

@@ -13,7 +13,7 @@ namespace FrbaCommerce.Login
     public partial class selectorRol : FormGrid
     {
         
-        public selectorRol(FormGrid anterior)
+        public selectorRol(Form anterior)
         {
             InitializeComponent();
             this.ventanaAnterior = anterior;

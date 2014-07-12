@@ -14,7 +14,7 @@ namespace FrbaCommerce.Gestion_de_Preguntas
     {
         private bool estaRespondida;
         private DataRow datosPregunta;
-        public FormularioRespuesta(FormGrid anterior, string pregunta)
+        public FormularioRespuesta(Form anterior, string pregunta)
         {
             InitializeComponent();
             botonResponder.Visible = false;

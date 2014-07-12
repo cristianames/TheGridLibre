@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PublicacionesRendir));
             this.label1 = new System.Windows.Forms.Label();
             this.botonContinuar = new System.Windows.Forms.Button();
             this.botonAtras = new System.Windows.Forms.Button();
@@ -112,8 +113,8 @@
             this.richTextBox1.Size = new System.Drawing.Size(344, 65);
             this.richTextBox1.TabIndex = 6;
             this.richTextBox1.Text = "Atención: Es importante mantenerse al día con la facturación de las publicaciones" +
-                "; ya que al acumular 10 publicaciones finalizadas sin facturar, se procederá a i" +
-                "nhabilitar su cuenta";
+                "; ya que al acumular más de 10 publicaciones finalizadas sin facturar, se proced" +
+                "erá a inhabilitar su cuenta";
             // 
             // warningLabel
             // 
@@ -130,8 +131,11 @@
             this.AcceptButton = this.botonContinuar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.botonAtras;
-            this.ClientSize = new System.Drawing.Size(844, 513);
+            this.ClientSize = new System.Drawing.Size(863, 513);
+            this.ControlBox = false;
             this.Controls.Add(this.warningLabel);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.numericUpDown1);
@@ -139,9 +143,14 @@
             this.Controls.Add(this.botonAtras);
             this.Controls.Add(this.botonContinuar);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "PublicacionesRendir";
+            this.ShowIcon = false;
             this.Text = "Selección de Publicaciones";
             this.Load += new System.EventHandler(this.PublicacionesRendir_Load);
+            this.VisibleChanged += new System.EventHandler(this.PublicacionesRendir_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);

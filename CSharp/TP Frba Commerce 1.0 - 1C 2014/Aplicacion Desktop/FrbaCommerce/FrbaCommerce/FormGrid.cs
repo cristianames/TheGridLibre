@@ -14,30 +14,38 @@ namespace FrbaCommerce
         {
             // Set the start position of the form to the center of the screen.
             this.StartPosition = FormStartPosition.CenterScreen;
-
-            
-            this.Load += new System.EventHandler(cosasAlInicio);
-            // Display the form as a modal dialog box.
-            //this.ShowDialog();
-        }
-
-        private void cosasAlInicio(object sender, EventArgs e)
-        {
             this.ControlBox = false;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.ShowIcon = false;
-            this.Dock = DockStyle.Fill;
+            this.Dock = DockStyle.Fill;       
+            this.Load += new System.EventHandler(cosasAlInicio);
+            // Display the form as a modal dialog box.
+            //this.ShowDialog();
+            this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
+        }
 
+        private void MouseArriba(object sender, MouseEventArgs e)
+        {
+            ((Button)sender).BackgroundImage = FrbaCommerce.Properties.Resources.Boton_Moderno;
+        }
+        private void MouseParte(object sender, EventArgs e)
+        {
+            ((Button)sender).BackgroundImage = FrbaCommerce.Properties.Resources.Boton_Moderno_DK;
+        }
+        private void MousePresiona(object sender, MouseEventArgs e)
+        {
+            ((Button)sender).BackgroundImage = FrbaCommerce.Properties.Resources.Boton_Moderno_BR;
+        }
+
+        private void cosasAlInicio(object sender, EventArgs e)
+        {
             //Carga el fondo
             this.BackgroundImage = Properties.Resources.Fondo_Azul;
             this.BackgroundImageLayout = ImageLayout.Stretch;
 
             //Ajusta la barra de titulo
-            this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
-
-            // Define the border style of the form to a dialog box.
-            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            
             
             foreach (Control control in this.Controls)
             {
@@ -60,7 +68,10 @@ namespace FrbaCommerce
                             ((Button)subcontrol).ForeColor = Color.Black;
                         if (subcontrol is Button)
                         {
-                            ((Button)subcontrol).BackgroundImage = Properties.Resources.Boton_Azul;
+                            ((Button)subcontrol).BackgroundImage = Properties.Resources.Boton_Moderno_DK;
+                            ((Button)subcontrol).MouseDown += new System.Windows.Forms.MouseEventHandler(MousePresiona);
+                            ((Button)subcontrol).MouseMove += new System.Windows.Forms.MouseEventHandler(MouseArriba);
+                            ((Button)subcontrol).MouseLeave += new System.EventHandler(MouseParte);
                             ((Button)subcontrol).BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
                             ((Button)subcontrol).FlatStyle = System.Windows.Forms.FlatStyle.Flat;
                         }
@@ -68,9 +79,13 @@ namespace FrbaCommerce
                 }
                 if (control is Button)
                 {
-                    ((Button)control).BackgroundImage = Properties.Resources.Boton_Azul;
+                    ((Button)control).BackgroundImage = Properties.Resources.Boton_Moderno_DK;
+                    //((Button)control).BackgroundImage = Properties.Resources.Boton_Moderno;
                     ((Button)control).BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
                     ((Button)control).FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                    ((Button)control).MouseDown += new System.Windows.Forms.MouseEventHandler(MousePresiona);
+                    ((Button)control).MouseMove += new System.Windows.Forms.MouseEventHandler(MouseArriba);
+                    ((Button)control).MouseLeave += new System.EventHandler(MouseParte);
                 }
                 if (control is RichTextBox)
                 {
@@ -93,6 +108,7 @@ namespace FrbaCommerce
 
             }
         }
+
 
         private void ManejadorCierre(object sender, EventArgs e)
         {

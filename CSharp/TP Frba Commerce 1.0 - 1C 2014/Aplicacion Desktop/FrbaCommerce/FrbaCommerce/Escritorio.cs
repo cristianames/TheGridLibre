@@ -11,42 +11,150 @@ namespace FrbaCommerce
 {
     public partial class Escritorio : FormGrid
     {
-        public Escritorio(FormGrid anterior)
+        private string comandoFunciones;
+        private bool mensajeSistema = false;
+        public Escritorio(Form anterior)
         {
             InitializeComponent();
             this.ventanaAnterior = anterior;
-            this.ClientSize = new System.Drawing.Size(205, 342);
+            this.ClientSize = new System.Drawing.Size(560, 342);
             label3.Text = "¡Bienvenido Grid_" + DatosUsuario.usuario.ToString() + "!";
             linkLabel3.Text = DatosUsuario.nombreRol;
 
-            string comando = "SELECT Nombre FROM THE_GRID.Funcionalidad f inner join THE_GRID.Funcionalidades_x_Rol r "+
-                "on(f.ID_Funcionalidad = r.ID_Funcionalidad and r.ID_Rol = " + DatosUsuario.codigoRol.ToString() + ") "+
+            comandoFunciones = "SELECT Nombre FROM THE_GRID.Funcionalidad f inner join THE_GRID.Funcionalidades_x_Rol r "+
+                "on(f.ID_Funcionalidad = r.ID_Funcionalidad and r.ID_Rol = " + DatosUsuario.codigoRol + ") "+
                 "order by 1";
-            listBox1.DataSource = TG.ObtenerListado(comando);
-        }
-
-        private void Escrtorio_Load(object sender, EventArgs e)
-        {
-            verificarDatosUsuario();
+            listBox1.DataSource = TG.ObtenerListado(comandoFunciones);
+            //verificarDatosUsuario();
         }
 
         private void verificarDatosUsuario()
         {
+            mensajeSistema = false;
+            richTextBox1.Text = "";
             DatosUsuario.actualizarBanderasUsuario();
-            if (DatosUsuario.DatosCorrectos == "0")
+            if (DatosUsuario.DatosCorrectos == "False")
             {
-                listBox1.Enabled = false;
-                button1.Enabled = false;
-                linkLabel1.Text = "Configuración [Datos incorrectos]";
-                linkLabel1.LinkColor = Color.Red;
+                listBox1.Enabled = button1.Enabled = false;
+                mensajeSistema = true;
+                richTextBox1.Text += "[Datos incorrectos] Revisar Configuración\n\n";
+                //linkLabel1.LinkColor = Color.Red;
             }
-            else
+            else listBox1.Enabled = button1.Enabled = true;
+
+            string comando;
+            if (DatosUsuario.tipoUsuario == "2")
             {
-                listBox1.Enabled = true;
-                button1.Enabled = true;
-                linkLabel1.Text = "Configuración";
-                linkLabel1.LinkColor = Color.Cyan;
+                comando = "select Calif_Estrellas from THE_GRID.Compra where " +
+                    "Calif_Estrellas = 0 and ID_Comprador = " + DatosUsuario.usuario;
+
+                List<string> temporal = TG.ObtenerListado(comandoFunciones);
+                if (TG.realizarConsulta(comando).Rows.Count >= 5)
+                {
+                    if (temporal.Contains("Comprar - Ofertar"))
+                        {
+                            temporal.Remove("Comprar - Ofertar");
+                        }
+                    listBox1.DataSource = null;
+                    mensajeSistema = true;
+                    richTextBox1.Text += "Tiene demasiadas calificaciones pendientes, no podrá comprar/ofertar hasta que normalice su situación\n\n";
+                }
+                listBox1.DataSource = temporal;
             }
+            comando = "select ISNULL(count(*),0) from THE_GRID.Publicacion "+
+                    "where Facturada = 0 and Fecha_Vencimiento <= "+
+                    "convert(datetime,'" + TG.fechaDelSistema.ToString("yyyy-dd-MM hh:mm:ss")+ 
+                    "') and ID_Vendedor = " + DatosUsuario.usuario;
+            int cantFacturas = Convert.ToInt32(TG.consultaEscalar(comando).ToString());
+            if (cantFacturas > 7 && cantFacturas <= 10)
+            {
+                mensajeSistema = true;
+                richTextBox1.Text += "Actualmente tiene " + cantFacturas.ToString();
+                richTextBox1.Text += " sin facturar. Tenga cuidado de no pasarse de las 10 ";
+                richTextBox1.Text += "o será penalizado\n\n";
+            }
+            
+            if (cantFacturas > 10)
+            {
+                mensajeSistema = true;
+                richTextBox1.Text += "Ha superado el límite de 10 publicaciones sin facturar. ";
+                richTextBox1.Text += "Todas sus publicaciones fueron pausadas y su usuario fue Inhabilitado. ";
+                richTextBox1.Text += "Si no normaliza esta situación no podrà volver a loggearse\n\n";
+                comando = "update THE_GRID.Usuario set Inhabilitado = 1 where ID_User = "+ DatosUsuario.usuario;
+                TG.realizarConsultaSinRetorno(comando);
+            }
+            DataTable anomalias;
+            int i;
+            switch (DatosUsuario.tipoUsuario)
+            {
+                case "1":
+                    comando = "select * from THE_GRID.Anomalia where Detalle = 'CUIT'";
+                    anomalias = TG.realizarConsulta(comando);
+                    if (anomalias.Rows.Count > 0)
+                    {
+                        mensajeSistema = true;
+                        for (i = 0; i < anomalias.Rows.Count; i++)
+                            richTextBox1.Text += "[Anomalia] Intento de usuario de introducir " +
+                                "CUIT ya existente. Propietario del CUIT: GRID_" +
+                                anomalias.Rows[i]["ID_User"].ToString() + " Fecha del suceso: " +
+                                anomalias.Rows[i]["Fecha"].ToString() + "\n\n";
+                    }
+                    comando = "select * from THE_GRID.Anomalia where Detalle = 'RazonSocial'";
+                    anomalias = TG.realizarConsulta(comando);
+                    if (anomalias.Rows.Count > 0)
+                    {
+                        mensajeSistema = true;
+                        for (i = 0; i < anomalias.Rows.Count; i++)
+                            richTextBox1.Text += "[Anomalia] Intento de usuario de introducir " +
+                                "Razon Social ya existente. Propietario de la Razon Social: GRID_" +
+                                anomalias.Rows[i]["ID_User"].ToString() + " Fecha del suceso: " +
+                                anomalias.Rows[i]["Fecha"].ToString() + "\n\n";
+                    }
+
+                    comando = "select * from THE_GRID.Anomalia where Detalle = 'Documento'";
+                    anomalias = TG.realizarConsulta(comando);
+                    if (anomalias.Rows.Count > 0)
+                    {
+                        mensajeSistema = true;
+                        for (i = 0; i < anomalias.Rows.Count; i++)
+                            richTextBox1.Text += "[Anomalia] Intento de usuario de introducir " +
+                                "Documento ya existente. Propietario del documento: GRID_" +
+                                anomalias.Rows[i]["ID_User"].ToString() + " Fecha del suceso: " +
+                                anomalias.Rows[i]["Fecha"].ToString() + "\n\n";
+                    }
+
+                    break;
+                case "2":
+                    comando = "select * from THE_GRID.Anomalia where Detalle = 'TelCliente' "+
+                        "and ID_User = " + DatosUsuario.usuario;
+                    anomalias = TG.realizarConsulta(comando);
+                    if (anomalias.Rows.Count > 0)
+                    {
+                        mensajeSistema = true;
+                        for (i = 0; i < anomalias.Rows.Count; i++)
+                            richTextBox1.Text += "[Anomalia] Intento de usuario de introducir " +
+                                "su telefono en la fecha " +
+                                anomalias.Rows[i]["Fecha"].ToString() + 
+                                ". Comuníquese con un administrador para mas información\n\n";
+                    }
+                    break;
+                case "3":
+                    comando = "select * from THE_GRID.Anomalia where Detalle = 'TelEmpresa' " +
+                        "and ID_User = " + DatosUsuario.usuario;
+                    anomalias = TG.realizarConsulta(comando);
+                    if (anomalias.Rows.Count > 0)
+                    {
+                        mensajeSistema = true;
+                        for (i = 0; i < anomalias.Rows.Count; i++)
+                            richTextBox1.Text += "[Anomalia] Intento de usuario de introducir " +
+                                "su telefono en la fecha " +
+                                anomalias.Rows[i]["Fecha"].ToString() +
+                                ". Comuníquese con un administrador para mas información\n\n";
+                    }
+                    break;
+            }
+
+            labelMensajeSistema.Visible = richTextBox1.Visible = mensajeSistema;
         }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -135,7 +243,12 @@ namespace FrbaCommerce
 
         private void Escritorio_VisibleChanged(object sender, EventArgs e)
         {
-            verificarDatosUsuario();
+            if(this.Visible) verificarDatosUsuario();
+        }
+
+        private void Escritorio_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

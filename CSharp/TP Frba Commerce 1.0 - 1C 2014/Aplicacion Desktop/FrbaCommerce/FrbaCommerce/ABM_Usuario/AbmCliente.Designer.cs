@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AbmCliente));
             this.label1 = new System.Windows.Forms.Label();
             this.botonModificar = new System.Windows.Forms.Button();
             this.botonEliminar = new System.Windows.Forms.Button();
@@ -47,6 +48,10 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.botonTerminado = new System.Windows.Forms.Button();
             this.botonMostrar = new System.Windows.Forms.Button();
+            this.botonRehabilitar = new System.Windows.Forms.Button();
+            this.botonVolverAlta = new System.Windows.Forms.Button();
+            this.BotonInhabilitar = new System.Windows.Forms.Button();
+            this.sinResultados = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -62,7 +67,7 @@
             // 
             // botonModificar
             // 
-            this.botonModificar.Location = new System.Drawing.Point(279, 359);
+            this.botonModificar.Location = new System.Drawing.Point(210, 359);
             this.botonModificar.Name = "botonModificar";
             this.botonModificar.Size = new System.Drawing.Size(92, 23);
             this.botonModificar.TabIndex = 3;
@@ -72,7 +77,7 @@
             // 
             // botonEliminar
             // 
-            this.botonEliminar.Location = new System.Drawing.Point(412, 359);
+            this.botonEliminar.Location = new System.Drawing.Point(343, 359);
             this.botonEliminar.Name = "botonEliminar";
             this.botonEliminar.Size = new System.Drawing.Size(92, 23);
             this.botonEliminar.TabIndex = 4;
@@ -223,7 +228,7 @@
             // botonTerminado
             // 
             this.botonTerminado.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.botonTerminado.Location = new System.Drawing.Point(546, 359);
+            this.botonTerminado.Location = new System.Drawing.Point(631, 359);
             this.botonTerminado.Name = "botonTerminado";
             this.botonTerminado.Size = new System.Drawing.Size(92, 23);
             this.botonTerminado.TabIndex = 17;
@@ -241,13 +246,60 @@
             this.botonMostrar.UseVisualStyleBackColor = true;
             this.botonMostrar.Click += new System.EventHandler(this.botonMostrar_Click);
             // 
+            // botonRehabilitar
+            // 
+            this.botonRehabilitar.Location = new System.Drawing.Point(21, 359);
+            this.botonRehabilitar.Name = "botonRehabilitar";
+            this.botonRehabilitar.Size = new System.Drawing.Size(140, 23);
+            this.botonRehabilitar.TabIndex = 19;
+            this.botonRehabilitar.Text = "Rehabilitar";
+            this.botonRehabilitar.UseVisualStyleBackColor = true;
+            this.botonRehabilitar.Click += new System.EventHandler(this.botonRehabilitar_Click);
+            // 
+            // botonVolverAlta
+            // 
+            this.botonVolverAlta.Location = new System.Drawing.Point(761, 359);
+            this.botonVolverAlta.Name = "botonVolverAlta";
+            this.botonVolverAlta.Size = new System.Drawing.Size(140, 23);
+            this.botonVolverAlta.TabIndex = 20;
+            this.botonVolverAlta.Text = "Volver a Dar de Alta";
+            this.botonVolverAlta.UseVisualStyleBackColor = true;
+            this.botonVolverAlta.Click += new System.EventHandler(this.botonVolverAlta_Click);
+            // 
+            // BotonInhabilitar
+            // 
+            this.BotonInhabilitar.Location = new System.Drawing.Point(485, 359);
+            this.BotonInhabilitar.Name = "BotonInhabilitar";
+            this.BotonInhabilitar.Size = new System.Drawing.Size(92, 23);
+            this.BotonInhabilitar.TabIndex = 21;
+            this.BotonInhabilitar.Text = "Inhabilitar";
+            this.BotonInhabilitar.UseVisualStyleBackColor = true;
+            this.BotonInhabilitar.Click += new System.EventHandler(this.BotonInhabilitar_Click);
+            // 
+            // sinResultados
+            // 
+            this.sinResultados.AutoSize = true;
+            this.sinResultados.Font = new System.Drawing.Font("Lucida Console", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sinResultados.Location = new System.Drawing.Point(278, 189);
+            this.sinResultados.Name = "sinResultados";
+            this.sinResultados.Size = new System.Drawing.Size(339, 37);
+            this.sinResultados.TabIndex = 22;
+            this.sinResultados.Text = "Sin Resultados";
+            // 
             // AbmCliente
             // 
             this.AcceptButton = this.botonModificar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.botonTerminado;
-            this.ClientSize = new System.Drawing.Size(844, 513);
+            this.ClientSize = new System.Drawing.Size(863, 513);
+            this.ControlBox = false;
+            this.Controls.Add(this.sinResultados);
+            this.Controls.Add(this.BotonInhabilitar);
+            this.Controls.Add(this.botonVolverAlta);
+            this.Controls.Add(this.botonRehabilitar);
             this.Controls.Add(this.botonMostrar);
             this.Controls.Add(this.botonFiltrar);
             this.Controls.Add(this.botonBorrar);
@@ -257,7 +309,11 @@
             this.Controls.Add(this.botonEliminar);
             this.Controls.Add(this.botonModificar);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AbmCliente";
+            this.ShowIcon = false;
             this.Text = "ABM Cliente";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.VisibleChanged += new System.EventHandler(this.AbmCliente_VisibleChanged);
@@ -290,6 +346,10 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button botonTerminado;
         private System.Windows.Forms.Button botonMostrar;
+        private System.Windows.Forms.Button botonRehabilitar;
+        private System.Windows.Forms.Button botonVolverAlta;
+        private System.Windows.Forms.Button BotonInhabilitar;
+        private System.Windows.Forms.Label sinResultados;
 
     }
 }

@@ -12,7 +12,7 @@ namespace FrbaCommerce.Abm_Visibilidad
     public partial class AltaVisibilidad : FormGrid
     {
         string IDBaja = "",nombreBaja= "",ID_Tipo;
-        public AltaVisibilidad(FormGrid anterior)
+        public AltaVisibilidad(Form anterior)
         {
             InitializeComponent();
             this.ClientSize = new System.Drawing.Size(260, 207);

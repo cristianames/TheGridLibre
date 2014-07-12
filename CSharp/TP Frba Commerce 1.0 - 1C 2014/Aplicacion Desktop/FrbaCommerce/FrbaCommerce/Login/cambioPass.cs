@@ -19,7 +19,7 @@ namespace FrbaCommerce.Login
             this.primerIngreso = primerIngreso;
             this.ventanaAnterior = ventanaAnterior;
             this.ClientSize = new System.Drawing.Size(365, 266);
-            if (primerIngreso)
+            if (primerIngreso || DatosUsuario.usuarioAux != "-1")
             {
                 textBoxOldPass.Enabled = false;
                 textBoxOldPass.Text = "LOOOOOOL";
@@ -65,7 +65,7 @@ namespace FrbaCommerce.Login
         private int checkPass()
         {
             string comando = "select * from THE_GRID.Usuario where ID_User = " +
-                DatosUsuario.usuario.ToString() + "and Pass ='" + 
+                DatosUsuario.usuario + "and Pass ='" + 
                 TG.encriptar(textBoxOldPass.Text) + "'";
 
             DataTable consulta = TG.realizarConsulta(comando);
@@ -74,6 +74,11 @@ namespace FrbaCommerce.Login
             if (textBoxPass1.Text.Length < 8 || textBoxPass1.Text.Length > 10) return 3;
             return 0;
             
+        }
+
+        private void cambioPass_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

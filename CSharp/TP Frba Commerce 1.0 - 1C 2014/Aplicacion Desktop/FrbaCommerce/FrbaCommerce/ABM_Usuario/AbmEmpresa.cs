@@ -12,15 +12,18 @@ namespace FrbaCommerce.ABM_Usuario
     public partial class AbmEmpresa : FormGrid
     {
         private int filaSeleccionada = 0;
-        private string comandoFiltro;
+        private string comandoFiltro, comandoFiltroInhabilitados;
         private bool mostrarInhabilitados = false;
-        public AbmEmpresa(FormGrid anterior)
+        public AbmEmpresa(Form anterior)
         {
             InitializeComponent();
             this.ClientSize = new System.Drawing.Size(922, 394);
             this.ventanaAnterior = anterior;
             reiniciarComando();
             actualizarGrilla();
+            comandoFiltroInhabilitados = "select u.Inhabilitado, u.Eliminado, c.* from THE_GRID.Empresa c " +
+                    "inner join THE_GRID.Usuario u on(c.ID_User = u.ID_User " +
+                    "and (Inhabilitado = 1 or Eliminado = 1))";
         }
 
         private void botonBorrar_Click(object sender, EventArgs e)
@@ -35,18 +38,27 @@ namespace FrbaCommerce.ABM_Usuario
         private void reiniciarComando()
         {
             comandoFiltro = "select c.* from THE_GRID.Empresa c inner join THE_GRID.Usuario u " +
-                "on(c.ID_User = u.ID_User and u.Inhabilitado = 0)";
+                "on(c.ID_User = u.ID_User and u.Inhabilitado = 0 and u.Eliminado = 0)";
         }
 
         private void actualizarGrilla()
         {
 
             dataGridView1.DataSource = TG.realizarConsulta(comandoFiltro);
+            sinResultados.Visible = dataGridView1.RowCount == 0;
+            dataGridView1.Visible =
+                botonEliminar.Enabled =
+                BotonInhabilitar.Enabled =
+                botonModificar.Enabled =
+                botonVolverAlta.Enabled =
+                botonRehabilitar.Enabled =
+                dataGridView1.RowCount != 0;  
         }
 
         private void botonFiltrar_Click(object sender, EventArgs e)
         {
-            reiniciarComando();
+            if (mostrarInhabilitados) comandoFiltro = comandoFiltroInhabilitados;
+            else reiniciarComando();
 
             //Hace el filtro
             int cantActivos = 0;
@@ -132,11 +144,54 @@ namespace FrbaCommerce.ABM_Usuario
             {
                 mostrarInhabilitados = true;
                 dataGridView1.DataSource = null;
-                comandoFiltro = "select u.Inhabilitado, c.* from THE_GRID.Empresa c inner join THE_GRID.Usuario u " +
-                "on(c.ID_User = u.ID_User)";
+                comandoFiltro = comandoFiltroInhabilitados;
                 botonMostrar.Text = "Ocultar Inhabilitados";
             }
             actualizarGrilla();
+        }
+
+        private void botonRehabilitar_Click(object sender, EventArgs e)
+        {
+            bool eliminado = Convert.ToBoolean(dataGridView1["Eliminado", filaSeleccionada].Value);
+
+            if (eliminado)
+            {
+                TG.ventanaEmergente("No puede rehabilitar un usuario eliminado. Utilice 'Volver a Dar de Alta'");
+                return;
+            }
+
+            string comando = "update THE_GRID.Usuario set Inhabilitado = 0 where ID_User = " +
+                dataGridView1["ID_User", filaSeleccionada].Value.ToString();
+            TG.ventanaEmergente("Usuario rehabilitado. Recuerde que sus publicaciones siguen pausadas");
+        }
+
+        private void botonVolverAlta_Click(object sender, EventArgs e)
+        {
+            bool eliminado = Convert.ToBoolean(dataGridView1["Eliminado", filaSeleccionada].Value);
+            if (!eliminado)
+            {
+                TG.ventanaEmergente("Esta funcion es solo para usuarios eliminados");
+                return;
+            }
+            string comando = "INSERT INTO THE_GRID.Usuario(Pass,Inhabilitado,Eliminado,ID_Tipo,Intentos,Primer_Ingreso)" +
+                    "VALUES ('" + TG.encriptar("w23e") + "',0,0,3,0,1)";
+            TG.realizarConsultaSinRetorno(comando);
+            string usuario = TG.consultaEscalar("select max(ID_User) from THE_GRID.Usuario").ToString();
+            TG.realizarConsultaSinRetorno("Insert INTO THE_GRID.Roles_x_Usuario (ID_User,ID_Rol,Inhabilitado) VALUES(" + usuario + ",3,0)");
+            comando = "insert into THE_GRID.Empresa " +
+                "select " + usuario + ", Razon_Social, CUIT, Mail, Telefono, Fecha_Creacion, Nombre_Contacto, " +
+                "Calle, Nro_Calle, Nro_Piso, Departamento, Localidad, Cod_Postal, Ciudad " +
+                " from THE_GRID.Empresa where ID_User = " +
+                dataGridView1["ID_User", filaSeleccionada].Value.ToString();
+            TG.realizarConsultaSinRetorno(comando);
+            TG.ventanaEmergente("Los datos de la empresa han pasado a un nuevo usuario. Nuevo username: GRID_" + usuario);
+        }
+
+        private void BotonInhabilitar_Click(object sender, EventArgs e)
+        {
+            string usuario = dataGridView1["ID_User", filaSeleccionada].Value.ToString();
+            (new Inhabilitacion(this, usuario)).Show();
+            this.Visible = false;
         }
     }
 }

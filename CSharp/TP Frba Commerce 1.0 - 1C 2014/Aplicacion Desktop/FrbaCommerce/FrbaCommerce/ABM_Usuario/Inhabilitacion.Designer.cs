@@ -1,6 +1,6 @@
 ﻿namespace FrbaCommerce.ABM_Usuario
 {
-    partial class Baja
+    partial class Inhabilitacion
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Baja));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inhabilitacion));
             this.label1 = new System.Windows.Forms.Label();
             this.botonConfirmar = new System.Windows.Forms.Button();
             this.botonCancelar = new System.Windows.Forms.Button();
@@ -38,15 +38,15 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(36, 21);
+            this.label1.Location = new System.Drawing.Point(27, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(193, 13);
+            this.label1.Size = new System.Drawing.Size(293, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Está a punto de dar de baja un usuario.";
+            this.label1.Text = "Está a punto de inhabilitar un usuario. Esta operación implica";
             // 
             // botonConfirmar
             // 
-            this.botonConfirmar.Location = new System.Drawing.Point(71, 67);
+            this.botonConfirmar.Location = new System.Drawing.Point(62, 67);
             this.botonConfirmar.Name = "botonConfirmar";
             this.botonConfirmar.Size = new System.Drawing.Size(75, 23);
             this.botonConfirmar.TabIndex = 1;
@@ -57,7 +57,7 @@
             // botonCancelar
             // 
             this.botonCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.botonCancelar.Location = new System.Drawing.Point(197, 67);
+            this.botonCancelar.Location = new System.Drawing.Point(188, 67);
             this.botonCancelar.Name = "botonCancelar";
             this.botonCancelar.Size = new System.Drawing.Size(75, 23);
             this.botonCancelar.TabIndex = 2;
@@ -68,13 +68,13 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(36, 37);
+            this.label2.Location = new System.Drawing.Point(27, 37);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(283, 13);
+            this.label2.Size = new System.Drawing.Size(291, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Esta operación no se puede deshacer. ¿Desea continuar?";
+            this.label2.Text = "pausar todas sus publicaciones activas.  ¿Desea continuar?";
             // 
-            // Baja
+            // Inhabilitacion
             // 
             this.AcceptButton = this.botonConfirmar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -82,7 +82,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.botonCancelar;
-            this.ClientSize = new System.Drawing.Size(863, 513);
+            this.ClientSize = new System.Drawing.Size(866, 513);
             this.ControlBox = false;
             this.Controls.Add(this.label2);
             this.Controls.Add(this.botonCancelar);
@@ -91,10 +91,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Baja";
+            this.Name = "Inhabilitacion";
             this.ShowIcon = false;
-            this.Text = "Baja";
-            this.Load += new System.EventHandler(this.Baja_Load);
+            this.Text = "Inhabilitación";
             this.ResumeLayout(false);
             this.PerformLayout();
 

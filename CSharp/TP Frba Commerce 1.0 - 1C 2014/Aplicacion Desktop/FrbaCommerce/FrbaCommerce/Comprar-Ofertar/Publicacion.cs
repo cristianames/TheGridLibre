@@ -103,14 +103,17 @@ namespace FrbaCommerce.Comprar_Ofertar
         {
             string tipoPubli = infoPublicacion["Tipo_Publicacion"].ToString();
             string tipoPrecio = "Precio: $";
-            string precio = infoPublicacion["Precio"].ToString();
+            string precio = "";
             if (tipoPubli == "Subasta")
             {
                 tipoPrecio = "Mejor precio hasta ahora: $";
-                string comando = "select ISNULL( MAX(Monto_Oferta),'Sin ofertas') " +
+                string comando = "select ISNULL( MAX(Monto_Oferta),0) " +
                     "from THE_GRID.Oferta where ID_Publicacion = " + idPublicacion;
-                if(TG.consultaEscalar(comando).ToString() != "Sin ofertas")
-                precio = TG.consultaEscalar(comando).ToString();
+                if ((precio = TG.consultaEscalar(comando).ToString()) == "0")
+                {
+                    tipoPrecio = "Precio inicial: $";
+                    precio = infoPublicacion["Precio"].ToString();
+                }
             }
             infoPrecio.Text = " Tipo de publicacion : ";
             infoPrecio.Text += tipoPubli;
@@ -183,13 +186,35 @@ namespace FrbaCommerce.Comprar_Ofertar
         private void botonOfertar_Click(object sender, EventArgs e)
         {
             if (verificarSiEsElMismo()) return;
-            if (!Validacion.esFloat(montoOferta.Text))
+            if (!Validacion.esNumero(montoOferta.Text))
             {
                 montoOferta.BackColor = Color.LightYellow;
+                TG.ventanaEmergente("Solo se aceptan montos enteros");
                 return;
             }
+            int montoMaximo, montoOfertado;
+            montoOfertado = Convert.ToInt32(montoOferta.Text);
+
+            if (montoOfertado <= 0)
+            {
+                montoOferta.BackColor = Color.LightYellow;
+                TG.ventanaEmergente("El monto debe ser como mínimo de $1");
+                return;
+            }
+
+
             montoOferta.BackColor = Color.White;
             string comando;
+            comando = "select ISNULL(MAX(Monto_Oferta),0) from THE_GRID.Oferta "+
+            "where ID_Publicacion = " + idPublicacion;
+            montoMaximo = Convert.ToInt32(TG.consultaEscalar(comando).ToString());
+
+            if (montoOfertado < montoMaximo)
+            {
+                TG.ventanaEmergente("Tu oferta no supera la mejor oferta actual");
+                return;
+            }
+
             comando = "insert into THE_GRID.Oferta(ID_Ofertante,ID_Publicacion,Concretada," +
             "Fecha_Oferta,Monto_Oferta) values("+
             DatosUsuario.usuario.ToString()+ "," +

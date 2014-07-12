@@ -14,7 +14,7 @@ namespace FrbaCommerce.Abm_Visibilidad
 
         string ID_Visibilidad, comandoConsulta;
         bool mostrarInhabilitados = false;
-        public ABMVisibilidad(FormGrid anterior)
+        public ABMVisibilidad(Form anterior)
         {
             InitializeComponent();
             ventanaAnterior = anterior;

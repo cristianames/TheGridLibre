@@ -12,7 +12,7 @@ namespace FrbaCommerce.Calificar_Vendedor
     public partial class SeleccionarUsuario : FormGrid
     {
         private string ID_Publicacion;
-        public SeleccionarUsuario(FormGrid anterior)
+        public SeleccionarUsuario(Form anterior)
         {
             InitializeComponent();
             this.ClientSize = new System.Drawing.Size(434, 273);
@@ -31,12 +31,8 @@ namespace FrbaCommerce.Calificar_Vendedor
                    " and Calif_Estrellas = 0";
             dataGridView1.DataSource = TG.realizarConsulta(comando);
 
-            if (dataGridView1.RowCount == 0)
-            {
-                botonSiguiente.Enabled = false;
-                dataGridView1.Visible = false;
-                info.Visible = true;
-            }
+            botonSiguiente.Visible = dataGridView1.Visible = dataGridView1.RowCount != 0;
+            info.Visible = dataGridView1.RowCount == 0;
         }
 
         private void SeleccionarUsuario_Load(object sender, EventArgs e)

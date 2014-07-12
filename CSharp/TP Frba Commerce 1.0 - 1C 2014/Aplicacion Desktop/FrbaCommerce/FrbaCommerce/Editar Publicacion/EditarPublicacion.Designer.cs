@@ -109,8 +109,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1420, 662);
-            this.ControlBox = false;
+            this.ClientSize = new System.Drawing.Size(1420, 688);
             this.Controls.Add(this.botonPausar);
             this.Controls.Add(this.botonFinalizar);
             this.Controls.Add(this.botonModificar);
@@ -118,10 +117,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "EditarPublicacion";
-            this.ShowIcon = false;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.EnabledChanged += new System.EventHandler(this.EditarPublicacion_EnabledChanged);

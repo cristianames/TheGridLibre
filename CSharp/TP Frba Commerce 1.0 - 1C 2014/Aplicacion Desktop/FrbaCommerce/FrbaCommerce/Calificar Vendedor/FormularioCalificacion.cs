@@ -12,7 +12,7 @@ namespace FrbaCommerce.Calificar_Vendedor
     public partial class FormularioCalificacion : FormGrid
     {
         private string ID_Publicacion, descripcion = "";
-        public FormularioCalificacion(FormGrid anterior, string Publicacion)
+        public FormularioCalificacion(Form anterior, string Publicacion)
         {
             InitializeComponent();
             this.ClientSize = new System.Drawing.Size(285, 266);

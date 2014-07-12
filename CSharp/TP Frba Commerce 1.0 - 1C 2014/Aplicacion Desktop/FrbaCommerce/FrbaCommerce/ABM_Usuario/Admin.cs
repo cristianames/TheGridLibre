@@ -12,7 +12,7 @@ namespace FrbaCommerce.ABM_Usuario
     public partial class Admin : FormGrid
     {
         private bool alta;
-        public Admin(FormGrid anterior, bool alta)
+        public Admin(Form anterior, bool alta)
         {
             InitializeComponent();
             //291; 121

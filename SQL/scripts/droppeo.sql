@@ -4,6 +4,7 @@ drop function THE_GRID.dameUserIDdni
 drop function THE_GRID.dameUserIDcuit
 drop trigger THE_GRID.inhabilitarUsuario
 drop trigger THE_GRID.inhabilitarRoles
+drop trigger THE_GRID.usuarioEliminado
 drop view THE_GRID.Estad_Productos
 drop view THE_GRID.Estad_Facturacion
 drop view THE_GRID.Estad_Calificaciones
@@ -20,6 +21,7 @@ drop table THE_GRID.Factura
 drop table THE_GRID.Rubros_x_Publicacion
 drop table THE_GRID.Publicacion
 drop table THE_GRID.Contador_Visibilidad_x_Vendedor
+drop table THE_GRID.Anomalia
 drop table THE_GRID.Usuario
 drop table THE_GRID.Tipo_Usuario
 drop table THE_GRID.Funcionalidades_x_Rol

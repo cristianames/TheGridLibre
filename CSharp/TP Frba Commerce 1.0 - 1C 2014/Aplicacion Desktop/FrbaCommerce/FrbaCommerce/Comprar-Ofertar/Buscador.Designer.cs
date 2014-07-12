@@ -292,8 +292,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.botonAtras;
-            this.ClientSize = new System.Drawing.Size(1420, 662);
-            this.ControlBox = false;
+            this.ClientSize = new System.Drawing.Size(1420, 688);
             this.Controls.Add(this.sinResultados);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label1);
@@ -312,10 +311,7 @@
             this.Controls.Add(this.botonSeleccionar);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "Buscador";
-            this.ShowIcon = false;
             this.Text = "Buscador";
             this.Load += new System.EventHandler(this.Buscador_Load);
             this.EnabledChanged += new System.EventHandler(this.Buscador_EnabledChanged);

@@ -9,10 +9,10 @@ using System.Windows.Forms;
 
 namespace FrbaCommerce.ABM_Usuario
 {
-    public partial class Baja : FormGrid
+    public partial class Inhabilitacion : FormGrid
     {
         private string usuario;
-        public Baja(Form anterior, string usuario)
+        public Inhabilitacion(Form anterior, string usuario)
         {
             InitializeComponent();
             this.ClientSize = new System.Drawing.Size(366, 107);
@@ -20,16 +20,12 @@ namespace FrbaCommerce.ABM_Usuario
             this.ventanaAnterior = anterior;
         }
 
-        private void Baja_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
             botonConfirmar.Enabled = false;
             botonCancelar.Enabled = false;
-            string comando = "update THE_GRID.Usuario set Eliminado = 1 where ID_User =" + usuario;
+            string comando = "update THE_GRID.Usuario set Inhabilitado = 1 where ID_User =" + usuario;
             TG.realizarConsultaSinRetorno(comando);
             volverAtras();
         }
