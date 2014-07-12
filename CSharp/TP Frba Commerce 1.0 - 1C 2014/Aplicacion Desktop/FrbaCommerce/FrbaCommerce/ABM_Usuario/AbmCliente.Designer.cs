@@ -294,7 +294,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.botonTerminado;
-            this.ClientSize = new System.Drawing.Size(863, 513);
+            this.ClientSize = new System.Drawing.Size(925, 404);
             this.ControlBox = false;
             this.Controls.Add(this.sinResultados);
             this.Controls.Add(this.BotonInhabilitar);
@@ -310,10 +310,7 @@
             this.Controls.Add(this.botonModificar);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "AbmCliente";
-            this.ShowIcon = false;
             this.Text = "ABM Cliente";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.VisibleChanged += new System.EventHandler(this.AbmCliente_VisibleChanged);

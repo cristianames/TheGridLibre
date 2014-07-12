@@ -183,7 +183,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.linkLabel2;
-            this.ClientSize = new System.Drawing.Size(922, 397);
+            this.ClientSize = new System.Drawing.Size(544, 397);
             this.ControlBox = false;
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelMensajeSistema);
@@ -197,10 +197,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "Escritorio";
-            this.ShowIcon = false;
             this.Text = "Escritorio";
             this.Load += new System.EventHandler(this.Escritorio_Load);
             this.VisibleChanged += new System.EventHandler(this.Escritorio_VisibleChanged);

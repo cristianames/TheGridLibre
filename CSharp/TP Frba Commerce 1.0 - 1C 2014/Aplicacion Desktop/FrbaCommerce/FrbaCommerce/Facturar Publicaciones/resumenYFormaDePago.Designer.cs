@@ -204,7 +204,7 @@
             this.BackgroundImage = global::FrbaCommerce.Properties.Resources.Fondo_Azul;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.botonAtras;
-            this.ClientSize = new System.Drawing.Size(863, 513);
+            this.ClientSize = new System.Drawing.Size(466, 382);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.monto);
@@ -217,10 +217,7 @@
             this.Controls.Add(this.botonContinuar);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "resumenYFormaDePago";
-            this.ShowIcon = false;
             this.Text = "Selección de Publicaciones";
             this.Load += new System.EventHandler(this.PublicacionesRendir_Load);
             this.groupBox1.ResumeLayout(false);

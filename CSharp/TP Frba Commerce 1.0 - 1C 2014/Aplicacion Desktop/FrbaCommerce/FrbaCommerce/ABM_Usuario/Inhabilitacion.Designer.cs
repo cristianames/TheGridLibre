@@ -82,17 +82,14 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.botonCancelar;
-            this.ClientSize = new System.Drawing.Size(866, 513);
+            this.ClientSize = new System.Drawing.Size(355, 128);
             this.ControlBox = false;
             this.Controls.Add(this.label2);
             this.Controls.Add(this.botonCancelar);
             this.Controls.Add(this.botonConfirmar);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "Inhabilitacion";
-            this.ShowIcon = false;
             this.Text = "Inhabilitación";
             this.ResumeLayout(false);
             this.PerformLayout();

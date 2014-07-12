@@ -18,11 +18,11 @@ namespace FrbaCommerce
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.ShowIcon = false;
-            this.Dock = DockStyle.Fill;       
+            //this.Dock = DockStyle.Fill;       
             this.Load += new System.EventHandler(cosasAlInicio);
             // Display the form as a modal dialog box.
             //this.ShowDialog();
-            this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            //this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
         }
 
         private void MouseArriba(object sender, MouseEventArgs e)
@@ -130,7 +130,7 @@ namespace FrbaCommerce
             // 
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(292, 266);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            //this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FormGrid";
             this.Load += new System.EventHandler(this.FormGrid_Load);
             this.ResumeLayout(false);

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AbmRol));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.botonFiltrar = new System.Windows.Forms.Button();
@@ -50,13 +51,13 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(30, 83);
+            this.dataGridView1.Location = new System.Drawing.Point(26, 83);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(323, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(277, 150);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
@@ -66,18 +67,18 @@
             this.groupBox1.Controls.Add(this.botonBorrar);
             this.groupBox1.Controls.Add(this.txtNombre);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(30, 10);
+            this.groupBox1.Location = new System.Drawing.Point(26, 10);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(323, 57);
+            this.groupBox1.Size = new System.Drawing.Size(277, 57);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Herramientas de Filtro";
             // 
             // botonFiltrar
             // 
-            this.botonFiltrar.Location = new System.Drawing.Point(183, 18);
+            this.botonFiltrar.Location = new System.Drawing.Point(157, 18);
             this.botonFiltrar.Name = "botonFiltrar";
-            this.botonFiltrar.Size = new System.Drawing.Size(63, 23);
+            this.botonFiltrar.Size = new System.Drawing.Size(54, 23);
             this.botonFiltrar.TabIndex = 4;
             this.botonFiltrar.Text = "Filtrar";
             this.botonFiltrar.UseVisualStyleBackColor = true;
@@ -85,9 +86,9 @@
             // 
             // botonBorrar
             // 
-            this.botonBorrar.Location = new System.Drawing.Point(251, 18);
+            this.botonBorrar.Location = new System.Drawing.Point(215, 18);
             this.botonBorrar.Name = "botonBorrar";
-            this.botonBorrar.Size = new System.Drawing.Size(62, 23);
+            this.botonBorrar.Size = new System.Drawing.Size(53, 23);
             this.botonBorrar.TabIndex = 2;
             this.botonBorrar.Text = "Borrar";
             this.botonBorrar.UseVisualStyleBackColor = true;
@@ -95,25 +96,25 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(65, 21);
+            this.txtNombre.Location = new System.Drawing.Point(56, 21);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(111, 21);
+            this.txtNombre.Size = new System.Drawing.Size(96, 20);
             this.txtNombre.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 26);
+            this.label1.Location = new System.Drawing.Point(5, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 13);
+            this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre:";
             // 
             // botonCrear
             // 
-            this.botonCrear.Location = new System.Drawing.Point(27, 254);
+            this.botonCrear.Location = new System.Drawing.Point(23, 254);
             this.botonCrear.Name = "botonCrear";
-            this.botonCrear.Size = new System.Drawing.Size(98, 23);
+            this.botonCrear.Size = new System.Drawing.Size(84, 23);
             this.botonCrear.TabIndex = 2;
             this.botonCrear.Text = "Crear";
             this.botonCrear.UseVisualStyleBackColor = true;
@@ -121,9 +122,9 @@
             // 
             // botonEditar
             // 
-            this.botonEditar.Location = new System.Drawing.Point(139, 254);
+            this.botonEditar.Location = new System.Drawing.Point(119, 254);
             this.botonEditar.Name = "botonEditar";
-            this.botonEditar.Size = new System.Drawing.Size(98, 23);
+            this.botonEditar.Size = new System.Drawing.Size(84, 23);
             this.botonEditar.TabIndex = 3;
             this.botonEditar.Text = "Editar";
             this.botonEditar.UseVisualStyleBackColor = true;
@@ -132,9 +133,9 @@
             // botonAtras
             // 
             this.botonAtras.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.botonAtras.Location = new System.Drawing.Point(258, 293);
+            this.botonAtras.Location = new System.Drawing.Point(221, 293);
             this.botonAtras.Name = "botonAtras";
-            this.botonAtras.Size = new System.Drawing.Size(98, 23);
+            this.botonAtras.Size = new System.Drawing.Size(84, 23);
             this.botonAtras.TabIndex = 5;
             this.botonAtras.Text = "Terminado";
             this.botonAtras.UseVisualStyleBackColor = true;
@@ -142,9 +143,9 @@
             // 
             // botonEliminar
             // 
-            this.botonEliminar.Location = new System.Drawing.Point(258, 254);
+            this.botonEliminar.Location = new System.Drawing.Point(221, 254);
             this.botonEliminar.Name = "botonEliminar";
-            this.botonEliminar.Size = new System.Drawing.Size(98, 23);
+            this.botonEliminar.Size = new System.Drawing.Size(84, 23);
             this.botonEliminar.TabIndex = 6;
             this.botonEliminar.Text = "Eliminar";
             this.botonEliminar.UseVisualStyleBackColor = true;
@@ -152,9 +153,9 @@
             // 
             // botonRecuperacion
             // 
-            this.botonRecuperacion.Location = new System.Drawing.Point(27, 293);
+            this.botonRecuperacion.Location = new System.Drawing.Point(23, 293);
             this.botonRecuperacion.Name = "botonRecuperacion";
-            this.botonRecuperacion.Size = new System.Drawing.Size(98, 23);
+            this.botonRecuperacion.Size = new System.Drawing.Size(84, 23);
             this.botonRecuperacion.TabIndex = 7;
             this.botonRecuperacion.Text = "Recuperación";
             this.botonRecuperacion.UseVisualStyleBackColor = true;
@@ -162,9 +163,9 @@
             // 
             // botonRestaurar
             // 
-            this.botonRestaurar.Location = new System.Drawing.Point(139, 292);
+            this.botonRestaurar.Location = new System.Drawing.Point(119, 292);
             this.botonRestaurar.Name = "botonRestaurar";
-            this.botonRestaurar.Size = new System.Drawing.Size(98, 23);
+            this.botonRestaurar.Size = new System.Drawing.Size(84, 23);
             this.botonRestaurar.TabIndex = 8;
             this.botonRestaurar.Text = "Restaurar";
             this.botonRestaurar.UseVisualStyleBackColor = true;
@@ -173,10 +174,12 @@
             // AbmRol
             // 
             this.AcceptButton = this.botonEditar;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.botonAtras;
-            this.ClientSize = new System.Drawing.Size(1422, 712);
+            this.ClientSize = new System.Drawing.Size(324, 335);
             this.Controls.Add(this.botonRestaurar);
             this.Controls.Add(this.botonRecuperacion);
             this.Controls.Add(this.botonEliminar);

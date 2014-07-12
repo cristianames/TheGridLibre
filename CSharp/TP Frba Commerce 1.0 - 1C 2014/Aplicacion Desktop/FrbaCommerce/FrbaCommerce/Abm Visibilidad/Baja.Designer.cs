@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Baja));
             this.label2 = new System.Windows.Forms.Label();
             this.botonCancelar = new System.Windows.Forms.Button();
             this.botonConfirmar = new System.Windows.Forms.Button();
@@ -77,7 +78,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(842, 487);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(341, 120);
+            this.ControlBox = false;
             this.Controls.Add(this.label2);
             this.Controls.Add(this.botonCancelar);
             this.Controls.Add(this.botonConfirmar);

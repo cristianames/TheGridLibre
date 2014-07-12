@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.botonGuardar = new System.Windows.Forms.Button();
             this.botonAtras = new System.Windows.Forms.Button();
@@ -75,7 +76,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(844, 513);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(313, 117);
+            this.ControlBox = false;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.botonAtras);
             this.Controls.Add(this.botonGuardar);

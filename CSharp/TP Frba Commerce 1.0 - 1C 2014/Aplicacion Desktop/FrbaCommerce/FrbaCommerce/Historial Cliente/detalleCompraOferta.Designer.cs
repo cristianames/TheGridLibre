@@ -161,7 +161,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.atras;
-            this.ClientSize = new System.Drawing.Size(863, 513);
+            this.ClientSize = new System.Drawing.Size(421, 342);
             this.ControlBox = false;
             this.Controls.Add(this.calificacionLink);
             this.Controls.Add(this.compraLink);
@@ -174,10 +174,7 @@
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.atras);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "detalleCompraOferta";
-            this.ShowIcon = false;
             this.Text = "Detalle de la Operación";
             this.Load += new System.EventHandler(this.detalleCalificacion_Load);
             this.ResumeLayout(false);

@@ -763,7 +763,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.button3;
-            this.ClientSize = new System.Drawing.Size(863, 513);
+            this.ClientSize = new System.Drawing.Size(922, 513);
             this.ControlBox = false;
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label31);
@@ -775,10 +775,7 @@
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "Registro_de_Usuario";
-            this.ShowIcon = false;
             this.Text = "Datos de Registro";
             this.Load += new System.EventHandler(this.RegistroUsuario_Load);
             this.grupoEmpresa.ResumeLayout(false);

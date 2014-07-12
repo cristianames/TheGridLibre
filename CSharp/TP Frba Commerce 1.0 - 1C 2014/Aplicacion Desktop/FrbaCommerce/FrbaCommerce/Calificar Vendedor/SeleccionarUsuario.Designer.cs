@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SeleccionarUsuario));
             this.label1 = new System.Windows.Forms.Label();
             this.botonSiguiente = new System.Windows.Forms.Button();
             this.botonAtras = new System.Windows.Forms.Button();
@@ -94,8 +95,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.botonAtras;
-            this.ClientSize = new System.Drawing.Size(844, 513);
+            this.ClientSize = new System.Drawing.Size(455, 277);
+            this.ControlBox = false;
             this.Controls.Add(this.info);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.botonAtras);

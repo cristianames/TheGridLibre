@@ -153,7 +153,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(863, 513);
+            this.ClientSize = new System.Drawing.Size(540, 354);
             this.ControlBox = false;
             this.Controls.Add(this.label4);
             this.Controls.Add(this.listBox3);
@@ -167,10 +167,7 @@
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "ModificarRolesUsuario";
-            this.ShowIcon = false;
             this.Text = "FiltroRubros";
             this.Load += new System.EventHandler(this.FiltroRubros_Load);
             this.ResumeLayout(false);

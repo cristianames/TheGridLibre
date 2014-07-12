@@ -58,7 +58,6 @@
             // 
             // button1
             // 
-            //this.button1.BackgroundImage = global::FrbaCommerce.Properties.Resources.Boton_Azul;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -92,17 +91,14 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.button2;
-            this.ClientSize = new System.Drawing.Size(844, 521);
+            this.ClientSize = new System.Drawing.Size(387, 195);
             this.ControlBox = false;
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "selectorRol";
-            this.ShowIcon = false;
             this.Text = "SelectorRol";
             this.Load += new System.EventHandler(this.selectorRol_Load);
             this.ResumeLayout(false);

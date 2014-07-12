@@ -183,7 +183,7 @@
             this.BackgroundImage = global::FrbaCommerce.Properties.Resources.Fondo_Azul;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.botonAtras;
-            this.ClientSize = new System.Drawing.Size(863, 513);
+            this.ClientSize = new System.Drawing.Size(456, 378);
             this.ControlBox = false;
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.txtTotal);
@@ -194,10 +194,7 @@
             this.Controls.Add(this.botonContinuar);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "Generada";
-            this.ShowIcon = false;
             this.Text = "Previsualizador de factura";
             this.Load += new System.EventHandler(this.Generada_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

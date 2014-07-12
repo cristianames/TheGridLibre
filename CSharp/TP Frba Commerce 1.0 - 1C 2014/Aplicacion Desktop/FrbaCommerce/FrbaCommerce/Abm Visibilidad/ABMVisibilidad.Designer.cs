@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ABMVisibilidad));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.botonCrearVisibilidad = new System.Windows.Forms.Button();
             this.botonModificar = new System.Windows.Forms.Button();
@@ -111,8 +112,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.botonAceptar;
-            this.ClientSize = new System.Drawing.Size(844, 513);
+            this.ClientSize = new System.Drawing.Size(468, 411);
+            this.ControlBox = false;
             this.Controls.Add(this.botonMostrar);
             this.Controls.Add(this.botonInhabilitar);
             this.Controls.Add(this.botonAceptar);

@@ -95,17 +95,14 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.atras;
-            this.ClientSize = new System.Drawing.Size(863, 521);
+            this.ClientSize = new System.Drawing.Size(416, 335);
             this.ControlBox = false;
             this.Controls.Add(this.sinResultados);
             this.Controls.Add(this.seleccionar);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.atras);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "Facturas";
-            this.ShowIcon = false;
             this.Text = "Mis Facturas";
             this.Load += new System.EventHandler(this.Facturas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

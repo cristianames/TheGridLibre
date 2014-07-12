@@ -41,9 +41,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(158, 32);
+            this.label1.Location = new System.Drawing.Point(135, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(191, 13);
+            this.label1.Size = new System.Drawing.Size(158, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Elija una publicacion a modificar";
             // 
@@ -53,21 +53,21 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(30, 68);
+            this.dataGridView1.Location = new System.Drawing.Point(26, 68);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(461, 184);
+            this.dataGridView1.Size = new System.Drawing.Size(395, 184);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // botonAceptar
             // 
-            this.botonAceptar.Location = new System.Drawing.Point(416, 281);
+            this.botonAceptar.Location = new System.Drawing.Point(357, 281);
             this.botonAceptar.Name = "botonAceptar";
-            this.botonAceptar.Size = new System.Drawing.Size(75, 23);
+            this.botonAceptar.Size = new System.Drawing.Size(64, 23);
             this.botonAceptar.TabIndex = 3;
             this.botonAceptar.Text = "Aceptar";
             this.botonAceptar.UseVisualStyleBackColor = true;
@@ -75,9 +75,9 @@
             // 
             // botonModificar
             // 
-            this.botonModificar.Location = new System.Drawing.Point(30, 281);
+            this.botonModificar.Location = new System.Drawing.Point(26, 281);
             this.botonModificar.Name = "botonModificar";
-            this.botonModificar.Size = new System.Drawing.Size(75, 23);
+            this.botonModificar.Size = new System.Drawing.Size(64, 23);
             this.botonModificar.TabIndex = 4;
             this.botonModificar.Text = "Modificar";
             this.botonModificar.UseVisualStyleBackColor = true;
@@ -85,9 +85,9 @@
             // 
             // botonFinalizar
             // 
-            this.botonFinalizar.Location = new System.Drawing.Point(223, 282);
+            this.botonFinalizar.Location = new System.Drawing.Point(191, 282);
             this.botonFinalizar.Name = "botonFinalizar";
-            this.botonFinalizar.Size = new System.Drawing.Size(75, 23);
+            this.botonFinalizar.Size = new System.Drawing.Size(64, 23);
             this.botonFinalizar.TabIndex = 5;
             this.botonFinalizar.Text = "Finalizar";
             this.botonFinalizar.UseVisualStyleBackColor = true;
@@ -95,9 +95,9 @@
             // 
             // botonPausar
             // 
-            this.botonPausar.Location = new System.Drawing.Point(126, 281);
+            this.botonPausar.Location = new System.Drawing.Point(108, 281);
             this.botonPausar.Name = "botonPausar";
-            this.botonPausar.Size = new System.Drawing.Size(75, 23);
+            this.botonPausar.Size = new System.Drawing.Size(64, 23);
             this.botonPausar.TabIndex = 6;
             this.botonPausar.Text = "Pausar";
             this.botonPausar.UseVisualStyleBackColor = true;
@@ -105,11 +105,11 @@
             // 
             // EditarPublicacion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1420, 688);
+            this.ClientSize = new System.Drawing.Size(440, 328);
             this.Controls.Add(this.botonPausar);
             this.Controls.Add(this.botonFinalizar);
             this.Controls.Add(this.botonModificar);

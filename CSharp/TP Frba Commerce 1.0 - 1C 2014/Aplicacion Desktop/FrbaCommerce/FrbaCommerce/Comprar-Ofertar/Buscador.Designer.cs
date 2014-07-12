@@ -60,7 +60,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(7, 52);
+            this.label2.Location = new System.Drawing.Point(6, 52);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(137, 13);
             this.label2.TabIndex = 2;
@@ -68,27 +68,27 @@
             // 
             // txtFiltro
             // 
-            this.txtFiltro.Location = new System.Drawing.Point(170, 48);
+            this.txtFiltro.Location = new System.Drawing.Point(146, 48);
             this.txtFiltro.Name = "txtFiltro";
-            this.txtFiltro.Size = new System.Drawing.Size(724, 21);
+            this.txtFiltro.Size = new System.Drawing.Size(621, 20);
             this.txtFiltro.TabIndex = 3;
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(782, 297);
+            this.pictureBox1.Location = new System.Drawing.Point(670, 297);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(188, 100);
+            this.pictureBox1.Size = new System.Drawing.Size(161, 100);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
             // botonSeleccionar
             // 
-            this.botonSeleccionar.Location = new System.Drawing.Point(204, 342);
+            this.botonSeleccionar.Location = new System.Drawing.Point(175, 342);
             this.botonSeleccionar.Name = "botonSeleccionar";
-            this.botonSeleccionar.Size = new System.Drawing.Size(124, 32);
+            this.botonSeleccionar.Size = new System.Drawing.Size(106, 32);
             this.botonSeleccionar.TabIndex = 6;
             this.botonSeleccionar.Text = "Seleccionar";
             this.botonSeleccionar.UseVisualStyleBackColor = true;
@@ -97,9 +97,9 @@
             // botonAtras
             // 
             this.botonAtras.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.botonAtras.Location = new System.Drawing.Point(35, 342);
+            this.botonAtras.Location = new System.Drawing.Point(30, 342);
             this.botonAtras.Name = "botonAtras";
-            this.botonAtras.Size = new System.Drawing.Size(124, 32);
+            this.botonAtras.Size = new System.Drawing.Size(106, 32);
             this.botonAtras.TabIndex = 7;
             this.botonAtras.Text = "Atrás";
             this.botonAtras.UseVisualStyleBackColor = true;
@@ -107,9 +107,9 @@
             // 
             // botonBuscar
             // 
-            this.botonBuscar.Location = new System.Drawing.Point(812, 96);
+            this.botonBuscar.Location = new System.Drawing.Point(696, 96);
             this.botonBuscar.Name = "botonBuscar";
-            this.botonBuscar.Size = new System.Drawing.Size(124, 23);
+            this.botonBuscar.Size = new System.Drawing.Size(106, 23);
             this.botonBuscar.TabIndex = 8;
             this.botonBuscar.Text = "Buscar";
             this.botonBuscar.UseVisualStyleBackColor = true;
@@ -117,9 +117,9 @@
             // 
             // botonRubros
             // 
-            this.botonRubros.Location = new System.Drawing.Point(10, 19);
+            this.botonRubros.Location = new System.Drawing.Point(9, 19);
             this.botonRubros.Name = "botonRubros";
-            this.botonRubros.Size = new System.Drawing.Size(133, 23);
+            this.botonRubros.Size = new System.Drawing.Size(114, 23);
             this.botonRubros.TabIndex = 9;
             this.botonRubros.Text = "Rubros";
             this.botonRubros.UseVisualStyleBackColor = true;
@@ -131,19 +131,19 @@
             this.groupBox1.Controls.Add(this.botonRubros);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtFiltro);
-            this.groupBox1.Location = new System.Drawing.Point(34, 12);
+            this.groupBox1.Location = new System.Drawing.Point(29, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(902, 74);
+            this.groupBox1.Size = new System.Drawing.Size(773, 74);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Buscador";
             // 
             // txtRubros
             // 
-            this.txtRubros.Location = new System.Drawing.Point(148, 20);
+            this.txtRubros.Location = new System.Drawing.Point(127, 20);
             this.txtRubros.Name = "txtRubros";
             this.txtRubros.ReadOnly = true;
-            this.txtRubros.Size = new System.Drawing.Size(746, 21);
+            this.txtRubros.Size = new System.Drawing.Size(640, 20);
             this.txtRubros.TabIndex = 10;
             // 
             // dataGridView1
@@ -153,21 +153,21 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(34, 125);
+            this.dataGridView1.Location = new System.Drawing.Point(29, 125);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(902, 165);
+            this.dataGridView1.Size = new System.Drawing.Size(773, 165);
             this.dataGridView1.TabIndex = 11;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // botonPrincipio
             // 
-            this.botonPrincipio.Location = new System.Drawing.Point(35, 296);
+            this.botonPrincipio.Location = new System.Drawing.Point(30, 296);
             this.botonPrincipio.Name = "botonPrincipio";
-            this.botonPrincipio.Size = new System.Drawing.Size(50, 23);
+            this.botonPrincipio.Size = new System.Drawing.Size(43, 23);
             this.botonPrincipio.TabIndex = 12;
             this.botonPrincipio.Text = "<<";
             this.botonPrincipio.UseVisualStyleBackColor = true;
@@ -175,9 +175,9 @@
             // 
             // botonPrev
             // 
-            this.botonPrev.Location = new System.Drawing.Point(92, 296);
+            this.botonPrev.Location = new System.Drawing.Point(79, 296);
             this.botonPrev.Name = "botonPrev";
-            this.botonPrev.Size = new System.Drawing.Size(50, 23);
+            this.botonPrev.Size = new System.Drawing.Size(43, 23);
             this.botonPrev.TabIndex = 13;
             this.botonPrev.Text = "<";
             this.botonPrev.UseVisualStyleBackColor = true;
@@ -185,9 +185,9 @@
             // 
             // botonNext
             // 
-            this.botonNext.Location = new System.Drawing.Point(219, 296);
+            this.botonNext.Location = new System.Drawing.Point(188, 296);
             this.botonNext.Name = "botonNext";
-            this.botonNext.Size = new System.Drawing.Size(50, 23);
+            this.botonNext.Size = new System.Drawing.Size(43, 23);
             this.botonNext.TabIndex = 14;
             this.botonNext.Text = ">";
             this.botonNext.UseVisualStyleBackColor = true;
@@ -195,9 +195,9 @@
             // 
             // botonFinal
             // 
-            this.botonFinal.Location = new System.Drawing.Point(278, 296);
+            this.botonFinal.Location = new System.Drawing.Point(238, 296);
             this.botonFinal.Name = "botonFinal";
-            this.botonFinal.Size = new System.Drawing.Size(50, 23);
+            this.botonFinal.Size = new System.Drawing.Size(43, 23);
             this.botonFinal.TabIndex = 15;
             this.botonFinal.Text = ">>";
             this.botonFinal.UseVisualStyleBackColor = true;
@@ -205,17 +205,17 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(150, 296);
+            this.textBox1.Location = new System.Drawing.Point(129, 296);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(61, 21);
+            this.textBox1.Size = new System.Drawing.Size(53, 20);
             this.textBox1.TabIndex = 16;
             // 
             // botonLimpiar
             // 
-            this.botonLimpiar.Location = new System.Drawing.Point(665, 96);
+            this.botonLimpiar.Location = new System.Drawing.Point(570, 96);
             this.botonLimpiar.Name = "botonLimpiar";
-            this.botonLimpiar.Size = new System.Drawing.Size(124, 23);
+            this.botonLimpiar.Size = new System.Drawing.Size(106, 23);
             this.botonLimpiar.TabIndex = 17;
             this.botonLimpiar.Text = "Limpiar";
             this.botonLimpiar.UseVisualStyleBackColor = true;
@@ -223,10 +223,10 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(335, 296);
+            this.richTextBox1.Location = new System.Drawing.Point(287, 296);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(439, 85);
+            this.richTextBox1.Size = new System.Drawing.Size(377, 85);
             this.richTextBox1.TabIndex = 18;
             this.richTextBox1.Text = "";
             // 
@@ -234,7 +234,7 @@
             // 
             this.InfoLabel.AutoSize = true;
             this.InfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InfoLabel.Location = new System.Drawing.Point(44, 99);
+            this.InfoLabel.Location = new System.Drawing.Point(38, 99);
             this.InfoLabel.Name = "InfoLabel";
             this.InfoLabel.Size = new System.Drawing.Size(225, 13);
             this.InfoLabel.TabIndex = 19;
@@ -244,7 +244,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(371, 100);
+            this.label1.Location = new System.Drawing.Point(318, 100);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(138, 13);
             this.label1.TabIndex = 20;
@@ -252,7 +252,7 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(534, 97);
+            this.numericUpDown1.Location = new System.Drawing.Point(458, 97);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             30,
             0,
@@ -265,7 +265,7 @@
             0});
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.ReadOnly = true;
-            this.numericUpDown1.Size = new System.Drawing.Size(80, 21);
+            this.numericUpDown1.Size = new System.Drawing.Size(69, 20);
             this.numericUpDown1.TabIndex = 21;
             this.numericUpDown1.Value = new decimal(new int[] {
             1,
@@ -278,7 +278,7 @@
             // 
             this.sinResultados.AutoSize = true;
             this.sinResultados.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sinResultados.Location = new System.Drawing.Point(335, 174);
+            this.sinResultados.Location = new System.Drawing.Point(287, 174);
             this.sinResultados.Name = "sinResultados";
             this.sinResultados.Size = new System.Drawing.Size(284, 42);
             this.sinResultados.TabIndex = 22;
@@ -287,12 +287,13 @@
             // Buscador
             // 
             this.AcceptButton = this.botonSeleccionar;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.botonAtras;
-            this.ClientSize = new System.Drawing.Size(1420, 688);
+            this.ClientSize = new System.Drawing.Size(849, 411);
+            this.ControlBox = false;
             this.Controls.Add(this.sinResultados);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label1);

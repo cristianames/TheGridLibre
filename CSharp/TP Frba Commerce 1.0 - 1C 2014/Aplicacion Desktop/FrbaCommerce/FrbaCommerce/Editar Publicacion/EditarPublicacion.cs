@@ -20,6 +20,7 @@ namespace FrbaCommerce.Editar_Publicacion
             InitializeComponent();
             this.ClientSize = new System.Drawing.Size(500, 350);
             ventanaAnterior = anterior;
+            botonModificar.Enabled = botonPausar.Enabled = botonFinalizar.Enabled = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)

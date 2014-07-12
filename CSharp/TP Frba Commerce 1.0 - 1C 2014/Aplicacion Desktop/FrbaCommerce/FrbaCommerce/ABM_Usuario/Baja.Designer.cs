@@ -82,17 +82,14 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.botonCancelar;
-            this.ClientSize = new System.Drawing.Size(863, 513);
+            this.ClientSize = new System.Drawing.Size(371, 129);
             this.ControlBox = false;
             this.Controls.Add(this.label2);
             this.Controls.Add(this.botonCancelar);
             this.Controls.Add(this.botonConfirmar);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "Baja";
-            this.ShowIcon = false;
             this.Text = "Baja";
             this.Load += new System.EventHandler(this.Baja_Load);
             this.ResumeLayout(false);

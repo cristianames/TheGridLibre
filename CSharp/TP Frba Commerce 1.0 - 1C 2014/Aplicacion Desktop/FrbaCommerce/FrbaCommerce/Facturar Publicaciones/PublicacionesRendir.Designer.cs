@@ -134,7 +134,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.botonAtras;
-            this.ClientSize = new System.Drawing.Size(863, 513);
+            this.ClientSize = new System.Drawing.Size(455, 373);
             this.ControlBox = false;
             this.Controls.Add(this.warningLabel);
             this.Controls.Add(this.richTextBox1);
@@ -144,10 +144,7 @@
             this.Controls.Add(this.botonContinuar);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "PublicacionesRendir";
-            this.ShowIcon = false;
             this.Text = "Selección de Publicaciones";
             this.Load += new System.EventHandler(this.PublicacionesRendir_Load);
             this.VisibleChanged += new System.EventHandler(this.PublicacionesRendir_VisibleChanged);

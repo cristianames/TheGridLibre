@@ -161,7 +161,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.botonAtras;
-            this.ClientSize = new System.Drawing.Size(863, 513);
+            this.ClientSize = new System.Drawing.Size(419, 359);
             this.ControlBox = false;
             this.Controls.Add(this.titulo);
             this.Controls.Add(this.sinPreguntas);
@@ -170,10 +170,7 @@
             this.Controls.Add(this.botonSeleccionar);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "TipoPregunta";
-            this.ShowIcon = false;
             this.Text = "Seleccionar pregunta";
             this.Load += new System.EventHandler(this.Pendientes_Load);
             this.VisibleChanged += new System.EventHandler(this.TipoPregunta_VisibleChanged);

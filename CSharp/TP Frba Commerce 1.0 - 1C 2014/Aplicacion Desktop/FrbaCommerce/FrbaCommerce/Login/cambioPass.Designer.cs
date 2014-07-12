@@ -105,7 +105,6 @@
             // 
             // button1
             // 
-            //this.button1.BackgroundImage = global::FrbaCommerce.Properties.Resources.Boton_Azul;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -151,7 +150,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.button2;
-            this.ClientSize = new System.Drawing.Size(844, 521);
+            this.ClientSize = new System.Drawing.Size(381, 264);
             this.ControlBox = false;
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button2);
@@ -163,10 +162,7 @@
             this.Controls.Add(this.textBoxPass1);
             this.Controls.Add(this.textBoxOldPass);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "cambioPass";
-            this.ShowIcon = false;
             this.Text = "Cambio de Contraseña";
             this.Load += new System.EventHandler(this.cambioPass_Load);
             this.ResumeLayout(false);
