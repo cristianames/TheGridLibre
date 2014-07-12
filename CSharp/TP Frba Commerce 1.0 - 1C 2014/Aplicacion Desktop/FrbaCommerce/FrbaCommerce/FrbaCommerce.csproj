@@ -503,6 +503,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="config.txt" />
+    <None Include="Resources\Boton_Moderno_DK .jpg" />
+    <None Include="Resources\Boton_Moderno_DK.jpg" />
+    <None Include="Resources\Boton_Moderno_BR.jpg" />
+    <None Include="Resources\Boton_Moderno_BN.jpeg" />
+    <None Include="Resources\Boton_Moderno_SP.jpeg" />
     <None Include="Resources\mural.png" />
     <None Include="Resources\Tarzan.gif" />
     <None Include="Resources\Intro.gif" />

@@ -67,23 +67,23 @@ namespace FrbaCommerce.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap Boton_Advertencia_2 {
-            get {
-                object obj = ResourceManager.GetObject("Boton_Advertencia_2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap Boton_Azul {
-            get {
-                object obj = ResourceManager.GetObject("Boton_Azul", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
         internal static System.Drawing.Bitmap Boton_Moderno {
             get {
                 object obj = ResourceManager.GetObject("Boton_Moderno", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Boton_Moderno_BR {
+            get {
+                object obj = ResourceManager.GetObject("Boton_Moderno_BR", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Boton_Moderno_DK {
+            get {
+                object obj = ResourceManager.GetObject("Boton_Moderno_DK", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -98,20 +98,6 @@ namespace FrbaCommerce.Properties {
         internal static System.Drawing.Bitmap Fondo_Azul {
             get {
                 object obj = ResourceManager.GetObject("Fondo_Azul", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap Fondo_Delirio {
-            get {
-                object obj = ResourceManager.GetObject("Fondo_Delirio", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap Fondo_Moderno {
-            get {
-                object obj = ResourceManager.GetObject("Fondo_Moderno", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

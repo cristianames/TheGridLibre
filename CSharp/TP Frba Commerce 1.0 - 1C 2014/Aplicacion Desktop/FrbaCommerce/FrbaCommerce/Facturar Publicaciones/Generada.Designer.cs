@@ -56,7 +56,7 @@
             // 
             // botonContinuar
             // 
-            this.botonContinuar.BackgroundImage = global::FrbaCommerce.Properties.Resources.Boton_Azul;
+            this.botonContinuar.BackgroundImage = global::FrbaCommerce.Properties.Resources.Boton_Moderno_DK;
             this.botonContinuar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.botonContinuar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.botonContinuar.Location = new System.Drawing.Point(364, 293);
@@ -69,7 +69,7 @@
             // 
             // botonAtras
             // 
-            this.botonAtras.BackgroundImage = global::FrbaCommerce.Properties.Resources.Boton_Azul;
+            this.botonAtras.BackgroundImage = global::FrbaCommerce.Properties.Resources.Boton_Moderno_DK;
             this.botonAtras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.botonAtras.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.botonAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

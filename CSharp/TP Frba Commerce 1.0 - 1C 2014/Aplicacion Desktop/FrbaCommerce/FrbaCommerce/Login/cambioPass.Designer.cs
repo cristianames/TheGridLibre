@@ -105,7 +105,7 @@
             // 
             // button1
             // 
-            this.button1.BackgroundImage = global::FrbaCommerce.Properties.Resources.Boton_Azul;
+            //this.button1.BackgroundImage = global::FrbaCommerce.Properties.Resources.Boton_Azul;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -119,7 +119,6 @@
             // 
             // button2
             // 
-            this.button2.BackgroundImage = global::FrbaCommerce.Properties.Resources.Boton_Azul;
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

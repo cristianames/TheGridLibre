@@ -94,3 +94,101 @@ C:\Documents and Settings\Ezequiel\Escritorio\FrbaCommerce\obj\Debug\FrbaCommerc
 C:\Documents and Settings\Ezequiel\Escritorio\FrbaCommerce\obj\Debug\FrbaCommerce.ABM_Usuario.Registro_de_Usuario.resources
 C:\Documents and Settings\Ezequiel\Escritorio\FrbaCommerce\obj\Debug\FrbaCommerce.VentanaError.resources
 C:\Documents and Settings\Ezequiel\Escritorio\FrbaCommerce\obj\Debug\FrbaCommerce.csproj.GenerateResource.Cache
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\ResolveAssemblyReference.cache
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Visibilidad.ABMVisibilidad.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Visibilidad.Baja.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Visibilidad.AltaVisibilidad.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.ABM_Usuario.AbmCliente.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.ABM_Usuario.AbmEmpresa.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.ABM_Usuario.AbmRol.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.ABM_Usuario.AltaModificacion.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.ABM_Usuario.Admin.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.ABM_Usuario.Baja.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Rubro.CrearRubro.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Rubro.EliminarRubro.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Rubro.ModificarRubro.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.ABM_Usuario.ABM_Usuario.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.ABM_Usuario.Inhabilitacion.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.ABM_Usuario.ModificarRolesUsuario.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Calificar_Vendedor.FormularioCalificacion.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Calificar_Vendedor.SeleccionarUsuario.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Comprar_Ofertar.Buscador.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Comprar_Ofertar.FiltroRubros.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Comprar_Ofertar.Publicacion.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Editar_Publicacion.EditarPublicacion.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Escritorio.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Facturar_Publicaciones.Generada.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Facturar_Publicaciones.resumenYFormaDePago.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Facturar_Publicaciones.PublicacionesRendir.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Historial_Cliente.Facturas.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Historial_Cliente.detalleCompraOferta.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Historial_Cliente.detalleCalificacion.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Inicio.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.FormGrid.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Generar_Publicacion.GenerarPublicacion.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Gestion_de_Preguntas.FormularioRespuesta.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Gestion_de_Preguntas.TipoPregunta.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Historial_Cliente.Historial.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Listado_Estadistico.PeriodoTipo.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Login.cambioPass.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Login.login.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Login.selectorRol.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Portal.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Program.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Properties.Resources.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.ABM_Usuario.Registro_de_Usuario.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.VentanaError.resources
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.csproj.GenerateResource.Cache
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.exe
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.pdb
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Visibilidad.ABMVisibilidad.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Visibilidad.Baja.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Visibilidad.AltaVisibilidad.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.ABM_Usuario.AbmCliente.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.ABM_Usuario.AbmEmpresa.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.ABM_Usuario.AbmRol.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.ABM_Usuario.AltaModificacion.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.ABM_Usuario.Admin.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.ABM_Usuario.Baja.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Rubro.CrearRubro.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Rubro.EliminarRubro.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Abm_Rubro.ModificarRubro.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.ABM_Usuario.ABM_Usuario.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.ABM_Usuario.Inhabilitacion.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.ABM_Usuario.ModificarRolesUsuario.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Calificar_Vendedor.FormularioCalificacion.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Calificar_Vendedor.SeleccionarUsuario.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Comprar_Ofertar.Buscador.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Comprar_Ofertar.FiltroRubros.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Comprar_Ofertar.Publicacion.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Editar_Publicacion.EditarPublicacion.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Escritorio.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Facturar_Publicaciones.Generada.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Facturar_Publicaciones.resumenYFormaDePago.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Facturar_Publicaciones.PublicacionesRendir.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Historial_Cliente.Facturas.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Historial_Cliente.detalleCompraOferta.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Historial_Cliente.detalleCalificacion.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Inicio.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.FormGrid.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Generar_Publicacion.GenerarPublicacion.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Gestion_de_Preguntas.FormularioRespuesta.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Gestion_de_Preguntas.TipoPregunta.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Historial_Cliente.Historial.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Listado_Estadistico.PeriodoTipo.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Login.cambioPass.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Login.login.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Login.selectorRol.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Portal.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Program.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.Properties.Resources.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.ABM_Usuario.Registro_de_Usuario.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.VentanaError.resources
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.csproj.GenerateResource.Cache
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\bin\Debug\FrbaCommerce.exe
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\bin\Debug\FrbaCommerce.pdb
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.exe
+C:\Documents and Settings\Ezequiel\Escritorio\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\obj\Debug\FrbaCommerce.pdb
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\bin\Debug\FrbaCommerce.exe
+E:\CSharp\TP Frba Commerce 1.0 - 1C 2014\Aplicacion Desktop\FrbaCommerce\FrbaCommerce\bin\Debug\FrbaCommerce.pdb

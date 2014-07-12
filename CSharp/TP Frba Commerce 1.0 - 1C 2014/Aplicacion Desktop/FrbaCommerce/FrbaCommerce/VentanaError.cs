@@ -29,7 +29,7 @@ namespace FrbaCommerce
                 label1.Location = new System.Drawing.Point(25 + button1.Width/2 - label1.Width / 2, 25);
             }
             this.Size = new Size( anchoMensaje + 50, 90);
-            button1.Location = new System.Drawing.Point(25 + anchoMensaje / 2 - button1.Width/2, 49);
+            button1.Location = new System.Drawing.Point(28 + anchoMensaje / 2 - button1.Width/2, 49);
         }
 
         private void VentanaError_Load(object sender, EventArgs e)

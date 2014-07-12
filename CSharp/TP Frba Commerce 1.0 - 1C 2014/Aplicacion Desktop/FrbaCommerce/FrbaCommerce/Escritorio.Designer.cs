@@ -156,6 +156,7 @@
             // labelMensajeSistema
             // 
             this.labelMensajeSistema.AutoSize = true;
+            this.labelMensajeSistema.BackColor = System.Drawing.Color.Transparent;
             this.labelMensajeSistema.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMensajeSistema.Location = new System.Drawing.Point(224, 211);
             this.labelMensajeSistema.Name = "labelMensajeSistema";
@@ -182,7 +183,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.linkLabel2;
-            this.ClientSize = new System.Drawing.Size(863, 521);
+            this.ClientSize = new System.Drawing.Size(922, 397);
             this.ControlBox = false;
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelMensajeSistema);

@@ -49,7 +49,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Maroon;
-            this.button1.Location = new System.Drawing.Point(49, 66);
+            this.button1.Location = new System.Drawing.Point(60, 66);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(74, 23);
             this.button1.TabIndex = 1;
