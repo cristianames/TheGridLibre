@@ -150,6 +150,7 @@
             this.ShowIcon = false;
             this.Text = "Selección de Publicaciones";
             this.Load += new System.EventHandler(this.PublicacionesRendir_Load);
+            this.VisibleChanged += new System.EventHandler(this.PublicacionesRendir_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);

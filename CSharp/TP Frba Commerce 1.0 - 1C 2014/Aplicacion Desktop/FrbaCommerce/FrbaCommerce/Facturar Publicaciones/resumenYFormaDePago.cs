@@ -23,6 +23,14 @@ namespace FrbaCommerce.Facturar_Publicaciones
             cant = cantPublicaciones;
 
             string comando =
+@"select str(isnull((select contador from THE_GRID.Contador_Visibilidad_x_Vendedor cv
+where t.ID_Tipo = cv.ID_Tipo and cv.ID_Vendedor = 1093),0)) Contador
+from THE_GRID.Tipo_Visibilidad t
+order by t.ID_Tipo";
+
+            int[] contadores = ((List<int>)TG.ObtenerListado(comando).ConvertAll(s => Int32.Parse(s))).ToArray();
+
+            comando =
                "select top " + cantPublicaciones.ToString() +
              @" p.ID_Publicacion COD, p.Descripcion, p.Precio,
                 v.Precio_Por_Publicar, v.Porcentaje_Venta * 100 'Porcentaje_Venta', v.Nombre,
@@ -41,11 +49,14 @@ namespace FrbaCommerce.Facturar_Publicaciones
                 v.Nombre, v.Porcentaje_Venta, v.ID_Tipo, p.Fecha_Inicio
                 order by p.Fecha_Inicio";
             DataTable publicaciones = TG.realizarConsulta(comando), compras;
-            int j;
+            int j, index;
             float montoFinal = 0;
 
             for (int i = 0; i < publicaciones.Rows.Count; i++)
             {
+                index = Convert.ToInt32(publicaciones.Rows[i]["ID_Tipo"].ToString());
+                contadores[index - 1]++;
+
                 richTextBox1.Text += "--Datos de la Publicación "+(i+1).ToString()+"--";
                 richTextBox1.Text += "\n   . Publicacion Nro: ";
                 richTextBox1.Text += publicaciones.Rows[i]["COD"].ToString();
@@ -64,10 +75,13 @@ namespace FrbaCommerce.Facturar_Publicaciones
                 richTextBox1.Text += "\n   . Comisión (porcentaje de cada venta): ";
                 richTextBox1.Text += publicaciones.Rows[i]["Porcentaje_Venta"].ToString() + @"%";
                 richTextBox1.Text += "\n   . Contador de la visibilidad: ";
-                richTextBox1.Text += publicaciones.Rows[i]["Contador"].ToString();
+                //richTextBox1.Text += publicaciones.Rows[i]["Contador"].ToString();
+                richTextBox1.Text += contadores[index-1].ToString();
                 richTextBox1.Text += "\n   . ";
                 richTextBox1.Text += "\n--Compras en la Publicación " + (i + 1).ToString() + "--";
                 
+
+
                 comando =
                 @"select ID_Operacion, Item_Cantidad, Item_Monto, Fecha,
                 cast(Item_Cantidad*Item_Monto*Porcentaje_Venta as decimal(18,2)) 'Subtotal'
@@ -98,15 +112,17 @@ namespace FrbaCommerce.Facturar_Publicaciones
                 richTextBox1.Text += publicaciones.Rows[i]["Precio_Por_Publicar"].ToString();
                 richTextBox1.Text += "\n  Subtotal: $";
                 richTextBox1.Text += publicaciones.Rows[i]["Final"].ToString();
-                if (publicaciones.Rows[i]["Contador"].ToString() == "10") {
+                if (contadores[index - 1] == 10)
+                {
                     richTextBox1.Text += "\n\n  Tu publicación tiene una bonificación!!!";
                     richTextBox1.Text += "\n  Descuento: -$";
                     richTextBox1.Text += publicaciones.Rows[i]["Final"].ToString();
-                }
-                richTextBox1.Text += "\n\n  --------------------------------------\n\n";
+                    contadores[index - 1] = 0;
+                } 
+                else
+                    montoFinal += Validacion.ToFloat(publicaciones.Rows[i]["Final"].ToString());
 
-                if (publicaciones.Rows[i]["Contador"].ToString() != "10")
-                montoFinal += Validacion.ToFloat(publicaciones.Rows[i]["Final"].ToString());
+                richTextBox1.Text += "\n\n  --------------------------------------\n\n";
             }
             monto.Text = "$" + montoFinal.ToString();
         }

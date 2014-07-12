@@ -136,7 +136,8 @@ namespace FrbaCommerce.ABM_Usuario
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (DatosUsuario.tipoUsuario == "1" && DatosUsuario.tipoUsuarioModif != "-1")
+            //if (DatosUsuario.tipoUsuario == "1" && DatosUsuario.tipoUsuarioModif != "-1")
+            if(DatosUsuario.usuarioAux != "-1")
             DatosUsuario.resetearDatosModif();
             volverAtras();
         }

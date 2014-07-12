@@ -90,7 +90,6 @@
             this.dataGridView1.Location = new System.Drawing.Point(13, 79);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(426, 208);
             this.dataGridView1.TabIndex = 4;
@@ -182,8 +181,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::FrbaCommerce.Properties.Resources.Fondo_Azul;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.botonAtras;
-            this.ClientSize = new System.Drawing.Size(844, 513);
+            this.ClientSize = new System.Drawing.Size(863, 513);
+            this.ControlBox = false;
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.txtTotal);
             this.Controls.Add(this.label4);
@@ -192,7 +193,11 @@
             this.Controls.Add(this.botonAtras);
             this.Controls.Add(this.botonContinuar);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Generada";
+            this.ShowIcon = false;
             this.Text = "Previsualizador de factura";
             this.Load += new System.EventHandler(this.Generada_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
