@@ -42,9 +42,9 @@
             // 
             this.userTextbox.BackColor = System.Drawing.SystemColors.Window;
             this.userTextbox.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userTextbox.Location = new System.Drawing.Point(151, 27);
+            this.userTextbox.Location = new System.Drawing.Point(176, 27);
             this.userTextbox.Name = "userTextbox";
-            this.userTextbox.Size = new System.Drawing.Size(78, 18);
+            this.userTextbox.Size = new System.Drawing.Size(90, 18);
             this.userTextbox.TabIndex = 1;
             this.userTextbox.TextChanged += new System.EventHandler(this.userTextbox_TextChanged);
             this.userTextbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.userTextbox_KeyDown);
@@ -52,10 +52,10 @@
             // passTextBox
             // 
             this.passTextBox.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passTextBox.Location = new System.Drawing.Point(99, 66);
+            this.passTextBox.Location = new System.Drawing.Point(115, 66);
             this.passTextBox.Name = "passTextBox";
             this.passTextBox.PasswordChar = '*';
-            this.passTextBox.Size = new System.Drawing.Size(130, 18);
+            this.passTextBox.Size = new System.Drawing.Size(151, 18);
             this.passTextBox.TabIndex = 2;
             this.passTextBox.TextChanged += new System.EventHandler(this.passTextBox_TextChanged);
             this.passTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passTextBox_KeyDown);
@@ -66,7 +66,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Silver;
-            this.label1.Location = new System.Drawing.Point(10, 30);
+            this.label1.Location = new System.Drawing.Point(12, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(142, 13);
             this.label1.TabIndex = 3;
@@ -78,7 +78,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Silver;
-            this.label2.Location = new System.Drawing.Point(12, 69);
+            this.label2.Location = new System.Drawing.Point(14, 69);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 13);
             this.label2.TabIndex = 4;
@@ -92,9 +92,9 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.button1.Location = new System.Drawing.Point(249, 25);
+            this.button1.Location = new System.Drawing.Point(290, 25);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 59);
+            this.button1.Size = new System.Drawing.Size(87, 59);
             this.button1.TabIndex = 5;
             this.button1.Text = "Aceptar";
             this.button1.UseVisualStyleBackColor = false;
@@ -106,7 +106,7 @@
             this.linkLabel1.BackColor = System.Drawing.Color.Transparent;
             this.linkLabel1.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel1.LinkColor = System.Drawing.Color.Cyan;
-            this.linkLabel1.Location = new System.Drawing.Point(6, 111);
+            this.linkLabel1.Location = new System.Drawing.Point(7, 111);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(325, 11);
             this.linkLabel1.TabIndex = 6;
@@ -120,7 +120,7 @@
             this.Control.BackColor = System.Drawing.Color.Transparent;
             this.Control.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Control.ForeColor = System.Drawing.Color.Red;
-            this.Control.Location = new System.Drawing.Point(225, 92);
+            this.Control.Location = new System.Drawing.Point(262, 92);
             this.Control.Name = "Control";
             this.Control.Size = new System.Drawing.Size(125, 11);
             this.Control.TabIndex = 8;
@@ -130,11 +130,11 @@
             // login
             // 
             this.AcceptButton = this.button1;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(844, 521);
+            this.ClientSize = new System.Drawing.Size(1420, 666);
             this.ControlBox = false;
             this.Controls.Add(this.Control);
             this.Controls.Add(this.linkLabel1);

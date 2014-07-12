@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GenerarPublicacion));
             this.radioCompra = new System.Windows.Forms.RadioButton();
             this.radioSubasta = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
@@ -356,7 +357,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 11F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(443, 414);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1420, 662);
+            this.ControlBox = false;
             this.Controls.Add(this.labelActivas);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.total);
@@ -381,7 +385,11 @@
             this.Controls.Add(this.radioSubasta);
             this.Controls.Add(this.radioCompra);
             this.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "GenerarPublicacion";
+            this.ShowIcon = false;
             this.Text = "Generar Publicacion";
             this.Load += new System.EventHandler(this.GenerarPublicacion_Load);
             this.EnabledChanged += new System.EventHandler(this.GenerarPublicacion_EnabledChanged);

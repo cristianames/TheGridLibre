@@ -9,15 +9,14 @@ using System.Windows.Forms;
 
 namespace FrbaCommerce.Generar_Publicacion
 {
-    public partial class GenerarPublicacion : Form
+    public partial class GenerarPublicacion : FormGrid
     {
         DataTable datosConsultaVisibilidad;
         bool esSubasta;
         string estado = "";
         int cantGratuitas;
         DateTime fechaHoy, fechaVencimiento;
-        Form ventanaAnterior;
-
+        decimal stockOriginal;
         //Editar_Publicacion.EditarPublicacion ventanaAnterior;
         bool actualizar = false; 
         //boolean que me permite saber si estas insertando una nueva publicacion 
@@ -32,6 +31,10 @@ namespace FrbaCommerce.Generar_Publicacion
             ventanaAnterior = anterior;
             string comando = @"select * from THE_GRID.Visibilidad where Inhabilitado=0 order by Precio_Por_Publicar desc";
             datosConsultaVisibilidad = TG.realizarConsulta(comando);
+            comando = @"select Nombre from THE_GRID.Visibilidad 
+                            where Inhabilitado = 0 order by Precio_Por_Publicar desc";
+            visibilidadComboBox1.DataSource = TG.ObtenerListado(comando);
+            
             esSubasta = false;
             preguntasComboBox.SelectedIndex = 1;
             comando = @"select COUNT(*) from THE_GRID.Publicacion p
@@ -42,31 +45,67 @@ where Facturada = 0 and ID_Vendedor = " + DatosUsuario.usuario;
             cantGratuitas = Convert.ToInt32(TG.consultaEscalar(comando).ToString());
             labelActivas.Text += cantGratuitas;
         }
-        public GenerarPublicacion(Editar_Publicacion.EditarPublicacion anterior,string ID,bool valor)
+        public GenerarPublicacion(FormGrid anterior,string ID,bool valor)
         {
             InitializeComponent();
-            ventanaAnterior = anterior;
-            IDAnterior = Convert.ToInt32(anterior);
-            esBorrador = valor;
-            actualizar = true;
+            this.ClientSize = new System.Drawing.Size(451, 426);
             string comando = @"select * from THE_GRID.Visibilidad where Inhabilitado=0 order by Precio_Por_Publicar desc";
             datosConsultaVisibilidad = TG.realizarConsulta(comando);
+            comando = @"select Nombre from THE_GRID.Visibilidad 
+                            where Inhabilitado = 0 order by Precio_Por_Publicar desc";
+            visibilidadComboBox1.DataSource = TG.ObtenerListado(comando);
+            ventanaAnterior = anterior;
+            IDAnterior = Convert.ToInt32(ID);
+            esBorrador = valor;
+            actualizar = true;           
             esSubasta = false;
             comando = "select * from THE_GRID.Publicacion where ID_Publicacion ="+ID;
             datosPublicacionViejos = TG.realizarConsulta(comando);
             richTextBox1.Text = datosPublicacionViejos.Rows[0]["Descripcion"].ToString();
             numericUpDown1.Value = Convert.ToDecimal(datosPublicacionViejos.Rows[0]["Stock"].ToString());
+            txtPrecio.Text =datosPublicacionViejos.Rows[0]["Precio"].ToString();
+            stockOriginal = numericUpDown1.Value;
+            if (datosPublicacionViejos.Rows[0]["ID_Tipo"].ToString() == "100")
+                radioCompra.Checked = true;
+            else
+                radioSubasta.Checked = true;
+            datosPublicacionViejos.Rows[0]["ID_Tipo"].ToString();
             if (Convert.ToBoolean(datosPublicacionViejos.Rows[0]["Permitir_Preguntas"].ToString()))
                 preguntasComboBox.SelectedIndex = preguntasComboBox.FindStringExact("SI");
             else
                 preguntasComboBox.SelectedIndex = preguntasComboBox.FindStringExact("NO");
-            
-            
-            if (!esBorrador)
+            comando = "select * from THE_GRID.Visibilidad where ID_Visibilidad="+datosPublicacionViejos.Rows[0]["ID_Visibilidad"].ToString();
+            DataTable visibilidadAntigua= TG.realizarConsulta(comando);
+            if(Convert.ToBoolean(visibilidadAntigua.Rows[0]["Inhabilitado"]))
+            TG.ventanaEmergente("La visibilidad que usted habia seleccionado ya no es ta disponible, elija otra por favor");            
+            else  visibilidadComboBox1.SelectedIndex = visibilidadComboBox1.FindStringExact(visibilidadAntigua.Rows[0]["Nombre"].ToString());                           
+            botonPublicar.Text = "Actualizar";
+            if (!esBorrador)  radioCompra.Enabled = radioSubasta.Enabled = txtPrecio.Enabled = visibilidadComboBox1.Enabled = preguntasComboBox.Enabled = txtRubro.Enabled = botonBorrador.Enabled = false;
+            else botonPublicar.Text = "Publicar Borrador";
+            comando = "select * from THE_GRID.Rubros_x_Publicacion where ID_Publicacion=" + IDAnterior.ToString();
+            DataTable rubrosViejos = TG.realizarConsulta(comando);
+            RubrosSeleccionados.rubros.Clear();
+            foreach(DataRow row in rubrosViejos.Rows)
             {
-                radioCompra.Enabled = radioSubasta.Enabled = txtPrecio.Enabled= visibilidadComboBox1.Enabled = preguntasComboBox.Enabled = txtRubro.Enabled =  botonBorrador.Enabled= false;
-
+                comando = "select Nombre from THE_GRID.Rubro where ID_Rubro=" +row["ID_Rubro"].ToString();
+                DataTable rubrosViejosNombre=TG.realizarConsulta(comando);
+                RubrosSeleccionados.rubros.Add(rubrosViejosNombre.Rows[0]["Nombre"].ToString());
+                
             }
+            if (RubrosSeleccionados.rubros.Count > 0)
+                foreach (string rubro in RubrosSeleccionados.rubros)
+                {
+
+                    textBox1.Text = textBox1.Text + "<" + rubro + ">";
+                }
+            comando = @"select COUNT(*) from THE_GRID.Publicacion p
+inner join THE_GRID.Estado_Publicacion e on e.ID_Estado = p.ID_Estado and e.Nombre = 'Publicada'
+inner join THE_GRID.Visibilidad v on v.ID_Visibilidad = p.ID_Visibilidad
+and v.Precio_Por_Publicar = 0 and v.Porcentaje_Venta = 0 
+where Facturada = 0 and ID_Vendedor = " + DatosUsuario.usuario;
+            cantGratuitas = Convert.ToInt32(TG.consultaEscalar(comando).ToString());
+            labelActivas.Text += cantGratuitas;
+
         }
 
         private void radioSubasta_CheckedChanged(object sender, EventArgs e)
@@ -102,10 +141,11 @@ where Facturada = 0 and ID_Vendedor = " + DatosUsuario.usuario;
 
         private void GenerarPublicacion_Load(object sender, EventArgs e)
         {
-            string comando = @"select Nombre from THE_GRID.Visibilidad 
+           /* string comando = @"select Nombre from THE_GRID.Visibilidad 
                             where Inhabilitado = 0 order by Precio_Por_Publicar desc";
             visibilidadComboBox1.DataSource = TG.ObtenerListado(comando);
-            if (actualizar)
+          */
+            /* if (actualizar)
             {
                 foreach (string visibilidad in visibilidadComboBox1.Items) 
                 {
@@ -115,7 +155,7 @@ where Facturada = 0 and ID_Vendedor = " + DatosUsuario.usuario;
                         
                     }
                 }
-            } 
+            } */
             // comando = @"select * from TG.Visibilidad where Inhabilitado=0";            
           // datosConsultaVisibilidad = TG.realizarConsulta(comando);
           //  TG.ventanaEmergente(datosConsultaVisibilidad.Rows[0]["Duracion"].ToString());
@@ -130,9 +170,9 @@ where Facturada = 0 and ID_Vendedor = " + DatosUsuario.usuario;
 
         private void botonRegresar_Click(object sender, EventArgs e)
         {
-            //volverAtras();
-            ventanaAnterior.Show();
-            this.Close();
+            
+            ventanaAnterior.Enabled = true;
+            volverAtras();
         }
         
 
@@ -180,57 +220,108 @@ and ID_Visibilidad = '"+visibilidad+"'";
 
         private void guardar()
         {
-            if (!Validacion.esFloat(txtPrecio.Text))
+            if (!Validacion.esFloat(txtPrecio.Text) && !actualizar)
             {
                 txtPrecio.BackColor = Color.LightYellow;
+                TG.ventanaEmergente("No valido");
                 return;
             }
             txtPrecio.BackColor = Color.White;
             
-            if (RubrosSeleccionados.rubros.Count == 0)
+            if (RubrosSeleccionados.rubros.Count == 0 && !actualizar )
             {
                 TG.ventanaEmergente("Si va a publicar o guardar, necesita al menos un rubro");
                 return;
             }
 
-            //Obtener el ultimo ID de publicacion
-            string consulta = "select top 1 ID_Publicacion from THE_GRID.Publicacion order by ID_Publicacion desc";
-            string ultimoID = TG.realizarConsulta(consulta).Rows[0]["ID_Publicacion"].ToString();
-
-            //insertar nueva publacion
-            string stock = numericUpDown1.Value.ToString();
-            string preguntas = preguntasComboBox.SelectedIndex.ToString();
-            string visibilidad = datosConsultaVisibilidad.Rows[visibilidadComboBox1.SelectedIndex]["ID_Visibilidad"].ToString();
-            string tipo;
-            string descripcion = richTextBox1.Text;
-            string precio = txtPrecio.Text;
-            if (esSubasta) tipo = "101"; else tipo = "100";
-            if (String.IsNullOrEmpty(richTextBox1.Text)) descripcion = "Sin Descripcion";
-            if (String.IsNullOrEmpty(txtPrecio.Text)) precio = "0";
-            consulta = "insert THE_GRID.Publicacion (ID_Publicacion,Descripcion," +
-            "ID_Estado,Fecha_Inicio,Fecha_Vencimiento," +
-            "ID_Vendedor,ID_Visibilidad,Permitir_Preguntas,Precio,Stock,ID_Tipo,Facturada)" +
-            "VALUES ("+ (Convert.ToInt32(ultimoID) + 1).ToString() + ",'" + descripcion
-                      + "','" + estado + "'"
-                      + ",convert(datetime,'" + fechaHoy.ToString("yyyy-dd-MM hh:mm:ss")
-                      + "'),convert(datetime,'" + fechaVencimiento.ToString("yyyy-dd-MM hh:mm:ss")
-                      + "')," + DatosUsuario.usuario.ToString() + "," + visibilidad
-                      + "," + preguntas + "," + precio + "," + stock + ",'" + tipo + "',0)";
-            TG.realizarConsultaSinRetorno(consulta);
-
-            //insertar rubros x publicacion
-            foreach (string rubro in RubrosSeleccionados.rubros)
+            if (!actualizar)
             {
-                RubrosSeleccionados.ObtenerRubro(rubro);//le paso un nombre de un rubro, me devuelve el ID
-                consulta = "insert THE_GRID.Rubros_x_Publicacion (ID_Rubro,ID_Publicacion) values ( " + 
-                    RubrosSeleccionados.ObtenerRubro(rubro) + "," + 
-                    (Convert.ToInt32(ultimoID) + 1).ToString() + ")"; //en este caso no le agrego +1 a ultimo rubro
+                
+                //Obtener el ultimo ID de publicacion
+                string consulta = "select top 1 ID_Publicacion from THE_GRID.Publicacion order by ID_Publicacion desc";
+                string ultimoID = TG.realizarConsulta(consulta).Rows[0]["ID_Publicacion"].ToString();
+
+                //insertar nueva publacion
+                string stock = numericUpDown1.Value.ToString();
+                string preguntas = preguntasComboBox.SelectedIndex.ToString();
+                string visibilidad = datosConsultaVisibilidad.Rows[visibilidadComboBox1.SelectedIndex]["ID_Visibilidad"].ToString();
+                string tipo;
+                string descripcion = richTextBox1.Text;
+                string precio = txtPrecio.Text;
+                if (esSubasta) tipo = "101"; else tipo = "100";
+                if (String.IsNullOrEmpty(richTextBox1.Text)) descripcion = "Sin Descripcion";
+                if (String.IsNullOrEmpty(txtPrecio.Text)) precio = "0";
+                consulta = "insert THE_GRID.Publicacion (ID_Publicacion,Descripcion," +
+                "ID_Estado,Fecha_Inicio,Fecha_Vencimiento," +
+                "ID_Vendedor,ID_Visibilidad,Permitir_Preguntas,Precio,Stock,ID_Tipo,Facturada)" +
+                "VALUES (" + (Convert.ToInt32(ultimoID) + 1).ToString() + ",'" + descripcion
+                          + "','" + estado + "'"
+                          + ",convert(datetime,'" + fechaHoy.ToString("yyyy-dd-MM hh:mm:ss")
+                          + "'),convert(datetime,'" + fechaVencimiento.ToString("yyyy-dd-MM hh:mm:ss")
+                          + "')," + DatosUsuario.usuario.ToString() + "," + visibilidad
+                          + "," + preguntas + "," + precio + "," + stock + ",'" + tipo + "',0)";
                 TG.realizarConsultaSinRetorno(consulta);
+
+                //insertar rubros x publicacion
+                foreach (string rubro in RubrosSeleccionados.rubros)
+                {
+                    RubrosSeleccionados.ObtenerRubro(rubro);//le paso un nombre de un rubro, me devuelve el ID
+                    consulta = "insert THE_GRID.Rubros_x_Publicacion (ID_Rubro,ID_Publicacion) values ( " +
+                        RubrosSeleccionados.ObtenerRubro(rubro) + "," +
+                        (Convert.ToInt32(ultimoID) + 1).ToString() + ")"; //en este caso no le agrego +1 a ultimo rubro
+                    TG.realizarConsultaSinRetorno(consulta);
+                }
+                RubrosSeleccionados.rubros.Clear();
+                ventanaAnterior.Show();
+                TG.ventanaEmergente("Publicacion guardada");
+                this.Close();
             }
-            RubrosSeleccionados.rubros.Clear();
-            ventanaAnterior.Show();
-            TG.ventanaEmergente("Publicacion guardada");
-            this.Close();
+            else
+            {
+                if (!esBorrador)
+                {
+                    string stock = numericUpDown1.Value.ToString();
+                    string descripcion = richTextBox1.Text;
+                    string consulta = "update THE_GRID.Publicacion set Descripcion='" + descripcion + "', Stock=" + stock + " where ID_Publicacion=" + IDAnterior.ToString();
+                    TG.realizarConsultaSinRetorno(consulta);
+                    ventanaAnterior.Enabled = true;
+                    TG.ventanaEmergente("Publicacion actualizada");
+                    this.Close();
+                }
+                else
+                {
+                    string stock = numericUpDown1.Value.ToString();
+                    string preguntas = preguntasComboBox.SelectedIndex.ToString();
+                    string visibilidad = datosConsultaVisibilidad.Rows[visibilidadComboBox1.SelectedIndex]["ID_Visibilidad"].ToString();
+                    string tipo;
+                    string descripcion = richTextBox1.Text;
+                    string precio = txtPrecio.Text;
+                    if (esSubasta) tipo = "101"; else tipo = "100";
+                    if (String.IsNullOrEmpty(richTextBox1.Text)) descripcion = "Sin Descripcion";
+                    if (String.IsNullOrEmpty(txtPrecio.Text)) precio = "0";
+                    string consulta = "update THE_GRID.Publicacion set Descripcion ='" + descripcion + "'," +
+                    "ID_Estado=" + estado + ",Fecha_Inicio=convert(datetime,'" + fechaHoy.ToString("yyyy-dd-MM hh:mm:ss") + "'),Fecha_Vencimiento =convert(datetime,'" + fechaVencimiento.ToString("yyyy-dd-MM hh:mm:ss")
+                              + "')," +
+                    "ID_Vendedor='" + DatosUsuario.usuario.ToString() + "',ID_Visibilidad=" + visibilidad + ",Permitir_Preguntas=" + preguntas + ",Precio=" + precio + ",Stock=" + stock + ",ID_Tipo='" + tipo + "',Facturada=0 where ID_Publicacion=" + IDAnterior.ToString();
+                    TG.realizarConsultaSinRetorno(consulta);
+
+                    consulta = "delete from THE_GRID.Rubros_x_Publicacion where ID_Publicacion=" + IDAnterior.ToString();
+                    TG.realizarConsultaSinRetorno(consulta);
+                    //insertar rubros x publicacion
+                    foreach (string rubro in RubrosSeleccionados.rubros)
+                    {
+                        RubrosSeleccionados.ObtenerRubro(rubro);//le paso un nombre de un rubro, me devuelve el ID
+                        consulta = "insert THE_GRID.Rubros_x_Publicacion (ID_Rubro,ID_Publicacion) values ( " +
+                            RubrosSeleccionados.ObtenerRubro(rubro) + "," +
+                            (Convert.ToInt32(IDAnterior)).ToString() + ")"; //en este caso no le agrego +1 a ultimo rubro
+                        TG.realizarConsultaSinRetorno(consulta);
+                    }
+                    RubrosSeleccionados.rubros.Clear();
+                    ventanaAnterior.Enabled = true;
+                    TG.ventanaEmergente("Publicacion guardada");
+                    this.Close();
+                }
+            }
         }
 
         
@@ -270,6 +361,11 @@ and ID_Visibilidad = '"+visibilidad+"'";
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             actualizarTotal();
+            if (actualizar && stockOriginal > numericUpDown1.Value && !esBorrador) 
+            {
+                numericUpDown1.Value++;
+            }
+            
         }
     }
 }
